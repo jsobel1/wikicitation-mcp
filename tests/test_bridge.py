@@ -1,7 +1,11 @@
 # tests/test_bridge.py
-# Unit and integration tests for the Python -> R bridge.
-# Network/R tests are marked @pytest.mark.integration and require
-# wikilite to be installed in R.
+# Tests for the legacy Python → R bridge (r_bridge.py / mcp_interface.R).
+#
+# The main server (server.py) no longer calls R for Groups 1-3; these tests
+# exist in case the R bridge is needed for future visualisation tools.
+#
+# Tests that invoke Rscript as a subprocess are marked @pytest.mark.integration
+# and are skipped automatically during the unit-test run.
 
 import json
 import subprocess
@@ -50,6 +54,7 @@ NEEDS_WIKI = pytest.mark.skipif(
 # Direct bridge tests — call mcp_interface.R via subprocess
 # ---------------------------------------------------------------------------
 
+@pytest.mark.integration
 @NEEDS_WIKI
 def test_get_doi_count_direct():
     """R script should count DOIs correctly."""
@@ -66,6 +71,7 @@ def test_get_doi_count_direct():
     assert data["count"] == 2
 
 
+@pytest.mark.integration
 @NEEDS_WIKI
 def test_get_ref_count_direct():
     payload = json.dumps({
@@ -81,6 +87,7 @@ def test_get_ref_count_direct():
     assert data["count"] == 2
 
 
+@pytest.mark.integration
 @NEEDS_WIKI
 def test_get_url_count_direct():
     payload = json.dumps({
@@ -112,6 +119,7 @@ def test_get_isbn_count_direct():
     assert data["count"] == 2
 
 
+@pytest.mark.integration
 @NEEDS_WIKI
 def test_extract_citations_direct():
     text = "{{cite journal | author = Smith }} and {{cite book | title = X }}"
@@ -129,6 +137,7 @@ def test_extract_citations_direct():
     assert len(data) == 2
 
 
+@pytest.mark.integration
 @NEEDS_WIKI
 def test_get_any_count_direct():
     payload = json.dumps({
@@ -144,6 +153,7 @@ def test_get_any_count_direct():
     assert data["count"] == 2  # case-sensitive: matches "abc" twice
 
 
+@pytest.mark.integration
 @NEEDS_WIKI
 def test_replace_wikihypelinks_direct():
     payload = json.dumps({
@@ -160,6 +170,7 @@ def test_replace_wikihypelinks_direct():
     assert "[[" not in data["cleaned_text"]
 
 
+@pytest.mark.integration
 @NEEDS_WIKI
 def test_unknown_tool_returns_error():
     """Unknown tool name should return {"error": true}."""
@@ -173,6 +184,7 @@ def test_unknown_tool_returns_error():
     assert data.get("error") is True
 
 
+@pytest.mark.integration
 @NEEDS_WIKI
 def test_empty_stdin_exits_nonzero():
     """Empty stdin should cause R to exit with non-zero code."""
