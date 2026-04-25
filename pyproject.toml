@@ -1,6 +1,6 @@
 [project]
 name = "wikicitation-mcp"
-version = "0.3.0"
+version = "0.3.1"
 description = "MCP server providing Wikipedia citation-science tools for Claude — pure Python, no R required"
 readme = "README.md"
 license = { file = "LICENSE" }
