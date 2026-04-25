@@ -1,33 +1,40 @@
-# WikiCitationHistoRy MCP Server
+# wikilite MCP Server
 
-Serveur MCP qui expose le package R
-[WikiCitationHistoRy](https://github.com/jsobel1/WikiCitationHistoRy)
-comme outils utilisables depuis **Claude Code**, **Claude Desktop** et
+MCP server exposing the R package
+[wikilite](https://github.com/jsobel1/wikilite)
+as tools usable from **Claude Code**, **Claude Desktop**, and
 **claude.ai**.
+
+~50 tools across 5 groups: Wikipedia history & metadata, citation
+counting/extraction/quality, DOI/ISBN annotation, static PNG
+visualisations, and interactive HTML visualisations.
 
 ---
 
-## Prérequis
+## Prerequisites
 
-| Outil | Version minimale |
+| Tool | Minimum version |
 |---|---|
 | Python | 3.10 |
 | R | 4.0 |
-| uv | dernière version |
-| WikiCitationHistoRy | installé dans R |
+| uv | latest |
+| wikilite | installed in R |
 
 ```bash
-# Installer uv
+# Install uv
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
-# Vérifier que le package R est installé
-Rscript -e "library(WikiCitationHistoRy); cat('OK\n')"
+# Verify wikilite is installed
+Rscript -e "library(wikilite); cat('OK\n')"
 
-# Si non installé :
-Rscript -e "devtools::install_github('jsobel1/WikiCitationHistoRy')"
+# If not installed:
+Rscript -e "devtools::install_github('jsobel1/wikilite')"
 
-# Pour les visualisations, installer aussi base64enc :
+# Optional: for static plots
 Rscript -e "install.packages('base64enc')"
+
+# Optional: for interactive HTML plots
+Rscript -e "install.packages('htmlwidgets')"
 ```
 
 ---
@@ -35,48 +42,48 @@ Rscript -e "install.packages('base64enc')"
 ## Installation
 
 ```bash
-# Cloner / copier le dossier wikicitation-mcp
+# Clone / copy the wikicitation-mcp folder
 cd wikicitation-mcp
 
-# Installer les dépendances Python
+# Install Python dependencies
 uv sync
 
-# Tester le bridge R directement
+# Test the R bridge directly
 echo '{"tool":"get_doi_count","args":{"text":"see 10.1038/nature12373"}}' \
   | Rscript mcp_interface.R
-# → {"count":1}
+# -> {"count":1}
 ```
 
 ---
 
-## Connexion à Claude Code
+## Connect to Claude Code
 
 ```bash
-# Depuis le dossier wikicitation-mcp/ :
-claude mcp add wikicitation -- uv run python server.py
+# From the wikicitation-mcp/ folder:
+claude mcp add wikilite -- uv run python server.py
 
-# Vérifier
+# Verify
 claude mcp list
-# wikicitation    stdio    uv run python server.py
+# wikilite    stdio    uv run python server.py
 
-# Tester l'inspecteur visuel
+# Visual inspector
 uv run fastmcp dev server.py
-# → ouvre http://localhost:5173
+# -> opens http://localhost:5173
 ```
 
 ---
 
-## Connexion à Claude Desktop
+## Connect to Claude Desktop
 
-Editez `~/.claude/claude_desktop_config.json`
-(Windows : `%APPDATA%\Claude\claude_desktop_config.json`) :
+Edit `~/.claude/claude_desktop_config.json`
+(Windows: `%APPDATA%\Claude\claude_desktop_config.json`):
 
 ```json
 {
   "mcpServers": {
-    "wikicitation": {
+    "wikilite": {
       "command": "uv",
-      "args": ["run", "python", "/CHEMIN/VERS/wikicitation-mcp/server.py"],
+      "args": ["run", "python", "/PATH/TO/wikicitation-mcp/server.py"],
       "env": {
         "R_HOME": "/usr/lib/R"
       }
@@ -85,151 +92,178 @@ Editez `~/.claude/claude_desktop_config.json`
 }
 ```
 
-Redémarrez Claude Desktop. Le serveur `wikicitation` apparaît dans
-la barre d'outils.
+Restart Claude Desktop. The `wikilite` server appears in the toolbar.
 
-> **Trouver votre R_HOME :**
+> **Find your R_HOME:**
 > ```bash
 > Rscript -e "R.home()"
 > ```
 
 ---
 
-## Connexion à claude.ai (mode HTTP)
+## Connect to claude.ai (HTTP mode)
 
 ```bash
-# Lancer le serveur HTTP
+# Start HTTP server
 uv run fastmcp run server.py --transport streamable-http --port 8000
 
-# Dans claude.ai → Settings → Connections → Add MCP server
-# URL : http://localhost:8000/mcp
+# In claude.ai -> Settings -> Connections -> Add MCP server
+# URL: http://localhost:8000/mcp
 ```
 
-Pour un accès distant, utilisez un tunnel :
+For remote access use a tunnel:
 ```bash
-# Avec ngrok
 ngrok http 8000
-# URL publique : https://xxx.ngrok.io/mcp
+# Public URL: https://xxx.ngrok.io/mcp
 ```
 
 ---
 
-## Outils disponibles (30 outils)
+## Available tools (~50 tools)
 
-### Groupe 1 — Historique Wikipedia
-| Outil | Description |
+### Group 1 — Wikipedia history & metadata (14 tools)
+| Tool | Description |
 |---|---|
-| `get_article_history` | Historique complet d'un article (sans wikitext) |
-| `get_article_recent` | Révision la plus récente + wikitext |
-| `get_article_initial` | Première révision (création) + wikitext |
-| `get_article_info` | Métadonnées courantes (pageid, titre, taille) |
-| `get_category_pages` | Liste des pages d'une catégorie |
-| `get_category_history` | Historique de plusieurs articles |
-| `get_category_recent` | Révision récente de plusieurs articles |
-| `get_category_creation` | Révision de création de plusieurs articles |
-| `get_subcat_table` | Sous-catégories directes d'une catégorie |
-| `get_subcat_with_depth` | Sous-catégories récursives jusqu'à une profondeur |
+| `get_article_history` | Full edit history of an article (no wikitext) |
+| `get_article_recent` | Most recent revision + wikitext |
+| `get_article_initial` | First revision (creation) + wikitext |
+| `get_article_info` | Current metadata (pageid, title, size) |
+| `get_tables_all` | Initial + recent + full history + info in one call |
+| `get_category_pages` | List pages in a category |
+| `get_pages_in_cat_table` | Pages in category as a table |
+| `get_subcat_table` | Direct subcategories of a category |
+| `get_subcat_multiple` | Subcategories for multiple category names |
+| `get_subcat_with_depth` | Recursive subcategories up to a given depth |
+| `get_page_in_cat_multiple` | Pages for multiple categories |
+| `get_category_history` | Edit history of multiple articles |
+| `get_category_recent` | Most recent revision of multiple articles |
+| `get_category_creation` | Creation revision of multiple articles |
 
-### Groupe 2 — Extraction et comptage
-| Outil | Description |
+### Group 2 — Citation counting, extraction & quality (18 tools)
+| Tool | Description |
 |---|---|
-| `get_doi_count` | Nombre de DOIs dans un texte |
-| `get_ref_count` | Nombre de balises `<ref>` |
-| `get_url_count` | Nombre d'URLs |
-| `get_isbn_count` | Nombre d'ISBNs |
-| `get_hyperlink_count` | Nombre de liens `[[...]]` |
-| `get_any_count` | Comptage par expression régulière personnalisée |
-| `extract_citations` | Extraction des templates CS1 |
-| `extract_wikihypelinks` | Extraction des hyperliens Wikipedia |
-| `replace_wikihypelinks` | Nettoyage du wikitext (supprime la syntaxe `[[]]`) |
-| `extract_with_regex` | Extraction par regexp sur un article |
-| `extract_all_regex` | Application de tous les regexps intégrés |
-| `parse_citations` | Parsing structuré de toutes les citations CS1 |
-| `get_citation_types` | Comptage par type de citation |
-| `get_source_type_counts` | Comptage direct depuis un texte |
-| `get_sci_score` | SciScore et SciScore2 d'un article |
-| `get_top_cited_papers` | Top 40 DOIs les plus cités dans un article |
+| `get_doi_count` | Count DOIs in text |
+| `get_ref_count` | Count `<ref>` tags |
+| `get_url_count` | Count URLs |
+| `get_isbn_count` | Count ISBNs |
+| `get_hyperlink_count` | Count `[[...]]` links |
+| `get_any_count` | Count matches for a custom regex |
+| `extract_citations` | Extract CS1 citation templates |
+| `extract_wikihypelinks` | Extract Wikipedia hyperlinks |
+| `replace_wikihypelinks` | Clean wikitext (remove `[[]]` syntax) |
+| `parse_cite_type` | Parse a single CS1 template string |
+| `extract_regex` | Extract citations by regex from an article |
+| `extract_all_regex` | Apply all built-in regexes to an article |
+| `parse_citations` | Structured parse of all CS1 citations |
+| `parse_all_citations` | Full long-form table of all CS1 citations |
+| `get_citation_types` | Count citations by type |
+| `get_source_type_counts` | Source type counts directly from text |
+| `get_sci_score` | SciScore and SciScore2 for an article |
+| `get_top_cited_papers` | Top 40 most-cited DOIs in an article |
+| `get_revert_counts` | Revert counts across a date range |
 
-### Groupe 3 — Annotation
-| Outil | Description |
+### Group 3 — DOI & ISBN annotation (7 tools)
+| Tool | Description |
 |---|---|
-| `annotate_dois_europmc` | Annotation via EuropePMC |
-| `annotate_dois_crossref` | Annotation via CrossRef |
-| `annotate_dois_altmetric` | Scores Altmetric |
-| `annotate_dois_bibtex` | Export BibTeX via CrossRef |
-| `annotate_isbn_google` | Métadonnées livre via Google Books |
-| `annotate_isbn_openlib` | Métadonnées livre via Open Library |
-| `annotate_isbns_altmetric` | Scores Altmetric pour ISBNs |
+| `annotate_doi_europmc` | Annotate DOI list via EuropePMC |
+| `annotate_doi_crossref` | Annotate DOI list via CrossRef |
+| `annotate_doi_altmetric` | Altmetric scores for DOIs |
+| `annotate_doi_bibtex` | Export DOIs as BibTeX via CrossRef |
+| `annotate_isbn_google` | Book metadata via Google Books |
+| `annotate_isbn_openlib` | Book metadata via Open Library |
+| `annotate_isbn_altmetric` | Altmetric scores for ISBNs |
 
-### Groupe 4 — Visualisations
-| Outil | Description | Retour |
-|---|---|---|
-| `plot_article_creation` | Timeline de création d'articles | PNG base64 |
-| `plot_static_timeline` | Timeline statique labellisée | PNG base64 |
-| `plot_citation_distribution` | Distribution des types de citation | PNG base64 |
-| `plot_page_edits` | Historique hebdomadaire des éditions | PNG base64 |
+### Group 4 — Static visualisations (PNG base64, 6 tools)
+| Tool | Description |
+|---|---|
+| `plot_article_creation` | Article creation timeline |
+| `plot_static_timeline` | Labelled static timeline |
+| `plot_citation_distribution` | Citation source type distribution |
+| `plot_top_source` | Top 20 publishers/journals for an article |
+| `plot_page_views` | Daily page views for an article |
+| `plot_page_edits` | Weekly edit history for an article |
+
+### Group 5 — Interactive visualisations (self-contained HTML, 4 tools)
+| Tool | Description |
+|---|---|
+| `plot_interactive_timeline` | Interactive article timeline coloured by SciScore |
+| `plot_publication_network` | Article-publication citation network |
+| `plot_cocitation_network` | Co-citation network (articles sharing DOIs) |
+| `plot_wikilink_network` | Wikilink network between articles |
+
+Interactive tools return `{"html": "<self-contained HTML>", "format": "html", "description": "..."}`.
 
 ---
 
-## Exemples d'utilisation dans Claude
+## Usage examples
 
-Une fois connecté, tu peux dire à Claude :
+Once connected, you can ask Claude:
 
 ```
-"Donne-moi l'historique de l'article Zeitgeber depuis 2020"
+"Give me the edit history of the article Zeitgeber since 2020"
 
-"Compte les DOIs dans ce wikitext : [colle le texte]"
+"Count the DOIs in this wikitext: [paste text]"
 
-"Calcule le SciScore de l'article 'Sleep deprivation'"
+"Calculate the SciScore of the article 'Sleep deprivation'"
 
-"Annote ces DOIs avec EuropePMC : 10.1038/nature12373, 10.1016/j.cell.2020.01.001"
+"Annotate these DOIs with EuropePMC: 10.1038/nature12373, 10.1016/j.cell.2020.01.001"
 
-"Génère une timeline de création pour les articles :
- Zeitgeber, Advanced sleep phase disorder, Sleep deprivation"
+"Generate a creation timeline for: Zeitgeber, Advanced sleep phase disorder, Sleep deprivation"
 
-"Extrait toutes les citations de l'article 'Circadian clock' et
- dis-moi combien sont des articles de journal vs des sites web"
+"Extract all citations from 'Circadian clock' and count how many are
+ journal articles vs websites"
+
+"Show me an interactive publication network for the articles in
+ Category:Chronobiology"
+
+"What are the revert counts for Wikipedia from 2023-01-01 to 2023-12-31?"
 ```
 
 ---
 
-## Lancer les tests
+## Running tests
 
 ```bash
-# Tests unitaires (sans réseau, sans R)
+# Unit tests (no network, no R required)
 uv run pytest tests/ -m "not integration" -v
 
-# Tests d'intégration (nécessitent R + WikiCitationHistoRy + internet)
+# Integration tests (require R + wikilite + internet)
 uv run pytest tests/ -m integration -v
 
-# Tous les tests
+# All tests
 uv run pytest tests/ -v
 ```
 
 ---
 
-## Dépannage
+## Troubleshooting
 
-**`Rscript introuvable`**
+**`Rscript not found`**
 ```bash
-# macOS avec Homebrew
+# macOS with Homebrew
 export PATH="/opt/homebrew/bin:$PATH"
 # Linux
 export PATH="/usr/bin:$PATH"
+# Windows — ensure R bin directory is on PATH
 ```
 
-**`WikiCitationHistoRy introuvable dans R`**
+**`wikilite not found in R`**
 ```r
 install.packages("devtools")
-devtools::install_github("jsobel1/WikiCitationHistoRy")
+devtools::install_github("jsobel1/wikilite")
 ```
 
-**Timeout sur les gros historiques**
-Augmentez `DEFAULT_TIMEOUT` dans `r_bridge.py` (défaut : 120s).
+**`htmlwidgets not found` (interactive plots)**
+```r
+install.packages("htmlwidgets")
+```
 
-**Le serveur ne s'affiche pas dans Claude Code**
+**Timeout on large edit histories**
+Increase `DEFAULT_TIMEOUT` in `r_bridge.py` (default: 120s).
+
+**Server not appearing in Claude Code**
 ```bash
-claude mcp list          # vérifier l'enregistrement
-claude mcp remove wikicitation
-claude mcp add wikicitation -- uv run python server.py
+claude mcp list
+claude mcp remove wikilite
+claude mcp add wikilite -- uv run python server.py
 ```

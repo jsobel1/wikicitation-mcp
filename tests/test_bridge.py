@@ -1,7 +1,7 @@
 # tests/test_bridge.py
-# Tests unitaires du bridge Python → R.
-# Les tests réseau sont marqués skip_on_ci=True et nécessitent
-# que WikiCitationHistoRy soit installé dans R.
+# Unit and integration tests for the Python -> R bridge.
+# Network/R tests are marked @pytest.mark.integration and require
+# wikilite to be installed in R.
 
 import json
 import subprocess
@@ -15,23 +15,22 @@ ROOT = Path(__file__).parent.parent
 R_SCRIPT = ROOT / "mcp_interface.R"
 
 
-# ─────────────────────────────────────────────────────────────────────────────
+# ---------------------------------------------------------------------------
 # Helpers
-# ─────────────────────────────────────────────────────────────────────────────
+# ---------------------------------------------------------------------------
 
 def r_available() -> bool:
-    """Vérifie si Rscript est disponible sur le PATH."""
     import shutil
     return shutil.which("Rscript") is not None
 
 
 def wiki_package_available() -> bool:
-    """Vérifie si WikiCitationHistoRy est installé dans R."""
+    """Check whether wikilite is installed in R."""
     if not r_available():
         return False
     result = subprocess.run(
         ["Rscript", "-e",
-         "suppressPackageStartupMessages(library(WikiCitationHistoRy)); cat('OK')"],
+         "suppressPackageStartupMessages(library(wikilite)); cat('OK')"],
         capture_output=True, text=True, timeout=30,
     )
     return result.returncode == 0 and "OK" in result.stdout
@@ -39,21 +38,21 @@ def wiki_package_available() -> bool:
 
 NEEDS_R = pytest.mark.skipif(
     not r_available(),
-    reason="Rscript introuvable dans le PATH"
+    reason="Rscript not found on PATH"
 )
 NEEDS_WIKI = pytest.mark.skipif(
     not wiki_package_available(),
-    reason="WikiCitationHistoRy non installé dans R"
+    reason="wikilite not installed in R"
 )
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Tests du bridge — appels directs à mcp_interface.R
-# ─────────────────────────────────────────────────────────────────────────────
+# ---------------------------------------------------------------------------
+# Direct bridge tests — call mcp_interface.R via subprocess
+# ---------------------------------------------------------------------------
 
 @NEEDS_WIKI
 def test_get_doi_count_direct():
-    """Le script R doit compter correctement les DOIs."""
+    """R script should count DOIs correctly."""
     payload = json.dumps({
         "tool": "get_doi_count",
         "args": {"text": "See 10.1038/nature12373 and 10.1016/j.cell.2020.01.001"}
@@ -83,6 +82,36 @@ def test_get_ref_count_direct():
 
 
 @NEEDS_WIKI
+def test_get_url_count_direct():
+    payload = json.dumps({
+        "tool": "get_url_count",
+        "args": {"text": "See https://example.com and http://foo.org for details."}
+    })
+    result = subprocess.run(
+        ["Rscript", str(R_SCRIPT)],
+        input=payload, capture_output=True, text=True, timeout=30,
+    )
+    assert result.returncode == 0
+    data = json.loads(result.stdout)
+    assert data["count"] == 2
+
+
+@NEEDS_WIKI
+def test_get_isbn_count_direct():
+    payload = json.dumps({
+        "tool": "get_isbn_count",
+        "args": {"text": "{{cite book|isbn=978-3-16-148410-0}} and {{cite book|isbn=0-306-40615-2}}"}
+    })
+    result = subprocess.run(
+        ["Rscript", str(R_SCRIPT)],
+        input=payload, capture_output=True, text=True, timeout=30,
+    )
+    assert result.returncode == 0
+    data = json.loads(result.stdout)
+    assert data["count"] == 2
+
+
+@NEEDS_WIKI
 def test_extract_citations_direct():
     text = "{{cite journal | author = Smith }} and {{cite book | title = X }}"
     payload = json.dumps({
@@ -100,14 +129,44 @@ def test_extract_citations_direct():
 
 
 @NEEDS_WIKI
+def test_get_any_count_direct():
+    payload = json.dumps({
+        "tool": "get_any_count",
+        "args": {"text": "abc ABC abc", "regexp": "abc"}
+    })
+    result = subprocess.run(
+        ["Rscript", str(R_SCRIPT)],
+        input=payload, capture_output=True, text=True, timeout=30,
+    )
+    assert result.returncode == 0
+    data = json.loads(result.stdout)
+    assert data["count"] == 2  # case-sensitive: matches "abc" twice
+
+
+@NEEDS_WIKI
+def test_replace_wikihypelinks_direct():
+    payload = json.dumps({
+        "tool": "replace_wikihypelinks",
+        "args": {"text": "See [[Circadian clock]] and [[Sleep|sleeping]]"}
+    })
+    result = subprocess.run(
+        ["Rscript", str(R_SCRIPT)],
+        input=payload, capture_output=True, text=True, timeout=30,
+    )
+    assert result.returncode == 0
+    data = json.loads(result.stdout)
+    assert "cleaned_text" in data
+    assert "[[" not in data["cleaned_text"]
+
+
+@NEEDS_WIKI
 def test_unknown_tool_returns_error():
-    """Un outil inconnu doit retourner {"error": true}."""
+    """Unknown tool name should return {"error": true}."""
     payload = json.dumps({"tool": "does_not_exist", "args": {}})
     result = subprocess.run(
         ["Rscript", str(R_SCRIPT)],
         input=payload, capture_output=True, text=True, timeout=30,
     )
-    # R ne doit pas crasher
     assert result.returncode == 0
     data = json.loads(result.stdout)
     assert data.get("error") is True
@@ -115,7 +174,7 @@ def test_unknown_tool_returns_error():
 
 @NEEDS_WIKI
 def test_empty_stdin_exits_nonzero():
-    """Un stdin vide doit faire quitter R avec un code non-zéro."""
+    """Empty stdin should cause R to exit with non-zero code."""
     result = subprocess.run(
         ["Rscript", str(R_SCRIPT)],
         input="", capture_output=True, text=True, timeout=30,
@@ -123,13 +182,13 @@ def test_empty_stdin_exits_nonzero():
     assert result.returncode != 0
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Tests du bridge Python (r_bridge.py) avec mocking
-# ─────────────────────────────────────────────────────────────────────────────
+# ---------------------------------------------------------------------------
+# Python bridge tests (r_bridge.py) with mocking
+# ---------------------------------------------------------------------------
 
 @pytest.mark.asyncio
 async def test_call_r_async_success(monkeypatch):
-    """call_r_async doit désérialiser la sortie JSON correctement."""
+    """call_r_async should deserialise JSON output correctly."""
     from r_bridge import call_r_async
 
     fake_output = json.dumps({"count": 3}).encode()
@@ -150,7 +209,7 @@ async def test_call_r_async_success(monkeypatch):
 
 @pytest.mark.asyncio
 async def test_call_r_async_r_error_propagates(monkeypatch):
-    """call_r_async doit lever RuntimeError si R retourne {"error": true}."""
+    """call_r_async should raise RuntimeError when R returns {"error": true}."""
     from r_bridge import call_r_async
 
     fake_output = json.dumps({"error": True, "message": "Test error"}).encode()
@@ -170,7 +229,7 @@ async def test_call_r_async_r_error_propagates(monkeypatch):
 
 @pytest.mark.asyncio
 async def test_call_r_async_nonzero_exit(monkeypatch):
-    """call_r_async doit lever RuntimeError si Rscript quitte avec code != 0."""
+    """call_r_async should raise RuntimeError when Rscript exits with non-zero code."""
     from r_bridge import call_r_async
 
     async def fake_communicate(input=None):
@@ -188,7 +247,7 @@ async def test_call_r_async_nonzero_exit(monkeypatch):
 
 @pytest.mark.asyncio
 async def test_call_r_async_invalid_json(monkeypatch):
-    """call_r_async doit lever RuntimeError si R retourne du non-JSON."""
+    """call_r_async should raise RuntimeError if R returns non-JSON output."""
     from r_bridge import call_r_async
 
     async def fake_communicate(input=None):
@@ -204,20 +263,19 @@ async def test_call_r_async_invalid_json(monkeypatch):
             await call_r_async("get_doi_count", {"text": "test"})
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Tests d'intégration réseau — nécessitent connexion internet + R installé
-# ─────────────────────────────────────────────────────────────────────────────
+# ---------------------------------------------------------------------------
+# Integration tests — require internet + R + wikilite installed
+# ---------------------------------------------------------------------------
 
 @NEEDS_WIKI
 @pytest.mark.integration
 def test_get_article_history_zeitgeber():
-    """Test d'intégration : récupérer l'historique de 'Zeitgeber'."""
+    """Integration: fetch edit history for 'Zeitgeber'."""
     from r_bridge import call_r
     result = call_r("get_article_history", {
         "article_name": "Zeitgeber",
         "date_limit": "2022-01-01T00:00:00Z",
     })
-    # Le résultat doit être une liste de révisions
     assert isinstance(result, list)
     assert len(result) > 0
     first = result[0]
@@ -229,7 +287,7 @@ def test_get_article_history_zeitgeber():
 @NEEDS_WIKI
 @pytest.mark.integration
 def test_get_sci_score_zeitgeber():
-    """Test d'intégration : SciScore pour 'Zeitgeber'."""
+    """Integration: SciScore for 'Zeitgeber'."""
     from r_bridge import call_r
     result = call_r("get_sci_score", {
         "article_name": "Zeitgeber",
@@ -238,3 +296,43 @@ def test_get_sci_score_zeitgeber():
     assert "sci_score" in result
     assert "sci_score2" in result
     assert 0.0 <= result["sci_score"] <= 1.0
+
+
+@NEEDS_WIKI
+@pytest.mark.integration
+def test_get_article_info_zeitgeber():
+    """Integration: article info for 'Zeitgeber'."""
+    from r_bridge import call_r
+    result = call_r("get_article_info", {"article_name": "Zeitgeber"})
+    assert "title" in result or "pageid" in result
+
+
+@NEEDS_WIKI
+@pytest.mark.integration
+def test_parse_all_citations_zeitgeber():
+    """Integration: parse all citations in 'Zeitgeber'."""
+    from r_bridge import call_r
+    result = call_r("parse_all_citations", {
+        "article_name": "Zeitgeber",
+        "date_limit": "2022-01-01T00:00:00Z",
+    })
+    assert isinstance(result, list)
+
+
+@NEEDS_WIKI
+@pytest.mark.integration
+def test_get_category_pages_chronobiology():
+    """Integration: list pages in Chronobiology category."""
+    from r_bridge import call_r
+    result = call_r("get_category_pages", {"category": "Chronobiology"})
+    assert isinstance(result, list)
+    assert len(result) > 0
+
+
+@NEEDS_WIKI
+@pytest.mark.integration
+def test_get_subcat_table_chronobiology():
+    """Integration: direct subcategories of Chronobiology."""
+    from r_bridge import call_r
+    result = call_r("get_subcat_table", {"catname": "Chronobiology"})
+    assert isinstance(result, list)
