@@ -19,16 +19,22 @@ DEFAULT_TIMEOUT = 120
 
 
 def _find_rscript() -> str:
-    """Localise l'exécutable Rscript dans le PATH système."""
+    """Localise l'exécutable Rscript dans le PATH ou aux emplacements Windows courants."""
     rscript = shutil.which("Rscript")
-    if not rscript:
-        raise RuntimeError(
-            "Rscript introuvable dans le PATH. "
-            "Vérifiez que R est installé et accessible depuis ce terminal.\n"
-            "Sur macOS/Linux : export PATH=$PATH:/usr/local/bin/R\n"
-            "Sur Windows      : ajoutez C:\\Program Files\\R\\R-x.x.x\\bin à PATH"
-        )
-    return rscript
+    if rscript:
+        return rscript
+    # Fallback: scan Program Files for any R installation on Windows
+    import sys, glob
+    if sys.platform == "win32":
+        candidates = glob.glob(r"C:\Program Files\R\R-*\bin\Rscript.exe")
+        if candidates:
+            return sorted(candidates)[-1]  # pick latest version
+    raise RuntimeError(
+        "Rscript introuvable dans le PATH. "
+        "Vérifiez que R est installé et accessible depuis ce terminal.\n"
+        "Sur macOS/Linux : export PATH=$PATH:/usr/local/bin/R\n"
+        "Sur Windows      : ajoutez C:\\Program Files\\R\\R-x.x.x\\bin à PATH"
+    )
 
 
 async def call_r_async(
