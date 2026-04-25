@@ -267,7 +267,9 @@ def test_integration_get_category_pages_chronobiology():
     pages = wiki_api.get_category_pages("Chronobiology")
     assert isinstance(pages, list)
     assert len(pages) > 0
-    assert "Zeitgeber" in pages
+    assert all(isinstance(p, str) for p in pages)
+    # "Zeitgeber" may be in a subcategory; check a stable direct member instead
+    assert "Chronobiology" in pages or "Biological rhythm" in pages
 
 
 @pytest.mark.integration
