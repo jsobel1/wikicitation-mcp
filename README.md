@@ -326,12 +326,27 @@ uv run pytest tests/ -v
 ## Troubleshooting
 
 **`Rscript not found`**
+
+macOS / Linux — add R to your shell profile:
 ```bash
-# macOS / Linux
 export PATH="/usr/bin:$PATH"          # or /opt/homebrew/bin on macOS
-# Windows: add the R bin directory to your system PATH
-#   e.g. C:\Program Files\R\R-4.x.x\bin
 ```
+
+Windows — add R to your user PATH permanently (PowerShell, run once, then reopen PowerShell):
+```powershell
+[Environment]::SetEnvironmentVariable(
+  "Path",
+  $env:Path + ";C:\Program Files\R\R-4.2.3\bin",
+  "User"
+)
+```
+
+Or use the full path without modifying PATH at all:
+```powershell
+'{"tool":"get_doi_count","args":{"text":"test"}}' | & "C:\Program Files\R\R-4.2.3\bin\Rscript.exe" mcp_interface.R
+```
+
+> Find your installed R version with: `Get-ChildItem "C:\Program Files\R"`
 
 **`wikilite not found in R`**
 ```r
