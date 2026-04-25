@@ -1,8 +1,6 @@
 # server.py
 # MCP server exposing Wikipedia citation-science tools.
-# Groups 1-3 are pure Python (no R). Groups 4-5 (visualisations) still
-# delegate to R via r_bridge and are optional — they fail gracefully when R
-# is not installed.
+# Pure Python — no R dependency.
 #
 # Launch:
 #   uv run python server.py                         <- stdio (Claude Code / Desktop)
@@ -17,17 +15,6 @@ from fastmcp import FastMCP
 import wiki_api
 import citation_utils
 import annotate_utils
-
-try:
-    from r_bridge import call_r
-    _R_AVAILABLE = True
-except Exception:
-    _R_AVAILABLE = False
-
-    def call_r(*_a, **_kw):  # type: ignore[misc]
-        raise RuntimeError(
-            "R / wikilite is not installed. Visualisation tools are unavailable."
-        )
 
 # -- Server initialisation ----------------------------------------------------
 
@@ -646,64 +633,6 @@ def annotate_isbns_altmetric(isbn_list: list[str]) -> list:
         isbn_list: List of ISBN strings.
     """
     return annotate_utils.annotate_isbns_altmetric(isbn_list)
-
-
-# =============================================================================
-# GROUP 4 -- Static visualisations (base64-encoded PNG)
-# =============================================================================
-
-@mcp.tool()
-def plot_article_creation(
-    article_list: list[str],
-    title: Optional[str] = "Article creation over time",
-    cumsum: Optional[bool] = True,
-) -> dict:
-    """
-    Generate a cumulative (or annual) article-creation timeline plot.
-    Returns a base64-encoded PNG image.
-
-    Requires R with wikilite installed.
-
-    Args:
-        article_list: List of English Wikipedia article titles.
-        title:        Plot title.
-        cumsum:       If True (default) plot cumulative counts;
-                      if False plot annual counts.
-    """
-    return call_r("plot_article_creation", {
-        "article_list": article_list,
-        "title": title,
-        "cumsum": cumsum,
-    })
-
-
-@mcp.tool()
-def plot_static_timeline(article_list: list[str]) -> dict:
-    """
-    Generate a static labelled timeline of article creation dates.
-    Returns a base64-encoded PNG image.
-
-    Requires R with wikilite installed.
-
-    Args:
-        article_list: List of English Wikipedia article titles.
-    """
-    return call_r("plot_static_timeline", {"article_list": article_list})
-
-
-@mcp.tool()
-def plot_citation_distribution(article_list: list[str]) -> dict:
-    """
-    Generate a boxplot showing the distribution of citation-type counts
-    (journal, news, web, book) across a set of articles.
-    Returns a base64-encoded PNG image.
-
-    Requires R with wikilite installed.
-
-    Args:
-        article_list: List of English Wikipedia article titles.
-    """
-    return call_r("plot_citation_distribution", {"article_list": article_list})
 
 
 # ---------------------------------------------------------------------------
