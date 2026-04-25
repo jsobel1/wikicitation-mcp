@@ -1,6 +1,8 @@
 # server.py
-# MCP server for the wikilite R package.
-# Exposes all exported functions as MCP tools.
+# MCP server exposing Wikipedia citation-science tools.
+# Groups 1-3 are pure Python (no R). Groups 4-5 (visualisations) still
+# delegate to R via r_bridge and are optional — they fail gracefully when R
+# is not installed.
 #
 # Launch:
 #   uv run python server.py                         <- stdio (Claude Code / Desktop)
@@ -11,13 +13,27 @@ from __future__ import annotations
 
 from typing import Optional
 from fastmcp import FastMCP
-from r_bridge import call_r
+
+import wiki_api
+import citation_utils
+import annotate_utils
+
+try:
+    from r_bridge import call_r
+    _R_AVAILABLE = True
+except Exception:
+    _R_AVAILABLE = False
+
+    def call_r(*_a, **_kw):  # type: ignore[misc]
+        raise RuntimeError(
+            "R / wikilite is not installed. Visualisation tools are unavailable."
+        )
 
 # -- Server initialisation ----------------------------------------------------
 
 mcp = FastMCP(
     name="wikilite",
-    version="0.2.0",
+    version="0.3.0",
 )
 
 
@@ -29,7 +45,7 @@ mcp = FastMCP(
 def get_article_history(
     article_name: str,
     date_limit: Optional[str] = "2024-01-01T00:00:00Z",
-) -> dict:
+) -> list:
     """
     Retrieve the full revision history of a Wikipedia article.
 
@@ -43,10 +59,7 @@ def get_article_history(
         date_limit:   Upper date limit in ISO 8601 format
                       (default: "2024-01-01T00:00:00Z").
     """
-    return call_r("get_article_history", {
-        "article_name": article_name,
-        "date_limit": date_limit,
-    })
+    return wiki_api.get_article_history(article_name, date_limit)
 
 
 @mcp.tool()
@@ -66,10 +79,7 @@ def get_article_recent(
         article_name: English Wikipedia article title.
         date_limit:   Upper date limit in ISO 8601 format.
     """
-    return call_r("get_article_recent", {
-        "article_name": article_name,
-        "date_limit": date_limit,
-    })
+    return wiki_api.get_article_recent(article_name, date_limit)
 
 
 @mcp.tool()
@@ -81,7 +91,7 @@ def get_article_initial(article_name: str) -> dict:
     Args:
         article_name: English Wikipedia article title.
     """
-    return call_r("get_article_initial", {"article_name": article_name})
+    return wiki_api.get_article_initial(article_name)
 
 
 @mcp.tool()
@@ -93,7 +103,7 @@ def get_article_info(article_name: str) -> dict:
     Args:
         article_name: English Wikipedia article title.
     """
-    return call_r("get_article_info", {"article_name": article_name})
+    return wiki_api.get_article_info(article_name)
 
 
 @mcp.tool()
@@ -111,10 +121,7 @@ def get_tables_all(
         article_name: English Wikipedia article title.
         date_limit:   Upper date limit in ISO 8601 format.
     """
-    return call_r("get_tables_all", {
-        "article_name": article_name,
-        "date_limit": date_limit,
-    })
+    return wiki_api.get_tables_all(article_name, date_limit)
 
 
 @mcp.tool()
@@ -126,11 +133,11 @@ def get_category_pages(category: str) -> list:
     Args:
         category: Wikipedia category name (e.g. "Circadian rhythm").
     """
-    return call_r("get_category_pages", {"category": category})
+    return wiki_api.get_category_pages(category)
 
 
 @mcp.tool()
-def get_pages_in_cat_table(category: str) -> dict:
+def get_pages_in_cat_table(category: str) -> list:
     """
     Retrieve a structured table of pages in a Wikipedia category,
     including page IDs and namespaces.
@@ -138,14 +145,14 @@ def get_pages_in_cat_table(category: str) -> dict:
     Args:
         category: Wikipedia category name.
     """
-    return call_r("get_pages_in_cat_table", {"category": category})
+    return wiki_api.get_pages_in_cat_table(category)
 
 
 @mcp.tool()
 def get_subcat_table(
     catname: str,
     replacement: Optional[str] = "_",
-) -> dict:
+) -> list:
     """
     Retrieve direct subcategories of a Wikipedia category.
 
@@ -153,21 +160,18 @@ def get_subcat_table(
         catname:     Category name with or without the "Category:" prefix.
         replacement: Character used to replace spaces (default: "_").
     """
-    return call_r("get_subcat_table", {
-        "catname": catname,
-        "replacement": replacement,
-    })
+    return wiki_api.get_subcat_table(catname, replacement)
 
 
 @mcp.tool()
-def get_subcat_multiple(catname_list: list[str]) -> dict:
+def get_subcat_multiple(catname_list: list[str]) -> list:
     """
     Retrieve subcategories for multiple Wikipedia categories at once.
 
     Args:
         catname_list: List of Wikipedia category names.
     """
-    return call_r("get_subcat_multiple", {"catname_list": catname_list})
+    return wiki_api.get_subcat_multiple(catname_list)
 
 
 @mcp.tool()
@@ -175,7 +179,7 @@ def get_subcat_with_depth(
     catname: str,
     depth: Optional[int] = 1,
     replacement: Optional[str] = "_",
-) -> dict:
+) -> list:
     """
     Recursively retrieve subcategories up to a given depth.
 
@@ -184,26 +188,22 @@ def get_subcat_with_depth(
         depth:       Number of levels to descend (default: 1).
         replacement: Character used to replace spaces (default: "_").
     """
-    return call_r("get_subcat_with_depth", {
-        "catname": catname,
-        "depth": depth,
-        "replacement": replacement,
-    })
+    return wiki_api.get_subcat_with_depth(catname, depth, replacement)
 
 
 @mcp.tool()
-def get_page_in_cat_multiple(catname_list: list[str]) -> dict:
+def get_page_in_cat_multiple(catname_list: list[str]) -> list:
     """
     Retrieve all article titles for multiple Wikipedia categories at once.
 
     Args:
         catname_list: List of Wikipedia category names.
     """
-    return call_r("get_page_in_cat_multiple", {"catname_list": catname_list})
+    return wiki_api.get_page_in_cat_multiple(catname_list)
 
 
 @mcp.tool()
-def get_category_history(article_list: list[str]) -> dict:
+def get_category_history(article_list: list[str]) -> list:
     """
     Retrieve the full revision history (without wikitext) for a list
     of Wikipedia articles.
@@ -211,23 +211,27 @@ def get_category_history(article_list: list[str]) -> dict:
     Args:
         article_list: List of English Wikipedia article titles.
     """
-    return call_r("get_category_history", {"article_list": article_list})
+    return wiki_api.get_category_history(article_list)
 
 
 @mcp.tool()
-def get_category_recent(article_list: list[str]) -> dict:
+def get_category_recent(
+    article_list: list[str],
+    date_limit: Optional[str] = "2024-01-01T00:00:00Z",
+) -> dict:
     """
     Retrieve the most recent revision metadata and wikitext for a list
     of Wikipedia articles.
 
     Args:
         article_list: List of English Wikipedia article titles.
+        date_limit:   Upper date limit in ISO 8601 format.
     """
-    return call_r("get_category_recent", {"article_list": article_list})
+    return wiki_api.get_category_recent(article_list, date_limit)
 
 
 @mcp.tool()
-def get_category_creation(article_list: list[str]) -> dict:
+def get_category_creation(article_list: list[str]) -> list:
     """
     Retrieve the creation (first) revision metadata for a list of articles.
     Useful for building article-creation timelines.
@@ -235,7 +239,7 @@ def get_category_creation(article_list: list[str]) -> dict:
     Args:
         article_list: List of English Wikipedia article titles.
     """
-    return call_r("get_category_creation", {"article_list": article_list})
+    return wiki_api.get_category_creation(article_list)
 
 
 # =============================================================================
@@ -253,7 +257,7 @@ def get_doi_count(text: str) -> dict:
     Returns:
         {"count": <integer>}
     """
-    return call_r("get_doi_count", {"text": text})
+    return {"count": citation_utils.get_doi_count(text)}
 
 
 @mcp.tool()
@@ -267,7 +271,7 @@ def get_ref_count(text: str) -> dict:
     Returns:
         {"count": <integer>}
     """
-    return call_r("get_ref_count", {"text": text})
+    return {"count": citation_utils.get_ref_count(text)}
 
 
 @mcp.tool()
@@ -281,7 +285,7 @@ def get_url_count(text: str) -> dict:
     Returns:
         {"count": <integer>}
     """
-    return call_r("get_url_count", {"text": text})
+    return {"count": citation_utils.get_url_count(text)}
 
 
 @mcp.tool()
@@ -295,7 +299,7 @@ def get_isbn_count(text: str) -> dict:
     Returns:
         {"count": <integer>}
     """
-    return call_r("get_isbn_count", {"text": text})
+    return {"count": citation_utils.get_isbn_count(text)}
 
 
 @mcp.tool()
@@ -309,7 +313,7 @@ def get_hyperlink_count(text: str) -> dict:
     Returns:
         {"count": <integer>}
     """
-    return call_r("get_hyperlink_count", {"text": text})
+    return {"count": citation_utils.get_hyperlink_count(text)}
 
 
 @mcp.tool()
@@ -319,12 +323,12 @@ def get_any_count(text: str, regexp: str) -> dict:
 
     Args:
         text:   Text to search.
-        regexp: Regular expression string (R-compatible PCRE syntax).
+        regexp: Regular expression string (Python re syntax).
 
     Returns:
         {"count": <integer>}
     """
-    return call_r("get_any_count", {"text": text, "regexp": regexp})
+    return {"count": citation_utils.get_any_count(text, regexp)}
 
 
 @mcp.tool()
@@ -339,7 +343,7 @@ def extract_citations(text: str) -> list:
     Returns:
         List of matched citation template strings.
     """
-    return call_r("extract_citations", {"text": text})
+    return citation_utils.extract_citations(text)
 
 
 @mcp.tool()
@@ -353,7 +357,7 @@ def extract_wikihypelinks(text: str) -> list:
     Returns:
         List of matched hyperlink strings.
     """
-    return call_r("extract_wikihypelinks", {"text": text})
+    return citation_utils.extract_wikihyperlinks(text)
 
 
 @mcp.tool()
@@ -367,7 +371,7 @@ def replace_wikihypelinks(text: str) -> dict:
     Returns:
         {"cleaned_text": <string>}
     """
-    return call_r("replace_wikihypelinks", {"text": text})
+    return {"cleaned_text": citation_utils.replace_wikihyperlinks(text)}
 
 
 @mcp.tool()
@@ -383,7 +387,7 @@ def parse_cite_type(text: str) -> dict:
     Returns:
         Dict with citation type and field values.
     """
-    return call_r("parse_cite_type", {"text": text})
+    return citation_utils.parse_cite_type(text)
 
 
 @mcp.tool()
@@ -391,36 +395,32 @@ def extract_with_regex(
     article_name: str,
     regexp: str,
     date_limit: Optional[str] = "2024-01-01T00:00:00Z",
-) -> dict:
+) -> list:
     """
     Extract all matches of a regular expression from the most recent
     revision of a Wikipedia article.
 
-    Built-in regexp patterns available in wikilite (via pkg.env):
-      DOI:      10\\.\\d{4,9}/[-._;()/:a-z0-9A-Z]+
-      PMID:     (?<=(pmid|PMID)\\s?[=:]\\s?)\\d{5,9}
-      ISBN:     (?<=(isbn|ISBN)\\s?[=:]?\\s?)[-0-9X ]{13,17}
-      URL:      http[s]?://...
-      cite all: \\{\\{[cC]ite.*?\\}\\}
+    Built-in regexp patterns (Python re syntax):
+      DOI:      10\\.\\d{4,9}/[-._;()/:a-zA-Z0-9]+
+      PMID:     (?:pmid|PMID)\\s*[=:]\\s*(\\d{5,9})
+      ISBN:     (?i)\\bisbn\\s*[=:]?\\s*([-0-9X ]{9,18})
+      URL:      https?://[^\\s\\]<>"...]+
+      cite all: \\{\\{[Cc]ite\\b[^{}]*\\}\\}
       ref tags: <ref.*?</ref>
 
     Args:
         article_name: English Wikipedia article title.
-        regexp:       R-compatible PCRE regular expression string.
+        regexp:       Python re regular expression string.
         date_limit:   Upper date limit in ISO 8601 format.
     """
-    return call_r("extract_regex", {
-        "article_name": article_name,
-        "regexp": regexp,
-        "date_limit": date_limit,
-    })
+    return citation_utils.extract_with_regex(article_name, regexp, date_limit)
 
 
 @mcp.tool()
 def extract_all_regex(
     article_name: str,
     date_limit: Optional[str] = "2024-01-01T00:00:00Z",
-) -> dict:
+) -> list:
     """
     Apply all built-in regular expressions (DOI, ISBN, PMID, URL,
     hyperlinks, all CS1 types) to the most recent revision of an article.
@@ -430,39 +430,33 @@ def extract_all_regex(
         article_name: English Wikipedia article title.
         date_limit:   Upper date limit in ISO 8601 format.
     """
-    return call_r("extract_all_regex", {
-        "article_name": article_name,
-        "date_limit": date_limit,
-    })
+    return citation_utils.extract_all_regex(article_name, date_limit)
 
 
 @mcp.tool()
 def parse_citations(
     article_name: str,
     date_limit: Optional[str] = "2024-01-01T00:00:00Z",
-) -> dict:
+) -> list:
     """
     Fetch the most recent revision of a Wikipedia article and parse all
     CS1 citations into a structured tidy table.
 
-    Each row contains: art, revid, type (e.g. "journal"), id_cite,
-    variable (e.g. "author", "doi", "year"), value.
+    Each row contains: art, revid, cite_type (e.g. "journal"), id_cite,
+    doi, author, year, title.
 
     Args:
         article_name: English Wikipedia article title.
         date_limit:   Upper date limit in ISO 8601 format.
     """
-    return call_r("parse_citations", {
-        "article_name": article_name,
-        "date_limit": date_limit,
-    })
+    return citation_utils.parse_citations(article_name, date_limit)
 
 
 @mcp.tool()
 def parse_all_citations(
     article_name: str,
     date_limit: Optional[str] = "2024-01-01T00:00:00Z",
-) -> dict:
+) -> list:
     """
     Full structured parse of all CS1 citation templates in an article into
     a long tidy table with one row per citation field.
@@ -473,17 +467,14 @@ def parse_all_citations(
         article_name: English Wikipedia article title.
         date_limit:   Upper date limit in ISO 8601 format.
     """
-    return call_r("parse_all_citations", {
-        "article_name": article_name,
-        "date_limit": date_limit,
-    })
+    return citation_utils.parse_all_citations(article_name, date_limit)
 
 
 @mcp.tool()
 def get_citation_types(
     article_name: str,
     date_limit: Optional[str] = "2024-01-01T00:00:00Z",
-) -> dict:
+) -> list:
     """
     Count citations by CS1 type (journal, book, web, news, etc.)
     for the most recent revision of an article.
@@ -492,22 +483,19 @@ def get_citation_types(
         article_name: English Wikipedia article title.
         date_limit:   Upper date limit in ISO 8601 format.
     """
-    return call_r("get_citation_types", {
-        "article_name": article_name,
-        "date_limit": date_limit,
-    })
+    return citation_utils.get_citation_types(article_name, date_limit)
 
 
 @mcp.tool()
-def get_source_type_counts(text: str) -> dict:
+def get_source_type_counts(text: str) -> list:
     """
     Count CS1 citation types directly from a wikitext string.
-    Returns a frequency table (cite_type, Freq).
+    Returns a frequency table with keys cite_type and count.
 
     Args:
         text: Raw wikitext string.
     """
-    return call_r("get_source_type_counts", {"text": text})
+    return citation_utils.get_source_type_counts(text)
 
 
 @mcp.tool()
@@ -527,49 +515,44 @@ def get_sci_score(
         article_name: English Wikipedia article title.
         date_limit:   Upper date limit in ISO 8601 format.
     """
-    return call_r("get_sci_score", {
-        "article_name": article_name,
-        "date_limit": date_limit,
-    })
+    return citation_utils.get_sci_score(article_name, date_limit)
 
 
 @mcp.tool()
 def get_top_cited_papers(
     article_name: str,
     date_limit: Optional[str] = "2024-01-01T00:00:00Z",
-) -> dict:
+) -> list:
     """
     Identify the top 40 most-cited DOIs in a Wikipedia article,
-    annotated with EuropePMC and CrossRef metadata.
+    annotated with EuropePMC metadata.
 
     Args:
         article_name: English Wikipedia article title.
         date_limit:   Upper date limit in ISO 8601 format.
     """
-    return call_r("get_top_cited_papers", {
-        "article_name": article_name,
-        "date_limit": date_limit,
-    })
+    return citation_utils.get_top_cited_papers(article_name, date_limit)
 
 
 @mcp.tool()
 def get_revert_counts(
     start: Optional[str] = "2024-01-01",
     end: Optional[str] = "2024-12-31",
-) -> dict:
+) -> list:
     """
     Retrieve the count of revert-tagged edits (undo / rollback) for all
-    English Wikipedia articles in the given date window, sourced from the
-    Wikitrends module.
+    English Wikipedia articles in the given date window.
 
     Returns articles ranked by total revert count (descending), filtered to
     those with at least one revert.
+
+    Note: limited to the Wikipedia recentchanges retention window (~30 days).
 
     Args:
         start: Start date in YYYY-MM-DD format (default: "2024-01-01").
         end:   End date in YYYY-MM-DD format (default: "2024-12-31").
     """
-    return call_r("get_revert_counts", {"start": start, "end": end})
+    return wiki_api.get_revert_counts(start, end)
 
 
 # =============================================================================
@@ -577,7 +560,7 @@ def get_revert_counts(
 # =============================================================================
 
 @mcp.tool()
-def annotate_dois_europmc(doi_list: list[str]) -> dict:
+def annotate_dois_europmc(doi_list: list[str]) -> list:
     """
     Annotate a list of DOIs using EuropePMC.
 
@@ -588,11 +571,11 @@ def annotate_dois_europmc(doi_list: list[str]) -> dict:
     Args:
         doi_list: List of DOI strings (e.g. ["10.1038/nature12373"]).
     """
-    return call_r("annotate_doi_europmc", {"doi_list": doi_list})
+    return annotate_utils.annotate_dois_europmc(doi_list)
 
 
 @mcp.tool()
-def annotate_dois_crossref(doi_list: list[str]) -> dict:
+def annotate_dois_crossref(doi_list: list[str]) -> list:
     """
     Annotate a list of DOIs using CrossRef.
     Returns bibliographic metadata and CrossRef citation counts.
@@ -600,23 +583,20 @@ def annotate_dois_crossref(doi_list: list[str]) -> dict:
     Args:
         doi_list: List of DOI strings.
     """
-    return call_r("annotate_doi_crossref", {"doi_list": doi_list})
+    return annotate_utils.annotate_dois_crossref(doi_list)
 
 
 @mcp.tool()
-def annotate_dois_altmetric(doi_list: list[str]) -> dict:
+def annotate_dois_altmetric(doi_list: list[str]) -> list:
     """
     Annotate a list of DOIs using Altmetric.
     Returns social-media and news attention scores
     (tweets, Facebook, news mentions, Altmetric score, etc.).
 
-    Requires rAltmetric to be installed:
-      remotes::install_github("ropensci/rAltmetric")
-
     Args:
         doi_list: List of DOI strings.
     """
-    return call_r("annotate_doi_altmetric", {"doi_list": doi_list})
+    return annotate_utils.annotate_dois_altmetric(doi_list)
 
 
 @mcp.tool()
@@ -630,7 +610,7 @@ def annotate_dois_bibtex(doi_list: list[str]) -> dict:
     Returns:
         {"bibtex_entries": [<bibtex string>, ...]}
     """
-    return call_r("annotate_doi_bibtex", {"doi_list": doi_list})
+    return annotate_utils.annotate_dois_bibtex(doi_list)
 
 
 @mcp.tool()
@@ -643,7 +623,7 @@ def annotate_isbn_google(isbn: str) -> dict:
     Args:
         isbn: ISBN-10 or ISBN-13 string (hyphens are stripped automatically).
     """
-    return call_r("annotate_isbn_google", {"isbn": isbn})
+    return annotate_utils.annotate_isbn_google(isbn)
 
 
 @mcp.tool()
@@ -654,21 +634,18 @@ def annotate_isbn_openlib(isbn: str) -> dict:
     Args:
         isbn: ISBN-10 or ISBN-13 string.
     """
-    return call_r("annotate_isbn_openlib", {"isbn": isbn})
+    return annotate_utils.annotate_isbn_openlib(isbn)
 
 
 @mcp.tool()
-def annotate_isbns_altmetric(isbn_list: list[str]) -> dict:
+def annotate_isbns_altmetric(isbn_list: list[str]) -> list:
     """
     Retrieve Altmetric attention scores for a list of ISBNs.
-
-    Requires rAltmetric to be installed:
-      remotes::install_github("ropensci/rAltmetric")
 
     Args:
         isbn_list: List of ISBN strings.
     """
-    return call_r("annotate_isbn_altmetric", {"isbn_list": isbn_list})
+    return annotate_utils.annotate_isbns_altmetric(isbn_list)
 
 
 # =============================================================================
@@ -684,6 +661,8 @@ def plot_article_creation(
     """
     Generate a cumulative (or annual) article-creation timeline plot.
     Returns a base64-encoded PNG image.
+
+    Requires R with wikilite installed.
 
     Args:
         article_list: List of English Wikipedia article titles.
@@ -704,6 +683,8 @@ def plot_static_timeline(article_list: list[str]) -> dict:
     Generate a static labelled timeline of article creation dates.
     Returns a base64-encoded PNG image.
 
+    Requires R with wikilite installed.
+
     Args:
         article_list: List of English Wikipedia article titles.
     """
@@ -714,9 +695,10 @@ def plot_static_timeline(article_list: list[str]) -> dict:
 def plot_citation_distribution(article_list: list[str]) -> dict:
     """
     Generate a boxplot showing the distribution of citation-type counts
-    (journal,
-news, web, book) across a set of articles.
+    (journal, news, web, book) across a set of articles.
     Returns a base64-encoded PNG image.
+
+    Requires R with wikilite installed.
 
     Args:
         article_list: List of English Wikipedia article titles.

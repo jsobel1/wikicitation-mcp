@@ -96,6 +96,7 @@ def test_get_url_count_direct():
     assert data["count"] == 2
 
 
+@pytest.mark.integration
 @NEEDS_WIKI
 def test_get_isbn_count_direct():
     payload = json.dumps({
