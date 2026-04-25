@@ -70,9 +70,15 @@ uv sync
 
 ### 4 — Verify the bridge works
 
+**macOS / Linux (bash):**
 ```bash
-echo '{"tool":"get_doi_count","args":{"text":"doi:10.1038/nature12373"}}' \
-  | Rscript mcp_interface.R
+echo '{"tool":"get_doi_count","args":{"text":"doi:10.1038/nature12373"}}' | Rscript mcp_interface.R
+# -> {"count":1}
+```
+
+**Windows (PowerShell):**
+```powershell
+'{"tool":"get_doi_count","args":{"text":"doi:10.1038/nature12373"}}' | Rscript mcp_interface.R
 # -> {"count":1}
 ```
 
