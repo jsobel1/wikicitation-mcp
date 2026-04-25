@@ -196,7 +196,7 @@ result <- tryCatch({
     "get_top_cited_papers" = {
       date_an <- args$date_limit %||% "2024-01-01T00:00:00Z"
       df      <- get_article_most_recent_table(args$article_name, date_an = date_an)
-      doi_df  <- get_regex_citations_in_wiki_table(df, pkg.env$doi_regexp)
+      doi_df  <- get_regex_citations_in_wiki_table(df, "10\\.\\d{4,9}/[-._;()/:a-z0-9A-Z]+")
       get_top_cited_wiki_papers(doi_df)
     },
 
