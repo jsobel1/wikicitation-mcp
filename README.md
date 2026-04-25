@@ -53,6 +53,9 @@ powershell -ExecutionPolicy Bypass -c "irm https://astral.sh/uv/install.ps1 | ie
 install.packages("devtools")
 devtools::install_github("jsobel1/wikilite")
 
+# Required for CrossRef DOI annotation (annotate_dois_crossref, annotate_dois_bibtex)
+install.packages("bibtex")
+
 # Optional: for static PNG plots
 install.packages("base64enc")
 
@@ -89,7 +92,8 @@ echo '{"tool":"get_doi_count","args":{"text":"doi:10.1038/nature12373"}}' | Rscr
 ### Claude Code (CLI)
 
 ```bash
-# Register the server (run once, from the wikicitation-mcp/ directory)
+# Run this from inside the wikicitation-mcp/ directory — uv needs to find pyproject.toml
+cd /path/to/wikicitation-mcp
 claude mcp add wikilite -- uv run python server.py
 
 # Confirm
@@ -146,7 +150,7 @@ ngrok http 8000
 Once connected, try these prompts in Claude:
 
 ```
-Fetch the edit history of the Wikipedia article "Circadian clock" since 2020.
+Fetch all edits to the Wikipedia article "Circadian clock" up to today.
 ```
 
 ```
@@ -189,10 +193,11 @@ Category:Chronobiology using the top 50 DOIs.
 ### Get article edit history
 
 ```
-Article: "Alzheimer's disease"
-Date limit: 2023-01-01
+Get the edit history of "Alzheimer's disease" up to 2024-01-01.
 ```
 → Returns a table of revisions: timestamp, editor, edit size, comment.
+
+> **Note:** `date_limit` is the **upper** (newest) date bound — it controls how recent the results go, not how far back. To retrieve edits "since 2023", pass today's date as the limit and filter the results by timestamp.
 
 ### Score citation quality (SciScore)
 
@@ -262,7 +267,7 @@ How many edits were reverted on Wikipedia between 2023-01-01 and 2023-12-31?
 | `extract_wikihypelinks` | `text` | list of `[[...]]` links |
 | `replace_wikihypelinks` | `text` | cleaned text |
 | `parse_cite_type` | `text` | parsed CS1 fields |
-| `extract_regex` | `article_name`, `regexp`, `date_limit` | matches table |
+| `extract_with_regex` | `article_name`, `regexp`, `date_limit` | matches table |
 | `extract_all_regex` | `article_name`, `date_limit` | all regex matches |
 | `parse_citations` | `article_name`, `date_limit` | structured citation table |
 | `parse_all_citations` | `article_name`, `date_limit` | full long-form table |
@@ -276,13 +281,13 @@ How many edits were reverted on Wikipedia between 2023-01-01 and 2023-12-31?
 
 | Tool | Key arguments | Returns |
 |---|---|---|
-| `annotate_doi_europmc` | `doi_list` | EuropePMC metadata |
-| `annotate_doi_crossref` | `doi_list` | CrossRef metadata |
-| `annotate_doi_altmetric` | `doi_list` | Altmetric scores |
-| `annotate_doi_bibtex` | `doi_list` | BibTeX entries |
+| `annotate_dois_europmc` | `doi_list` | EuropePMC metadata |
+| `annotate_dois_crossref` | `doi_list` | CrossRef metadata (requires `bibtex` R package) |
+| `annotate_dois_altmetric` | `doi_list` | Altmetric scores (requires `rAltmetric`) |
+| `annotate_dois_bibtex` | `doi_list` | BibTeX entries (requires `bibtex` R package) |
 | `annotate_isbn_google` | `isbn` | Google Books metadata |
 | `annotate_isbn_openlib` | `isbn` | Open Library metadata |
-| `annotate_isbn_altmetric` | `isbn_list` | Altmetric scores |
+| `annotate_isbns_altmetric` | `isbn_list` | Altmetric scores (requires `rAltmetric`) |
 
 ### Group 4 — Static PNG plots (6 tools)
 
@@ -357,6 +362,11 @@ devtools::install_github("jsobel1/wikilite")
 **`htmlwidgets not found` (interactive plot tools)**
 ```r
 install.packages("htmlwidgets")
+```
+
+**`Please install bibtex` (CrossRef annotation tools)**
+```r
+install.packages("bibtex")
 ```
 
 **Timeout on large edit histories**  

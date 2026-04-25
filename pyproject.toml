@@ -9,6 +9,9 @@ dependencies = [
     "fastmcp>=2.0.0",
 ]
 
+[project.scripts]
+wikicitation-mcp = "server:main"
+
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"

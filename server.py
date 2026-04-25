@@ -18,15 +18,6 @@ from r_bridge import call_r
 mcp = FastMCP(
     name="wikilite",
     version="0.2.0",
-    description=(
-        "Retrieve and analyse Wikipedia article revision history, "
-        "extract and count citations (DOIs, ISBNs, PMIDs, URLs, hyperlinks), "
-        "annotate DOIs via EuropePMC / CrossRef / Altmetric, "
-        "compute scientific quality metrics (SciScore), "
-        "track revert-based edit trends, "
-        "and generate static and interactive visualisations — "
-        "all powered by the wikilite R package."
-    ),
 )
 
 
@@ -153,18 +144,18 @@ def get_pages_in_cat_table(category: str) -> dict:
 @mcp.tool()
 def get_subcat_table(
     catname: str,
-    replecement: Optional[str] = "_",
+    replacement: Optional[str] = "_",
 ) -> dict:
     """
     Retrieve direct subcategories of a Wikipedia category.
 
     Args:
         catname:     Category name with or without the "Category:" prefix.
-        replecement: Character used to replace spaces (default: "_").
+        replacement: Character used to replace spaces (default: "_").
     """
     return call_r("get_subcat_table", {
         "catname": catname,
-        "replecement": replecement,
+        "replacement": replacement,
     })
 
 
@@ -183,7 +174,7 @@ def get_subcat_multiple(catname_list: list[str]) -> dict:
 def get_subcat_with_depth(
     catname: str,
     depth: Optional[int] = 1,
-    replecement: Optional[str] = "_",
+    replacement: Optional[str] = "_",
 ) -> dict:
     """
     Recursively retrieve subcategories up to a given depth.
@@ -191,12 +182,12 @@ def get_subcat_with_depth(
     Args:
         catname:     Root category name.
         depth:       Number of levels to descend (default: 1).
-        replecement: Character used to replace spaces (default: "_").
+        replacement: Character used to replace spaces (default: "_").
     """
     return call_r("get_subcat_with_depth", {
         "catname": catname,
         "depth": depth,
-        "replecement": replecement,
+        "replacement": replacement,
     })
 
 
@@ -723,7 +714,8 @@ def plot_static_timeline(article_list: list[str]) -> dict:
 def plot_citation_distribution(article_list: list[str]) -> dict:
     """
     Generate a boxplot showing the distribution of citation-type counts
-    (journal, news, web, book) across a set of articles.
+    (journal,
+news, web, book) across a set of articles.
     Returns a base64-encoded PNG image.
 
     Args:
@@ -732,208 +724,13 @@ def plot_citation_distribution(article_list: list[str]) -> dict:
     return call_r("plot_citation_distribution", {"article_list": article_list})
 
 
-@mcp.tool()
-def plot_top_source(
-    article_name: str,
-    source_type: Optional[str] = "publisher",
-    date_limit: Optional[str] = "2024-01-01T00:00:00Z",
-) -> dict:
-    """
-    Generate a bar chart of the top 20 values for a citation field
-    (e.g. publisher, journal, author) in a Wikipedia article.
-    Returns a base64-encoded PNG image.
+# ---------------------------------------------------------------------------
+# Entry point — enables  uvx wikicitation-mcp  after PyPI install
+# ---------------------------------------------------------------------------
 
-    Args:
-        article_name: English Wikipedia article title.
-        source_type:  Citation field to rank (default: "publisher").
-                      Common values: "publisher", "journal", "author",
-                      "year", "accessdate".
-        date_limit:   Upper date limit in ISO 8601 format.
-    """
-    return call_r("plot_top_source", {
-        "article_name": article_name,
-        "source_type": source_type,
-        "date_limit": date_limit,
-    })
+def main() -> None:
+    mcp.run()
 
-
-@mcp.tool()
-def plot_page_views(
-    article_name: str,
-    start: Optional[str] = "2020010100",
-    end: Optional[str] = "2024010100",
-) -> dict:
-    """
-    Generate a daily page-view area chart for a Wikipedia article,
-    sourced from the Wikimedia pageviews REST API.
-    Returns a base64-encoded PNG image.
-
-    Args:
-        article_name: English Wikipedia article title.
-        start:        Start date in YYYYMMDDHH format (default: "2020010100").
-        end:          End date in YYYYMMDDHH format (default: "2024010100").
-    """
-    return call_r("plot_page_views", {
-        "article_name": article_name,
-        "start": start,
-        "end": end,
-    })
-
-
-@mcp.tool()
-def plot_page_edits(
-    article_name: str,
-    start: Optional[str] = "2020010100",
-    end: Optional[str] = "2024010100",
-) -> dict:
-    """
-    Generate a weekly edit-count area chart for a Wikipedia article.
-    Returns a base64-encoded PNG image.
-
-    Args:
-        article_name: English Wikipedia article title.
-        start:        Start date in YYYYMMDDHH format (default: "2020010100").
-        end:          End date in YYYYMMDDHH format (default: "2024010100").
-    """
-    return call_r("plot_page_edits", {
-        "article_name": article_name,
-        "start": start,
-        "end": end,
-    })
-
-
-# =============================================================================
-# GROUP 5 -- Interactive visualisations (self-contained HTML)
-# =============================================================================
-
-@mcp.tool()
-def plot_interactive_timeline(
-    article_list: list[str],
-    date_limit: Optional[str] = "2024-01-01T00:00:00Z",
-    color_by: Optional[str] = "sciscore",
-) -> dict:
-    """
-    Generate an interactive Plotly Gantt-style timeline showing the edit
-    lifetime of each Wikipedia article as a horizontal bar.
-
-    Hover text includes creation date, first editor, and byte sizes.
-    Returns a self-contained HTML string that can be saved as .html and
-    opened in any browser.
-
-    Args:
-        article_list: List of English Wikipedia article titles.
-        date_limit:   Upper date limit in ISO 8601 format.
-        color_by:     Colour scheme — "sciscore" (default), "size", or "none".
-
-    Returns:
-        {"html": "<full self-contained HTML>", "format": "html", ...}
-    """
-    return call_r("plot_interactive_timeline", {
-        "article_list": article_list,
-        "date_limit": date_limit,
-        "color_by": color_by,
-    })
-
-
-@mcp.tool()
-def plot_publication_network(
-    article_list: list[str],
-    date_limit: Optional[str] = "2024-01-01T00:00:00Z",
-    top_n_dois: Optional[int] = 50,
-    min_wiki_count: Optional[int] = 2,
-    annotate: Optional[bool] = False,
-) -> dict:
-    """
-    Build an interactive bipartite network linking Wikipedia articles
-    (blue squares) to the DOIs they cite (orange circles).
-
-    Edge direction: article -> cited publication.
-    Node size reflects citation degree.
-    Clicking any node opens the Wikipedia or DOI URL in a new tab.
-    Returns a self-contained HTML string.
-
-    Args:
-        article_list:   List of English Wikipedia article titles.
-        date_limit:     Upper date limit in ISO 8601 format.
-        top_n_dois:     Maximum number of publication nodes (default: 50).
-        min_wiki_count: Minimum number of articles that must cite a DOI
-                        for it to appear (default: 2).
-        annotate:       If True, enrich publication labels with EuropePMC
-                        paper titles (slower; requires network).
-    """
-    return call_r("plot_publication_network", {
-        "article_list": article_list,
-        "date_limit": date_limit,
-        "top_n_dois": top_n_dois,
-        "min_wiki_count": min_wiki_count,
-        "annotate": annotate,
-    })
-
-
-@mcp.tool()
-def plot_cocitation_network(
-    article_list: list[str],
-    date_limit: Optional[str] = "2024-01-01T00:00:00Z",
-    min_shared_dois: Optional[int] = 1,
-) -> dict:
-    """
-    Build an interactive article-article co-citation network.
-    An edge between two articles means they share at least
-    min_shared_dois common DOI citations.
-
-    Edge thickness scales with shared DOI count.
-    Hovering over an edge lists the top shared DOIs.
-    Returns a self-contained HTML string, or a message if no pairs qualify.
-
-    Args:
-        article_list:    List of English Wikipedia article titles.
-        date_limit:      Upper date limit in ISO 8601 format.
-        min_shared_dois: Minimum shared DOIs for an edge (default: 1).
-    """
-    return call_r("plot_cocitation_network", {
-        "article_list": article_list,
-        "date_limit": date_limit,
-        "min_shared_dois": min_shared_dois,
-    })
-
-
-@mcp.tool()
-def plot_wikilink_network(
-    article_list: list[str],
-    date_limit: Optional[str] = "2024-01-01T00:00:00Z",
-    only_internal: Optional[bool] = True,
-    top_n_links: Optional[int] = 80,
-) -> dict:
-    """
-    Build an interactive directed network of [[...]] wikilinks between
-    Wikipedia articles.
-
-    Input articles appear as blue squares; linked articles as grey ellipses.
-    Node size reflects in-degree (incoming links).
-    Clicking any node opens the Wikipedia article in a new tab.
-    Returns a self-contained HTML string, or a message if no links are found.
-
-    Args:
-        article_list:  List of English Wikipedia article titles.
-        date_limit:    Upper date limit in ISO 8601 format.
-        only_internal: If True (default), show only links between articles
-                       in article_list. If False, include top external targets.
-        top_n_links:   Maximum number of external link targets when
-                       only_internal is False (default: 80).
-    """
-    return call_r("plot_wikilink_network", {
-        "article_list": article_list,
-        "date_limit": date_limit,
-        "only_internal": only_internal,
-        "top_n_links": top_n_links,
-    })
-
-
-# =============================================================================
-# Entry point
-# =============================================================================
 
 if __name__ == "__main__":
-    # Default transport: stdio (compatible with Claude Code and Claude Desktop).
-    # For HTTP: uv run fastmcp run server.py --transport streamable-http --port 8000
-    mcp.run()
+    main()
