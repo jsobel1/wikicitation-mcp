@@ -1,0 +1,24 @@
+[project]
+name = "wikicitation-mcp"
+version = "0.1.0"
+description = "MCP server exposing the WikiCitationHistoRy R package as tools"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp[cli]>=1.2.0",
+    "fastmcp>=2.0.0",
+]
+
+[project.scripts]
+# Lance le serveur en mode stdio (Claude Code / Desktop)
+wikicitation-mcp = "server:mcp.run"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+]
