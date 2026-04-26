@@ -1,7 +1,6 @@
 # tests/test_citation_utils.py
 # Unit tests for citation_utils.py — no network, no R required.
 
-import pytest
 from unittest.mock import patch
 
 import citation_utils as cu

@@ -1,7 +1,6 @@
 # tests/test_wiki_api.py
 # Unit tests (mocked httpx) and integration tests for wiki_api.py.
 
-import json
 from unittest.mock import MagicMock, patch
 
 import pytest

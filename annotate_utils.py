@@ -5,6 +5,8 @@ Pure Python / httpx, no R required.
 """
 from __future__ import annotations
 
+import time
+
 import httpx
 
 _HEADERS = {
@@ -14,9 +16,12 @@ _HEADERS = {
     )
 }
 
+_RATE_SLEEP = 0.1  # seconds between per-DOI requests (10 req/s polite limit)
 
-def _get(url: str, **kwargs) -> httpx.Response:
-    return httpx.get(url, headers=_HEADERS, timeout=20, **kwargs)
+
+def _get(url: str, extra_headers: dict | None = None, **kwargs) -> httpx.Response:
+    headers = {**_HEADERS, **(extra_headers or {})}
+    return httpx.get(url, headers=headers, timeout=20, **kwargs)
 
 
 # ---------------------------------------------------------------------------
@@ -57,6 +62,7 @@ def annotate_dois_crossref(doi_list: list[str]) -> list[dict]:
     results: list[dict] = []
     for doi in doi_list:
         r = _get(f"{_CROSSREF_BASE}/{doi}")
+        time.sleep(_RATE_SLEEP)
         if r.status_code != 200:
             results.append({"doi": doi, "error": f"HTTP {r.status_code}"})
             continue
@@ -91,6 +97,7 @@ def annotate_dois_altmetric(doi_list: list[str]) -> list[dict]:
     results: list[dict] = []
     for doi in doi_list:
         r = _get(f"{_ALTMETRIC_BASE}/doi/{doi}")
+        time.sleep(_RATE_SLEEP)
         if r.status_code == 404:
             results.append({"doi": doi, "altmetric_score": None})
             continue
@@ -120,12 +127,12 @@ def annotate_dois_bibtex(doi_list: list[str]) -> dict:
     """Retrieve BibTeX entries for DOIs via CrossRef content negotiation."""
     entries: list[str] = []
     for doi in doi_list:
-        r = httpx.get(
+        r = _get(
             f"https://doi.org/{doi}",
-            headers={**_HEADERS, "Accept": "application/x-bibtex"},
+            extra_headers={"Accept": "application/x-bibtex"},
             follow_redirects=True,
-            timeout=20,
         )
+        time.sleep(_RATE_SLEEP)
         entries.append(
             r.text.strip() if r.status_code == 200
             else f"% DOI {doi}: HTTP {r.status_code}"
@@ -202,6 +209,7 @@ def annotate_isbns_altmetric(isbn_list: list[str]) -> list[dict]:
     for isbn in isbn_list:
         clean = isbn.replace("-", "").replace(" ", "")
         r = _get(f"{_ALTMETRIC_BASE}/isbn/{clean}")
+        time.sleep(_RATE_SLEEP)
         if r.status_code == 404:
             results.append({"isbn": isbn, "altmetric_score": None})
             continue

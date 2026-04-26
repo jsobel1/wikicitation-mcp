@@ -1,60 +1,26 @@
 [project]
 name = "wikicitation-mcp"
-version = "0.3.1"
-description = "MCP server providing Wikipedia citation-science tools for Claude — pure Python, no R required"
-readme = "README.md"
-license = { file = "LICENSE" }
-authors = [
-    { name = "Jonathan Sobel", email = "jsobel83@gmail.com" },
-]
-keywords = [
-    "mcp", "wikipedia", "citations", "bibliometrics",
-    "claude", "llm", "wikitext", "doi",
-]
-classifiers = [
-    "Development Status :: 4 - Beta",
-    "Intended Audience :: Science/Research",
-    "Intended Audience :: Developers",
-    "License :: OSI Approved :: MIT License",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
-    "Topic :: Scientific/Engineering :: Information Analysis",
-    "Topic :: Internet :: WWW/HTTP",
-]
-requires-python = ">=3.10"
+version = "0.1.0"
+requires-python = ">=3.11"
 dependencies = [
-    "mcp[cli]>=1.2.0",
-    "fastmcp>=2.0.0",
-    "httpx>=0.25",
-    "mwparserfromhell>=0.6",
+  "mcp[cli]>=1.0.0",
+  "httpx>=0.27.0",
 ]
 
-
-[project.urls]
-Homepage = "https://github.com/jsobel1/wikicitation-mcp"
-Repository = "https://github.com/jsobel1/wikicitation-mcp"
-"Bug Tracker" = "https://github.com/jsobel1/wikicitation-mcp/issues"
-Documentation = "https://github.com/jsobel1/wikicitation-mcp#readme"
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "pytest-asyncio>=0.23",
+  "ruff",
+  "mypy",
+]
 
 [project.scripts]
-wikicitation-mcp = "server:main"
+wikicitation-mcp = "server:mcp.run"
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
-[tool.hatch.build.targets.wheel]
-include = [
-    "server.py",
-    "wiki_api.py",
-    "citation_utils.py",
-    "annotate_utils.py",
-]
-
-[dependency-groups]
-dev = [
-    "pytest>=8.0",
-    "pytest-asyncio>=0.23",
-]
+[tool.pytest.ini_options]
+asyncio_mode = "auto"

@@ -112,7 +112,11 @@ def _rev_to_row(rev: dict, article_name: str) -> dict:
 # Category helpers
 # ---------------------------------------------------------------------------
 
-def _fetch_category_members(category: str, cm_type: str = "page") -> list[dict]:
+def _fetch_category_members(
+    category: str,
+    cm_type: str = "page",
+    max_iterations: int = 200,
+) -> list[dict]:
     cat_title = (
         category if category.startswith("Category:") else f"Category:{category}"
     )
@@ -125,7 +129,7 @@ def _fetch_category_members(category: str, cm_type: str = "page") -> list[dict]:
         "cmlimit": "max",
     }
     members: list[dict] = []
-    while True:
+    for _ in range(max_iterations):
         data = _get(params)
         members.extend(data.get("query", {}).get("categorymembers", []))
         if "continue" not in data:
