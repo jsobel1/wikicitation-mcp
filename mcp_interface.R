@@ -108,6 +108,20 @@ result <- tryCatch({
       rev_eds = args$rev_eds %||% TRUE
     ),
 
+    # ── Citation type counts ───────────────────────────────────────────────────
+    "get_citation_type_counts" = {
+      date_an  <- args$date_an %||% args$date_limit %||% NULL
+      lang     <- args$lang %||% "en"
+      wikitext <- .fetch_wikitext(args$article_name, date_an, lang)
+      extracted <- wikilite::extract_citations(wikitext)
+      if (length(extracted) == 0L) return(list())
+      raw_types      <- sapply(extracted, wikilite::parse_cite_type, USE.NAMES = FALSE)
+      display_cats   <- sapply(raw_types, wikilite::classify_cite_type, USE.NAMES = FALSE)
+      tbl            <- as.data.frame(table(category = display_cats), stringsAsFactors = FALSE)
+      colnames(tbl)  <- c("category", "count")
+      tbl[order(-tbl$count), ]
+    },
+
     # ── Category helpers ───────────────────────────────────────────────────────
     "get_category_pages" = {
       as.list(wikilite::get_pagename_in_cat(args$category))

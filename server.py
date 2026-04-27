@@ -178,6 +178,25 @@ async def parse_all_citations(
 
 
 @mcp.tool()
+async def get_citation_type_counts(
+    article_name: str,
+    lang: str = "en",
+    date_an: str | None = None,
+) -> dict:
+    """
+    Count CS1 citations by display category for a Wikipedia article.
+
+    Returns counts grouped into: Journal, Book, Web, News/Magazine, Preprint,
+    Thesis, Conference, Report, Multimedia, Legal/Patent, Social Media, Other.
+    """
+    return await call_r_async("get_citation_type_counts", {
+        "article_name": article_name,
+        "lang": lang,
+        "date_an": date_an,
+    })
+
+
+@mcp.tool()
 async def get_category_pages(category: str, lang: str = "en") -> dict:
     """List article titles in a Wikipedia category."""
     return await call_r_async("get_category_pages", {

@@ -348,3 +348,44 @@ def test_get_subcat_table_chronobiology():
     from r_bridge import call_r
     result = call_r("get_subcat_table", {"catname": "Chronobiology"})
     assert isinstance(result, list)
+
+
+@pytest.mark.integration
+@NEEDS_WIKI
+def test_get_citation_type_counts_zeitgeber():
+    """Integration: citation type counts for 'Zeitgeber'."""
+    from r_bridge import call_r
+    result = call_r("get_citation_type_counts", {
+        "article_name": "Zeitgeber",
+        "lang": "en",
+    })
+    assert isinstance(result, list)
+    if len(result) > 0:
+        first = result[0]
+        assert "category" in first, f"Expected 'category' key in {first}"
+        assert "count"    in first, f"Expected 'count' key in {first}"
+
+
+# ---------------------------------------------------------------------------
+# Input-validation tests (no R needed)
+# ---------------------------------------------------------------------------
+
+@pytest.mark.asyncio
+async def test_empty_tool_name_raises():
+    from r_bridge import call_r_async
+    with pytest.raises(ValueError, match="non-empty"):
+        await call_r_async("", {"text": "hello"})
+
+
+@pytest.mark.asyncio
+async def test_whitespace_tool_name_raises():
+    from r_bridge import call_r_async
+    with pytest.raises(ValueError):
+        await call_r_async("   ", {})
+
+
+@pytest.mark.asyncio
+async def test_non_dict_args_raises():
+    from r_bridge import call_r_async
+    with pytest.raises(ValueError, match="dict"):
+        await call_r_async("get_doi_count", "not-a-dict")
