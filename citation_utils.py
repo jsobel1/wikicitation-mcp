@@ -3,11 +3,17 @@ citation_utils.py
 Citation counting, extraction, parsing, and quality metrics.
 Pure Python (re + mwparserfromhell). Text operations need no network;
 article-level functions fetch wikitext via wiki_api.
+
+Per-(article, date_limit) wikitext is cached for the lifetime of the process so
+a single analysis pass that calls multiple article-level functions on the same
+article does not refetch the wikitext seven times.
 """
 from __future__ import annotations
 
 import re
+import threading
 from collections import Counter
+from typing import Optional
 
 import mwparserfromhell
 
@@ -132,24 +138,53 @@ def get_source_type_counts(text: str) -> list[dict]:
 
 
 # ---------------------------------------------------------------------------
-# Internal: fetch wikitext
+# Internal: fetch + cache wikitext
+#
+# Without this cache, a single analysis pass that calls (e.g.) get_sci_score,
+# parse_citations, get_citation_types, and get_top_cited_papers on the same
+# article hits the Wikipedia API four times for the same revision. The cache
+# also pins the revid so every metric in one pass references the same snapshot.
 # ---------------------------------------------------------------------------
 
-def _get_wikitext(article_name: str, date_limit: str) -> tuple[int, str]:
+_wikitext_cache: dict[tuple[str, Optional[str]], tuple[int, str]] = {}
+_cache_lock = threading.Lock()
+
+
+def _get_wikitext(article_name: str, date_limit: Optional[str]) -> tuple[int, str]:
     """Return (revid, wikitext) for the most recent revision up to date_limit."""
+    key = (article_name, date_limit)
+    with _cache_lock:
+        if key in _wikitext_cache:
+            return _wikitext_cache[key]
+
     from wiki_api import get_article_recent
     result = get_article_recent(article_name, date_limit)
-    return result["metadata"].get("revid", 0), result["wikitext"]
+    revid = result["metadata"].get("revid", 0) or 0
+    wikitext = result["wikitext"]
+
+    with _cache_lock:
+        _wikitext_cache[key] = (revid, wikitext)
+    return revid, wikitext
+
+
+def clear_wikitext_cache() -> None:
+    """Drop cached wikitext (call between independent analysis passes)."""
+    with _cache_lock:
+        _wikitext_cache.clear()
 
 
 # ---------------------------------------------------------------------------
-# Group 2 — article-level functions (require network)
+# Group 2 — article-level functions (require network on cache miss)
+#
+# date_limit=None means "current" — using a stale literal default silently
+# pinned analyses to old snapshots, which was the source of the run report's
+# UNCERTAIN_1 (parse_citations returned outdated revids).
 # ---------------------------------------------------------------------------
 
 def extract_with_regex(
     article_name: str,
     regexp: str,
-    date_limit: str = "2024-01-01T00:00:00Z",
+    date_limit: Optional[str] = None,
 ) -> list[dict]:
     """Apply a regex to the most recent article wikitext."""
     revid, wikitext = _get_wikitext(article_name, date_limit)
@@ -161,7 +196,7 @@ def extract_with_regex(
 
 def extract_all_regex(
     article_name: str,
-    date_limit: str = "2024-01-01T00:00:00Z",
+    date_limit: Optional[str] = None,
 ) -> list[dict]:
     """Apply all built-in patterns to the most recent article wikitext."""
     revid, wikitext = _get_wikitext(article_name, date_limit)
@@ -180,7 +215,7 @@ def extract_all_regex(
 
 def parse_citations(
     article_name: str,
-    date_limit: str = "2024-01-01T00:00:00Z",
+    date_limit: Optional[str] = None,
 ) -> list[dict]:
     """Structured citation table (one row per citation template)."""
     revid, wikitext = _get_wikitext(article_name, date_limit)
@@ -206,7 +241,7 @@ def parse_citations(
 
 def parse_all_citations(
     article_name: str,
-    date_limit: str = "2024-01-01T00:00:00Z",
+    date_limit: Optional[str] = None,
 ) -> list[dict]:
     """Full long-form table: one row per citation *field*."""
     revid, wikitext = _get_wikitext(article_name, date_limit)
@@ -232,7 +267,7 @@ def parse_all_citations(
 
 def get_citation_types(
     article_name: str,
-    date_limit: str = "2024-01-01T00:00:00Z",
+    date_limit: Optional[str] = None,
 ) -> list[dict]:
     """Count CS1 citation types for an article."""
     _, wikitext = _get_wikitext(article_name, date_limit)
@@ -241,13 +276,13 @@ def get_citation_types(
 
 def get_sci_score(
     article_name: str,
-    date_limit: str = "2024-01-01T00:00:00Z",
+    date_limit: Optional[str] = None,
 ) -> dict:
     """
     sci_score:  fraction of CS1 templates that are cite-journal.
     sci_score2: ratio of DOI count to <ref> tag count.
     """
-    _, wikitext = _get_wikitext(article_name, date_limit)
+    revid, wikitext = _get_wikitext(article_name, date_limit)
 
     type_counts = get_source_type_counts(wikitext)
     total_cs1     = sum(r["count"] for r in type_counts)
@@ -263,23 +298,27 @@ def get_sci_score(
         "sci_score":  round(sci_score, 4),
         "sci_score2": round(sci_score2, 4),
         "article":    article_name,
+        "revid":      revid,
     }
 
 
 def get_top_cited_papers(
     article_name: str,
-    date_limit: str = "2024-01-01T00:00:00Z",
+    date_limit: Optional[str] = None,
 ) -> list[dict]:
     """Top 40 most-cited DOIs in an article, annotated via EuropePMC."""
     from annotate_utils import annotate_dois_europmc
 
     _, wikitext = _get_wikitext(article_name, date_limit)
-    counter     = Counter(DOI_RE.findall(wikitext))
-    top_dois    = [doi for doi, _ in counter.most_common(40)]
+    # Normalize DOIs to lowercase for stable counting (DOIs are case-insensitive
+    # per the DOI handbook, even though the registration metadata may preserve case).
+    dois = [d.lower() for d in DOI_RE.findall(wikitext)]
+    counter  = Counter(dois)
+    top_dois = [doi for doi, _ in counter.most_common(40)]
 
-    annotated   = annotate_dois_europmc(top_dois)
+    annotated = annotate_dois_europmc(top_dois)
     for row in annotated:
-        doi = row.get("doi", "")
-        row["wiki_count"] = counter.get(doi, counter.get(doi.lower(), 0))
+        doi = (row.get("doi") or "").lower()
+        row["wiki_count"] = counter.get(doi, 0)
 
     return sorted(annotated, key=lambda r: r.get("wiki_count", 0), reverse=True)

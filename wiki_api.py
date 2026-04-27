@@ -1,19 +1,69 @@
 """
 wiki_api.py
 Wikipedia MediaWiki API client — pure Python replacement for wikilite Group-1 R calls.
+
+Rate-limit & reliability behavior:
+  - Sends `maxlag=5` on every call (MediaWiki convention; server defers instead of
+    hard-failing when replication is lagging).
+  - Retries 429 / 5xx / maxlag / transport errors with exponential backoff,
+    honoring `Retry-After` when present.
+  - Uses a shared httpx.Client for connection pooling.
+  - Token-bucket throttle to stay within ~10 req/s polite limit per IP.
 """
 from __future__ import annotations
 
+import logging
+import threading
+import time
 from typing import Any, Optional
 
 import httpx
 
+logger = logging.getLogger(__name__)
+
 _ENDPOINT = "https://en.wikipedia.org/w/api.php"
 _HEADERS = {
-    "User-Agent": "wikicitation-mcp/0.3 (https://github.com/jsobel1/wikicitation-mcp)"
+    "User-Agent": "wikicitation-mcp/0.4 (https://github.com/jsobel1/wikicitation-mcp; jsobel83@gmail.com)"
 }
-_RVPROP_META = "ids|user|userid|timestamp|size|comment"
+_RVPROP_META = "ids|user|userid|timestamp|size|comment|tags"
 _RVPROP_FULL = _RVPROP_META + "|content"
+
+# Polite limits — Wikipedia asks unauthenticated clients to stay well under
+# 200 req/s aggregated. 10 req/s per process is a safe ceiling.
+_MIN_INTERVAL_S = 0.10
+_MAX_RETRIES = 5
+_BACKOFF_BASE = 1.0
+_BACKOFF_CAP = 30.0
+_MAXLAG = 5
+
+_client = httpx.Client(
+    headers=_HEADERS,
+    timeout=httpx.Timeout(30.0, connect=10.0),
+    limits=httpx.Limits(max_connections=4, max_keepalive_connections=4),
+    follow_redirects=False,
+)
+
+_throttle_lock = threading.Lock()
+_last_call_ts = 0.0
+
+
+def _throttle() -> None:
+    global _last_call_ts
+    with _throttle_lock:
+        now = time.monotonic()
+        wait = _MIN_INTERVAL_S - (now - _last_call_ts)
+        if wait > 0:
+            time.sleep(wait)
+        _last_call_ts = time.monotonic()
+
+
+def _backoff(attempt: int, retry_after: Optional[str] = None) -> float:
+    if retry_after:
+        try:
+            return min(float(retry_after), _BACKOFF_CAP)
+        except ValueError:
+            pass
+    return min(_BACKOFF_BASE * (2 ** attempt), _BACKOFF_CAP)
 
 
 # ---------------------------------------------------------------------------
@@ -21,16 +71,66 @@ _RVPROP_FULL = _RVPROP_META + "|content"
 # ---------------------------------------------------------------------------
 
 def _get(params: dict[str, Any]) -> dict:
-    base: dict[str, Any] = {"format": "json", "formatversion": "2"}
+    base: dict[str, Any] = {
+        "format": "json",
+        "formatversion": "2",
+        "maxlag": _MAXLAG,
+    }
     base.update(params)
-    r = httpx.get(_ENDPOINT, params=base, headers=_HEADERS, timeout=30)
-    r.raise_for_status()
-    data = r.json()
-    if "error" in data:
-        raise RuntimeError(
-            f"Wikipedia API error: {data['error'].get('info', str(data['error']))}"
-        )
-    return data
+
+    last_exc: Optional[Exception] = None
+    for attempt in range(_MAX_RETRIES):
+        _throttle()
+        try:
+            r = _client.get(_ENDPOINT, params=base)
+        except (httpx.TransportError, httpx.TimeoutException) as exc:
+            last_exc = exc
+            sleep_s = _backoff(attempt)
+            logger.warning("wiki_api transport error (attempt %d): %s — sleeping %.1fs",
+                           attempt + 1, exc, sleep_s)
+            time.sleep(sleep_s)
+            continue
+
+        # 429 / 503 are retryable; honor Retry-After.
+        if r.status_code in (429, 503):
+            sleep_s = _backoff(attempt, r.headers.get("Retry-After"))
+            logger.warning("wiki_api HTTP %d (attempt %d) — sleeping %.1fs",
+                           r.status_code, attempt + 1, sleep_s)
+            time.sleep(sleep_s)
+            continue
+        if 500 <= r.status_code < 600:
+            sleep_s = _backoff(attempt)
+            logger.warning("wiki_api HTTP %d (attempt %d) — sleeping %.1fs",
+                           r.status_code, attempt + 1, sleep_s)
+            time.sleep(sleep_s)
+            continue
+
+        r.raise_for_status()
+        try:
+            data = r.json()
+        except ValueError as exc:
+            last_exc = exc
+            time.sleep(_backoff(attempt))
+            continue
+
+        # MediaWiki maxlag soft-throttle: error.code == "maxlag" + Retry-After hint.
+        if "error" in data:
+            code = data["error"].get("code", "")
+            if code in ("maxlag", "ratelimited", "readonly"):
+                sleep_s = _backoff(attempt, r.headers.get("Retry-After"))
+                logger.warning("wiki_api %s (attempt %d) — sleeping %.1fs",
+                               code, attempt + 1, sleep_s)
+                time.sleep(sleep_s)
+                continue
+            raise RuntimeError(
+                f"Wikipedia API error: {data['error'].get('info', str(data['error']))}"
+            )
+        return data
+
+    raise RuntimeError(
+        f"Wikipedia API: exhausted {_MAX_RETRIES} retries"
+        + (f" (last error: {last_exc})" if last_exc else "")
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -105,6 +205,7 @@ def _rev_to_row(rev: dict, article_name: str) -> dict:
         "timestamp": rev.get("timestamp", ""),
         "size": rev.get("size", 0),
         "comment": rev.get("comment", ""),
+        "tags": rev.get("tags", []),
     }
 
 
@@ -142,6 +243,10 @@ def _fetch_category_members(
 # Group 1 — article history & metadata
 # ---------------------------------------------------------------------------
 
+def _now_iso() -> str:
+    return time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+
+
 def get_article_info(article_name: str) -> dict:
     """Current metadata: pageid, title, byte length, last revid, …"""
     data = _get({"action": "query", "prop": "info", "titles": article_name})
@@ -153,13 +258,14 @@ def get_article_info(article_name: str) -> dict:
 
 def get_article_history(
     article_name: str,
-    date_limit: str = "2024-01-01T00:00:00Z",
+    date_limit: Optional[str] = None,
 ) -> list[dict]:
     """
     Full revision history up to date_limit (upper / newest bound).
+    date_limit defaults to 'now' so analyses don't silently use stale snapshots.
     Returns a list of revision dicts sorted oldest-first.
     """
-    _, revisions = _fetch_revisions(article_name, rvstart=date_limit)
+    _, revisions = _fetch_revisions(article_name, rvstart=date_limit or _now_iso())
     rows = [_rev_to_row(r, article_name) for r in revisions]
     rows.sort(key=lambda r: r["timestamp"])
     return rows
@@ -167,13 +273,13 @@ def get_article_history(
 
 def get_article_recent(
     article_name: str,
-    date_limit: str = "2024-01-01T00:00:00Z",
+    date_limit: Optional[str] = None,
 ) -> dict:
     """Most recent revision up to date_limit, including wikitext."""
     _, revisions = _fetch_revisions(
         article_name,
         rvprop=_RVPROP_FULL,
-        rvstart=date_limit,
+        rvstart=date_limit or _now_iso(),
         rvlimit=1,
     )
     if not revisions:
@@ -204,7 +310,7 @@ def get_article_initial(article_name: str) -> dict:
 
 def get_tables_all(
     article_name: str,
-    date_limit: str = "2024-01-01T00:00:00Z",
+    date_limit: Optional[str] = None,
 ) -> dict:
     """Initial + recent + full history + info in one call."""
     return {
@@ -287,7 +393,7 @@ def get_category_history(article_list: list[str]) -> list[dict]:
 
 def get_category_recent(
     article_list: list[str],
-    date_limit: str = "2024-01-01T00:00:00Z",
+    date_limit: Optional[str] = None,
 ) -> dict:
     """Most recent revision metadata + wikitext for a list of articles."""
     metadata_list: list[dict] = []
