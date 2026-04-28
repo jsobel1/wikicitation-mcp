@@ -146,19 +146,29 @@ def get_source_type_counts(text: str) -> list[dict]:
 # also pins the revid so every metric in one pass references the same snapshot.
 # ---------------------------------------------------------------------------
 
-_wikitext_cache: dict[tuple[str, Optional[str]], tuple[int, str]] = {}
+_wikitext_cache: dict[tuple[str, Optional[str], str], tuple[int, str]] = {}
 _cache_lock = threading.Lock()
 
+DEFAULT_LANG = "en"
 
-def _get_wikitext(article_name: str, date_limit: Optional[str]) -> tuple[int, str]:
-    """Return (revid, wikitext) for the most recent revision up to date_limit."""
-    key = (article_name, date_limit)
+
+def _get_wikitext(
+    article_name: str,
+    date_limit: Optional[str],
+    lang: str = DEFAULT_LANG,
+) -> tuple[int, str]:
+    """Return (revid, wikitext) for the most recent revision up to date_limit.
+
+    Cache is keyed on (article, date_limit, lang) so analyses that touch the
+    same article across multiple Wikipedia language editions don't collide.
+    """
+    key = (article_name, date_limit, lang)
     with _cache_lock:
         if key in _wikitext_cache:
             return _wikitext_cache[key]
 
     from wiki_api import get_article_recent
-    result = get_article_recent(article_name, date_limit)
+    result = get_article_recent(article_name, date_limit, lang=lang)
     revid = result["metadata"].get("revid", 0) or 0
     wikitext = result["wikitext"]
 
@@ -185,11 +195,12 @@ def extract_with_regex(
     article_name: str,
     regexp: str,
     date_limit: Optional[str] = None,
+    lang: str = DEFAULT_LANG,
 ) -> list[dict]:
     """Apply a regex to the most recent article wikitext."""
-    revid, wikitext = _get_wikitext(article_name, date_limit)
+    revid, wikitext = _get_wikitext(article_name, date_limit, lang)
     return [
-        {"art": article_name, "revid": revid, "match": m}
+        {"art": article_name, "lang": lang, "revid": revid, "match": m}
         for m in re.findall(regexp, wikitext)
     ]
 
@@ -197,15 +208,17 @@ def extract_with_regex(
 def extract_all_regex(
     article_name: str,
     date_limit: Optional[str] = None,
+    lang: str = DEFAULT_LANG,
 ) -> list[dict]:
     """Apply all built-in patterns to the most recent article wikitext."""
-    revid, wikitext = _get_wikitext(article_name, date_limit)
+    revid, wikitext = _get_wikitext(article_name, date_limit, lang)
     rows: list[dict] = []
     for pattern_name, compiled in ALL_PATTERNS.items():
         for m in compiled.findall(wikitext):
             match_str = m if isinstance(m, str) else (m[0] if m else "")
             rows.append({
                 "art": article_name,
+                "lang": lang,
                 "revid": revid,
                 "pattern_name": pattern_name,
                 "match": match_str,
@@ -216,9 +229,10 @@ def extract_all_regex(
 def parse_citations(
     article_name: str,
     date_limit: Optional[str] = None,
+    lang: str = DEFAULT_LANG,
 ) -> list[dict]:
     """Structured citation table (one row per citation template)."""
-    revid, wikitext = _get_wikitext(article_name, date_limit)
+    revid, wikitext = _get_wikitext(article_name, date_limit, lang)
     wikicode = mwparserfromhell.parse(wikitext)
     rows: list[dict] = []
     for i, t in enumerate(
@@ -227,6 +241,7 @@ def parse_citations(
         params = {str(p.name).strip(): str(p.value).strip() for p in t.params}
         rows.append({
             "art": article_name,
+            "lang": lang,
             "revid": revid,
             "cite_type": _cite_type(str(t.name)),
             "id_cite": i,
@@ -242,9 +257,10 @@ def parse_citations(
 def parse_all_citations(
     article_name: str,
     date_limit: Optional[str] = None,
+    lang: str = DEFAULT_LANG,
 ) -> list[dict]:
     """Full long-form table: one row per citation *field*."""
-    revid, wikitext = _get_wikitext(article_name, date_limit)
+    revid, wikitext = _get_wikitext(article_name, date_limit, lang)
     wikicode = mwparserfromhell.parse(wikitext)
     rows: list[dict] = []
     cite_idx = 0
@@ -256,6 +272,7 @@ def parse_all_citations(
         for p in t.params:
             rows.append({
                 "art":       article_name,
+                "lang":      lang,
                 "revid":     revid,
                 "cite_type": ct,
                 "id_cite":   cite_idx,
@@ -268,21 +285,27 @@ def parse_all_citations(
 def get_citation_types(
     article_name: str,
     date_limit: Optional[str] = None,
+    lang: str = DEFAULT_LANG,
 ) -> list[dict]:
     """Count CS1 citation types for an article."""
-    _, wikitext = _get_wikitext(article_name, date_limit)
+    _, wikitext = _get_wikitext(article_name, date_limit, lang)
     return get_source_type_counts(wikitext)
 
 
 def get_sci_score(
     article_name: str,
     date_limit: Optional[str] = None,
+    lang: str = DEFAULT_LANG,
 ) -> dict:
     """
     sci_score:  fraction of CS1 templates that are cite-journal.
     sci_score2: ratio of DOI count to <ref> tag count.
+
+    The CS1 template names ('cite journal', 'cite book', …) are English even on
+    non-English Wikipedias, so this metric travels across language editions
+    unchanged. SciScore comparisons across languages remain meaningful.
     """
-    revid, wikitext = _get_wikitext(article_name, date_limit)
+    revid, wikitext = _get_wikitext(article_name, date_limit, lang)
 
     type_counts = get_source_type_counts(wikitext)
     total_cs1     = sum(r["count"] for r in type_counts)
@@ -298,6 +321,7 @@ def get_sci_score(
         "sci_score":  round(sci_score, 4),
         "sci_score2": round(sci_score2, 4),
         "article":    article_name,
+        "lang":       lang,
         "revid":      revid,
     }
 
@@ -305,11 +329,12 @@ def get_sci_score(
 def get_top_cited_papers(
     article_name: str,
     date_limit: Optional[str] = None,
+    lang: str = DEFAULT_LANG,
 ) -> list[dict]:
     """Top 40 most-cited DOIs in an article, annotated via EuropePMC."""
     from annotate_utils import annotate_dois_europmc
 
-    _, wikitext = _get_wikitext(article_name, date_limit)
+    _, wikitext = _get_wikitext(article_name, date_limit, lang)
     # Normalize DOIs to lowercase for stable counting (DOIs are case-insensitive
     # per the DOI handbook, even though the registration metadata may preserve case).
     dois = [d.lower() for d in DOI_RE.findall(wikitext)]
@@ -320,5 +345,7 @@ def get_top_cited_papers(
     for row in annotated:
         doi = (row.get("doi") or "").lower()
         row["wiki_count"] = counter.get(doi, 0)
+        row["source_article"] = article_name
+        row["source_lang"]    = lang
 
     return sorted(annotated, key=lambda r: r.get("wiki_count", 0), reverse=True)
