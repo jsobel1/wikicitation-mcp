@@ -99,7 +99,11 @@ result <- tryCatch({
     },
 
     # ── Annotation ─────────────────────────────────────────────────────────────
-    "annotate_dois" = wikilite::annotate_doi_list_europmc(args$doi_list),
+    "annotate_dois"          = wikilite::annotate_doi_list_europmc(args$doi_list),
+    "annotate_dois_crossref" = wikilite::annotate_doi_list_cross_ref(
+      args$doi_list,
+      batch_size = as.integer(args$batch_size %||% 50L)
+    ),
 
     # ── Edit trends ────────────────────────────────────────────────────────────
     "get_revert_counts" = wikilite::get_revert_counts(

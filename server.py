@@ -70,6 +70,26 @@ async def annotate_dois(doi_list: list[str]) -> dict:
 
 
 @mcp.tool()
+async def annotate_dois_crossref(
+    doi_list: list[str],
+    batch_size: int = 50,
+) -> dict:
+    """
+    Annotate a list of DOIs using the CrossRef /works API.
+
+    Returns a tidy table with columns doi, title, authorString, journalTitle,
+    pubYear, pubType, publisher, issn, volume, issue, page, citedByCount.
+    Column names are aligned with annotate_dois (EuropePMC) for easy merging.
+
+    batch_size: number of DOIs per CrossRef request (default 50).
+    """
+    return await call_r_async("annotate_dois_crossref", {
+        "doi_list": doi_list,
+        "batch_size": batch_size,
+    })
+
+
+@mcp.tool()
 async def get_revert_counts(
     start: str,
     end: str,
