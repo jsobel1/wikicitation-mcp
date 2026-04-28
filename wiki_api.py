@@ -19,6 +19,8 @@ from typing import Any, Optional
 
 import httpx
 
+from progress import Progress
+
 logger = logging.getLogger(__name__)
 
 DEFAULT_LANG = "en"
@@ -202,18 +204,24 @@ def _fetch_revisions(
     page_meta: dict = {}
     revisions: list[dict] = []
 
-    while len(revisions) < max_revisions:
-        data = _get(params, lang=lang)
-        pages = data.get("query", {}).get("pages", [])
-        if not pages:
-            break
-        page = pages[0]
-        if not page_meta:
-            page_meta = {k: v for k, v in page.items() if k != "revisions"}
-        revisions.extend(page.get("revisions", []))
-        if "continue" not in data:
-            break
-        params.update(data["continue"])
+    # Pagination size is unknown up front (depends on continue tokens), so we
+    # report in open-ended mode: "fetched N revisions so far".
+    with Progress(f"fetch revisions: {article_name}", total=None,
+                  tick_every=500) as p:
+        while len(revisions) < max_revisions:
+            data = _get(params, lang=lang)
+            pages = data.get("query", {}).get("pages", [])
+            if not pages:
+                break
+            page = pages[0]
+            if not page_meta:
+                page_meta = {k: v for k, v in page.items() if k != "revisions"}
+            new_rows = page.get("revisions", [])
+            revisions.extend(new_rows)
+            p.update(len(new_rows))
+            if "continue" not in data:
+                break
+            params.update(data["continue"])
 
     return page_meta, revisions
 
@@ -257,12 +265,16 @@ def _fetch_category_members(
         "cmlimit": "max",
     }
     members: list[dict] = []
-    for _ in range(max_iterations):
-        data = _get(params, lang=lang)
-        members.extend(data.get("query", {}).get("categorymembers", []))
-        if "continue" not in data:
-            break
-        params.update(data["continue"])
+    with Progress(f"fetch category {cm_type}: {cat_title}", total=None,
+                  tick_every=500) as p:
+        for _ in range(max_iterations):
+            data = _get(params, lang=lang)
+            new_rows = data.get("query", {}).get("categorymembers", [])
+            members.extend(new_rows)
+            p.update(len(new_rows))
+            if "continue" not in data:
+                break
+            params.update(data["continue"])
     return members
 
 
@@ -434,8 +446,10 @@ def get_category_history(
 ) -> list[dict]:
     """Full revision history for a list of articles."""
     result: list[dict] = []
-    for art in article_list:
-        result.extend(get_article_history(art, lang=lang))
+    with Progress("category history", total=len(article_list)) as p:
+        for art in article_list:
+            result.extend(get_article_history(art, lang=lang))
+            p.update()
     return result
 
 
@@ -447,10 +461,12 @@ def get_category_recent(
     """Most recent revision metadata + wikitext for a list of articles."""
     metadata_list: list[dict] = []
     wikitext_list: list[str] = []
-    for art in article_list:
-        r = get_article_recent(art, date_limit, lang=lang)
-        metadata_list.append(r["metadata"])
-        wikitext_list.append(r["wikitext"])
+    with Progress("category recent", total=len(article_list)) as p:
+        for art in article_list:
+            r = get_article_recent(art, date_limit, lang=lang)
+            metadata_list.append(r["metadata"])
+            wikitext_list.append(r["wikitext"])
+            p.update()
     return {"metadata": metadata_list, "wikitext": wikitext_list}
 
 
@@ -459,7 +475,12 @@ def get_category_creation(
     lang: str = DEFAULT_LANG,
 ) -> list[dict]:
     """Creation (first) revision metadata for a list of articles."""
-    return [get_article_initial(art, lang=lang)["metadata"] for art in article_list]
+    out: list[dict] = []
+    with Progress("category creation", total=len(article_list)) as p:
+        for art in article_list:
+            out.append(get_article_initial(art, lang=lang)["metadata"])
+            p.update()
+    return out
 
 
 def get_revert_counts(
@@ -492,13 +513,16 @@ def get_revert_counts(
             "rctype": "edit",
             "rcnamespace": "0",
         }
-        while True:
-            data = _get(params, lang=lang)
-            for rc in data.get("query", {}).get("recentchanges", []):
-                counts[rc["title"]] += 1
-            if "continue" not in data:
-                break
-            params.update(data["continue"])
+        with Progress(f"revert tag {tag}", total=None, tick_every=500) as p:
+            while True:
+                data = _get(params, lang=lang)
+                rows = data.get("query", {}).get("recentchanges", [])
+                for rc in rows:
+                    counts[rc["title"]] += 1
+                p.update(len(rows))
+                if "continue" not in data:
+                    break
+                params.update(data["continue"])
 
     return [
         {"title": title, "revert_count": count}

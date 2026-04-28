@@ -23,6 +23,8 @@ from urllib.parse import urlsplit
 
 import httpx
 
+from progress import Progress
+
 logger = logging.getLogger(__name__)
 
 # Set CROSSREF_MAILTO env var (or edit here) to opt into the CrossRef polite pool.
@@ -171,28 +173,31 @@ def annotate_dois_europmc(doi_list: list[str]) -> list[dict]:
     # EuropePMC accepts long boolean queries; 25 DOIs per call is a comfortable
     # ceiling that keeps URL length under provider/proxy limits.
     BATCH = 25
-    for i in range(0, len(unique), BATCH):
-        chunk = unique[i : i + BATCH]
-        query = " OR ".join(f'DOI:"{d}"' for d in chunk)
-        r = _get(_EPMC_URL, params={
-            "query":      query,
-            "resultType": "core",
-            "pageSize":   max(25, len(chunk) * 2),
-            "format":     "json",
-        })
-        if r is None or r.status_code != 200:
-            for d in chunk:
-                by_doi.setdefault(d.lower(), {
-                    "doi": d.lower(),
-                    "error": f"HTTP {r.status_code if r else 'transport'}",
-                })
-            continue
+    with Progress(f"EuropePMC DOI annotation", total=len(unique)) as p:
+        for i in range(0, len(unique), BATCH):
+            chunk = unique[i : i + BATCH]
+            query = " OR ".join(f'DOI:"{d}"' for d in chunk)
+            r = _get(_EPMC_URL, params={
+                "query":      query,
+                "resultType": "core",
+                "pageSize":   max(25, len(chunk) * 2),
+                "format":     "json",
+            })
+            if r is None or r.status_code != 200:
+                for d in chunk:
+                    by_doi.setdefault(d.lower(), {
+                        "doi": d.lower(),
+                        "error": f"HTTP {r.status_code if r else 'transport'}",
+                    })
+                p.update(len(chunk))
+                continue
 
-        results = r.json().get("resultList", {}).get("result", []) or []
-        for rec in results:
-            rec_doi = (rec.get("doi") or "").lower()
-            if rec_doi:
-                by_doi[rec_doi] = _epmc_extract(rec, rec_doi)
+            results = r.json().get("resultList", {}).get("result", []) or []
+            for rec in results:
+                rec_doi = (rec.get("doi") or "").lower()
+                if rec_doi:
+                    by_doi[rec_doi] = _epmc_extract(rec, rec_doi)
+            p.update(len(chunk))
 
     # Emit rows in input order; fill misses with placeholder.
     rows: list[dict] = []
@@ -214,32 +219,34 @@ _CROSSREF_BASE = "https://api.crossref.org/works"
 def annotate_dois_crossref(doi_list: list[str]) -> list[dict]:
     """Annotate DOIs via CrossRef REST API (one request per DOI, polite pool)."""
     results: list[dict] = []
-    for doi in doi_list:
-        r = _get(
-            f"{_CROSSREF_BASE}/{doi}",
-            params={"mailto": _POLITE_MAILTO},
-        )
-        if r is None or r.status_code != 200:
-            results.append({"doi": doi,
-                            "error": f"HTTP {r.status_code if r else 'transport'}"})
-            continue
-        msg = r.json().get("message", {})
-        pub = msg.get("published-print", msg.get("published-online", {}))
-        year = (pub.get("date-parts", [[None]])[0] or [None])[0]
-        results.append({
-            "doi":                   doi,
-            "title":                 " ".join(msg.get("title", [])),
-            "authors":               [
-                f"{a.get('given','')} {a.get('family','')}".strip()
-                for a in msg.get("author", [])
-            ],
-            "journal":               " ".join(msg.get("container-title", [])),
-            "year":                  year,
-            "publisher":             msg.get("publisher", ""),
-            "type":                  msg.get("type", ""),
-            "is_referenced_by_count": msg.get("is-referenced-by-count", 0),
-            "url":                   msg.get("URL", ""),
-        })
+    with Progress("CrossRef DOI annotation", total=len(doi_list)) as p:
+        for doi in doi_list:
+            r = _get(
+                f"{_CROSSREF_BASE}/{doi}",
+                params={"mailto": _POLITE_MAILTO},
+            )
+            p.update()
+            if r is None or r.status_code != 200:
+                results.append({"doi": doi,
+                                "error": f"HTTP {r.status_code if r else 'transport'}"})
+                continue
+            msg = r.json().get("message", {})
+            pub = msg.get("published-print", msg.get("published-online", {}))
+            year = (pub.get("date-parts", [[None]])[0] or [None])[0]
+            results.append({
+                "doi":                   doi,
+                "title":                 " ".join(msg.get("title", [])),
+                "authors":               [
+                    f"{a.get('given','')} {a.get('family','')}".strip()
+                    for a in msg.get("author", [])
+                ],
+                "journal":               " ".join(msg.get("container-title", [])),
+                "year":                  year,
+                "publisher":             msg.get("publisher", ""),
+                "type":                  msg.get("type", ""),
+                "is_referenced_by_count": msg.get("is-referenced-by-count", 0),
+                "url":                   msg.get("URL", ""),
+            })
     return results
 
 
@@ -253,8 +260,10 @@ _ALTMETRIC_BASE = "https://api.altmetric.com/v1"
 def annotate_dois_altmetric(doi_list: list[str]) -> list[dict]:
     """Altmetric attention scores for a list of DOIs (1 req/s free tier)."""
     results: list[dict] = []
-    for doi in doi_list:
+    with Progress("Altmetric DOI annotation", total=len(doi_list)) as p:
+      for doi in doi_list:
         r = _get(f"{_ALTMETRIC_BASE}/doi/{doi}")
+        p.update()
         if r is None:
             results.append({"doi": doi, "error": "transport"})
             continue
@@ -286,16 +295,18 @@ def annotate_dois_altmetric(doi_list: list[str]) -> list[dict]:
 def annotate_dois_bibtex(doi_list: list[str]) -> dict:
     """Retrieve BibTeX entries for DOIs via CrossRef content negotiation."""
     entries: list[str] = []
-    for doi in doi_list:
-        r = _get(
-            f"https://doi.org/{doi}",
-            extra_headers={"Accept": "application/x-bibtex"},
-            follow_redirects=True,
-        )
-        entries.append(
-            r.text.strip() if r and r.status_code == 200
-            else f"% DOI {doi}: HTTP {r.status_code if r else 'transport'}"
-        )
+    with Progress("BibTeX DOI fetch", total=len(doi_list)) as p:
+        for doi in doi_list:
+            r = _get(
+                f"https://doi.org/{doi}",
+                extra_headers={"Accept": "application/x-bibtex"},
+                follow_redirects=True,
+            )
+            entries.append(
+                r.text.strip() if r and r.status_code == 200
+                else f"% DOI {doi}: HTTP {r.status_code if r else 'transport'}"
+            )
+            p.update()
     return {"bibtex_entries": entries}
 
 
@@ -367,9 +378,11 @@ def annotate_isbn_openlib(isbn: str) -> dict:
 def annotate_isbns_altmetric(isbn_list: list[str]) -> list[dict]:
     """Altmetric attention scores for a list of ISBNs."""
     results: list[dict] = []
-    for isbn in isbn_list:
+    with Progress("Altmetric ISBN annotation", total=len(isbn_list)) as p:
+     for isbn in isbn_list:
         clean = isbn.replace("-", "").replace(" ", "")
         r = _get(f"{_ALTMETRIC_BASE}/isbn/{clean}")
+        p.update()
         if r is None:
             results.append({"isbn": isbn, "error": "transport"})
             continue
