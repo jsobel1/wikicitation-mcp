@@ -17,6 +17,12 @@ from typing import Optional
 
 import mwparserfromhell
 
+from citation_templates import (
+    classify_template,
+    canonical_field,
+    disambiguate_de_literatur,
+)
+
 # ---------------------------------------------------------------------------
 # Compiled regex patterns (mirrors wikilite pkg.env regexps)
 # ---------------------------------------------------------------------------
@@ -50,13 +56,52 @@ ALL_PATTERNS: dict[str, re.Pattern] = {
 # ---------------------------------------------------------------------------
 
 def _is_cs1(name: str) -> bool:
+    """Legacy English-only check, retained for backward compatibility."""
     n = name.strip().lower()
     return n.startswith("cite ") or n == "citation"
 
 
 def _cite_type(template_name: str) -> str:
+    """Legacy English type extraction (returns whatever follows 'cite ')."""
     n = template_name.strip().lower()
     return n.replace("cite ", "", 1) if n.startswith("cite ") else n
+
+
+def _is_citation(template_name: str, lang: str) -> bool:
+    """Multilingual citation-template detector — knows en/fr/de/es/it/pt natively."""
+    return classify_template(template_name, lang) is not None
+
+
+def _classify(template, lang: str) -> str | None:
+    """
+    Resolve a parsed template to a canonical citation type, with a special
+    case for de:Literatur which is disambiguated by the parameter set.
+    """
+    name = str(template.name).strip()
+    typ = classify_template(name, lang)
+    if typ is None:
+        return None
+    if lang.startswith("de") and name.strip().lower() == "literatur":
+        fields = {str(p.name).strip().lower(): str(p.value) for p in template.params}
+        return disambiguate_de_literatur(fields)
+    return typ
+
+
+def _extract_canonical(template, lang: str) -> dict[str, str]:
+    """
+    Pull canonical fields (title/author/year/doi/isbn/pmid/url/journal/...)
+    from a template, mapping native parameter names through the language's
+    FIELD_ALIASES table. Native params with no canonical mapping are dropped.
+    """
+    out: dict[str, str] = {}
+    for p in template.params:
+        canon = canonical_field(str(p.name), lang)
+        if canon is None:
+            continue
+        val = str(p.value).strip()
+        if val and canon not in out:  # first non-empty wins
+            out[canon] = val
+    return out
 
 
 # ---------------------------------------------------------------------------
@@ -127,13 +172,14 @@ def parse_cite_type(text: str) -> dict:
     }
 
 
-def get_source_type_counts(text: str) -> list[dict]:
-    """Count CS1 citation types in raw wikitext."""
+def get_source_type_counts(text: str, lang: str = "en") -> list[dict]:
+    """Count citation types in raw wikitext, recognizing the language's templates."""
     wikicode = mwparserfromhell.parse(text)
     counts: Counter[str] = Counter()
     for t in wikicode.filter_templates():
-        if _is_cs1(str(t.name)):
-            counts[_cite_type(str(t.name))] += 1
+        typ = _classify(t, lang)
+        if typ is not None:
+            counts[typ] += 1
     return [{"cite_type": ct, "count": c} for ct, c in counts.most_common()]
 
 
@@ -231,25 +277,42 @@ def parse_citations(
     date_limit: Optional[str] = None,
     lang: str = DEFAULT_LANG,
 ) -> list[dict]:
-    """Structured citation table (one row per citation template)."""
+    """
+    Structured citation table — one row per citation template.
+
+    Recognizes the language's native citation templates (Article/Ouvrage on fr,
+    Literatur/Internetquelle on de, Cita libro on es, etc.) and pulls canonical
+    fields (doi, isbn, title, author, year, url, journal) regardless of whether
+    the underlying template uses English, French, German, Spanish, Italian, or
+    Portuguese parameter names.
+    """
     revid, wikitext = _get_wikitext(article_name, date_limit, lang)
     wikicode = mwparserfromhell.parse(wikitext)
     rows: list[dict] = []
-    for i, t in enumerate(
-        (t for t in wikicode.filter_templates() if _is_cs1(str(t.name))), start=1
-    ):
-        params = {str(p.name).strip(): str(p.value).strip() for p in t.params}
+    cite_idx = 0
+    for t in wikicode.filter_templates():
+        typ = _classify(t, lang)
+        if typ is None:
+            continue
+        cite_idx += 1
+        fields = _extract_canonical(t, lang)
         rows.append({
-            "art": article_name,
-            "lang": lang,
-            "revid": revid,
-            "cite_type": _cite_type(str(t.name)),
-            "id_cite": i,
-            "doi":    params.get("doi", ""),
-            "author": params.get("author", params.get("author1",
-                      params.get("last", params.get("last1", "")))),
-            "year":   params.get("year", ""),
-            "title":  params.get("title", ""),
+            "art":         article_name,
+            "lang":        lang,
+            "revid":       revid,
+            "cite_type":   typ,
+            "template":    str(t.name).strip(),
+            "id_cite":     cite_idx,
+            "doi":         fields.get("doi", ""),
+            "isbn":        fields.get("isbn", ""),
+            "pmid":        fields.get("pmid", ""),
+            "url":         fields.get("url", ""),
+            "title":       fields.get("title", ""),
+            "author":      fields.get("author", ""),
+            "year":        fields.get("year", ""),
+            "journal":     fields.get("journal", ""),
+            "publisher":   fields.get("publisher", ""),
+            "accessdate":  fields.get("accessdate", ""),
         })
     return rows
 
@@ -259,25 +322,32 @@ def parse_all_citations(
     date_limit: Optional[str] = None,
     lang: str = DEFAULT_LANG,
 ) -> list[dict]:
-    """Full long-form table: one row per citation *field*."""
+    """
+    Full long-form table — one row per template *field*. Each row also carries
+    the canonical mapping (when available) so downstream consumers can filter
+    on canonical names without re-implementing the alias table.
+    """
     revid, wikitext = _get_wikitext(article_name, date_limit, lang)
     wikicode = mwparserfromhell.parse(wikitext)
     rows: list[dict] = []
     cite_idx = 0
     for t in wikicode.filter_templates():
-        if not _is_cs1(str(t.name)):
+        typ = _classify(t, lang)
+        if typ is None:
             continue
         cite_idx += 1
-        ct = _cite_type(str(t.name))
         for p in t.params:
+            native = str(p.name).strip()
             rows.append({
-                "art":       article_name,
-                "lang":      lang,
-                "revid":     revid,
-                "cite_type": ct,
-                "id_cite":   cite_idx,
-                "variable":  str(p.name).strip(),
-                "value":     str(p.value).strip(),
+                "art":              article_name,
+                "lang":             lang,
+                "revid":            revid,
+                "cite_type":        typ,
+                "template":         str(t.name).strip(),
+                "id_cite":          cite_idx,
+                "variable":         native,
+                "canonical_field":  canonical_field(native, lang) or "",
+                "value":            str(p.value).strip(),
             })
     return rows
 
@@ -287,9 +357,9 @@ def get_citation_types(
     date_limit: Optional[str] = None,
     lang: str = DEFAULT_LANG,
 ) -> list[dict]:
-    """Count CS1 citation types for an article."""
+    """Count canonical citation types for an article in its native language."""
     _, wikitext = _get_wikitext(article_name, date_limit, lang)
-    return get_source_type_counts(wikitext)
+    return get_source_type_counts(wikitext, lang=lang)
 
 
 def get_sci_score(
@@ -307,7 +377,7 @@ def get_sci_score(
     """
     revid, wikitext = _get_wikitext(article_name, date_limit, lang)
 
-    type_counts = get_source_type_counts(wikitext)
+    type_counts = get_source_type_counts(wikitext, lang=lang)
     total_cs1     = sum(r["count"] for r in type_counts)
     journal_count = next(
         (r["count"] for r in type_counts if r["cite_type"] == "journal"), 0
