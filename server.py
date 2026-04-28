@@ -46,12 +46,6 @@ async def get_sci_score(text: str) -> dict:
 
 
 @mcp.tool()
-async def get_sci_score2(text: str) -> dict:
-    """Compute SciScore2 (DOI-to-ref ratio) for wikitext."""
-    return await call_r_async("get_sci_score2", {"text": text})
-
-
-@mcp.tool()
 async def get_doi_count(text: str) -> dict:
     """Count DOIs in a wikitext string."""
     return await call_r_async("get_doi_count", {"text": text})

@@ -306,7 +306,7 @@ def test_get_sci_score_zeitgeber():
         "date_limit": "2022-01-01T00:00:00Z",
     })
     assert "sci_score" in result
-    assert "sci_score2" in result
+    assert "sci_score2" not in result
     assert 0.0 <= result["sci_score"] <= 1.0
 
 

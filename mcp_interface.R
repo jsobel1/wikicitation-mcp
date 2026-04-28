@@ -78,11 +78,8 @@ result <- tryCatch({
         date_an <- args$date_an %||% args$date_limit %||% NULL
         .fetch_wikitext(args$article_name, date_an, args$lang %||% "en")
       }
-      list(sci_score  = wikilite::get_sci_score(wikitext),
-           sci_score2 = wikilite::get_sci_score2(wikitext))
+      list(sci_score = wikilite::get_sci_score(wikitext))
     },
-
-    "get_sci_score2" = list(sci_score2 = wikilite::get_sci_score2(args$text)),
 
     # ── Citation extraction & parsing ──────────────────────────────────────────
     "extract_citations" = wikilite::extract_citations(args$text),

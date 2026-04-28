@@ -196,8 +196,7 @@ def test_get_sci_score_values():
     assert result["article"] == "Zeitgeber"
     # 1 journal / 3 total CS1
     assert abs(result["sci_score"] - round(1 / 3, 4)) < 1e-4
-    # 1 DOI / 2 refs
-    assert abs(result["sci_score2"] - 0.5) < 1e-4
+    assert "sci_score2" not in result
 
 
 def test_get_sci_score_no_citations():
@@ -205,7 +204,7 @@ def test_get_sci_score_no_citations():
     with patch("citation_utils._get_wikitext", return_value=(1, empty)):
         result = cu.get_sci_score("Empty", "2024-01-01T00:00:00Z")
     assert result["sci_score"] == 0.0
-    assert result["sci_score2"] == 0.0
+    assert "sci_score2" not in result
 
 
 # ---------------------------------------------------------------------------

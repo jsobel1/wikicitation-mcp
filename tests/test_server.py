@@ -72,15 +72,6 @@ async def test_get_sci_score_returns_float():
         assert 0.0 <= result["sci_score"] <= 1.0
 
 
-@pytest.mark.asyncio
-async def test_get_sci_score2_calls_r():
-    with _patch_r({"sci_score2": 0.6}) as mock_r:
-        from server import get_sci_score2
-        result = await get_sci_score2("wikitext with DOI 10.1038/test")
-        mock_r.assert_called_once()
-        assert "sci_score2" in result
-
-
 # ── Article retrieval ─────────────────────────────────────────────────────────
 
 @pytest.mark.asyncio

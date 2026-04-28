@@ -368,12 +368,11 @@ def get_sci_score(
     lang: str = DEFAULT_LANG,
 ) -> dict:
     """
-    sci_score:  fraction of CS1 templates that are cite-journal.
-    sci_score2: ratio of DOI count to <ref> tag count.
+    sci_score: fraction of citation templates that are journal citations.
 
-    The CS1 template names ('cite journal', 'cite book', …) are English even on
-    non-English Wikipedias, so this metric travels across language editions
-    unchanged. SciScore comparisons across languages remain meaningful.
+    Multilingual: the per-language registry classifies native templates
+    (Article/Ouvrage on fr, Literatur on de, …) into canonical types, so
+    SciScore comparisons across language editions remain meaningful.
     """
     revid, wikitext = _get_wikitext(article_name, date_limit, lang)
 
@@ -382,14 +381,10 @@ def get_sci_score(
     journal_count = next(
         (r["count"] for r in type_counts if r["cite_type"] == "journal"), 0
     )
-    sci_score  = journal_count / total_cs1 if total_cs1 else 0.0
-    doi_count  = get_doi_count(wikitext)
-    ref_count  = get_ref_count(wikitext)
-    sci_score2 = doi_count / ref_count if ref_count else 0.0
+    sci_score = journal_count / total_cs1 if total_cs1 else 0.0
 
     return {
         "sci_score":  round(sci_score, 4),
-        "sci_score2": round(sci_score2, 4),
         "article":    article_name,
         "lang":       lang,
         "revid":      revid,

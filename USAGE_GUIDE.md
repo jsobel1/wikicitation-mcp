@@ -43,7 +43,6 @@ total reference count, and DOI count. Summarise in a table.
 | Metric | Value |
 |--------|-------|
 | SciScore (journal%) | 0.78 |
-| SciScore2 (DOI/ref ratio) | 0.65 |
 | Total `<ref>` tags | 84 |
 | DOI count | 55 |
 

@@ -155,9 +155,8 @@ the returned rows by timestamp.
 | Field | Formula | Meaning |
 |---|---|---|
 | `sci_score` | journal citations ÷ total CS1 citations | Proportion of references that are peer-reviewed journal articles |
-| `sci_score2` | DOI count ÷ `<ref>` tag count | Proportion of footnotes that have a resolvable DOI |
 
-Both range from 0 to 1; higher = more scientifically sourced.
+Range 0 to 1; higher = more scientifically sourced.
 
 ### Altmetric
 
@@ -208,7 +207,7 @@ For production use, set the `ALTMETRIC_KEY` environment variable.
 | `parse_all_citations` | `article_name`, `date_limit` | long-form table: one row per citation field |
 | `get_citation_types` | `article_name`, `date_limit` | citation counts by CS1 type |
 | `get_source_type_counts` | `text` | citation counts by CS1 type from raw wikitext |
-| `get_sci_score` | `article_name`, `date_limit` | `sci_score` and `sci_score2` (see above) |
+| `get_sci_score` | `article_name`, `date_limit` | `sci_score` (see above) |
 | `get_top_cited_papers` | `article_name`, `date_limit` | top 40 DOIs annotated via EuropePMC |
 | `get_revert_counts` | `start`, `end` | revert-tagged edit counts by article (≤30-day window) |
 
