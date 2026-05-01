@@ -273,7 +273,18 @@ for date ranges older than that will return empty results.
 
 ---
 
-## Related
+## Related projects
+
+These three projects share the same core analysis logic at three different
+levels of interactivity — pick the one that matches how you want to work.
+
+| Project | Interface | When to use |
+|---|---|---|
+| **wikicitation-mcp** *(this repo)* | MCP server for Claude Desktop / Claude Code / claude.ai | You want to ask Claude questions in natural language and have it call the tools for you. Pure Python, no R required. |
+| [**wikilite**](https://github.com/jsobel1/wikilite) | R package | You want a programmable pipeline in R / R Markdown / Quarto with full access to revision tables, citation parsers, and ggplot2 / plotly / visNetwork output. |
+| [**wikiliteApp**](https://github.com/jsobel1/wikiliteApp) | Shiny web app (built on `wikilite`) | You want a point-and-click GUI: per-article tabs (History Flow, Citations, Authorship, Stability with SciScore-over-time, Vandalism & Wars, WikiWho-powered Revision Inspector) and a Corpus Analysis mode (multi-corpus timeline, per-article + per-corpus SciScore, co-citation / publication / wikilink networks, batched EuropePMC + Google Books annotation, multi-sheet XLSX exports). |
+
+## External references
 
 - [Model Context Protocol](https://modelcontextprotocol.io) — MCP specification
 - [FastMCP](https://gofastmcp.com) — Python MCP framework used here
