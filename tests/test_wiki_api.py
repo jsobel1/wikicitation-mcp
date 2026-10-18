@@ -44,7 +44,7 @@ def test_get_article_info_returns_dict():
         "pageid": 12345, "ns": 0, "title": "Zeitgeber",
         "length": 17000, "lastrevid": 999,
     }])
-    with patch("wiki_api.httpx.get", return_value=_mock_response(payload)):
+    with patch("wiki_api._client.get", return_value=_mock_response(payload)):
         result = wiki_api.get_article_info("Zeitgeber")
     assert result["title"] == "Zeitgeber"
     assert result["pageid"] == 12345
@@ -52,7 +52,7 @@ def test_get_article_info_returns_dict():
 
 def test_get_article_info_empty_pages():
     payload = _wiki_pages_response([])
-    with patch("wiki_api.httpx.get", return_value=_mock_response(payload)):
+    with patch("wiki_api._client.get", return_value=_mock_response(payload)):
         result = wiki_api.get_article_info("NonExistent")
     assert result == {}
 
@@ -69,7 +69,7 @@ def test_get_article_history_sorted_oldest_first():
          "timestamp": "2021-01-01T00:00:00Z", "size": 100, "comment": "edit1"},
     ]
     payload = _wiki_pages_response([{"pageid": 1, "title": "T", "revisions": revisions}])
-    with patch("wiki_api.httpx.get", return_value=_mock_response(payload)):
+    with patch("wiki_api._client.get", return_value=_mock_response(payload)):
         rows = wiki_api.get_article_history("T", "2023-01-01T00:00:00Z")
     assert rows[0]["timestamp"] < rows[1]["timestamp"]
     assert rows[0]["revid"] == 1
@@ -80,7 +80,7 @@ def test_get_article_history_includes_art_field():
     rev = {"revid": 5, "parentid": 4, "user": "Eve", "userid": 5,
            "timestamp": "2022-01-01T00:00:00Z", "size": 500, "comment": ""}
     payload = _wiki_pages_response([{"pageid": 9, "title": "X", "revisions": [rev]}])
-    with patch("wiki_api.httpx.get", return_value=_mock_response(payload)):
+    with patch("wiki_api._client.get", return_value=_mock_response(payload)):
         rows = wiki_api.get_article_history("X")
     assert rows[0]["art"] == "X"
 
@@ -99,7 +99,7 @@ def test_get_article_history_pagination():
                          "timestamp": "2022-01-01T00:00:00Z", "size": 100, "comment": ""}]}],
     )
     responses = iter([_mock_response(page1), _mock_response(page2)])
-    with patch("wiki_api.httpx.get", side_effect=lambda *a, **kw: next(responses)):
+    with patch("wiki_api._client.get", side_effect=lambda *a, **kw: next(responses)):
         rows = wiki_api.get_article_history("T")
     assert len(rows) == 2
 
@@ -115,7 +115,7 @@ def test_get_article_recent_returns_metadata_and_wikitext():
         "content": "== Wikitext ==\nSome content.",
     }
     payload = _wiki_pages_response([{"pageid": 1, "title": "Art", "revisions": [rev]}])
-    with patch("wiki_api.httpx.get", return_value=_mock_response(payload)):
+    with patch("wiki_api._client.get", return_value=_mock_response(payload)):
         result = wiki_api.get_article_recent("Art")
     assert result["metadata"]["revid"] == 10
     assert "Wikitext" in result["wikitext"]
@@ -123,7 +123,7 @@ def test_get_article_recent_returns_metadata_and_wikitext():
 
 def test_get_article_recent_empty():
     payload = _wiki_pages_response([{"pageid": 1, "title": "Art", "revisions": []}])
-    with patch("wiki_api.httpx.get", return_value=_mock_response(payload)):
+    with patch("wiki_api._client.get", return_value=_mock_response(payload)):
         result = wiki_api.get_article_recent("Art")
     assert result["wikitext"] == ""
     assert result["metadata"] == {}
@@ -140,7 +140,7 @@ def test_get_article_initial_returns_first_rev():
         "content": "First version.",
     }
     payload = _wiki_pages_response([{"pageid": 1, "title": "Art", "revisions": [rev]}])
-    with patch("wiki_api.httpx.get", return_value=_mock_response(payload)):
+    with patch("wiki_api._client.get", return_value=_mock_response(payload)):
         result = wiki_api.get_article_initial("Art")
     assert result["metadata"]["revid"] == 1
     assert result["wikitext"] == "First version."
@@ -156,7 +156,7 @@ def test_get_category_pages_filters_subcats():
         {"pageid": 2, "ns": 14, "title": "Category:Sub", "type": "subcat"},
     ]
     payload = _wiki_catmembers_response(members)
-    with patch("wiki_api.httpx.get", return_value=_mock_response(payload)):
+    with patch("wiki_api._client.get", return_value=_mock_response(payload)):
         pages = wiki_api.get_category_pages("TestCat")
     assert "Article A" in pages
     assert "Category:Sub" not in pages
@@ -164,7 +164,7 @@ def test_get_category_pages_filters_subcats():
 
 def test_get_category_pages_empty():
     payload = _wiki_catmembers_response([])
-    with patch("wiki_api.httpx.get", return_value=_mock_response(payload)):
+    with patch("wiki_api._client.get", return_value=_mock_response(payload)):
         assert wiki_api.get_category_pages("Empty") == []
 
 
@@ -175,7 +175,7 @@ def test_get_category_pages_empty():
 def test_get_subcat_table_replacement():
     members = [{"pageid": 5, "ns": 14, "title": "Category:Sleep Science", "type": "subcat"}]
     payload = _wiki_catmembers_response(members)
-    with patch("wiki_api.httpx.get", return_value=_mock_response(payload)):
+    with patch("wiki_api._client.get", return_value=_mock_response(payload)):
         rows = wiki_api.get_subcat_table("Bio", replacement="_")
     assert rows[0]["title"] == "Category:Sleep_Science"
 
@@ -183,7 +183,7 @@ def test_get_subcat_table_replacement():
 def test_get_subcat_table_no_replacement():
     members = [{"pageid": 5, "ns": 14, "title": "Category:Sleep Science", "type": "subcat"}]
     payload = _wiki_catmembers_response(members)
-    with patch("wiki_api.httpx.get", return_value=_mock_response(payload)):
+    with patch("wiki_api._client.get", return_value=_mock_response(payload)):
         rows = wiki_api.get_subcat_table("Bio", replacement=" ")
     assert rows[0]["title"] == "Category:Sleep Science"
 
@@ -195,7 +195,7 @@ def test_get_subcat_table_no_replacement():
 def test_get_subcat_multiple_source_category():
     members = [{"pageid": 1, "ns": 14, "title": "Category:Sub", "type": "subcat"}]
     payload = _wiki_catmembers_response(members)
-    with patch("wiki_api.httpx.get", return_value=_mock_response(payload)):
+    with patch("wiki_api._client.get", return_value=_mock_response(payload)):
         rows = wiki_api.get_subcat_multiple(["CatA", "CatB"])
     sources = {r["source_category"] for r in rows}
     assert "CatA" in sources
@@ -212,7 +212,7 @@ def test_get_revert_counts_aggregates_tags():
         {"title": "Article B"},
         {"title": "Article A"},
     ]}}
-    with patch("wiki_api.httpx.get", return_value=_mock_response(rc_payload)):
+    with patch("wiki_api._client.get", return_value=_mock_response(rc_payload)):
         rows = wiki_api.get_revert_counts("2024-01-01", "2024-01-31")
     by_title = {r["title"]: r["revert_count"] for r in rows}
     # Each of the 3 tags (mw-reverted, mw-undo, mw-rollback) hits the same mock
@@ -286,3 +286,87 @@ def test_integration_get_category_creation():
     assert len(results) == 2
     for r in results:
         assert r["parentid"] == 0
+
+
+# ---------------------------------------------------------------------------
+# Regression: a capped fetch must not walk the whole history
+# ---------------------------------------------------------------------------
+
+def _rev(i: int) -> dict:
+    return {"revid": i, "parentid": i - 1, "user": "U", "userid": 1,
+            "timestamp": f"2022-01-{i:02d}T00:00:00Z", "size": 10,
+            "comment": "", "content": f"text {i}"}
+
+
+def test_capped_fetch_stops_after_one_request():
+    """rvlimit=1 must issue one request even though MediaWiki sends `continue`.
+
+    Before the fix, get_article_recent / get_article_initial paged through every
+    revision of the article (one request each, with full wikitext).
+    """
+    page = _wiki_pages_response(
+        [{"pageid": 1, "title": "T", "revisions": [_rev(3)]}],
+        cont={"rvcontinue": "next", "continue": "||"},
+    )
+    mock_get = MagicMock(return_value=_mock_response(page))
+    with patch("wiki_api._client.get", mock_get):
+        result = wiki_api.get_article_recent("T")
+    assert mock_get.call_count == 1
+    assert result["metadata"]["revid"] == 3
+    assert result["wikitext"] == "text 3"
+
+
+def test_capped_fetch_trims_to_limit():
+    page = _wiki_pages_response(
+        [{"pageid": 1, "title": "T", "revisions": [_rev(2), _rev(1)]}],
+        cont={"rvcontinue": "next", "continue": "||"},
+    )
+    with patch("wiki_api._client.get", return_value=_mock_response(page)):
+        _, revs = wiki_api._fetch_revisions("T", rvlimit=1)
+    assert len(revs) == 1
+
+
+def test_uncapped_fetch_still_paginates():
+    pages = iter([
+        _mock_response(_wiki_pages_response(
+            [{"pageid": 1, "title": "T", "revisions": [_rev(2)]}],
+            cont={"rvcontinue": "x", "continue": "||"})),
+        _mock_response(_wiki_pages_response(
+            [{"pageid": 1, "title": "T", "revisions": [_rev(1)]}])),
+    ])
+    with patch("wiki_api._client.get", side_effect=lambda *a, **k: next(pages)):
+        _, revs = wiki_api._fetch_revisions("T")
+    assert [r["revid"] for r in revs] == [2, 1]
+
+
+def test_get_article_initial_stops_after_one_request():
+    page = _wiki_pages_response(
+        [{"pageid": 1, "title": "T", "revisions": [_rev(1)]}],
+        cont={"rvcontinue": "next", "continue": "||"},
+    )
+    mock_get = MagicMock(return_value=_mock_response(page))
+    with patch("wiki_api._client.get", mock_get):
+        result = wiki_api.get_article_initial("T")
+    assert mock_get.call_count == 1
+    assert result["metadata"]["revid"] == 1
+
+
+def test_rejects_bad_language_code():
+    with pytest.raises(ValueError):
+        wiki_api.get_article_info("T", lang="en.evil.com/x?")
+
+
+def test_requests_follow_redirects():
+    page = _wiki_pages_response([{"pageid": 1, "title": "T", "revisions": [_rev(1)]}])
+    with patch("wiki_api._client.get", return_value=_mock_response(page)) as m:
+        wiki_api.get_article_recent("T")
+        assert m.call_args.kwargs["params"]["redirects"] == 1
+        wiki_api.get_article_info("T")
+        assert m.call_args.kwargs["params"]["redirects"] == 1
+
+
+@pytest.mark.integration
+def test_integration_redirect_is_resolved():
+    result = wiki_api.get_article_recent("Aspirine", lang="fr")
+    assert not result["wikitext"].lstrip().upper().startswith("#REDIRECT")
+    assert len(result["wikitext"]) > 1000

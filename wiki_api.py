@@ -46,7 +46,10 @@ def _endpoint(lang: str = DEFAULT_LANG) -> str:
 # to the English endpoint.
 _ENDPOINT = _endpoint(DEFAULT_LANG)
 _HEADERS = {
-    "User-Agent": "wikicitation-mcp/0.5 (https://github.com/jsobel1/wikicitation-mcp; jsobel83@gmail.com)"
+    "User-Agent": (
+        "wikicitation-mcp/0.5 "
+        "(https://github.com/jsobel1/wikicitation-mcp; jsobel83@gmail.com)"
+    )
 }
 _RVPROP_META = "ids|user|userid|timestamp|size|comment|tags"
 _RVPROP_FULL = _RVPROP_META + "|content"
@@ -193,6 +196,9 @@ def _fetch_revisions(
         "rvprop": rvprop,
         "rvdir": rvdir,
         "rvlimit": rvlimit,
+        # Follow redirects, otherwise e.g. fr:Aspirine returns the revision of the
+        # "#REDIRECT" stub and every downstream citation metric silently reads 0.
+        "redirects": 1,
     }
     if "content" in rvprop:
         params["rvslots"] = "main"
@@ -219,6 +225,14 @@ def _fetch_revisions(
             new_rows = page.get("revisions", [])
             revisions.extend(new_rows)
             p.update(len(new_rows))
+            # An explicit integer rvlimit is a cap on the *total* number of
+            # revisions wanted. MediaWiki still returns a `continue` token after
+            # a capped batch, so without this check "latest revision" calls
+            # (rvlimit=1) would walk the entire history, one revision per
+            # request, with full wikitext.
+            if isinstance(rvlimit, int) and len(revisions) >= rvlimit:
+                revisions = revisions[:rvlimit]
+                break
             if "continue" not in data:
                 break
             params.update(data["continue"])
@@ -288,7 +302,10 @@ def _now_iso() -> str:
 
 def get_article_info(article_name: str, lang: str = DEFAULT_LANG) -> dict:
     """Current metadata: pageid, title, byte length, last revid, …"""
-    data = _get({"action": "query", "prop": "info", "titles": article_name}, lang=lang)
+    data = _get(
+        {"action": "query", "prop": "info", "titles": article_name, "redirects": 1},
+        lang=lang,
+    )
     pages = data.get("query", {}).get("pages", [])
     if not pages:
         return {}
