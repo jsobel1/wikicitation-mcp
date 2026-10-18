@@ -6,7 +6,6 @@ Per-host rate limits (sources: provider docs / community guidance):
   - EuropePMC:   no published cap; ~10 req/s polite ceiling, supports batched DOI queries.
   - CrossRef:    50 req/s on the public pool; identical limit on the polite pool but
                  with priority + lower throttle risk when a `mailto=` is provided.
-  - Altmetric:   1 req/s without an API key (this is the documented free-tier cap).
   - Google Books / Open Library: ~10 req/s polite ceiling.
 
 All HTTP calls now share a connection-pooled httpx.Client, retry 429/5xx with
@@ -16,10 +15,11 @@ many-DOI batch can't accidentally exceed the documented rate.
 from __future__ import annotations
 
 import logging
+import os
 import threading
 import time
 from typing import Optional
-from urllib.parse import urlsplit
+from urllib.parse import quote, urlsplit
 
 import httpx
 
@@ -27,12 +27,16 @@ from progress import Progress
 
 logger = logging.getLogger(__name__)
 
-# Set CROSSREF_MAILTO env var (or edit here) to opt into the CrossRef polite pool.
-_POLITE_MAILTO = "jsobel83@gmail.com"
+# Set the CROSSREF_MAILTO env var to identify yourself to CrossRef's polite pool.
+_POLITE_MAILTO = os.environ.get("CROSSREF_MAILTO", "jsobel83@gmail.com")
+
+# Optional Google Books API key. Keyless requests share a small per-IP quota and
+# are frequently answered with HTTP 429; a key gives each user their own quota.
+_GOOGLE_BOOKS_KEY = os.environ.get("GOOGLE_BOOKS_API_KEY", "")
 
 _HEADERS = {
     "User-Agent": (
-        f"wikicitation-mcp/0.4 "
+        f"wikicitation-mcp/0.5 "
         f"(https://github.com/jsobel1/wikicitation-mcp; mailto:{_POLITE_MAILTO})"
     )
 }
@@ -42,7 +46,6 @@ _MIN_INTERVAL_S: dict[str, float] = {
     "www.ebi.ac.uk":         0.10,   # EuropePMC: ~10/s polite
     "api.crossref.org":      0.05,   # CrossRef: 50/s public+polite
     "doi.org":               0.10,
-    "api.altmetric.com":     1.00,   # Altmetric: 1/s free tier
     "www.googleapis.com":    0.10,
     "openlibrary.org":       0.10,
 }
@@ -90,8 +93,14 @@ def _get(
     extra_headers: Optional[dict] = None,
     follow_redirects: bool = False,
 ) -> Optional[httpx.Response]:
-    """Throttled, retrying GET. Returns None after exhausting retries on transport errors."""
+    """Throttled, retrying GET.
+
+    Retries 429/5xx and transport errors with backoff. If retries run out, the
+    last HTTP response is returned (so callers can report "HTTP 429" rather than
+    a vague transport failure); None means no response was ever received.
+    """
     headers = {**_HEADERS, **(extra_headers or {})}
+    last_response: Optional[httpx.Response] = None
 
     for attempt in range(_MAX_RETRIES):
         _throttle(url)
@@ -110,18 +119,20 @@ def _get(
             continue
 
         if r.status_code in (429, 503):
+            last_response = r
             sleep_s = _backoff(attempt, r.headers.get("Retry-After"))
             logger.warning("annotate_utils %s HTTP %d (attempt %d) — sleeping %.1fs",
                            url, r.status_code, attempt + 1, sleep_s)
             time.sleep(sleep_s)
             continue
         if 500 <= r.status_code < 600:
+            last_response = r
             time.sleep(_backoff(attempt))
             continue
         return r
 
     logger.error("annotate_utils: exhausted retries on %s", url)
-    return None
+    return last_response
 
 
 # ---------------------------------------------------------------------------
@@ -173,7 +184,7 @@ def annotate_dois_europmc(doi_list: list[str]) -> list[dict]:
     # EuropePMC accepts long boolean queries; 25 DOIs per call is a comfortable
     # ceiling that keeps URL length under provider/proxy limits.
     BATCH = 25
-    with Progress(f"EuropePMC DOI annotation", total=len(unique)) as p:
+    with Progress("EuropePMC DOI annotation", total=len(unique)) as p:
         for i in range(0, len(unique), BATCH):
             chunk = unique[i : i + BATCH]
             query = " OR ".join(f'DOI:"{d}"' for d in chunk)
@@ -222,7 +233,7 @@ def annotate_dois_crossref(doi_list: list[str]) -> list[dict]:
     with Progress("CrossRef DOI annotation", total=len(doi_list)) as p:
         for doi in doi_list:
             r = _get(
-                f"{_CROSSREF_BASE}/{doi}",
+                f"{_CROSSREF_BASE}/{quote(doi, safe='/')}",
                 params={"mailto": _POLITE_MAILTO},
             )
             p.update()
@@ -251,44 +262,6 @@ def annotate_dois_crossref(doi_list: list[str]) -> list[dict]:
 
 
 # ---------------------------------------------------------------------------
-# Altmetric
-# ---------------------------------------------------------------------------
-
-_ALTMETRIC_BASE = "https://api.altmetric.com/v1"
-
-
-def annotate_dois_altmetric(doi_list: list[str]) -> list[dict]:
-    """Altmetric attention scores for a list of DOIs (1 req/s free tier)."""
-    results: list[dict] = []
-    with Progress("Altmetric DOI annotation", total=len(doi_list)) as p:
-      for doi in doi_list:
-        r = _get(f"{_ALTMETRIC_BASE}/doi/{doi}")
-        p.update()
-        if r is None:
-            results.append({"doi": doi, "error": "transport"})
-            continue
-        if r.status_code == 404:
-            results.append({"doi": doi, "altmetric_score": None})
-            continue
-        if r.status_code != 200:
-            results.append({"doi": doi, "error": f"HTTP {r.status_code}"})
-            continue
-        d = r.json()
-        results.append({
-            "doi":                      doi,
-            "altmetric_score":          d.get("score"),
-            "altmetric_id":             d.get("altmetric_id"),
-            "cited_by_tweeters_count":  d.get("cited_by_tweeters_count", 0),
-            "cited_by_accounts_count":  d.get("cited_by_accounts_count", 0),
-            "cited_by_msm_count":       d.get("cited_by_msm_count", 0),
-            "cited_by_fbwalls_count":   d.get("cited_by_fbwalls_count", 0),
-            "readers_count":            d.get("readers_count", 0),
-            "url":                      d.get("details_url", ""),
-        })
-    return results
-
-
-# ---------------------------------------------------------------------------
 # BibTeX via CrossRef content negotiation
 # ---------------------------------------------------------------------------
 
@@ -298,7 +271,7 @@ def annotate_dois_bibtex(doi_list: list[str]) -> dict:
     with Progress("BibTeX DOI fetch", total=len(doi_list)) as p:
         for doi in doi_list:
             r = _get(
-                f"https://doi.org/{doi}",
+                f"https://doi.org/{quote(doi, safe='/')}",
                 extra_headers={"Accept": "application/x-bibtex"},
                 follow_redirects=True,
             )
@@ -320,9 +293,16 @@ _GOOGLE_BOOKS = "https://www.googleapis.com/books/v1/volumes"
 def annotate_isbn_google(isbn: str) -> dict:
     """Book metadata from Google Books for one ISBN."""
     clean = isbn.replace("-", "").replace(" ", "")
-    r = _get(_GOOGLE_BOOKS, params={"q": f"isbn:{clean}"})
+    params = {"q": f"isbn:{clean}"}
+    if _GOOGLE_BOOKS_KEY:
+        params["key"] = _GOOGLE_BOOKS_KEY
+    r = _get(_GOOGLE_BOOKS, params=params)
     if r is None or r.status_code != 200:
-        return {"isbn": isbn, "error": f"HTTP {r.status_code if r else 'transport'}"}
+        err = f"HTTP {r.status_code if r else 'transport'}"
+        if r is not None and r.status_code == 429 and not _GOOGLE_BOOKS_KEY:
+            err += (" (keyless quota exhausted; set GOOGLE_BOOKS_API_KEY "
+                    "or use annotate_isbn_openlib)")
+        return {"isbn": isbn, "error": err}
     items = r.json().get("items", [])
     if not items:
         return {"isbn": isbn, "error": "not found"}
@@ -369,35 +349,3 @@ def annotate_isbn_openlib(isbn: str) -> dict:
         "number_of_pages": info.get("number_of_pages"),
         "subjects":        [s.get("name", "") for s in info.get("subjects", [])[:10]],
     }
-
-
-# ---------------------------------------------------------------------------
-# ISBN — Altmetric
-# ---------------------------------------------------------------------------
-
-def annotate_isbns_altmetric(isbn_list: list[str]) -> list[dict]:
-    """Altmetric attention scores for a list of ISBNs."""
-    results: list[dict] = []
-    with Progress("Altmetric ISBN annotation", total=len(isbn_list)) as p:
-     for isbn in isbn_list:
-        clean = isbn.replace("-", "").replace(" ", "")
-        r = _get(f"{_ALTMETRIC_BASE}/isbn/{clean}")
-        p.update()
-        if r is None:
-            results.append({"isbn": isbn, "error": "transport"})
-            continue
-        if r.status_code == 404:
-            results.append({"isbn": isbn, "altmetric_score": None})
-            continue
-        if r.status_code != 200:
-            results.append({"isbn": isbn, "error": f"HTTP {r.status_code}"})
-            continue
-        d = r.json()
-        results.append({
-            "isbn":                     isbn,
-            "altmetric_score":          d.get("score"),
-            "cited_by_tweeters_count":  d.get("cited_by_tweeters_count", 0),
-            "cited_by_accounts_count":  d.get("cited_by_accounts_count", 0),
-            "url":                      d.get("details_url", ""),
-        })
-    return results
