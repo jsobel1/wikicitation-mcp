@@ -131,8 +131,8 @@ the live APIs; continuous integration runs the unit tests on Python 3.10 to
 # Research impact statement
 
 The methods implemented here were used in a peer-reviewed study of Wikipedia's
-COVID-19 coverage [@benjakob2022citation].  `wikicitation-mcp` is distributed
-on PyPI and GitHub under the MIT licence, with documentation, a changelog,
+COVID-19 coverage [@benjakob2022citation].  `wikicitation-mcp` [@sobel2026wikicitationmcp] is
+distributed on PyPI and GitHub under the MIT licence, with documentation, a changelog,
 contribution guidelines and the test suite described above.
 
 As a worked example of the workflow, not as a research result in itself, we

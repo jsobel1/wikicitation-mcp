@@ -1,5 +1,7 @@
 # wikicitation-mcp
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23458590.svg)](https://doi.org/10.5281/zenodo.23458590)
+
 > Wikipedia citation-science tools for Claude — pure Python, no R required.
 
 An [MCP](https://modelcontextprotocol.io) server that exposes **38 tools** to
