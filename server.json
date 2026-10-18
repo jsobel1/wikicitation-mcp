@@ -1,0 +1,37 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.jsobel1/wikicitation-mcp",
+  "title": "Wikipedia Citation Analysis",
+  "description": "Wikipedia citation analysis: edit history, citation parsing in 6 languages, SciScore, DOI annotation",
+  "repository": {
+    "url": "https://github.com/jsobel1/wikicitation-mcp",
+    "source": "github"
+  },
+  "version": "0.5.2",
+  "packages": [
+    {
+      "registryType": "pypi",
+      "identifier": "wikicitation-mcp",
+      "version": "0.5.2",
+      "runtimeHint": "uvx",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "GOOGLE_BOOKS_API_KEY",
+          "description": "Optional Google Books API key; avoids HTTP 429 on annotate_isbn_google.",
+          "isRequired": false,
+          "isSecret": true,
+          "format": "string"
+        },
+        {
+          "name": "CROSSREF_MAILTO",
+          "description": "Optional e-mail address sent to Crossref's polite pool.",
+          "isRequired": false,
+          "format": "string"
+        }
+      ]
+    }
+  ]
+}

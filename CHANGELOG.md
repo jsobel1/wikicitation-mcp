@@ -5,6 +5,16 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [0.5.2] — 2026-10-18
+
+### Added
+- `server.json` and an `mcp-name` marker in the README, for listing in the
+  official MCP Registry.
+
+No change to the server code or its 38 tools.
+
+---
+
 ## [0.5.1] — 2026-10-18
 
 ### Added

@@ -11,6 +11,8 @@ scientific quality, and annotate DOIs and ISBNs — all without leaving the chat
 
 ---
 
+<!-- mcp-name: io.github.jsobel1/wikicitation-mcp -->
+
 ## What you can do
 
 | Category | Examples |
