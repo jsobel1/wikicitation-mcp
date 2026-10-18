@@ -1,338 +1,145 @@
 # wikicitation-mcp — Usage Guide
 
-Comprehensive examples for every tool group, common research workflows,
-and tips for getting the most out of the MCP server in Claude.
+Worked examples for the 38 tools and the research workflows they combine into.
+Tool arguments are listed in the [README](README.md#tool-reference).
 
 ---
 
 ## Quick reference
 
-| Goal | Tool to ask Claude to use |
-|------|--------------------------|
+| Goal | Tool |
+|------|------|
 | Fetch article revision history | `get_article_history` |
-| Get current wikitext | `get_article_most_recent` |
-| Count DOIs / refs / ISBNs | `get_doi_count`, `get_ref_count`, `get_isbn_count` |
-| Compute SciScore | `get_sci_score` |
-| Break down citation types | `get_citation_type_counts` |
-| Parse all CS1 templates | `parse_all_citations` |
-| Annotate DOIs with metadata | `annotate_dois` |
+| Get the current (or a dated) wikitext | `get_article_recent` |
+| Count DOIs / refs / ISBNs in text | `get_doi_count`, `get_ref_count`, `get_isbn_count` |
+| Compute SciScore for an article | `get_sci_score` |
+| Break down citation types | `get_citation_types` (article), `get_source_type_counts` (raw text) |
+| Parse all citation templates | `parse_citations`, `parse_all_citations` |
+| Annotate DOIs with metadata | `annotate_dois_europmc`, `annotate_dois_crossref`, `annotate_dois_bibtex` |
 | Find top-cited papers | `get_top_cited_papers` |
-| Browse category tree | `get_category_pages`, `get_subcat_table` |
-| Track edit wars / reverts | `get_revert_counts` |
-| Probe article over time | `probe_article_over_time` |
+| Browse a category tree | `get_category_pages`, `get_subcat_table`, `get_subcat_with_depth` |
+| Track reverts | `get_revert_counts` |
+| Look up a book | `annotate_isbn_openlib`, `annotate_isbn_google` |
+
+Article-level tools default to the **current revision**; pass `date_limit`
+(ISO 8601, an upper bound) for a historical snapshot, and `lang` for another
+Wikipedia edition.
 
 ---
 
 ## Workflow 1 — Quick article quality check
 
-**Goal:** Understand how scientifically sourced an article is in 30 seconds.
-
-**Prompt:**
 ```
-Fetch the most recent version of "Zeitgeber" and compute its SciScore,
-total reference count, and DOI count. Summarise in a table.
+Compute the SciScore of "Zeitgeber", and count its references and DOIs.
+Summarise in a table.
 ```
 
-**What Claude will do:**
-1. Call `get_article_most_recent("Zeitgeber")`
-2. Call `get_sci_score` with the wikitext
-3. Call `get_ref_count` and `get_doi_count`
-4. Present results as a summary table
-
-**Expected output shape:**
-| Metric | Value |
-|--------|-------|
-| SciScore (journal%) | 0.78 |
-| Total `<ref>` tags | 84 |
-| DOI count | 55 |
-
----
+Claude calls `get_sci_score("Zeitgeber")`, then `get_article_recent` followed by
+`get_ref_count` and `get_doi_count` on the returned wikitext.
 
 ## Workflow 2 — Citation type breakdown
 
-**Goal:** See what kinds of sources an article relies on.
-
-**Prompt:**
 ```
-For the Wikipedia article "mRNA vaccine", count citations by type
-(journal articles, books, websites, news, preprints, etc.).
-Show the result as a sorted table with percentages.
+Extract all citations from "CRISPR" — how many are journals vs websites vs books?
 ```
 
-**What Claude will do:**
-1. Call `get_citation_type_counts("mRNA vaccine")`
-2. Compute percentages from the count column
-3. Present a sorted table
-
-**Return format from `get_citation_type_counts`:**
-```json
-[
-  {"category": "Journal",      "count": 142},
-  {"category": "Web",          "count": 38},
-  {"category": "Book",         "count": 12},
-  {"category": "News/Magazine","count": 7},
-  {"category": "Preprint",     "count": 4},
-  {"category": "Report",       "count": 3}
-]
-```
-
-**Categories returned:**
-- `Journal` — `{{cite journal}}`, `{{cite article}}`
-- `Book` — `{{cite book}}`, `{{cite encyclopaedia}}`
-- `Web` — `{{cite web}}`
-- `News/Magazine` — `{{cite news}}`, `{{cite magazine}}`
-- `Preprint` — `{{cite arxiv}}`, `{{cite ssrn}}`, `{{cite biorxiv}}`
-- `Thesis` — `{{cite thesis}}`
-- `Conference` — `{{cite conference}}`
-- `Report` — `{{cite report}}`, `{{cite press release}}`
-- `Multimedia` — `{{cite AV media}}`, `{{cite podcast}}`, `{{cite episode}}`
-- `Legal/Patent` — `{{cite patent}}`, `{{cite court}}`
-- `Social Media` — `{{cite tweet}}`, `{{cite reddit}}`
-- `Other` — unrecognised templates
-
----
+`get_citation_types("CRISPR")` returns `[{"cite_type": "journal", "count": N}, …]`.
+Use `parse_citations` for one row per citation (doi, isbn, pmid, url, title,
+author, year, journal, publisher, accessdate).
 
 ## Workflow 3 — Top cited papers
 
-**Goal:** Find which scientific papers are most influential in an article.
-
-**Prompt:**
 ```
-Find the top 10 most-cited papers in the Wikipedia article "CRISPR".
-Include journal name, publication year, and how many Wikipedia articles
-cite each one.
+Find the 10 most-cited papers in "mRNA vaccine" with journal, year and EuropePMC
+citation count.
 ```
 
-**What Claude will do:**
-1. Call `get_top_cited_papers("CRISPR")`
-2. Format the result, highlighting journal, year, and wiki_count
+`get_top_cited_papers` returns up to 40 DOIs ranked by `wiki_count` (how many
+times the article cites each one), annotated through EuropePMC.
 
-**Useful follow-up prompts:**
+## Workflow 4 — Historical evolution
+
 ```
-Now annotate those DOIs with their open-access status and citation counts.
-```
-→ Claude calls `annotate_dois(doi_list)` with the DOIs from step 1.
-
----
-
-## Workflow 4 — Historical citation evolution
-
-**Goal:** Track how an article's citations changed over time.
-
-**Prompt:**
-```
-Probe the "COVID-19" Wikipedia article at the start of each year from
-2020 to 2024. Show how SciScore, DOI count, and total ref count changed.
-Plot the trend.
+Compare the SciScore of "COVID-19" at 1 January of each year from 2020 to 2024.
 ```
 
-**What Claude will do:**
-1. Call `probe_article_over_time("COVID-19", dates_to_probe=[...], metrics=[...])`
-2. Present a time-series table
-3. Optionally generate a plotly chart if running in a code environment
-
-**`probe_article_over_time` parameters:**
-- `article_name` — article title
-- `dates_to_probe` — list of ISO 8601 timestamps
-- `metrics` — any subset of `["sci_score", "doi_count", "ref_count", "size"]`
-- `lang` — Wikipedia language edition (default `"en"`)
-
----
+Claude calls `get_sci_score("COVID-19", date_limit="2020-01-01")` once per date.
+`date_limit` is the *newest* revision allowed, so each call returns the article
+as it stood on that day.
 
 ## Workflow 5 — Category-wide analysis
 
-**Goal:** Compare citation quality across all articles in a Wikipedia category.
-
-**Prompt:**
 ```
-List all articles in the Wikipedia category "Circadian rhythm".
-For each one, compute the SciScore and DOI count.
-Rank them from most to least scientifically sourced.
+List the articles in Category:Circadian rhythm and give me the SciScore of each.
 ```
 
-**What Claude will do:**
-1. Call `get_category_pages("Circadian rhythm")` → list of article titles
-2. For each article, call `get_article_most_recent(article)` and `get_sci_score(wikitext)`
-3. Sort and present results
-
-> **Tip:** For categories with many articles, ask Claude to work through the
-> list in batches of 10 to stay within a reasonable time window.
-
-**Subcategory browsing:**
-```
-What subcategories does the "Chronobiology" category have?
-```
-→ Claude calls `get_subcat_table("Chronobiology")` and lists them.
-
-```
-Drill into "Sleep disorders" and list its articles.
-```
-→ Claude calls `get_category_pages("Sleep disorders")`.
-
----
+`get_category_pages` → article titles; then `get_sci_score` per title, or
+`get_category_recent` for all wikitext in one call (up to 100 articles). Use
+`get_subcat_with_depth(catname, depth=2)` to descend the tree.
 
 ## Workflow 6 — DOI annotation and BibTeX
 
-**Goal:** Extract DOIs from an article and get their metadata.
-
-**Prompt:**
 ```
-Parse all CS1 citations in "Zeitgeber" and extract the DOIs.
-Annotate them with EuropePMC — I want title, journal, year, and
-open-access status.
+Parse the citations of "Zeitgeber", take their DOIs, and give me title, journal,
+year and open-access status, plus BibTeX.
 ```
 
-**What Claude will do:**
-1. Call `parse_all_citations("Zeitgeber")` → structured citation fields
-2. Extract `doi` values from the results
-3. Call `annotate_dois(doi_list)` for EuropePMC metadata
-
-**Annotation columns from `annotate_dois`:**
-| Column | Description |
-|--------|-------------|
-| `doi` | DOI string |
-| `title` | Paper title |
-| `authorString` | Author list |
-| `journalTitle` | Journal name |
-| `pubYear` | Publication year |
-| `isOpenAccess` | `"Y"` or `"N"` |
-| `citedByCount` | EuropePMC citation count |
-| `firstPublicationDate` | ISO date of first publication |
-| `pmid` | PubMed ID (if indexed) |
-| `pmcid` | PubMed Central ID (if OA) |
-
----
+`parse_citations` → `doi` column → `annotate_dois_europmc` (fields: `doi`, `pmid`,
+`pmcid`, `title`, `authors`, `journal`, `year`, `citation_count`,
+`is_open_access`) and `annotate_dois_bibtex`. DOIs missing from EuropePMC still
+come back, flagged `not_found`.
 
 ## Workflow 7 — Edit-war monitoring
 
-**Goal:** Identify heavily contested articles in a time window.
-
-**Prompt:**
 ```
-Find all Wikipedia articles with the most revert-tagged edits between
-1 January 2024 00:00:00 and 1 January 2024 01:00:00 UTC.
+Which articles had the most reverts in the last week?
 ```
 
-**What Claude will do:**
-1. Call `get_revert_counts("20240101000000", "20240101010000")`
-2. Rank articles by number of reverts
-
-> **Note:** The Wikipedia `recentchanges` API retains approximately 30 days
-> of history. For older periods the result will be empty.
-
----
+`get_revert_counts()` defaults to the last 7 days. Wikipedia keeps recent changes
+for about 30 days, so older windows return partial or empty results, and the scan
+can take a minute or more.
 
 ## Workflow 8 — Multilingual analysis
 
-All tools accept a `lang` parameter for any Wikipedia edition.
-
-**Prompt:**
 ```
-Compare the SciScore of the French and English versions of
-the "COVID-19" article as of 1 January 2022.
+Compare the SciScore of the French and English "COVID-19" articles.
 ```
 
-**What Claude will do:**
-1. `get_article_most_recent("COVID-19", lang="en", date_an="2022-01-01T00:00:00Z")`
-2. `get_article_most_recent("COVID-19", lang="fr", date_an="2022-01-01T00:00:00Z")`
-3. `get_sci_score(wikitext_en)` and `get_sci_score(wikitext_fr)`
-4. Present comparison
-
-**Supported languages:** any Wikipedia language code — `en`, `fr`, `de`, `es`,
-`it`, `pt`, `nl`, `ru`, `ja`, `zh`, `ar`, `pl`, `sv`, …
+`get_sci_score("COVID-19", lang="en")` and `get_sci_score("COVID-19", lang="fr")`.
+French (`Article`, `Ouvrage`, …), German (`Literatur`, `Internetquelle`, …),
+Spanish, Italian and Portuguese templates are mapped to the same canonical types,
+so scores are comparable. Other language codes work for history and category
+tools; their citation templates are treated as English unless supported.
 
 ---
 
-## Tool signatures
+## Notes
 
-### `get_citation_type_counts`
-
-```
-get_citation_type_counts(article_name, lang="en", date_an=None)
-```
-
-Returns citation counts grouped by display category for a Wikipedia article.
-`date_an` restricts to a historical snapshot (ISO 8601 timestamp or `None`
-for the current revision).
-
-### `probe_article_over_time`
-
-```
-probe_article_over_time(article_name, dates_to_probe, lang="en", metrics=None)
-```
-
-Fetches the article at each timestamp in `dates_to_probe` and computes the
-requested quality metrics.  Default metrics: `["sci_score", "doi_count",
-"ref_count", "size"]`.
-
-### `annotate_dois`
-
-```
-annotate_dois(doi_list)
-```
-
-Accepts a list of DOI strings and queries EuropePMC for each one.
-Returns a list of metadata records (one per DOI found).  DOIs not indexed
-by EuropePMC are silently omitted from the result.
+* **Books:** `annotate_isbn_google` shares a small keyless quota and often answers
+  HTTP 429. Set `GOOGLE_BOOKS_API_KEY` or use `annotate_isbn_openlib`.
+* **Altmetric** tools were removed in 0.5.0: the public API now returns HTTP 403
+  without a paid key.
+* **Limits:** 100 articles, 20 categories, 200 DOIs per call; regular expressions
+  up to 500 characters. Violations return a descriptive error.
 
 ---
 
 ## Running the test suite
 
 ```bash
-cd wikicitation-mcp
-
-# Fast unit tests (no network, no R)
-uv run pytest tests/ -m "not integration" -v
-
-# Integration tests (require network + wikilite in R)
-uv run pytest tests/ -m integration -v
-
-# Single test file
-uv run pytest tests/test_server.py -v
-
-# Coverage report
-uv run pytest tests/ -m "not integration" --cov=. --cov-report=term-missing
+uv sync --dev
+uv run pytest                          # unit tests, no network
+uv run pytest --run-integration        # also hit the live public APIs
+uv run pytest tests/test_server.py -v  # a single file
 ```
-
----
 
 ## Adding a new tool
 
-1. **R side** — add a new `switch` case in `mcp_interface.R`.
-2. **Python side** — add an `@mcp.tool()` decorated async function in `server.py`
-   that calls `await call_r_async("new_tool_name", {...})`.
-3. **Tests** — add a mocked unit test in `tests/test_server.py` and an
-   optional integration test in `tests/test_bridge.py`.
-
-Example skeleton:
-
-```python
-# server.py
-@mcp.tool()
-async def my_new_tool(article_name: str, lang: str = "en") -> dict:
-    """One-line description shown in Claude's tool list."""
-    return await call_r_async("my_new_tool", {
-        "article_name": article_name,
-        "lang": lang,
-    })
-```
-
-```r
-# mcp_interface.R — inside switch(tool, ...)
-"my_new_tool" = {
-  wikilite::my_r_function(args$article_name, lang = args$lang %||% "en")
-},
-```
-
-```python
-# tests/test_server.py
-@pytest.mark.asyncio
-async def test_my_new_tool_calls_r():
-    with patch("server.call_r_async", new_callable=AsyncMock,
-               return_value={"result": "ok"}) as mock_r:
-        from server import my_new_tool
-        result = await my_new_tool("Zeitgeber")
-        mock_r.assert_called_once()
-        assert result["result"] == "ok"
-```
+1. Implement the logic in `wiki_api.py`, `citation_utils.py` or `annotate_utils.py`
+   (plain functions, no MCP imports).
+2. Register it in `server.py` with `@mcp.tool()`. Validate every argument with the
+   `_name` / `_names` / `_lang` / `_date` / `_regex` / `_dois` helpers; the
+   docstring is shown to the LLM as the tool description.
+3. Add the name to `EXPECTED_TOOLS` in `tests/test_server.py` and unit tests for
+   the new logic (mock `wiki_api._client.get` / `annotate_utils._client.get`).
+4. Add a row to the README tool table.

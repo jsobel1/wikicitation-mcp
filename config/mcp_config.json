@@ -1,54 +1,44 @@
 {
-  "_comment": "MCP configurations for wikilite",
+  "_comment": "MCP configurations for wikicitation-mcp (pure Python, no R required)",
   "_instructions": "Choose the section matching your surface and copy it to the appropriate file.",
-
   "claude_code": {
-    "_how_to": "Run from the wikicitation-mcp/ folder: claude mcp add wikilite -- uv run python server.py",
-    "_or_manual": "Add the 'wikilite' entry to ~/.claude/mcp_servers.json",
-    "wikilite": {
+    "_how_to": "Run from the wikicitation-mcp/ folder: claude mcp add wikicitation -- uv run python server.py   (or: claude mcp add wikicitation -- uvx wikicitation-mcp)",
+    "_or_manual": "Add the 'wikicitation' entry to ~/.claude/mcp_servers.json",
+    "wikicitation": {
       "command": "uv",
-      "args": ["run", "python", "server.py"],
-      "cwd": "/ABSOLUTE/PATH/TO/wikicitation-mcp",
-      "env": {
-        "R_HOME": "/usr/lib/R"
-      }
+      "args": [
+        "run",
+        "python",
+        "server.py"
+      ],
+      "cwd": "/ABSOLUTE/PATH/TO/wikicitation-mcp"
     }
   },
-
   "claude_desktop": {
     "_file": "~/.claude/claude_desktop_config.json  (macOS/Linux)",
     "_file_windows": "%APPDATA%\\Claude\\claude_desktop_config.json",
     "_how_to": "Copy the 'mcpServers' block into the file above and restart Claude Desktop.",
     "mcpServers": {
-      "wikilite": {
+      "wikicitation": {
         "command": "uv",
         "args": [
           "run",
           "python",
           "/ABSOLUTE/PATH/TO/wikicitation-mcp/server.py"
-        ],
-        "env": {
-          "R_HOME": "/usr/lib/R"
-        }
+        ]
       }
     }
   },
-
   "claude_ai_web": {
     "_how_to": [
-      "1. Start HTTP server: uv run fastmcp run server.py --transport streamable-http --port 8000",
+      "1. Start HTTP server: uv run python server.py --transport streamable-http --port 8000",
       "2. Open claude.ai -> Settings -> Connections -> Add MCP server",
       "3. Enter URL: http://localhost:8000/mcp",
       "Note: for remote access, expose the server via a tunnel (ngrok, Cloudflare Tunnel, etc.)"
     ]
   },
-
-  "r_home_by_os": {
-    "linux_ubuntu":   "/usr/lib/R",
-    "linux_fedora":   "/usr/lib64/R",
-    "macos_homebrew": "/opt/homebrew/opt/r/lib/R",
-    "macos_cran":     "/Library/Frameworks/R.framework/Resources",
-    "windows":        "C:\\Program Files\\R\\R-4.x.x",
-    "_tip": "Find your R_HOME by running: Rscript -e 'R.home()'"
+  "optional_env": {
+    "GOOGLE_BOOKS_API_KEY": "avoids HTTP 429 on annotate_isbn_google",
+    "CROSSREF_MAILTO": "your e-mail, for CrossRef's polite pool"
   }
 }

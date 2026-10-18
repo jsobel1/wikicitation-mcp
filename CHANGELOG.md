@@ -5,6 +5,50 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [0.5.0] — 2026-10-18
+
+The server is again the pure-Python implementation (no R, no `Rscript`
+subprocess). `server.py` had been replaced by an R-bridge version with 20 tools
+while the hardened pure-Python modules (retries, multilingual parsing, progress
+reporting) sat unused; they are wired back in.
+
+### Fixed
+- **Pagination bug**: "latest/first revision" calls (`rvlimit=1`) walked the
+  article's entire history one revision at a time, downloading full wikitext
+  for each. `get_article_recent` / `get_article_initial` took ~40 s and
+  triggered Wikipedia HTTP 429, which cascaded into most other tools. They now
+  stop after one request (~0.3 s).
+- `annotate_*` helpers report the last HTTP status after exhausted retries
+  ("HTTP 429") instead of "HTTP transport".
+- DOIs are URL-encoded before being placed in CrossRef / doi.org paths.
+- `CROSSREF_MAILTO` is now actually read from the environment.
+- Unit tests mocked `httpx.get` while the modules use a shared client, so they
+  silently hit the network; they now mock the client and never sleep.
+- `get_revert_counts` defaults to the last 7 days instead of fixed 2024 dates.
+- Redirects are followed (e.g. `fr:Aspirine` used to return the `#REDIRECT` stub, so
+  every citation metric silently read 0).
+
+### Added
+- 38 tools, all article-level ones with `lang` and `date_limit` (default: now).
+- Input validation: list sizes, regex length, text size, DOI/ISBN/date/language
+  shape.
+- `GOOGLE_BOOKS_API_KEY` support; HTTP 429 hint on `annotate_isbn_google`.
+- `wikicitation-mcp --transport streamable-http --port 8000` (stdio by default).
+- `--run-integration` pytest flag; regression tests for the pagination bug.
+- CI on Python 3.10–3.13 (unit, lint) plus a non-blocking live-API job.
+
+### Removed
+- `annotate_dois_altmetric`, `annotate_isbns_altmetric` (Altmetric's public API
+  now answers HTTP 403).
+- `sci_score2` (DOI/ref-tag ratio; also removed from the `wikilite` R package).
+- `r_bridge.py`, `mcp_interface.R`, `tests/test_bridge.py`.
+
+### Packaging
+- Wheel now includes `citation_templates.py` and `progress.py` (the 0.3.1 wheel
+  omitted them and could not be imported); console entry point is `server:main`.
+
+---
+
 ## [0.2.0] — 2026-04-25
 
 ### Added

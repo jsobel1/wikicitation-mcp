@@ -35,15 +35,14 @@ Before opening an issue, please:
 
 1. Search [existing issues](https://github.com/jsobel1/wikicitation-mcp/issues)
    to avoid duplicates.
-2. Reproduce the bug on the latest commit of `main`.
+2. Reproduce the bug on the latest commit of `master`.
 
 When opening a bug report, include:
 
 - Your operating system and Python version (`python --version`).
-- Your R version (`R --version`) and `wikilite` version
-  (`packageVersion("wikilite")` inside R).
+- Your Python version and `wikicitation-mcp` version (`wikicitation-mcp --version`).
 - The exact tool call or natural-language prompt that triggered the bug.
-- The full error message and stack trace (Python side) or R traceback.
+- The full error message and stack trace.
 - Whether the bug is reproducible with a public Wikipedia article (preferred)
   or only with a private/restricted one.
 
@@ -54,8 +53,7 @@ When opening a bug report, include:
 Open an issue with the label **enhancement**.  Please describe:
 
 - The Wikipedia citation analysis task you are trying to accomplish.
-- Which existing `wikilite` R function, if any, would cover it (see the
-  [wikilite documentation](https://github.com/jsobel1/wikilite)).
+- Whether the R package [wikilite](https://github.com/jsobel1/wikilite) already has an equivalent function (useful as a reference implementation).
 - Any relevant API endpoints or data sources involved.
 
 ---
@@ -68,8 +66,6 @@ Open an issue with the label **enhancement**.  Please describe:
 |------|----------------|
 | Python | 3.10 |
 | [uv](https://docs.astral.sh/uv/) | latest |
-| R | 4.0 |
-| wikilite R package | latest (`remotes::install_github("jsobel1/wikilite")`) |
 
 ### Clone and install
 
@@ -81,20 +77,13 @@ cd wikicitation-mcp
 uv sync --dev
 ```
 
-### Verify the R bridge
+### Verify the install
 
 ```bash
-uv run python -c "
-import asyncio, json
-from r_bridge import call_r_tool
-result = asyncio.run(call_r_tool('count_citations', {'article': 'Zeitgeber'}))
-print(json.dumps(result, indent=2))
-"
+uv run python -c "import wiki_api; print(wiki_api.get_article_info('Zeitgeber'))"
 ```
 
-A successful response returns a JSON object with citation counts.  If you see
-a `RuntimeError`, check that `Rscript` is on your `PATH` and that `wikilite`
-is installed in R.
+A successful response prints the page metadata. R is **not** required.
 
 ---
 
@@ -104,21 +93,14 @@ is installed in R.
 uv run pytest
 ```
 
-The suite has three levels:
+The suite has two levels:
 
-| Level | What it tests | Requires R? |
-|-------|--------------|-------------|
-| Unit | JSON serialisation, error propagation, timeout handling | No |
-| Bridge | Real `Rscript` subprocess against known wikitext | Yes |
-| Integration | Live MediaWiki API calls (skipped if `wikilite` absent) | Yes + network |
+| Level | What it tests | Needs network? |
+|-------|--------------|----------------|
+| Unit | Parsing, validation, tool registry, mocked HTTP layers | No |
+| Integration (`--run-integration`) | Live Wikipedia, EuropePMC, CrossRef, Open Library, Google Books | Yes |
 
-To run only unit tests (no R needed):
-
-```bash
-uv run pytest -k "not bridge and not integration"
-```
-
-To run the full suite including live API calls:
+Integration tests are skipped unless you pass the flag:
 
 ```bash
 uv run pytest --run-integration
@@ -130,7 +112,7 @@ All tests must pass before a pull request will be merged.
 
 ## Submitting a Pull Request
 
-1. **Fork** the repository and create a feature branch from `main`:
+1. **Fork** the repository and create a feature branch from `master`:
 
    ```bash
    git checkout -b feature/my-improvement
@@ -139,7 +121,8 @@ All tests must pass before a pull request will be merged.
 2. **Make your changes** following the code style guidelines below.
 
 3. **Add or update tests** — new MCP tools should have at least a unit test
-   (mocked subprocess) and a bridge test.
+   (mock `wiki_api._client.get` or `annotate_utils._client.get`) and, if it
+   calls a public API, an integration test.
 
 4. **Update documentation** — if you add a tool, document it in `README.md`
    under the appropriate category table.
@@ -150,7 +133,7 @@ All tests must pass before a pull request will be merged.
    Add get_citation_network tool for co-citation graph export
    ```
 
-6. **Push and open a PR** against `main`.  The PR description should explain
+6. **Push and open a PR** against `master`.  The PR description should explain
    *what* changed and *why*, and link to any relevant issue.
 
 Pull requests are reviewed by the maintainer.  Please allow up to two weeks
@@ -173,14 +156,6 @@ before implementation — consider opening an issue first.
   uv run ruff check .
   ```
 
-**R**
-
-- Follow the [tidyverse style guide](https://style.tidyverse.org/) for any
-  changes to `mcp_interface.R`.
-- All R-level errors must be caught and returned as a JSON object with key
-  `"error"` so the Python bridge can re-raise them as descriptive
-  `RuntimeError` exceptions.
-
 **Commits**
 
 - Write commit messages in the imperative mood: *"Add …"*, *"Fix …"*, *"Remove …"*.
@@ -191,23 +166,17 @@ before implementation — consider opening an issue first.
 
 ## Adding or Modifying Tools
 
-`wikicitation-mcp` wraps functions from the `wikilite` R package.  To add a
-new tool:
+`wikicitation-mcp` is pure Python. To add a new tool:
 
-1. **Identify the `wikilite` function** you want to expose and its expected
-   arguments and return structure.
+1. **Implement the logic** as a plain function in `wiki_api.py`,
+   `citation_utils.py` or `annotate_utils.py`.
 
-2. **Add the R dispatch** in `mcp_interface.R` — add a case to the main
-   `switch` statement that calls the function and returns
-   `jsonlite::toJSON(result, auto_unbox = TRUE)`.
+2. **Register the MCP tool** in `server.py` using `@mcp.tool()`. Validate every
+   argument with the `_name` / `_lang` / `_date` / `_regex` / `_dois` helpers and
+   write a clear docstring: it is shown to the LLM as the tool description.
 
-3. **Register the MCP tool** in `server.py` using the `@mcp.tool()` decorator.
-   Provide a clear docstring and typed argument schema; the docstring text
-   is shown to the LLM as the tool description.
-
-4. **Write tests** — at minimum a unit test that mocks the subprocess and
-   verifies JSON round-tripping, and a bridge test that exercises the R
-   dispatch layer against known input.
+3. **Write tests** — a unit test for the logic with mocked HTTP, and add the tool
+   name to `EXPECTED_TOOLS` in `tests/test_server.py`.
 
 5. **Update `README.md`** — add a row to the relevant category table.
 

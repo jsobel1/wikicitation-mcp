@@ -2,7 +2,7 @@
 
 > Wikipedia citation-science tools for Claude — pure Python, no R required.
 
-An [MCP](https://modelcontextprotocol.io) server that exposes **40 tools** to
+An [MCP](https://modelcontextprotocol.io) server that exposes **38 tools** to
 Claude Code, Claude Desktop, and claude.ai.  
 Ask Claude to fetch Wikipedia edit histories, analyse citations, score
 scientific quality, and annotate DOIs and ISBNs — all without leaving the chat.
@@ -15,7 +15,8 @@ scientific quality, and annotate DOIs and ISBNs — all without leaving the chat
 |---|---|
 | **Edit history** | Full revision history, first/latest wikitext, category-wide sweeps |
 | **Citation analysis** | Count DOIs/refs/ISBNs, extract CS1 templates, compute SciScore |
-| **DOI & ISBN annotation** | Enrich DOIs via CrossRef / EuropePMC / Altmetric; books via Google Books / Open Library |
+| **DOI & ISBN annotation** | Enrich DOIs via CrossRef / EuropePMC, fetch BibTeX; books via Open Library / Google Books |
+| **Multilingual** | Every article-level tool takes `lang` (en, fr, de, es, it, pt citation templates are recognised natively) |
 
 ---
 
@@ -53,7 +54,7 @@ uv run python server.py
 ### Claude Code (CLI) — PyPI
 
 ```bash
-claude mcp add wikilite -- uvx wikicitation-mcp
+claude mcp add wikicitation -- uvx wikicitation-mcp
 claude mcp list
 ```
 
@@ -61,7 +62,7 @@ claude mcp list
 
 ```bash
 # Run from inside the cloned directory
-claude mcp add wikilite -- uv run python server.py
+claude mcp add wikicitation -- uv run python server.py
 ```
 
 ### Claude Desktop — PyPI
@@ -72,7 +73,7 @@ Edit `~/.claude/claude_desktop_config.json`
 ```json
 {
   "mcpServers": {
-    "wikilite": {
+    "wikicitation": {
       "command": "uvx",
       "args": ["wikicitation-mcp"]
     }
@@ -85,7 +86,7 @@ Edit `~/.claude/claude_desktop_config.json`
 ```json
 {
   "mcpServers": {
-    "wikilite": {
+    "wikicitation": {
       "command": "uv",
       "args": [
         "run", "python",
@@ -97,12 +98,13 @@ Edit `~/.claude/claude_desktop_config.json`
 }
 ```
 
-Restart Claude Desktop — the **wikilite** server appears in the toolbar.
+Restart Claude Desktop — the **wikicitation** server appears in the toolbar.
 
 ### claude.ai (web, HTTP transport)
 
 ```bash
 uvx wikicitation-mcp --transport streamable-http --port 8000
+# (from a clone: uv run python server.py --transport streamable-http --port 8000)
 # Then in claude.ai → Settings → Connections → Add MCP server
 # URL: http://localhost:8000/mcp
 ```
@@ -145,24 +147,34 @@ Annotate these DOIs with CrossRef metadata:
 ### `date_limit` is an upper bound
 
 `date_limit` controls the **newest** revision returned, not the oldest.
-To retrieve edits "since 2023", pass today's date as the limit and filter
-the returned rows by timestamp.
+It defaults to *now*. To retrieve edits "since 2023", leave it unset and filter
+the returned rows by timestamp. A plain date (`2024-01-01`) means the end of that
+day (UTC).
+
+### Languages
+
+Article-level tools accept `lang` (default `"en"`), e.g. `lang="fr"`. Citation
+templates are recognised natively for en, fr, de, es, it and pt, and mapped to
+the same canonical types so SciScore is comparable across editions.
 
 ### SciScore
 
-`get_sci_score` returns two metrics:
+`get_sci_score` returns `sci_score` = journal citations ÷ total citation
+templates, from 0 to 1. Higher means more scientifically sourced.
 
-| Field | Formula | Meaning |
-|---|---|---|
-| `sci_score` | journal citations ÷ total CS1 citations | Proportion of references that are peer-reviewed journal articles |
+### Optional environment variables
 
-Range 0 to 1; higher = more scientifically sourced.
+| Variable | Effect |
+|---|---|
+| `GOOGLE_BOOKS_API_KEY` | Gives `annotate_isbn_google` its own quota. Without it, Google often answers HTTP 429; `annotate_isbn_openlib` needs no key. |
+| `CROSSREF_MAILTO` | Your e-mail address, sent to CrossRef's polite pool. |
 
-### Altmetric
+### Input limits
 
-Altmetric returns attention scores without an API key for most DOIs and ISBNs.
-If a DOI or ISBN is not indexed, `altmetric_score` will be `null`.
-For production use, set the `ALTMETRIC_KEY` environment variable.
+Arguments are validated before any network call: up to 100 articles, 20
+categories and 200 DOIs per call, regular expressions up to 500 characters, text
+up to 5 million characters, subcategory depth 1–5, and `lang` must look like a
+Wikipedia language code.
 
 ---
 
@@ -175,7 +187,7 @@ For production use, set the `ALTMETRIC_KEY` environment variable.
 | `get_article_history` | `article_name`, `date_limit` | revision table (revid, user, timestamp, size, comment) |
 | `get_article_recent` | `article_name`, `date_limit` | metadata + full wikitext |
 | `get_article_initial` | `article_name` | first-ever revision metadata + wikitext |
-| `get_article_info` | `article_name` | pageid, title, byte length |
+| `get_article_info` | `article_name` | pageid, title, byte length (`missing: true` if absent) |
 | `get_tables_all` | `article_name`, `date_limit` | initial + recent + history + info in one call |
 | `get_category_pages` | `category` | list of article titles |
 | `get_pages_in_cat_table` | `category` | structured page table (pageid, title, type) |
@@ -209,34 +221,30 @@ For production use, set the `ALTMETRIC_KEY` environment variable.
 | `get_source_type_counts` | `text` | citation counts by CS1 type from raw wikitext |
 | `get_sci_score` | `article_name`, `date_limit` | `sci_score` (see above) |
 | `get_top_cited_papers` | `article_name`, `date_limit` | top 40 DOIs annotated via EuropePMC |
-| `get_revert_counts` | `start`, `end` | revert-tagged edit counts by article (≤30-day window) |
+| `get_revert_counts` | `start`, `end` | revert-tagged edit counts by article (defaults to the last 7 days; ≤30-day window; can take a minute) |
 
-### Group 3 — DOI & ISBN annotation (7 tools)
+### Group 3 — DOI & ISBN annotation (5 tools)
 
 | Tool | Key arguments | Returns |
 |---|---|---|
-| `annotate_dois_europmc` | `doi_list` | title, journal, pubYear, citedByCount, isOpenAccess, … |
+| `annotate_dois_europmc` | `doi_list` | title, journal, year, citation_count, is_open_access, PMID/PMCID |
 | `annotate_dois_crossref` | `doi_list` | title, authors, journal, year, publisher, citation count |
-| `annotate_dois_altmetric` | `doi_list` | Altmetric score, tweet count, news mentions, … |
 | `annotate_dois_bibtex` | `doi_list` | `{"bibtex_entries": [...]}` |
-| `annotate_isbn_google` | `isbn` | title, authors, publisher, publishedDate, description |
+| `annotate_isbn_google` | `isbn` | title, authors, publisher, publishedDate, description (see `GOOGLE_BOOKS_API_KEY`) |
 | `annotate_isbn_openlib` | `isbn` | title, authors, publishers, publish_date, page count |
-| `annotate_isbns_altmetric` | `isbn_list` | Altmetric score per ISBN |
 
 ---
 
 ## Running tests
 
 ```bash
-# Unit tests — no network required
-uv run pytest tests/ -m "not integration" -v
-
-# Integration tests — require internet
-uv run pytest tests/ -m integration -v
-
-# Full suite
-uv run pytest tests/ -v
+uv sync --dev
+uv run pytest                              # unit tests, no network
+uv run pytest --run-integration            # adds live API tests
 ```
+
+Integration tests call public APIs (Wikipedia, EuropePMC, CrossRef, Open Library,
+Google Books) and are skipped by default.
 
 ---
 
@@ -256,8 +264,8 @@ powershell -ExecutionPolicy Bypass -c "irm https://astral.sh/uv/install.ps1 | ie
 **Server not appearing in Claude Code**
 
 ```bash
-claude mcp remove wikilite
-claude mcp add wikilite -- uvx wikicitation-mcp
+claude mcp remove wikicitation
+claude mcp add wikicitation -- uvx wikicitation-mcp
 claude mcp list
 ```
 
