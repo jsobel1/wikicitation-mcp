@@ -281,6 +281,10 @@ for date ranges older than that will return empty results.
 
 ---
 
+## Citing
+
+If you use `wikicitation-mcp` in research, please cite it using [`CITATION.cff`](CITATION.cff) (GitHub's "Cite this repository" button) or the paper in [`paper/`](paper/paper.md).
+
 ## Related projects
 
 These three projects share the same core analysis logic at three different

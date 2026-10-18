@@ -1,0 +1,15 @@
+{
+  "title": "wikicitation-mcp: A Model Context Protocol Server for Wikipedia Citation Analysis",
+  "description": "MCP server with 38 tools that lets AI assistants retrieve Wikipedia revision histories, parse citations in six language editions, compute SciScore and annotate DOIs and ISBNs through Europe PMC, Crossref, Open Library and Google Books.",
+  "upload_type": "software",
+  "license": "MIT",
+  "creators": [
+    {"name": "Sobel, Jonathan", "orcid": "0000-0002-5111-4070",
+     "affiliation": "Division of Infection Prevention and Control, University Hospital of Geneva (HUG)"}
+  ],
+  "keywords": ["Wikipedia", "citation analysis", "scientometrics", "Model Context Protocol", "MCP"],
+  "related_identifiers": [
+    {"identifier": "https://pypi.org/project/wikicitation-mcp/", "relation": "isAlternateIdentifier", "scheme": "url"},
+    {"identifier": "10.1093/gigascience/giab095", "relation": "isSupplementTo", "scheme": "doi"}
+  ]
+}

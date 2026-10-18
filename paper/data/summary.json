@@ -1,0 +1,20 @@
+{
+ "run_date": "2026-10-18T18:26:41+00:00",
+ "n_articles": 13,
+ "n_templates": 1027,
+ "n_templates_with_doi": 568,
+ "pct_with_doi": 55.3,
+ "n_unique_dois": 555,
+ "crossref_ok": 554,
+ "crossref_failed": 1,
+ "type_share_pct": {
+  "journal": 57.2,
+  "web": 28.2,
+  "book": 6.6,
+  "news": 6.3,
+  "report": 0.7,
+  "thesis": 0.4,
+  "citation": 0.3,
+  "conference": 0.3
+ }
+}

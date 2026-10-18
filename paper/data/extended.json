@@ -1,0 +1,8138 @@
+{
+ "temporal": {
+  "Computer-aided diagnosis": {
+   "2012": {
+    "n": 0,
+    "journal": 0,
+    "doi": 0,
+    "sci": null
+   },
+   "2013": {
+    "n": 0,
+    "journal": 0,
+    "doi": 0,
+    "sci": null
+   },
+   "2014": {
+    "n": 0,
+    "journal": 0,
+    "doi": 0,
+    "sci": null
+   },
+   "2015": {
+    "n": 0,
+    "journal": 0,
+    "doi": 0,
+    "sci": null
+   },
+   "2016": {
+    "n": 8,
+    "journal": 8,
+    "doi": 2,
+    "sci": 1.0
+   },
+   "2017": {
+    "n": 34,
+    "journal": 33,
+    "doi": 25,
+    "sci": 0.9705882352941176
+   },
+   "2018": {
+    "n": 79,
+    "journal": 74,
+    "doi": 67,
+    "sci": 0.9367088607594937
+   },
+   "2019": {
+    "n": 85,
+    "journal": 78,
+    "doi": 69,
+    "sci": 0.9176470588235294
+   },
+   "2020": {
+    "n": 72,
+    "journal": 63,
+    "doi": 59,
+    "sci": 0.875
+   },
+   "2021": {
+    "n": 75,
+    "journal": 66,
+    "doi": 64,
+    "sci": 0.88
+   },
+   "2022": {
+    "n": 86,
+    "journal": 76,
+    "doi": 74,
+    "sci": 0.8837209302325582
+   },
+   "2023": {
+    "n": 86,
+    "journal": 76,
+    "doi": 74,
+    "sci": 0.8837209302325582
+   },
+   "2024": {
+    "n": 87,
+    "journal": 76,
+    "doi": 76,
+    "sci": 0.8735632183908046
+   },
+   "2025": {
+    "n": 88,
+    "journal": 76,
+    "doi": 76,
+    "sci": 0.8636363636363636
+   },
+   "2026": {
+    "n": 92,
+    "journal": 76,
+    "doi": 78,
+    "sci": 0.8260869565217391
+   }
+  },
+  "Drug interaction": {
+   "2012": {
+    "n": 2,
+    "journal": 0,
+    "doi": 0,
+    "sci": 0.0
+   },
+   "2013": {
+    "n": 7,
+    "journal": 3,
+    "doi": 2,
+    "sci": 0.42857142857142855
+   },
+   "2014": {
+    "n": 11,
+    "journal": 8,
+    "doi": 4,
+    "sci": 0.7272727272727273
+   },
+   "2015": {
+    "n": 11,
+    "journal": 8,
+    "doi": 7,
+    "sci": 0.7272727272727273
+   },
+   "2016": {
+    "n": 11,
+    "journal": 8,
+    "doi": 7,
+    "sci": 0.7272727272727273
+   },
+   "2017": {
+    "n": 15,
+    "journal": 9,
+    "doi": 8,
+    "sci": 0.6
+   },
+   "2018": {
+    "n": 17,
+    "journal": 10,
+    "doi": 9,
+    "sci": 0.5882352941176471
+   },
+   "2019": {
+    "n": 17,
+    "journal": 10,
+    "doi": 9,
+    "sci": 0.5882352941176471
+   },
+   "2020": {
+    "n": 27,
+    "journal": 21,
+    "doi": 19,
+    "sci": 0.7777777777777778
+   },
+   "2021": {
+    "n": 27,
+    "journal": 21,
+    "doi": 19,
+    "sci": 0.7777777777777778
+   },
+   "2022": {
+    "n": 27,
+    "journal": 21,
+    "doi": 19,
+    "sci": 0.7777777777777778
+   },
+   "2023": {
+    "n": 27,
+    "journal": 21,
+    "doi": 19,
+    "sci": 0.7777777777777778
+   },
+   "2024": {
+    "n": 24,
+    "journal": 20,
+    "doi": 18,
+    "sci": 0.8333333333333334
+   },
+   "2025": {
+    "n": 24,
+    "journal": 20,
+    "doi": 18,
+    "sci": 0.8333333333333334
+   },
+   "2026": {
+    "n": 24,
+    "journal": 20,
+    "doi": 19,
+    "sci": 0.8333333333333334
+   }
+  },
+  "Imaging informatics": {
+   "2012": {
+    "n": 1,
+    "journal": 1,
+    "doi": 1,
+    "sci": 1.0
+   },
+   "2013": {
+    "n": 1,
+    "journal": 1,
+    "doi": 1,
+    "sci": 1.0
+   },
+   "2014": {
+    "n": 1,
+    "journal": 1,
+    "doi": 1,
+    "sci": 1.0
+   },
+   "2015": {
+    "n": 1,
+    "journal": 1,
+    "doi": 1,
+    "sci": 1.0
+   },
+   "2016": {
+    "n": 1,
+    "journal": 1,
+    "doi": 1,
+    "sci": 1.0
+   },
+   "2017": {
+    "n": 1,
+    "journal": 1,
+    "doi": 1,
+    "sci": 1.0
+   },
+   "2018": {
+    "n": 1,
+    "journal": 1,
+    "doi": 1,
+    "sci": 1.0
+   },
+   "2019": {
+    "n": 1,
+    "journal": 1,
+    "doi": 1,
+    "sci": 1.0
+   },
+   "2020": {
+    "n": 1,
+    "journal": 1,
+    "doi": 1,
+    "sci": 1.0
+   },
+   "2021": {
+    "n": 1,
+    "journal": 1,
+    "doi": 1,
+    "sci": 1.0
+   },
+   "2022": {
+    "n": 1,
+    "journal": 1,
+    "doi": 1,
+    "sci": 1.0
+   },
+   "2023": {
+    "n": 3,
+    "journal": 1,
+    "doi": 1,
+    "sci": 0.3333333333333333
+   },
+   "2024": {
+    "n": 3,
+    "journal": 1,
+    "doi": 1,
+    "sci": 0.3333333333333333
+   },
+   "2025": {
+    "n": 25,
+    "journal": 18,
+    "doi": 19,
+    "sci": 0.72
+   },
+   "2026": {
+    "n": 25,
+    "journal": 18,
+    "doi": 19,
+    "sci": 0.72
+   }
+  },
+  "Artificial intelligence in healthcare": {
+   "2012": {
+    "n": 0,
+    "journal": 0,
+    "doi": 0,
+    "sci": null
+   },
+   "2013": {
+    "n": 0,
+    "journal": 0,
+    "doi": 0,
+    "sci": null
+   },
+   "2014": {
+    "n": 0,
+    "journal": 0,
+    "doi": 0,
+    "sci": null
+   },
+   "2015": {
+    "n": 0,
+    "journal": 0,
+    "doi": 0,
+    "sci": null
+   },
+   "2016": {
+    "n": 0,
+    "journal": 0,
+    "doi": 0,
+    "sci": null
+   },
+   "2017": {
+    "n": 0,
+    "journal": 0,
+    "doi": 0,
+    "sci": null
+   },
+   "2018": {
+    "n": 0,
+    "journal": 0,
+    "doi": 0,
+    "sci": null
+   },
+   "2019": {
+    "n": 26,
+    "journal": 6,
+    "doi": 5,
+    "sci": 0.23076923076923078
+   },
+   "2020": {
+    "n": 68,
+    "journal": 22,
+    "doi": 20,
+    "sci": 0.3235294117647059
+   },
+   "2021": {
+    "n": 79,
+    "journal": 56,
+    "doi": 54,
+    "sci": 0.7088607594936709
+   },
+   "2022": {
+    "n": 85,
+    "journal": 60,
+    "doi": 58,
+    "sci": 0.7058823529411765
+   },
+   "2023": {
+    "n": 110,
+    "journal": 85,
+    "doi": 83,
+    "sci": 0.7727272727272727
+   },
+   "2024": {
+    "n": 141,
+    "journal": 107,
+    "doi": 106,
+    "sci": 0.7588652482269503
+   },
+   "2025": {
+    "n": 172,
+    "journal": 130,
+    "doi": 131,
+    "sci": 0.7558139534883721
+   },
+   "2026": {
+    "n": 208,
+    "journal": 137,
+    "doi": 140,
+    "sci": 0.6586538461538461
+   }
+  },
+  "Clinical decision support system": {
+   "2012": {
+    "n": 5,
+    "journal": 5,
+    "doi": 4,
+    "sci": 1.0
+   },
+   "2013": {
+    "n": 4,
+    "journal": 3,
+    "doi": 3,
+    "sci": 0.75
+   },
+   "2014": {
+    "n": 17,
+    "journal": 11,
+    "doi": 3,
+    "sci": 0.6470588235294118
+   },
+   "2015": {
+    "n": 19,
+    "journal": 12,
+    "doi": 4,
+    "sci": 0.631578947368421
+   },
+   "2016": {
+    "n": 21,
+    "journal": 16,
+    "doi": 13,
+    "sci": 0.7619047619047619
+   },
+   "2017": {
+    "n": 23,
+    "journal": 17,
+    "doi": 14,
+    "sci": 0.7391304347826086
+   },
+   "2018": {
+    "n": 25,
+    "journal": 19,
+    "doi": 16,
+    "sci": 0.76
+   },
+   "2019": {
+    "n": 25,
+    "journal": 19,
+    "doi": 17,
+    "sci": 0.76
+   },
+   "2020": {
+    "n": 28,
+    "journal": 19,
+    "doi": 17,
+    "sci": 0.6785714285714286
+   },
+   "2021": {
+    "n": 30,
+    "journal": 20,
+    "doi": 20,
+    "sci": 0.6666666666666666
+   },
+   "2022": {
+    "n": 32,
+    "journal": 20,
+    "doi": 20,
+    "sci": 0.625
+   },
+   "2023": {
+    "n": 38,
+    "journal": 26,
+    "doi": 24,
+    "sci": 0.6842105263157895
+   },
+   "2024": {
+    "n": 37,
+    "journal": 26,
+    "doi": 24,
+    "sci": 0.7027027027027027
+   },
+   "2025": {
+    "n": 38,
+    "journal": 26,
+    "doi": 24,
+    "sci": 0.6842105263157895
+   },
+   "2026": {
+    "n": 32,
+    "journal": 22,
+    "doi": 20,
+    "sci": 0.6875
+   }
+  },
+  "Telehealth": {
+   "2012": {
+    "n": 3,
+    "journal": 0,
+    "doi": 0,
+    "sci": 0.0
+   },
+   "2013": {
+    "n": 5,
+    "journal": 0,
+    "doi": 0,
+    "sci": 0.0
+   },
+   "2014": {
+    "n": 8,
+    "journal": 0,
+    "doi": 0,
+    "sci": 0.0
+   },
+   "2015": {
+    "n": 9,
+    "journal": 0,
+    "doi": 0,
+    "sci": 0.0
+   },
+   "2016": {
+    "n": 11,
+    "journal": 2,
+    "doi": 2,
+    "sci": 0.18181818181818182
+   },
+   "2017": {
+    "n": 32,
+    "journal": 16,
+    "doi": 12,
+    "sci": 0.5
+   },
+   "2018": {
+    "n": 32,
+    "journal": 16,
+    "doi": 12,
+    "sci": 0.5
+   },
+   "2019": {
+    "n": 43,
+    "journal": 24,
+    "doi": 20,
+    "sci": 0.5581395348837209
+   },
+   "2020": {
+    "n": 145,
+    "journal": 61,
+    "doi": 49,
+    "sci": 0.4206896551724138
+   },
+   "2021": {
+    "n": 166,
+    "journal": 69,
+    "doi": 57,
+    "sci": 0.41566265060240964
+   },
+   "2022": {
+    "n": 177,
+    "journal": 77,
+    "doi": 66,
+    "sci": 0.4350282485875706
+   },
+   "2023": {
+    "n": 217,
+    "journal": 107,
+    "doi": 97,
+    "sci": 0.4930875576036866
+   },
+   "2024": {
+    "n": 211,
+    "journal": 112,
+    "doi": 102,
+    "sci": 0.5308056872037915
+   },
+   "2025": {
+    "n": 223,
+    "journal": 121,
+    "doi": 111,
+    "sci": 0.5426008968609866
+   },
+   "2026": {
+    "n": 248,
+    "journal": 143,
+    "doi": 135,
+    "sci": 0.5766129032258065
+   }
+  },
+  "Electronic health record": {
+   "2012": {
+    "n": 33,
+    "journal": 12,
+    "doi": 3,
+    "sci": 0.36363636363636365
+   },
+   "2013": {
+    "n": 39,
+    "journal": 14,
+    "doi": 3,
+    "sci": 0.358974358974359
+   },
+   "2014": {
+    "n": 107,
+    "journal": 49,
+    "doi": 32,
+    "sci": 0.45794392523364486
+   },
+   "2015": {
+    "n": 138,
+    "journal": 52,
+    "doi": 34,
+    "sci": 0.37681159420289856
+   },
+   "2016": {
+    "n": 139,
+    "journal": 56,
+    "doi": 36,
+    "sci": 0.4028776978417266
+   },
+   "2017": {
+    "n": 143,
+    "journal": 61,
+    "doi": 41,
+    "sci": 0.42657342657342656
+   },
+   "2018": {
+    "n": 155,
+    "journal": 62,
+    "doi": 42,
+    "sci": 0.4
+   },
+   "2019": {
+    "n": 69,
+    "journal": 35,
+    "doi": 25,
+    "sci": 0.5072463768115942
+   },
+   "2020": {
+    "n": 73,
+    "journal": 37,
+    "doi": 26,
+    "sci": 0.5068493150684932
+   },
+   "2021": {
+    "n": 77,
+    "journal": 38,
+    "doi": 27,
+    "sci": 0.4935064935064935
+   },
+   "2022": {
+    "n": 88,
+    "journal": 45,
+    "doi": 34,
+    "sci": 0.5113636363636364
+   },
+   "2023": {
+    "n": 121,
+    "journal": 58,
+    "doi": 44,
+    "sci": 0.4793388429752066
+   },
+   "2024": {
+    "n": 148,
+    "journal": 82,
+    "doi": 68,
+    "sci": 0.5540540540540541
+   },
+   "2025": {
+    "n": 149,
+    "journal": 83,
+    "doi": 69,
+    "sci": 0.5570469798657718
+   },
+   "2026": {
+    "n": 152,
+    "journal": 83,
+    "doi": 71,
+    "sci": 0.5460526315789473
+   }
+  },
+  "Medical diagnosis": {
+   "2012": {
+    "n": 2,
+    "journal": 0,
+    "doi": 0,
+    "sci": 0.0
+   },
+   "2013": {
+    "n": 3,
+    "journal": 0,
+    "doi": 0,
+    "sci": 0.0
+   },
+   "2014": {
+    "n": 6,
+    "journal": 1,
+    "doi": 1,
+    "sci": 0.16666666666666666
+   },
+   "2015": {
+    "n": 6,
+    "journal": 1,
+    "doi": 1,
+    "sci": 0.16666666666666666
+   },
+   "2016": {
+    "n": 12,
+    "journal": 3,
+    "doi": 5,
+    "sci": 0.25
+   },
+   "2017": {
+    "n": 10,
+    "journal": 2,
+    "doi": 4,
+    "sci": 0.2
+   },
+   "2018": {
+    "n": 14,
+    "journal": 3,
+    "doi": 5,
+    "sci": 0.21428571428571427
+   },
+   "2019": {
+    "n": 15,
+    "journal": 3,
+    "doi": 5,
+    "sci": 0.2
+   },
+   "2020": {
+    "n": 20,
+    "journal": 3,
+    "doi": 5,
+    "sci": 0.15
+   },
+   "2021": {
+    "n": 23,
+    "journal": 6,
+    "doi": 8,
+    "sci": 0.2608695652173913
+   },
+   "2022": {
+    "n": 20,
+    "journal": 6,
+    "doi": 8,
+    "sci": 0.3
+   },
+   "2023": {
+    "n": 20,
+    "journal": 6,
+    "doi": 8,
+    "sci": 0.3
+   },
+   "2024": {
+    "n": 20,
+    "journal": 6,
+    "doi": 8,
+    "sci": 0.3
+   },
+   "2025": {
+    "n": 21,
+    "journal": 6,
+    "doi": 8,
+    "sci": 0.2857142857142857
+   },
+   "2026": {
+    "n": 21,
+    "journal": 6,
+    "doi": 8,
+    "sci": 0.2857142857142857
+   }
+  },
+  "Computerized physician order entry": {
+   "2012": {
+    "n": 14,
+    "journal": 5,
+    "doi": 4,
+    "sci": 0.35714285714285715
+   },
+   "2013": {
+    "n": 14,
+    "journal": 5,
+    "doi": 4,
+    "sci": 0.35714285714285715
+   },
+   "2014": {
+    "n": 13,
+    "journal": 5,
+    "doi": 4,
+    "sci": 0.38461538461538464
+   },
+   "2015": {
+    "n": 14,
+    "journal": 5,
+    "doi": 4,
+    "sci": 0.35714285714285715
+   },
+   "2016": {
+    "n": 14,
+    "journal": 6,
+    "doi": 4,
+    "sci": 0.42857142857142855
+   },
+   "2017": {
+    "n": 14,
+    "journal": 6,
+    "doi": 4,
+    "sci": 0.42857142857142855
+   },
+   "2018": {
+    "n": 14,
+    "journal": 6,
+    "doi": 4,
+    "sci": 0.42857142857142855
+   },
+   "2019": {
+    "n": 14,
+    "journal": 6,
+    "doi": 4,
+    "sci": 0.42857142857142855
+   },
+   "2020": {
+    "n": 14,
+    "journal": 6,
+    "doi": 5,
+    "sci": 0.42857142857142855
+   },
+   "2021": {
+    "n": 14,
+    "journal": 6,
+    "doi": 5,
+    "sci": 0.42857142857142855
+   },
+   "2022": {
+    "n": 17,
+    "journal": 6,
+    "doi": 5,
+    "sci": 0.35294117647058826
+   },
+   "2023": {
+    "n": 17,
+    "journal": 6,
+    "doi": 6,
+    "sci": 0.35294117647058826
+   },
+   "2024": {
+    "n": 17,
+    "journal": 6,
+    "doi": 6,
+    "sci": 0.35294117647058826
+   },
+   "2025": {
+    "n": 17,
+    "journal": 6,
+    "doi": 6,
+    "sci": 0.35294117647058826
+   },
+   "2026": {
+    "n": 17,
+    "journal": 6,
+    "doi": 6,
+    "sci": 0.35294117647058826
+   }
+  },
+  "Health informatics": {
+   "2012": {
+    "n": 24,
+    "journal": 8,
+    "doi": 6,
+    "sci": 0.3333333333333333
+   },
+   "2013": {
+    "n": 32,
+    "journal": 11,
+    "doi": 8,
+    "sci": 0.34375
+   },
+   "2014": {
+    "n": 43,
+    "journal": 21,
+    "doi": 9,
+    "sci": 0.4883720930232558
+   },
+   "2015": {
+    "n": 54,
+    "journal": 21,
+    "doi": 16,
+    "sci": 0.3888888888888889
+   },
+   "2016": {
+    "n": 50,
+    "journal": 24,
+    "doi": 19,
+    "sci": 0.48
+   },
+   "2017": {
+    "n": 60,
+    "journal": 32,
+    "doi": 23,
+    "sci": 0.5333333333333333
+   },
+   "2018": {
+    "n": 68,
+    "journal": 36,
+    "doi": 28,
+    "sci": 0.5294117647058824
+   },
+   "2019": {
+    "n": 76,
+    "journal": 43,
+    "doi": 35,
+    "sci": 0.5657894736842105
+   },
+   "2020": {
+    "n": 90,
+    "journal": 45,
+    "doi": 38,
+    "sci": 0.5
+   },
+   "2021": {
+    "n": 85,
+    "journal": 35,
+    "doi": 30,
+    "sci": 0.4117647058823529
+   },
+   "2022": {
+    "n": 117,
+    "journal": 46,
+    "doi": 40,
+    "sci": 0.39316239316239315
+   },
+   "2023": {
+    "n": 116,
+    "journal": 41,
+    "doi": 35,
+    "sci": 0.35344827586206895
+   },
+   "2024": {
+    "n": 119,
+    "journal": 42,
+    "doi": 36,
+    "sci": 0.35294117647058826
+   },
+   "2025": {
+    "n": 122,
+    "journal": 42,
+    "doi": 37,
+    "sci": 0.3442622950819672
+   },
+   "2026": {
+    "n": 129,
+    "journal": 48,
+    "doi": 43,
+    "sci": 0.37209302325581395
+   }
+  },
+  "Clinical pharmacy": {
+   "2012": {
+    "n": 0,
+    "journal": 0,
+    "doi": 0,
+    "sci": null
+   },
+   "2013": {
+    "n": 0,
+    "journal": 0,
+    "doi": 0,
+    "sci": null
+   },
+   "2014": {
+    "n": 0,
+    "journal": 0,
+    "doi": 0,
+    "sci": null
+   },
+   "2015": {
+    "n": 0,
+    "journal": 0,
+    "doi": 0,
+    "sci": null
+   },
+   "2016": {
+    "n": 1,
+    "journal": 0,
+    "doi": 0,
+    "sci": 0.0
+   },
+   "2017": {
+    "n": 5,
+    "journal": 1,
+    "doi": 1,
+    "sci": 0.2
+   },
+   "2018": {
+    "n": 5,
+    "journal": 1,
+    "doi": 1,
+    "sci": 0.2
+   },
+   "2019": {
+    "n": 9,
+    "journal": 4,
+    "doi": 3,
+    "sci": 0.4444444444444444
+   },
+   "2020": {
+    "n": 13,
+    "journal": 4,
+    "doi": 3,
+    "sci": 0.3076923076923077
+   },
+   "2021": {
+    "n": 13,
+    "journal": 4,
+    "doi": 3,
+    "sci": 0.3076923076923077
+   },
+   "2022": {
+    "n": 13,
+    "journal": 4,
+    "doi": 3,
+    "sci": 0.3076923076923077
+   },
+   "2023": {
+    "n": 14,
+    "journal": 4,
+    "doi": 3,
+    "sci": 0.2857142857142857
+   },
+   "2024": {
+    "n": 14,
+    "journal": 4,
+    "doi": 3,
+    "sci": 0.2857142857142857
+   },
+   "2025": {
+    "n": 14,
+    "journal": 4,
+    "doi": 3,
+    "sci": 0.2857142857142857
+   },
+   "2026": {
+    "n": 14,
+    "journal": 4,
+    "doi": 3,
+    "sci": 0.2857142857142857
+   }
+  },
+  "Pharmacy automation": {
+   "2012": {
+    "n": 13,
+    "journal": 1,
+    "doi": 1,
+    "sci": 0.07692307692307693
+   },
+   "2013": {
+    "n": 13,
+    "journal": 1,
+    "doi": 1,
+    "sci": 0.07692307692307693
+   },
+   "2014": {
+    "n": 13,
+    "journal": 1,
+    "doi": 1,
+    "sci": 0.07692307692307693
+   },
+   "2015": {
+    "n": 13,
+    "journal": 1,
+    "doi": 1,
+    "sci": 0.07692307692307693
+   },
+   "2016": {
+    "n": 12,
+    "journal": 1,
+    "doi": 1,
+    "sci": 0.08333333333333333
+   },
+   "2017": {
+    "n": 13,
+    "journal": 2,
+    "doi": 1,
+    "sci": 0.15384615384615385
+   },
+   "2018": {
+    "n": 13,
+    "journal": 2,
+    "doi": 2,
+    "sci": 0.15384615384615385
+   },
+   "2019": {
+    "n": 13,
+    "journal": 2,
+    "doi": 2,
+    "sci": 0.15384615384615385
+   },
+   "2020": {
+    "n": 14,
+    "journal": 2,
+    "doi": 2,
+    "sci": 0.14285714285714285
+   },
+   "2021": {
+    "n": 14,
+    "journal": 2,
+    "doi": 2,
+    "sci": 0.14285714285714285
+   },
+   "2022": {
+    "n": 14,
+    "journal": 2,
+    "doi": 2,
+    "sci": 0.14285714285714285
+   },
+   "2023": {
+    "n": 14,
+    "journal": 2,
+    "doi": 2,
+    "sci": 0.14285714285714285
+   },
+   "2024": {
+    "n": 14,
+    "journal": 2,
+    "doi": 2,
+    "sci": 0.14285714285714285
+   },
+   "2025": {
+    "n": 14,
+    "journal": 2,
+    "doi": 2,
+    "sci": 0.14285714285714285
+   },
+   "2026": {
+    "n": 14,
+    "journal": 2,
+    "doi": 2,
+    "sci": 0.14285714285714285
+   }
+  },
+  "OpenEvidence": {
+   "2012": {
+    "n": 0,
+    "journal": 0,
+    "doi": 0,
+    "sci": null
+   },
+   "2013": {
+    "n": 0,
+    "journal": 0,
+    "doi": 0,
+    "sci": null
+   },
+   "2014": {
+    "n": 0,
+    "journal": 0,
+    "doi": 0,
+    "sci": null
+   },
+   "2015": {
+    "n": 0,
+    "journal": 0,
+    "doi": 0,
+    "sci": null
+   },
+   "2016": {
+    "n": 0,
+    "journal": 0,
+    "doi": 0,
+    "sci": null
+   },
+   "2017": {
+    "n": 0,
+    "journal": 0,
+    "doi": 0,
+    "sci": null
+   },
+   "2018": {
+    "n": 0,
+    "journal": 0,
+    "doi": 0,
+    "sci": null
+   },
+   "2019": {
+    "n": 0,
+    "journal": 0,
+    "doi": 0,
+    "sci": null
+   },
+   "2020": {
+    "n": 0,
+    "journal": 0,
+    "doi": 0,
+    "sci": null
+   },
+   "2021": {
+    "n": 0,
+    "journal": 0,
+    "doi": 0,
+    "sci": null
+   },
+   "2022": {
+    "n": 0,
+    "journal": 0,
+    "doi": 0,
+    "sci": null
+   },
+   "2023": {
+    "n": 0,
+    "journal": 0,
+    "doi": 0,
+    "sci": null
+   },
+   "2024": {
+    "n": 0,
+    "journal": 0,
+    "doi": 0,
+    "sci": null
+   },
+   "2025": {
+    "n": 0,
+    "journal": 0,
+    "doi": 0,
+    "sci": null
+   },
+   "2026": {
+    "n": 13,
+    "journal": 0,
+    "doi": 0,
+    "sci": 0.0
+   }
+  }
+ },
+ "editing": {
+  "Computer-aided diagnosis": {
+   "n_edits": 402,
+   "per_year": {
+    "2007": 35,
+    "2008": 3,
+    "2009": 21,
+    "2010": 10,
+    "2011": 9,
+    "2012": 16,
+    "2013": 4,
+    "2014": 1,
+    "2015": 32,
+    "2016": 52,
+    "2017": 35,
+    "2018": 27,
+    "2019": 44,
+    "2020": 16,
+    "2021": 22,
+    "2022": 9,
+    "2023": 21,
+    "2024": 14,
+    "2025": 24,
+    "2026": 7
+   },
+   "n_editors": 170,
+   "top_editor_share": 0.08706467661691543,
+   "reverted": 9,
+   "anonymous": 66,
+   "first_edit": "2007-01-21T12:50:14Z",
+   "last_edit": "2026-09-08T15:27:32Z",
+   "final_size": 69433,
+   "max_size": 69483
+  },
+  "Drug interaction": {
+   "n_edits": 498,
+   "per_year": {
+    "2004": 3,
+    "2005": 3,
+    "2006": 22,
+    "2007": 29,
+    "2008": 14,
+    "2009": 7,
+    "2010": 24,
+    "2011": 9,
+    "2012": 30,
+    "2013": 24,
+    "2014": 21,
+    "2015": 15,
+    "2016": 31,
+    "2017": 23,
+    "2018": 9,
+    "2019": 130,
+    "2020": 13,
+    "2021": 14,
+    "2022": 20,
+    "2023": 20,
+    "2024": 21,
+    "2025": 12,
+    "2026": 4
+   },
+   "n_editors": 253,
+   "top_editor_share": 0.03815261044176707,
+   "reverted": 34,
+   "anonymous": 63,
+   "first_edit": "2004-10-24T19:52:21Z",
+   "last_edit": "2026-07-28T01:34:44Z",
+   "final_size": 31761,
+   "max_size": 45408
+  },
+  "Imaging informatics": {
+   "n_edits": 144,
+   "per_year": {
+    "2007": 7,
+    "2008": 22,
+    "2009": 13,
+    "2010": 3,
+    "2011": 3,
+    "2012": 2,
+    "2013": 1,
+    "2015": 2,
+    "2017": 2,
+    "2019": 1,
+    "2020": 4,
+    "2021": 2,
+    "2022": 5,
+    "2023": 1,
+    "2024": 66,
+    "2025": 8,
+    "2026": 2
+   },
+   "n_editors": 64,
+   "top_editor_share": 0.10416666666666667,
+   "reverted": 4,
+   "anonymous": 15,
+   "first_edit": "2007-12-08T05:52:57Z",
+   "last_edit": "2026-06-30T16:31:23Z",
+   "final_size": 44073,
+   "max_size": 44446
+  },
+  "Artificial intelligence in healthcare": {
+   "n_edits": 1292,
+   "per_year": {
+    "2016": 16,
+    "2017": 7,
+    "2018": 60,
+    "2019": 103,
+    "2020": 147,
+    "2021": 75,
+    "2022": 114,
+    "2023": 216,
+    "2024": 173,
+    "2025": 210,
+    "2026": 171
+   },
+   "n_editors": 516,
+   "top_editor_share": 0.06424148606811146,
+   "reverted": 427,
+   "anonymous": 149,
+   "first_edit": "2016-12-14T22:11:30Z",
+   "last_edit": "2026-10-08T21:13:51Z",
+   "final_size": 137766,
+   "max_size": 139432
+  },
+  "Clinical decision support system": {
+   "n_edits": 618,
+   "per_year": {
+    "2005": 15,
+    "2006": 5,
+    "2007": 27,
+    "2008": 22,
+    "2009": 54,
+    "2010": 47,
+    "2011": 53,
+    "2012": 51,
+    "2013": 39,
+    "2014": 41,
+    "2015": 49,
+    "2016": 29,
+    "2017": 18,
+    "2018": 16,
+    "2019": 18,
+    "2020": 23,
+    "2021": 15,
+    "2022": 28,
+    "2023": 16,
+    "2024": 13,
+    "2025": 21,
+    "2026": 18
+   },
+   "n_editors": 331,
+   "top_editor_share": 0.024271844660194174,
+   "reverted": 27,
+   "anonymous": 176,
+   "first_edit": "2005-08-03T06:32:31Z",
+   "last_edit": "2026-08-11T15:48:40Z",
+   "final_size": 39204,
+   "max_size": 46553
+  },
+  "Telehealth": {
+   "n_edits": 1301,
+   "per_year": {
+    "2004": 1,
+    "2005": 13,
+    "2006": 53,
+    "2007": 42,
+    "2008": 34,
+    "2009": 42,
+    "2010": 80,
+    "2011": 47,
+    "2012": 37,
+    "2013": 24,
+    "2014": 37,
+    "2015": 23,
+    "2016": 29,
+    "2017": 39,
+    "2018": 28,
+    "2019": 61,
+    "2020": 134,
+    "2021": 107,
+    "2022": 149,
+    "2023": 114,
+    "2024": 48,
+    "2025": 100,
+    "2026": 59
+   },
+   "n_editors": 581,
+   "top_editor_share": 0.05149884704073789,
+   "reverted": 241,
+   "anonymous": 280,
+   "first_edit": "2004-11-16T23:03:44Z",
+   "last_edit": "2026-10-15T06:03:58Z",
+   "final_size": 196365,
+   "max_size": 201488
+  },
+  "Electronic health record": {
+   "n_edits": 2600,
+   "per_year": {
+    "2004": 1,
+    "2005": 24,
+    "2006": 113,
+    "2007": 444,
+    "2008": 229,
+    "2009": 234,
+    "2010": 227,
+    "2011": 108,
+    "2012": 222,
+    "2013": 113,
+    "2014": 157,
+    "2015": 108,
+    "2016": 70,
+    "2017": 75,
+    "2018": 104,
+    "2019": 69,
+    "2020": 33,
+    "2021": 63,
+    "2022": 51,
+    "2023": 44,
+    "2024": 35,
+    "2025": 42,
+    "2026": 34
+   },
+   "n_editors": 943,
+   "top_editor_share": 0.09153846153846154,
+   "reverted": 136,
+   "anonymous": 642,
+   "first_edit": "2004-11-03T20:03:01Z",
+   "last_edit": "2026-10-15T13:37:36Z",
+   "final_size": 117394,
+   "max_size": 185708
+  },
+  "Medical diagnosis": {
+   "n_edits": 964,
+   "per_year": {
+    "2003": 12,
+    "2004": 18,
+    "2005": 33,
+    "2006": 109,
+    "2007": 81,
+    "2008": 89,
+    "2009": 78,
+    "2010": 38,
+    "2011": 97,
+    "2012": 40,
+    "2013": 38,
+    "2014": 21,
+    "2015": 27,
+    "2016": 31,
+    "2017": 30,
+    "2018": 31,
+    "2019": 35,
+    "2020": 30,
+    "2021": 30,
+    "2022": 23,
+    "2023": 31,
+    "2024": 25,
+    "2025": 4,
+    "2026": 13
+   },
+   "n_editors": 531,
+   "top_editor_share": 0.04149377593360996,
+   "reverted": 61,
+   "anonymous": 231,
+   "first_edit": "2003-03-13T23:32:43Z",
+   "last_edit": "2026-10-04T02:59:36Z",
+   "final_size": 31146,
+   "max_size": 33957
+  },
+  "Computerized physician order entry": {
+   "n_edits": 271,
+   "per_year": {
+    "2005": 3,
+    "2006": 20,
+    "2007": 16,
+    "2008": 17,
+    "2009": 59,
+    "2010": 17,
+    "2011": 25,
+    "2012": 14,
+    "2013": 16,
+    "2014": 7,
+    "2015": 12,
+    "2016": 13,
+    "2017": 7,
+    "2018": 4,
+    "2019": 9,
+    "2020": 3,
+    "2021": 7,
+    "2022": 4,
+    "2023": 3,
+    "2025": 4,
+    "2026": 11
+   },
+   "n_editors": 150,
+   "top_editor_share": 0.08856088560885608,
+   "reverted": 2,
+   "anonymous": 75,
+   "first_edit": "2005-06-10T20:55:35Z",
+   "last_edit": "2026-09-15T16:59:04Z",
+   "final_size": 24497,
+   "max_size": 24634
+  },
+  "Health informatics": {
+   "n_edits": 2107,
+   "per_year": {
+    "2003": 6,
+    "2004": 45,
+    "2005": 59,
+    "2006": 109,
+    "2007": 112,
+    "2008": 182,
+    "2009": 176,
+    "2010": 155,
+    "2011": 99,
+    "2012": 132,
+    "2013": 178,
+    "2014": 60,
+    "2015": 61,
+    "2016": 83,
+    "2017": 69,
+    "2018": 65,
+    "2019": 116,
+    "2020": 93,
+    "2021": 53,
+    "2022": 105,
+    "2023": 41,
+    "2024": 47,
+    "2025": 30,
+    "2026": 31
+   },
+   "n_editors": 894,
+   "top_editor_share": 0.037019458946369245,
+   "reverted": 96,
+   "anonymous": 608,
+   "first_edit": "2003-10-28T12:06:39Z",
+   "last_edit": "2026-10-08T05:14:56Z",
+   "final_size": 117194,
+   "max_size": 119722
+  },
+  "Clinical pharmacy": {
+   "n_edits": 244,
+   "per_year": {
+    "2007": 14,
+    "2008": 19,
+    "2009": 21,
+    "2010": 33,
+    "2011": 14,
+    "2012": 7,
+    "2013": 8,
+    "2014": 1,
+    "2015": 8,
+    "2016": 31,
+    "2017": 7,
+    "2018": 15,
+    "2019": 20,
+    "2020": 23,
+    "2021": 8,
+    "2022": 5,
+    "2023": 2,
+    "2024": 5,
+    "2026": 3
+   },
+   "n_editors": 146,
+   "top_editor_share": 0.04918032786885246,
+   "reverted": 20,
+   "anonymous": 60,
+   "first_edit": "2007-04-02T19:22:19Z",
+   "last_edit": "2026-04-23T08:16:41Z",
+   "final_size": 10894,
+   "max_size": 11345
+  },
+  "Pharmacy automation": {
+   "n_edits": 416,
+   "per_year": {
+    "2010": 247,
+    "2011": 14,
+    "2012": 26,
+    "2013": 27,
+    "2014": 15,
+    "2015": 35,
+    "2016": 2,
+    "2017": 6,
+    "2018": 4,
+    "2019": 4,
+    "2020": 7,
+    "2021": 7,
+    "2022": 2,
+    "2023": 2,
+    "2024": 3,
+    "2025": 3,
+    "2026": 12
+   },
+   "n_editors": 117,
+   "top_editor_share": 0.43509615384615385,
+   "reverted": 3,
+   "anonymous": 33,
+   "first_edit": "2010-01-13T23:52:00Z",
+   "last_edit": "2026-09-26T22:08:53Z",
+   "final_size": 23406,
+   "max_size": 27449
+  },
+  "OpenEvidence": {
+   "n_edits": 72,
+   "per_year": {
+    "2025": 40,
+    "2026": 32
+   },
+   "n_editors": 30,
+   "top_editor_share": 0.18055555555555555,
+   "reverted": 0,
+   "anonymous": 1,
+   "first_edit": "2025-07-26T21:41:38Z",
+   "last_edit": "2026-10-15T15:40:18Z",
+   "final_size": 12830,
+   "max_size": 13994
+  }
+ },
+ "literature": {
+  "papers": [
+   {
+    "doi": "10.1001/archinte.165.13.1493",
+    "year": 2005,
+    "journal": "Archives of Internal Medicine",
+    "cited_by": 1237,
+    "oa": false
+   },
+   {
+    "doi": "10.1001/jama.2008.892",
+    "year": 2008,
+    "journal": "JAMA",
+    "cited_by": 795,
+    "oa": false
+   },
+   {
+    "doi": "10.1001/jama.2016.17438",
+    "year": 2016,
+    "journal": "JAMA",
+    "cited_by": 583,
+    "oa": false
+   },
+   {
+    "doi": "10.1001/jama.280.15.1311",
+    "year": 1998,
+    "journal": "JAMA",
+    "cited_by": 1456,
+    "oa": false
+   },
+   {
+    "doi": "10.1001/jama.293.10.1197",
+    "year": 2005,
+    "journal": "JAMA",
+    "cited_by": 1498,
+    "oa": false
+   },
+   {
+    "doi": "10.1001/jama.293.10.1223",
+    "year": 2005,
+    "journal": "JAMA",
+    "cited_by": 2288,
+    "oa": false
+   },
+   {
+    "doi": "10.1001/jamadermatol.2018.0855",
+    "year": 2018,
+    "journal": "JAMA Dermatology",
+    "cited_by": 52,
+    "oa": false
+   },
+   {
+    "doi": "10.1001/jamadermatol.2019.3807",
+    "year": 2020,
+    "journal": "JAMA Dermatology",
+    "cited_by": 130,
+    "oa": false
+   },
+   {
+    "doi": "10.1001/jamahealthforum.2024.2764",
+    "year": 2024,
+    "journal": "JAMA Health Forum",
+    "cited_by": 15,
+    "oa": false
+   },
+   {
+    "doi": "10.1001/jamainternmed.2015.8581",
+    "year": 2016,
+    "journal": "JAMA Internal Medicine",
+    "cited_by": 541,
+    "oa": false
+   },
+   {
+    "doi": "10.1001/jamainternmed.2021.2626",
+    "year": 2021,
+    "journal": "JAMA Internal Medicine",
+    "cited_by": 967,
+    "oa": false
+   },
+   {
+    "doi": "10.1001/jamainternmed.2023.1838",
+    "year": 2023,
+    "journal": "JAMA Internal Medicine",
+    "cited_by": 2614,
+    "oa": false
+   },
+   {
+    "doi": "10.1001/jamanetworkopen.2020.21476",
+    "year": 2020,
+    "journal": "JAMA Network Open",
+    "cited_by": 400,
+    "oa": true
+   },
+   {
+    "doi": "10.1001/jamanetworkopen.2021.3460",
+    "year": 2021,
+    "journal": "JAMA Network Open",
+    "cited_by": 34,
+    "oa": true
+   },
+   {
+    "doi": "10.1001/jamaneurol.2015.3849",
+    "year": 2016,
+    "journal": "JAMA Neurology",
+    "cited_by": 112,
+    "oa": false
+   },
+   {
+    "doi": "10.1001/jamaophthalmol.2022.2114",
+    "year": 2022,
+    "journal": "JAMA Ophthalmology",
+    "cited_by": 5,
+    "oa": false
+   },
+   {
+    "doi": "10.1001/jamasurg.2024.6006",
+    "year": 2025,
+    "journal": "JAMA Surgery",
+    "cited_by": 3,
+    "oa": false
+   },
+   {
+    "doi": "10.1002/(sici)1097-0193(1996)4:2<140::aid-hbm5>3.0.co;2-3",
+    "year": 1996,
+    "journal": "Human Brain Mapping",
+    "cited_by": 92,
+    "oa": false
+   },
+   {
+    "doi": "10.1002/14651858.cd012707.pub2",
+    "year": 2021,
+    "journal": "Cochrane Database of Systematic Reviews",
+    "cited_by": 27,
+    "oa": false
+   },
+   {
+    "doi": "10.1002/9781683673941.ch19",
+    "year": 2024,
+    "journal": "Clinical Laboratory Management",
+    "cited_by": 4,
+    "oa": null
+   },
+   {
+    "doi": "10.1002/ajmg.a.40651",
+    "year": 2018,
+    "journal": "American Journal of Medical Genetics Part A",
+    "cited_by": 7,
+    "oa": false
+   },
+   {
+    "doi": "10.1002/alz.12967",
+    "year": 2023,
+    "journal": "Alzheimer's &amp; Dementia",
+    "cited_by": 110,
+    "oa": true
+   },
+   {
+    "doi": "10.1002/art.1780370606",
+    "year": 1994,
+    "journal": "Arthritis &amp; Rheumatism",
+    "cited_by": 108,
+    "oa": false
+   },
+   {
+    "doi": "10.1002/brb3.1787",
+    "year": 2020,
+    "journal": "Brain and Behavior",
+    "cited_by": 57,
+    "oa": true
+   },
+   {
+    "doi": "10.1002/ehf2.13073",
+    "year": 2021,
+    "journal": "ESC Heart Failure",
+    "cited_by": 177,
+    "oa": true
+   },
+   {
+    "doi": "10.1002/hec.952",
+    "year": 2005,
+    "journal": "Health Economics",
+    "cited_by": 50,
+    "oa": false
+   },
+   {
+    "doi": "10.1002/hipo.20626",
+    "year": 2009,
+    "journal": "Hippocampus",
+    "cited_by": 297,
+    "oa": false
+   },
+   {
+    "doi": "10.1002/jppr.1695",
+    "year": 2020,
+    "journal": "Journal of Pharmacy Practice and Research",
+    "cited_by": 9,
+    "oa": null
+   },
+   {
+    "doi": "10.1002/msj.21351",
+    "year": 2012,
+    "journal": "Mount Sinai Journal of Medicine: A Journal of Translational and Personalized Medicine",
+    "cited_by": 97,
+    "oa": false
+   },
+   {
+    "doi": "10.1002/widm.1350",
+    "year": 2020,
+    "journal": "WIREs Data Mining and Knowledge Discovery",
+    "cited_by": 140,
+    "oa": null
+   },
+   {
+    "doi": "10.1007/10704282_115",
+    "year": 1999,
+    "journal": "Lecture Notes in Computer Science Medical Image Computing and Computer-Assisted Intervention – MICCAI’99",
+    "cited_by": 69,
+    "oa": null
+   },
+   {
+    "doi": "10.1007/978-1-4020-4425-0_8500",
+    "year": null,
+    "journal": "Encyclopaedia of the History of Science, Technology, and Medicine in Non-Western Cultures",
+    "cited_by": 2,
+    "oa": null
+   },
+   {
+    "doi": "10.1007/978-1-4471-4474-8",
+    "year": 2014,
+    "journal": "",
+    "cited_by": 157,
+    "oa": null
+   },
+   {
+    "doi": "10.1007/978-3-030-22741-8_45",
+    "year": 2019,
+    "journal": "Lecture Notes in Computer Science Computational Science – ICCS 2019",
+    "cited_by": 25,
+    "oa": null
+   },
+   {
+    "doi": "10.1007/978-3-030-56917-4_1",
+    "year": 2021,
+    "journal": "Telemedicine, Telehealth and Telepresence",
+    "cited_by": 1,
+    "oa": null
+   },
+   {
+    "doi": "10.1007/978-3-030-87444-5_3",
+    "year": 2021,
+    "journal": "Lecture Notes in Computer Science Interpretability of Machine Intelligence in Medical Image Computing, and Topological Data Analysis and Its Applications for Medical Data",
+    "cited_by": 2,
+    "oa": null
+   },
+   {
+    "doi": "10.1007/978-3-319-16483-0_20",
+    "year": 2015,
+    "journal": "Lecture Notes in Computer Science Bioinformatics and Biomedical Engineering",
+    "cited_by": 54,
+    "oa": null
+   },
+   {
+    "doi": "10.1007/978-3-540-72849-8_23",
+    "year": 2007,
+    "journal": "Lecture Notes in Computer Science Pattern Recognition and Image Analysis",
+    "cited_by": 37,
+    "oa": null
+   },
+   {
+    "doi": "10.1007/978-3-540-85786-0_16",
+    "year": null,
+    "journal": "Telepathology",
+    "cited_by": 2,
+    "oa": null
+   },
+   {
+    "doi": "10.1007/978-3-642-56719-3_18",
+    "year": 2002,
+    "journal": "Evaluating Critical Care",
+    "cited_by": 1,
+    "oa": null
+   },
+   {
+    "doi": "10.1007/bf00993877",
+    "year": 1991,
+    "journal": "Journal of Medical Systems",
+    "cited_by": 81,
+    "oa": false
+   },
+   {
+    "doi": "10.1007/s00146-026-02854-9",
+    "year": 2026,
+    "journal": "AI &amp; SOCIETY",
+    "cited_by": 2,
+    "oa": null
+   },
+   {
+    "doi": "10.1007/s00261-009-9562-3",
+    "year": 2010,
+    "journal": "Abdominal Imaging",
+    "cited_by": 22,
+    "oa": false
+   },
+   {
+    "doi": "10.1007/s00266-020-01907-8",
+    "year": 2021,
+    "journal": "Aesthetic Plastic Surgery",
+    "cited_by": 58,
+    "oa": true
+   },
+   {
+    "doi": "10.1007/s00392-016-1025-6",
+    "year": 2017,
+    "journal": "Clinical Research in Cardiology",
+    "cited_by": 583,
+    "oa": true
+   },
+   {
+    "doi": "10.1007/s00701-024-05940-3",
+    "year": 2024,
+    "journal": "Acta Neurochirurgica",
+    "cited_by": 12,
+    "oa": true
+   },
+   {
+    "doi": "10.1007/s10916-005-6103-7",
+    "year": 2005,
+    "journal": "Journal of Medical Systems",
+    "cited_by": 4,
+    "oa": false
+   },
+   {
+    "doi": "10.1007/s10916-007-9104-x",
+    "year": 2008,
+    "journal": "Journal of Medical Systems",
+    "cited_by": 36,
+    "oa": false
+   },
+   {
+    "doi": "10.1007/s10916-011-9780-4",
+    "year": 2012,
+    "journal": "Journal of Medical Systems",
+    "cited_by": 86,
+    "oa": false
+   },
+   {
+    "doi": "10.1007/s10916-017-0794-4",
+    "year": 2017,
+    "journal": "Journal of Medical Systems",
+    "cited_by": 34,
+    "oa": false
+   },
+   {
+    "doi": "10.1007/s11023-018-9467-4",
+    "year": 2019,
+    "journal": "Minds and Machines",
+    "cited_by": 30,
+    "oa": null
+   },
+   {
+    "doi": "10.1007/s11414-013-9338-y",
+    "year": 2013,
+    "journal": "The Journal of Behavioral Health Services &amp; Research",
+    "cited_by": 10,
+    "oa": false
+   },
+   {
+    "doi": "10.1007/s11548-012-0684-7",
+    "year": 2012,
+    "journal": "International Journal of Computer Assisted Radiology and Surgery",
+    "cited_by": 29,
+    "oa": false
+   },
+   {
+    "doi": "10.1007/s11606-008-0573-5",
+    "year": 2008,
+    "journal": "Journal of General Internal Medicine",
+    "cited_by": 95,
+    "oa": false
+   },
+   {
+    "doi": "10.1007/s11682-011-9142-3",
+    "year": 2012,
+    "journal": "Brain Imaging and Behavior",
+    "cited_by": 118,
+    "oa": false
+   },
+   {
+    "doi": "10.1007/s11882-018-0808-4",
+    "year": 2018,
+    "journal": "Current Allergy and Asthma Reports",
+    "cited_by": 181,
+    "oa": false
+   },
+   {
+    "doi": "10.1007/s11910-018-0834-6",
+    "year": 2018,
+    "journal": "Current Neurology and Neuroscience Reports",
+    "cited_by": 95,
+    "oa": false
+   },
+   {
+    "doi": "10.1007/s12272-011-1105-0",
+    "year": 2011,
+    "journal": "Archives of Pharmacal Research",
+    "cited_by": 75,
+    "oa": false
+   },
+   {
+    "doi": "10.1007/s12325-021-01908-2",
+    "year": 2021,
+    "journal": "Advances in Therapy",
+    "cited_by": 40,
+    "oa": false
+   },
+   {
+    "doi": "10.1007/s13369-013-0649-3",
+    "year": 2014,
+    "journal": "Arabian Journal for Science and Engineering",
+    "cited_by": 23,
+    "oa": null
+   },
+   {
+    "doi": "10.1007/s40471-018-0165-9",
+    "year": 2018,
+    "journal": "Current Epidemiology Reports",
+    "cited_by": 106,
+    "oa": false
+   },
+   {
+    "doi": "10.1007/s40596-020-01243-8",
+    "year": 2020,
+    "journal": "Academic Psychiatry",
+    "cited_by": 24,
+    "oa": false
+   },
+   {
+    "doi": "10.1007/s40629-021-00167-5",
+    "year": 2021,
+    "journal": "Allergo Journal International",
+    "cited_by": 18,
+    "oa": true
+   },
+   {
+    "doi": "10.1016/0004-3702(93)90068-m",
+    "year": 1993,
+    "journal": "Artificial Intelligence",
+    "cited_by": 234,
+    "oa": null
+   },
+   {
+    "doi": "10.1016/0021-9681(66)90122-6",
+    "year": 1966,
+    "journal": "Journal of Chronic Diseases",
+    "cited_by": 26,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/0025-5564(75)90047-4",
+    "year": 1975,
+    "journal": "Mathematical Biosciences",
+    "cited_by": 1079,
+    "oa": null
+   },
+   {
+    "doi": "10.1016/0046-8177(91)90226-f",
+    "year": 1991,
+    "journal": "Human Pathology",
+    "cited_by": 104,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/0169-2607(87)90048-4",
+    "year": 1987,
+    "journal": "Computer Methods and Programs in Biomedicine",
+    "cited_by": 27,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/b978-0-12-803130-8.00009-9",
+    "year": 2016,
+    "journal": "Clinical Research Computing",
+    "cited_by": 4,
+    "oa": null
+   },
+   {
+    "doi": "10.1016/b978-0-443-13963-5.00012-1",
+    "year": 2024,
+    "journal": "The New Era of Precision Medicine",
+    "cited_by": 30,
+    "oa": null
+   },
+   {
+    "doi": "10.1016/j.acra.2020.01.012",
+    "year": 2021,
+    "journal": "Academic Radiology",
+    "cited_by": 81,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.amepre.2021.04.016",
+    "year": 2021,
+    "journal": "American Journal of Preventive Medicine",
+    "cited_by": 73,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.amjmed.2009.09.004",
+    "year": 2010,
+    "journal": "The American Journal of Medicine",
+    "cited_by": 148,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.annemergmed.2010.09.008",
+    "year": 2010,
+    "journal": "Annals of Emergency Medicine",
+    "cited_by": 3,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.apmr.2003.09.008",
+    "year": 2004,
+    "journal": "Archives of Physical Medicine and Rehabilitation",
+    "cited_by": 21,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.artmed.2004.10.001",
+    "year": 2005,
+    "journal": "Artificial Intelligence in Medicine",
+    "cited_by": 105,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.artmed.2017.01.004",
+    "year": 2017,
+    "journal": "Artificial Intelligence in Medicine",
+    "cited_by": 77,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.artmed.2018.03.001",
+    "year": 2018,
+    "journal": "Artificial Intelligence in Medicine",
+    "cited_by": 81,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.artmed.2022.102332",
+    "year": 2022,
+    "journal": "Artificial Intelligence in Medicine",
+    "cited_by": 179,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.artmed.2023.102658",
+    "year": 2023,
+    "journal": "Artificial Intelligence in Medicine",
+    "cited_by": 54,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.brs.2024.12.1005",
+    "year": 2025,
+    "journal": "Brain Stimulation",
+    "cited_by": 3,
+    "oa": null
+   },
+   {
+    "doi": "10.1016/j.brs.2024.12.860",
+    "year": 2025,
+    "journal": "Brain Stimulation",
+    "cited_by": 3,
+    "oa": null
+   },
+   {
+    "doi": "10.1016/j.brs.2024.12.955",
+    "year": 2025,
+    "journal": "Brain Stimulation",
+    "cited_by": 2,
+    "oa": null
+   },
+   {
+    "doi": "10.1016/j.bspc.2006.05.002",
+    "year": 2006,
+    "journal": "Biomedical Signal Processing and Control",
+    "cited_by": 427,
+    "oa": null
+   },
+   {
+    "doi": "10.1016/j.bspc.2006.12.001",
+    "year": 2006,
+    "journal": "Biomedical Signal Processing and Control",
+    "cited_by": 94,
+    "oa": null
+   },
+   {
+    "doi": "10.1016/j.bspc.2013.09.001",
+    "year": 2013,
+    "journal": "Biomedical Signal Processing and Control",
+    "cited_by": 95,
+    "oa": null
+   },
+   {
+    "doi": "10.1016/j.cjca.2021.02.020",
+    "year": 2021,
+    "journal": "Canadian Journal of Cardiology",
+    "cited_by": 48,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.clindermatol.2023.12.015",
+    "year": 2024,
+    "journal": "Clinics in Dermatology",
+    "cited_by": 43,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.clsr.2011.07.013",
+    "year": 2011,
+    "journal": "Computer Law &amp; Security Review",
+    "cited_by": 87,
+    "oa": null
+   },
+   {
+    "doi": "10.1016/j.clsr.2012.01.003",
+    "year": 2012,
+    "journal": "Computer Law &amp; Security Review",
+    "cited_by": 24,
+    "oa": null
+   },
+   {
+    "doi": "10.1016/j.cmpb.2011.08.009",
+    "year": 2012,
+    "journal": "Computer Methods and Programs in Biomedicine",
+    "cited_by": 286,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.cmpb.2012.03.004",
+    "year": 2012,
+    "journal": "Computer Methods and Programs in Biomedicine",
+    "cited_by": 85,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.cmpb.2013.03.015",
+    "year": 2013,
+    "journal": "Computer Methods and Programs in Biomedicine",
+    "cited_by": 21,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.cmpb.2014.02.006",
+    "year": 2014,
+    "journal": "Computer Methods and Programs in Biomedicine",
+    "cited_by": 18,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.compbiomed.2024.108742",
+    "year": 2024,
+    "journal": "Computers in Biology and Medicine",
+    "cited_by": 34,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.compmedimag.2007.02.002",
+    "year": 2007,
+    "journal": "Computerized Medical Imaging and Graphics",
+    "cited_by": 1524,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.conb.2019.02.006",
+    "year": 2019,
+    "journal": "Current Opinion in Neurobiology",
+    "cited_by": 171,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.cosrev.2019.02.001",
+    "year": 2019,
+    "journal": "Computer Science Review",
+    "cited_by": 31,
+    "oa": null
+   },
+   {
+    "doi": "10.1016/j.crad.2018.02.009",
+    "year": 2018,
+    "journal": "Clinical Radiology",
+    "cited_by": 7,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.cviu.2009.06.008",
+    "year": 2010,
+    "journal": "Computer Vision and Image Understanding",
+    "cited_by": 172,
+    "oa": null
+   },
+   {
+    "doi": "10.1016/j.dld.2020.10.035",
+    "year": 2021,
+    "journal": "Digestive and Liver Disease",
+    "cited_by": 22,
+    "oa": true
+   },
+   {
+    "doi": "10.1016/j.dld.2021.06.032",
+    "year": 2021,
+    "journal": "Digestive and Liver Disease",
+    "cited_by": 13,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.dsx.2020.06.007",
+    "year": 2020,
+    "journal": "Diabetes &amp; Metabolic Syndrome: Clinical Research &amp; Reviews",
+    "cited_by": 105,
+    "oa": true
+   },
+   {
+    "doi": "10.1016/j.ejca.2008.02.016",
+    "year": 2008,
+    "journal": "European Journal of Cancer",
+    "cited_by": 127,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.eswa.2014.01.021",
+    "year": 2014,
+    "journal": "Expert Systems with Applications",
+    "cited_by": 532,
+    "oa": null
+   },
+   {
+    "doi": "10.1016/j.eswa.2019.112821",
+    "year": 2019,
+    "journal": "Expert Systems with Applications",
+    "cited_by": 274,
+    "oa": null
+   },
+   {
+    "doi": "10.1016/j.gpb.2016.01.003",
+    "year": 2016,
+    "journal": "Genomics, Proteomics &amp; Bioinformatics",
+    "cited_by": 70,
+    "oa": true
+   },
+   {
+    "doi": "10.1016/j.healthpol.2006.09.011",
+    "year": 2007,
+    "journal": "Health Policy",
+    "cited_by": 87,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.hlpt.2012.03.001",
+    "year": 2012,
+    "journal": "Health Policy and Technology",
+    "cited_by": 42,
+    "oa": null
+   },
+   {
+    "doi": "10.1016/j.hlpt.2016.08.002",
+    "year": 2017,
+    "journal": "Health Policy and Technology",
+    "cited_by": 225,
+    "oa": null
+   },
+   {
+    "doi": "10.1016/j.humpath.2009.04.006",
+    "year": 2009,
+    "journal": "Human Pathology",
+    "cited_by": 315,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.ijmedinf.2006.05.003",
+    "year": 2007,
+    "journal": "International Journal of Medical Informatics",
+    "cited_by": 33,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.ijmedinf.2006.09.011",
+    "year": 2007,
+    "journal": "International Journal of Medical Informatics",
+    "cited_by": 10,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.ijmedinf.2007.01.009",
+    "year": 2008,
+    "journal": "International Journal of Medical Informatics",
+    "cited_by": 49,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.ijmedinf.2011.05.003",
+    "year": 2011,
+    "journal": "International Journal of Medical Informatics",
+    "cited_by": 21,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.ijmedinf.2015.01.010",
+    "year": 2015,
+    "journal": "International Journal of Medical Informatics",
+    "cited_by": 56,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.ijmedinf.2015.03.003",
+    "year": 2015,
+    "journal": "International Journal of Medical Informatics",
+    "cited_by": 187,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.ijmedinf.2019.06.017",
+    "year": 2019,
+    "journal": "International Journal of Medical Informatics",
+    "cited_by": 59,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.ijmedinf.2020.104302",
+    "year": 2020,
+    "journal": "International Journal of Medical Informatics",
+    "cited_by": 58,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.ijnurstu.2021.103921",
+    "year": 2021,
+    "journal": "International Journal of Nursing Studies",
+    "cited_by": 60,
+    "oa": true
+   },
+   {
+    "doi": "10.1016/j.ijom.2018.07.010",
+    "year": 2019,
+    "journal": "International Journal of Oral and Maxillofacial Surgery",
+    "cited_by": 159,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.imu.2022.100867",
+    "year": 2022,
+    "journal": "Informatics in Medicine Unlocked",
+    "cited_by": 7,
+    "oa": null
+   },
+   {
+    "doi": "10.1016/j.ipha.2023.04.008",
+    "year": 2023,
+    "journal": "Intelligent Pharmacy",
+    "cited_by": 63,
+    "oa": null
+   },
+   {
+    "doi": "10.1016/j.jaad.2021.06.884",
+    "year": 2022,
+    "journal": "Journal of the American Academy of Dermatology",
+    "cited_by": 99,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.jaip.2020.03.008",
+    "year": 2020,
+    "journal": "The Journal of Allergy and Clinical Immunology: In Practice",
+    "cited_by": 506,
+    "oa": true
+   },
+   {
+    "doi": "10.1016/j.jamda.2021.02.037",
+    "year": 2021,
+    "journal": "Journal of the American Medical Directors Association",
+    "cited_by": 139,
+    "oa": true
+   },
+   {
+    "doi": "10.1016/j.jbi.2013.07.011",
+    "year": 2013,
+    "journal": "Journal of Biomedical Informatics",
+    "cited_by": 377,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.jbi.2014.02.010",
+    "year": 2014,
+    "journal": "Journal of Biomedical Informatics",
+    "cited_by": 5,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.jbi.2015.06.023",
+    "year": 2015,
+    "journal": "Journal of Biomedical Informatics",
+    "cited_by": 42,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.jclinepi.2025.112122",
+    "year": 2026,
+    "journal": "Journal of Clinical Epidemiology",
+    "cited_by": 1,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.jocn.2013.12.003",
+    "year": 2014,
+    "journal": "Journal of Clinical Neuroscience",
+    "cited_by": 87,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.josat.2024.209446",
+    "year": 2024,
+    "journal": "Journal of Substance Use and Addiction Treatment",
+    "cited_by": 0,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.media.2006.06.002",
+    "year": 2006,
+    "journal": "Medical Image Analysis",
+    "cited_by": 48,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.media.2009.07.001",
+    "year": 2009,
+    "journal": "Medical Image Analysis",
+    "cited_by": 280,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.media.2012.02.005",
+    "year": 2012,
+    "journal": "Medical Image Analysis",
+    "cited_by": 588,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.neuroimage.2015.01.048",
+    "year": 2015,
+    "journal": "NeuroImage",
+    "cited_by": 318,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.neuron.2022.12.029",
+    "year": 2023,
+    "journal": "Neuron",
+    "cited_by": 342,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.nima.2006.08.134",
+    "year": 2006,
+    "journal": "Nuclear Instruments and Methods in Physics Research Section A: Accelerators, Spectrometers, Detectors and Associated Equipment",
+    "cited_by": 95,
+    "oa": null
+   },
+   {
+    "doi": "10.1016/j.oooo.2024.09.010",
+    "year": 2025,
+    "journal": "Oral Surgery, Oral Medicine, Oral Pathology and Oral Radiology",
+    "cited_by": 13,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.ophtha.2016.11.014",
+    "year": 2017,
+    "journal": "Ophthalmology",
+    "cited_by": 261,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.patrec.2015.04.016",
+    "year": 2015,
+    "journal": "Pattern Recognition Letters",
+    "cited_by": 36,
+    "oa": null
+   },
+   {
+    "doi": "10.1016/j.pharma.2010.08.003",
+    "year": 2010,
+    "journal": "Annales Pharmaceutiques Françaises",
+    "cited_by": 13,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.sbi.2024.102776",
+    "year": 2024,
+    "journal": "Current Opinion in Structural Biology",
+    "cited_by": 84,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.socscimed.2023.116357",
+    "year": 2023,
+    "journal": "Social Science &amp; Medicine",
+    "cited_by": 155,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.ultrasmedbio.2006.07.032",
+    "year": 2007,
+    "journal": "Ultrasound in Medicine &amp; Biology",
+    "cited_by": 82,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.ultrasmedbio.2020.06.006",
+    "year": 2020,
+    "journal": "Ultrasound in Medicine &amp; Biology",
+    "cited_by": 26,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/j.wneu.2020.05.251",
+    "year": 2020,
+    "journal": "World Neurosurgery",
+    "cited_by": 53,
+    "oa": true
+   },
+   {
+    "doi": "10.1016/j.wneu.2022.03.037",
+    "year": 2022,
+    "journal": "World Neurosurgery",
+    "cited_by": 3,
+    "oa": true
+   },
+   {
+    "doi": "10.1016/s0031-6997(25)06847-4",
+    "year": 1995,
+    "journal": "Pharmacological Reviews",
+    "cited_by": 789,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/s0046-8177(86)80028-4",
+    "year": 1986,
+    "journal": "Human Pathology",
+    "cited_by": 123,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/s0140-6736(15)01024-7",
+    "year": 2016,
+    "journal": "The Lancet",
+    "cited_by": 6053,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/s0140-6736(21)02724-0",
+    "year": 2022,
+    "journal": "The Lancet",
+    "cited_by": 15001,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/s0140-6736(25)00980-8",
+    "year": 2025,
+    "journal": "The Lancet",
+    "cited_by": 0,
+    "oa": null
+   },
+   {
+    "doi": "10.1016/s0740-8188(01)00094-9",
+    "year": 2001,
+    "journal": "Library &amp; Information Science Research",
+    "cited_by": 79,
+    "oa": null
+   },
+   {
+    "doi": "10.1016/s0895-4356(97)00050-4",
+    "year": 1997,
+    "journal": "Journal of Clinical Epidemiology",
+    "cited_by": 117,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/s0895-6111(98)00017-2",
+    "year": 1998,
+    "journal": "Computerized Medical Imaging and Graphics",
+    "cited_by": 176,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/s1470-2045(23)00462-x",
+    "year": 2023,
+    "journal": "The Lancet Oncology",
+    "cited_by": 65,
+    "oa": true
+   },
+   {
+    "doi": "10.1016/s2589-7500(19)30123-2",
+    "year": 2019,
+    "journal": "The Lancet Digital Health",
+    "cited_by": 1722,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/s2589-7500(20)30159-x",
+    "year": 2020,
+    "journal": "The Lancet Digital Health",
+    "cited_by": 345,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/s2589-7500(22)00187-x",
+    "year": 2023,
+    "journal": "The Lancet Digital Health",
+    "cited_by": 170,
+    "oa": false
+   },
+   {
+    "doi": "10.1016/s2666-7568(20)30010-6",
+    "year": 2020,
+    "journal": "The Lancet Healthy Longevity",
+    "cited_by": 43,
+    "oa": false
+   },
+   {
+    "doi": "10.1017/ice.2018.343",
+    "year": 2019,
+    "journal": "Infection Control &amp; Hospital Epidemiology",
+    "cited_by": 48,
+    "oa": false
+   },
+   {
+    "doi": "10.1017/s1355617714000873",
+    "year": 2014,
+    "journal": "Journal of the International Neuropsychological Society",
+    "cited_by": 242,
+    "oa": false
+   },
+   {
+    "doi": "10.1038/d41586-019-01111-y",
+    "year": 2019,
+    "journal": "Nature",
+    "cited_by": 7,
+    "oa": false
+   },
+   {
+    "doi": "10.1038/d41586-019-02872-2",
+    "year": 2019,
+    "journal": "Nature",
+    "cited_by": 74,
+    "oa": false
+   },
+   {
+    "doi": "10.1038/d41586-020-03348-4",
+    "year": 2020,
+    "journal": "Nature",
+    "cited_by": 448,
+    "oa": false
+   },
+   {
+    "doi": "10.1038/d41586-022-00072-z",
+    "year": 2022,
+    "journal": "Nature",
+    "cited_by": 24,
+    "oa": false
+   },
+   {
+    "doi": "10.1038/d41586-023-00023-2",
+    "year": 2023,
+    "journal": "Nature",
+    "cited_by": 33,
+    "oa": false
+   },
+   {
+    "doi": "10.1038/d41586-023-00181-3",
+    "year": 2023,
+    "journal": "Nature",
+    "cited_by": 12,
+    "oa": false
+   },
+   {
+    "doi": "10.1038/d41586-026-00697-4",
+    "year": 2026,
+    "journal": "Nature",
+    "cited_by": 2,
+    "oa": false
+   },
+   {
+    "doi": "10.1038/nrneurol.2018.31",
+    "year": 2018,
+    "journal": "Nature Reviews Neurology",
+    "cited_by": 245,
+    "oa": false
+   },
+   {
+    "doi": "10.1038/s41374-019-0202-4",
+    "year": 2019,
+    "journal": "Laboratory Investigation",
+    "cited_by": 114,
+    "oa": false
+   },
+   {
+    "doi": "10.1038/s41568-018-0016-5",
+    "year": 2018,
+    "journal": "Nature Reviews Cancer",
+    "cited_by": 3522,
+    "oa": false
+   },
+   {
+    "doi": "10.1038/s41581-026-01071-3",
+    "year": 2026,
+    "journal": "Nature Reviews Nephrology",
+    "cited_by": 0,
+    "oa": false
+   },
+   {
+    "doi": "10.1038/s41586-019-1799-6",
+    "year": 2020,
+    "journal": "Nature",
+    "cited_by": 2880,
+    "oa": false
+   },
+   {
+    "doi": "10.1038/s41586-023-05947-3",
+    "year": 2023,
+    "journal": "Nature",
+    "cited_by": 255,
+    "oa": true
+   },
+   {
+    "doi": "10.1038/s41591-018-0335-9",
+    "year": 2019,
+    "journal": "Nature Medicine",
+    "cited_by": 552,
+    "oa": false
+   },
+   {
+    "doi": "10.1038/s41591-019-0548-6",
+    "year": 2019,
+    "journal": "Nature Medicine",
+    "cited_by": 1178,
+    "oa": false
+   },
+   {
+    "doi": "10.1038/s41591-020-01192-7",
+    "year": 2021,
+    "journal": "Nature Medicine",
+    "cited_by": 237,
+    "oa": false
+   },
+   {
+    "doi": "10.1038/s41591-020-1034-x",
+    "year": 2020,
+    "journal": "Nature Medicine",
+    "cited_by": 1277,
+    "oa": true
+   },
+   {
+    "doi": "10.1038/s41598-019-49656-2",
+    "year": 2019,
+    "journal": "Scientific Reports",
+    "cited_by": 187,
+    "oa": true
+   },
+   {
+    "doi": "10.1038/s41598-020-65340-2",
+    "year": 2020,
+    "journal": "Scientific Reports",
+    "cited_by": 22,
+    "oa": true
+   },
+   {
+    "doi": "10.1038/s41598-022-05112-2",
+    "year": 2022,
+    "journal": "Scientific Reports",
+    "cited_by": 112,
+    "oa": true
+   },
+   {
+    "doi": "10.1038/s41698-022-00312-5",
+    "year": 2022,
+    "journal": "npj Precision Oncology",
+    "cited_by": 36,
+    "oa": true
+   },
+   {
+    "doi": "10.1038/s41746-020-00324-0",
+    "year": 2020,
+    "journal": "npj Digital Medicine",
+    "cited_by": 1114,
+    "oa": true
+   },
+   {
+    "doi": "10.1038/s41746-021-00430-7",
+    "year": 2021,
+    "journal": "npj Digital Medicine",
+    "cited_by": 149,
+    "oa": true
+   },
+   {
+    "doi": "10.1038/s41746-021-00542-0",
+    "year": 2021,
+    "journal": "npj Digital Medicine",
+    "cited_by": 57,
+    "oa": true
+   },
+   {
+    "doi": "10.1038/s41746-022-00592-y",
+    "year": 2022,
+    "journal": "npj Digital Medicine",
+    "cited_by": 674,
+    "oa": true
+   },
+   {
+    "doi": "10.1038/s41746-023-00914-8",
+    "year": 2023,
+    "journal": "npj Digital Medicine",
+    "cited_by": 105,
+    "oa": true
+   },
+   {
+    "doi": "10.1038/s41746-024-01031-w",
+    "year": 2024,
+    "journal": "npj Digital Medicine",
+    "cited_by": 84,
+    "oa": true
+   },
+   {
+    "doi": "10.1038/s41746-024-01103-x",
+    "year": 2024,
+    "journal": "npj Digital Medicine",
+    "cited_by": 161,
+    "oa": true
+   },
+   {
+    "doi": "10.1038/s41746-024-01232-3",
+    "year": 2024,
+    "journal": "npj Digital Medicine",
+    "cited_by": 228,
+    "oa": true
+   },
+   {
+    "doi": "10.1044/1059-0889(2003/011)",
+    "year": 2003,
+    "journal": "American Journal of Audiology",
+    "cited_by": 67,
+    "oa": false
+   },
+   {
+    "doi": "10.1046/j.0306-5251.2001.01469.x",
+    "year": 2001,
+    "journal": "British Journal of Clinical Pharmacology",
+    "cited_by": 268,
+    "oa": false
+   },
+   {
+    "doi": "10.1046/j.1365-2125.1998.00764.x",
+    "year": 1998,
+    "journal": "British Journal of Clinical Pharmacology",
+    "cited_by": 568,
+    "oa": false
+   },
+   {
+    "doi": "10.1053/j.gastro.2023.02.031",
+    "year": 2023,
+    "journal": "Gastroenterology",
+    "cited_by": 125,
+    "oa": false
+   },
+   {
+    "doi": "10.1053/j.semnuclmed.2020.08.003",
+    "year": 2021,
+    "journal": "Seminars in Nuclear Medicine",
+    "cited_by": 106,
+    "oa": false
+   },
+   {
+    "doi": "10.1055/s-0038-1636674",
+    "year": 1980,
+    "journal": "Methods of Information in Medicine",
+    "cited_by": 84,
+    "oa": null
+   },
+   {
+    "doi": "10.1055/s-0039-1677901",
+    "year": 2019,
+    "journal": "Yearbook of Medical Informatics",
+    "cited_by": 173,
+    "oa": true
+   },
+   {
+    "doi": "10.1055/s-2006-955983",
+    "year": 2007,
+    "journal": "Geburtshilfe und Frauenheilkunde",
+    "cited_by": 0,
+    "oa": null
+   },
+   {
+    "doi": "10.1056/nejm198110153051605",
+    "year": 1981,
+    "journal": "New England Journal of Medicine",
+    "cited_by": 69,
+    "oa": false
+   },
+   {
+    "doi": "10.1056/nejm198208193070803",
+    "year": 1982,
+    "journal": "New England Journal of Medicine",
+    "cited_by": 827,
+    "oa": false
+   },
+   {
+    "doi": "10.1056/nejm199406233302506",
+    "year": 1994,
+    "journal": "New England Journal of Medicine",
+    "cited_by": 234,
+    "oa": false
+   },
+   {
+    "doi": "10.1056/nejmoa1009370",
+    "year": 2011,
+    "journal": "New England Journal of Medicine",
+    "cited_by": 925,
+    "oa": false
+   },
+   {
+    "doi": "10.1056/nejmp1500533",
+    "year": 2015,
+    "journal": "New England Journal of Medicine",
+    "cited_by": 119,
+    "oa": false
+   },
+   {
+    "doi": "10.1056/nejmsa0900592",
+    "year": 2009,
+    "journal": "New England Journal of Medicine",
+    "cited_by": 1115,
+    "oa": false
+   },
+   {
+    "doi": "10.1056/nejmsa1102519",
+    "year": 2011,
+    "journal": "New England Journal of Medicine",
+    "cited_by": 253,
+    "oa": false
+   },
+   {
+    "doi": "10.1071/ah20183",
+    "year": 2020,
+    "journal": "Australian Health Review",
+    "cited_by": 134,
+    "oa": false
+   },
+   {
+    "doi": "10.1073/pnas.0911686107",
+    "year": 2010,
+    "journal": "Proceedings of the National Academy of Sciences",
+    "cited_by": 104,
+    "oa": false
+   },
+   {
+    "doi": "10.1080/10410236.2019.1673950",
+    "year": 2021,
+    "journal": "Health Communication",
+    "cited_by": 19,
+    "oa": false
+   },
+   {
+    "doi": "10.1080/13698575.2024.2412374",
+    "year": 2024,
+    "journal": "Health, Risk &amp; Society",
+    "cited_by": 15,
+    "oa": null
+   },
+   {
+    "doi": "10.1080/13854046.2011.609840",
+    "year": 2011,
+    "journal": "The Clinical Neuropsychologist",
+    "cited_by": 78,
+    "oa": false
+   },
+   {
+    "doi": "10.1080/13854046.2013.791723",
+    "year": 2013,
+    "journal": "The Clinical Neuropsychologist",
+    "cited_by": 84,
+    "oa": false
+   },
+   {
+    "doi": "10.1080/15323269.2019.1568127",
+    "year": 2019,
+    "journal": "Journal of Hospital Librarianship",
+    "cited_by": 0,
+    "oa": null
+   },
+   {
+    "doi": "10.1080/18387357.2015.1063635",
+    "year": 2016,
+    "journal": "Advances in Mental Health",
+    "cited_by": 37,
+    "oa": null
+   },
+   {
+    "doi": "10.1088/0031-9155/58/24/8647",
+    "year": 2013,
+    "journal": "Physics in Medicine and Biology",
+    "cited_by": 41,
+    "oa": false
+   },
+   {
+    "doi": "10.1088/0031-9155/61/6/2283",
+    "year": 2016,
+    "journal": "Physics in Medicine &amp; Biology",
+    "cited_by": 20,
+    "oa": false
+   },
+   {
+    "doi": "10.1088/1742-6596/616/1/012013",
+    "year": 2015,
+    "journal": "Journal of Physics: Conference Series",
+    "cited_by": 5,
+    "oa": null
+   },
+   {
+    "doi": "10.1089/heq.2018.0037",
+    "year": 2018,
+    "journal": "Health Equity",
+    "cited_by": 331,
+    "oa": true
+   },
+   {
+    "doi": "10.1089/hs.2019.0022",
+    "year": 2019,
+    "journal": "Health Security",
+    "cited_by": 142,
+    "oa": false
+   },
+   {
+    "doi": "10.1089/pop.2014.0093",
+    "year": 2015,
+    "journal": "Population Health Management",
+    "cited_by": 56,
+    "oa": false
+   },
+   {
+    "doi": "10.1089/tmj.2008.0080",
+    "year": 2008,
+    "journal": "Telemedicine and e-Health",
+    "cited_by": 220,
+    "oa": false
+   },
+   {
+    "doi": "10.1089/tmj.2009.0152",
+    "year": 2010,
+    "journal": "Telemedicine and e-Health",
+    "cited_by": 45,
+    "oa": false
+   },
+   {
+    "doi": "10.1089/tmj.2011.0071",
+    "year": 2012,
+    "journal": "Telemedicine and e-Health",
+    "cited_by": 139,
+    "oa": false
+   },
+   {
+    "doi": "10.1089/tmj.2012.0263",
+    "year": 2013,
+    "journal": "Telemedicine and e-Health",
+    "cited_by": 20,
+    "oa": false
+   },
+   {
+    "doi": "10.1089/tmj.2013.0295",
+    "year": 2014,
+    "journal": "Telemedicine and e-Health",
+    "cited_by": 105,
+    "oa": false
+   },
+   {
+    "doi": "10.1089/tmj.2018.0096",
+    "year": 2019,
+    "journal": "Telemedicine and e-Health",
+    "cited_by": 6,
+    "oa": true
+   },
+   {
+    "doi": "10.1089/tmj.2018.0160",
+    "year": 2019,
+    "journal": "Telemedicine and e-Health",
+    "cited_by": 38,
+    "oa": false
+   },
+   {
+    "doi": "10.1089/tmj.2020.0068",
+    "year": 2020,
+    "journal": "Telemedicine and e-Health",
+    "cited_by": 869,
+    "oa": false
+   },
+   {
+    "doi": "10.1089/tmj.2020.0454",
+    "year": 2021,
+    "journal": "Telemedicine and e-Health",
+    "cited_by": 12,
+    "oa": false
+   },
+   {
+    "doi": "10.1089/tmr.2024.0075",
+    "year": 2025,
+    "journal": "Telemedicine Reports",
+    "cited_by": 5,
+    "oa": true
+   },
+   {
+    "doi": "10.1093/ajhp/56.14.1405",
+    "year": 1999,
+    "journal": "American Journal of Health-System Pharmacy",
+    "cited_by": 84,
+    "oa": false
+   },
+   {
+    "doi": "10.1093/ajhp/60.14.1447",
+    "year": 2003,
+    "journal": "American Journal of Health-System Pharmacy",
+    "cited_by": 139,
+    "oa": false
+   },
+   {
+    "doi": "10.1093/arclin/acv058",
+    "year": 2016,
+    "journal": "Archives of Clinical Neuropsychology",
+    "cited_by": 100,
+    "oa": false
+   },
+   {
+    "doi": "10.1093/arclin/acw030",
+    "year": 2016,
+    "journal": "Archives of Clinical Neuropsychology",
+    "cited_by": 96,
+    "oa": false
+   },
+   {
+    "doi": "10.1093/arclin/acx140",
+    "year": 2018,
+    "journal": "Archives of Clinical Neuropsychology",
+    "cited_by": 115,
+    "oa": false
+   },
+   {
+    "doi": "10.1093/bib/bbae098",
+    "year": 2024,
+    "journal": "Briefings in Bioinformatics",
+    "cited_by": 10,
+    "oa": true
+   },
+   {
+    "doi": "10.1093/bib/bbv118",
+    "year": 2017,
+    "journal": "Briefings in Bioinformatics",
+    "cited_by": 160,
+    "oa": true
+   },
+   {
+    "doi": "10.1093/bib/bbx157",
+    "year": 2019,
+    "journal": "Briefings in Bioinformatics",
+    "cited_by": 19,
+    "oa": true
+   },
+   {
+    "doi": "10.1093/bmb/ldaf017",
+    "year": 2025,
+    "journal": "British Medical Bulletin",
+    "cited_by": 88,
+    "oa": true
+   },
+   {
+    "doi": "10.1093/carcin/bgy080",
+    "year": 2018,
+    "journal": "Carcinogenesis",
+    "cited_by": 56,
+    "oa": false
+   },
+   {
+    "doi": "10.1093/clinchem/hvab239",
+    "year": 2021,
+    "journal": "Clinical Chemistry",
+    "cited_by": 71,
+    "oa": false
+   },
+   {
+    "doi": "10.1093/cvr/cvab067",
+    "year": 2022,
+    "journal": "Cardiovascular Research",
+    "cited_by": 11,
+    "oa": false
+   },
+   {
+    "doi": "10.1093/ejo/cjz007",
+    "year": 2019,
+    "journal": "European Journal of Orthodontics",
+    "cited_by": 64,
+    "oa": false
+   },
+   {
+    "doi": "10.1093/jamia/ocaa047",
+    "year": 2020,
+    "journal": "Journal of the American Medical Informatics Association",
+    "cited_by": 4,
+    "oa": false
+   },
+   {
+    "doi": "10.1093/jamia/ocaa088",
+    "year": 2020,
+    "journal": "Journal of the American Medical Informatics Association",
+    "cited_by": 399,
+    "oa": true
+   },
+   {
+    "doi": "10.1093/jamia/ocaa238",
+    "year": 2021,
+    "journal": "Journal of the American Medical Informatics Association",
+    "cited_by": 72,
+    "oa": false
+   },
+   {
+    "doi": "10.1093/jamia/ocad214",
+    "year": 2023,
+    "journal": "Journal of the American Medical Informatics Association",
+    "cited_by": 34,
+    "oa": true
+   },
+   {
+    "doi": "10.1093/jamia/ocv032",
+    "year": 2015,
+    "journal": "Journal of the American Medical Informatics Association",
+    "cited_by": 180,
+    "oa": true
+   },
+   {
+    "doi": "10.1093/jamia/ocx100",
+    "year": 2018,
+    "journal": "Journal of the American Medical Informatics Association",
+    "cited_by": 117,
+    "oa": false
+   },
+   {
+    "doi": "10.1093/jamia/ocz101",
+    "year": 2020,
+    "journal": "Journal of the American Medical Informatics Association",
+    "cited_by": 103,
+    "oa": true
+   },
+   {
+    "doi": "10.1093/jamia/ocz192",
+    "year": 2020,
+    "journal": "Journal of the American Medical Informatics Association",
+    "cited_by": 866,
+    "oa": false
+   },
+   {
+    "doi": "10.1093/jlb/lsz013",
+    "year": 2019,
+    "journal": "Journal of Law and the Biosciences",
+    "cited_by": 124,
+    "oa": true
+   },
+   {
+    "doi": "10.1093/qje/qjab046",
+    "year": 2022,
+    "journal": "The Quarterly Journal of Economics",
+    "cited_by": 108,
+    "oa": false
+   },
+   {
+    "doi": "10.1097/00004424-199404000-00013",
+    "year": 1994,
+    "journal": "Investigative Radiology",
+    "cited_by": 160,
+    "oa": false
+   },
+   {
+    "doi": "10.1097/00124784-200411001-00009",
+    "year": 2004,
+    "journal": "Journal of Public Health Management and Practice",
+    "cited_by": 4,
+    "oa": false
+   },
+   {
+    "doi": "10.1097/00124784-200411001-00012",
+    "year": 2004,
+    "journal": "Journal of Public Health Management and Practice",
+    "cited_by": 8,
+    "oa": false
+   },
+   {
+    "doi": "10.1097/01.rti.0000203638.28511.9b",
+    "year": 2006,
+    "journal": "Journal of Thoracic Imaging",
+    "cited_by": 13,
+    "oa": false
+   },
+   {
+    "doi": "10.1097/01823246-200920020-00003",
+    "year": 2009,
+    "journal": "Cardiopulmonary Physical Therapy Journal",
+    "cited_by": 43,
+    "oa": null
+   },
+   {
+    "doi": "10.1097/mlr.0000000000002096",
+    "year": 2025,
+    "journal": "Medical Care",
+    "cited_by": 2,
+    "oa": true
+   },
+   {
+    "doi": "10.1097/mlr.0000000000002097",
+    "year": 2025,
+    "journal": "Medical Care",
+    "cited_by": 1,
+    "oa": true
+   },
+   {
+    "doi": "10.1097/mlr.0b013e31827808db",
+    "year": 2013,
+    "journal": "Medical Care",
+    "cited_by": 88,
+    "oa": false
+   },
+   {
+    "doi": "10.1097/njh.0000000000000319",
+    "year": 2017,
+    "journal": "Journal of Hospice &amp; Palliative Nursing",
+    "cited_by": 69,
+    "oa": null
+   },
+   {
+    "doi": "10.1097/pas.0000000000001151",
+    "year": 2018,
+    "journal": "American Journal of Surgical Pathology",
+    "cited_by": 465,
+    "oa": true
+   },
+   {
+    "doi": "10.1097/rlu.0000000000005254",
+    "year": 2024,
+    "journal": "Clinical Nuclear Medicine",
+    "cited_by": 13,
+    "oa": false
+   },
+   {
+    "doi": "10.1109/10.1349",
+    "year": 1988,
+    "journal": "IEEE Transactions on Biomedical Engineering",
+    "cited_by": 64,
+    "oa": false
+   },
+   {
+    "doi": "10.1109/42.974918",
+    "year": 2001,
+    "journal": "IEEE Transactions on Medical Imaging",
+    "cited_by": 380,
+    "oa": false
+   },
+   {
+    "doi": "10.1109/access.2020.3011099",
+    "year": 2020,
+    "journal": "IEEE Access",
+    "cited_by": 131,
+    "oa": null
+   },
+   {
+    "doi": "10.1109/emr.2018.2882430",
+    "year": 2018,
+    "journal": "IEEE Engineering Management Review",
+    "cited_by": 51,
+    "oa": null
+   },
+   {
+    "doi": "10.1109/euvip.2014.7018362",
+    "year": 2014,
+    "journal": "2014 5th European Workshop on Visual Information Processing (EUVIP)",
+    "cited_by": 32,
+    "oa": null
+   },
+   {
+    "doi": "10.1109/health.2006.246471",
+    "year": 2006,
+    "journal": "HEALTHCOM 2006 8th International Conference on e-Health Networking, Applications and Services",
+    "cited_by": 2,
+    "oa": null
+   },
+   {
+    "doi": "10.1109/hpcc-css-icess.2015.168",
+    "year": 2015,
+    "journal": "2015 IEEE 17th International Conference on High Performance Computing and Communications, 2015 IEEE 7th International Symposium on Cyberspace Safety and Security, and 2015 IEEE 12th International Conference on Embedded Software and Systems",
+    "cited_by": 82,
+    "oa": null
+   },
+   {
+    "doi": "10.1109/istafrica.2015.7190589",
+    "year": 2015,
+    "journal": "2015 IST-Africa Conference",
+    "cited_by": 2,
+    "oa": null
+   },
+   {
+    "doi": "10.1109/jbhi.2014.2329604",
+    "year": 2014,
+    "journal": "IEEE Journal of Biomedical and Health Informatics",
+    "cited_by": 8,
+    "oa": false
+   },
+   {
+    "doi": "10.1109/jbhi.2020.2991043",
+    "year": 2020,
+    "journal": "IEEE Journal of Biomedical and Health Informatics",
+    "cited_by": 688,
+    "oa": true
+   },
+   {
+    "doi": "10.1109/mahc.2010.28",
+    "year": 2011,
+    "journal": "IEEE Annals of the History of Computing",
+    "cited_by": 428,
+    "oa": null
+   },
+   {
+    "doi": "10.1109/rbme.2016.2558147",
+    "year": 2016,
+    "journal": "IEEE Reviews in Biomedical Engineering",
+    "cited_by": 20,
+    "oa": null
+   },
+   {
+    "doi": "10.1109/sp61157.2025.00092",
+    "year": 2025,
+    "journal": "2025 IEEE Symposium on Security and Privacy (SP)",
+    "cited_by": 9,
+    "oa": null
+   },
+   {
+    "doi": "10.1109/tbme.2012.2193126",
+    "year": 2012,
+    "journal": "IEEE Transactions on Biomedical Engineering",
+    "cited_by": 273,
+    "oa": false
+   },
+   {
+    "doi": "10.1109/tbme.2012.2226583",
+    "year": 2013,
+    "journal": "IEEE Transactions on Biomedical Engineering",
+    "cited_by": 55,
+    "oa": false
+   },
+   {
+    "doi": "10.1109/tbme.2013.2244601",
+    "year": 2013,
+    "journal": "IEEE Transactions on Biomedical Engineering",
+    "cited_by": 43,
+    "oa": false
+   },
+   {
+    "doi": "10.1109/titb.2003.813793",
+    "year": 2003,
+    "journal": "IEEE Transactions on Information Technology in Biomedicine",
+    "cited_by": 192,
+    "oa": false
+   },
+   {
+    "doi": "10.1109/titb.2003.821313",
+    "year": 2003,
+    "journal": "IEEE Transactions on Information Technology in Biomedicine",
+    "cited_by": 87,
+    "oa": false
+   },
+   {
+    "doi": "10.1109/titb.2012.2185850",
+    "year": 2012,
+    "journal": "IEEE Transactions on Information Technology in Biomedicine",
+    "cited_by": 49,
+    "oa": false
+   },
+   {
+    "doi": "10.1109/tmi.2005.852048",
+    "year": 2005,
+    "journal": "IEEE Transactions on Medical Imaging",
+    "cited_by": 185,
+    "oa": false
+   },
+   {
+    "doi": "10.1109/tmi.2006.871549",
+    "year": 2006,
+    "journal": "IEEE Transactions on Medical Imaging",
+    "cited_by": 192,
+    "oa": false
+   },
+   {
+    "doi": "10.1109/tmi.2013.2284016",
+    "year": 2014,
+    "journal": "IEEE Transactions on Medical Imaging",
+    "cited_by": 39,
+    "oa": false
+   },
+   {
+    "doi": "10.1109/tnb.2019.2919188",
+    "year": 2019,
+    "journal": "IEEE Transactions on NanoBioscience",
+    "cited_by": 10,
+    "oa": false
+   },
+   {
+    "doi": "10.1109/tns.2007.897830",
+    "year": 2007,
+    "journal": "IEEE Transactions on Nuclear Science",
+    "cited_by": 30,
+    "oa": null
+   },
+   {
+    "doi": "10.1109/tsmcc.2010.2071862",
+    "year": 2011,
+    "journal": "IEEE Transactions on Systems, Man, and Cybernetics, Part C (Applications and Reviews)",
+    "cited_by": 151,
+    "oa": null
+   },
+   {
+    "doi": "10.1111/1471-0528.15684",
+    "year": 2019,
+    "journal": "BJOG: An International Journal of Obstetrics &amp; Gynaecology",
+    "cited_by": 204,
+    "oa": true
+   },
+   {
+    "doi": "10.1111/imj.15306",
+    "year": 2021,
+    "journal": "Internal Medicine Journal",
+    "cited_by": 11,
+    "oa": false
+   },
+   {
+    "doi": "10.1111/j.1365-2125.1978.00999.pp.x",
+    "year": 2001,
+    "journal": "British Journal of Clinical Pharmacology",
+    "cited_by": 3,
+    "oa": null
+   },
+   {
+    "doi": "10.1111/j.1365-2125.2009.03427.x",
+    "year": 2009,
+    "journal": "British Journal of Clinical Pharmacology",
+    "cited_by": 164,
+    "oa": false
+   },
+   {
+    "doi": "10.1111/j.1365-2125.2012.04350.x",
+    "year": 2013,
+    "journal": "British Journal of Clinical Pharmacology",
+    "cited_by": 244,
+    "oa": false
+   },
+   {
+    "doi": "10.1111/j.1468-0009.2009.00578.x",
+    "year": 2009,
+    "journal": "The Milbank Quarterly",
+    "cited_by": 373,
+    "oa": false
+   },
+   {
+    "doi": "10.1111/j.1532-5415.2008.02040.x",
+    "year": 2009,
+    "journal": "Journal of the American Geriatrics Society",
+    "cited_by": 182,
+    "oa": false
+   },
+   {
+    "doi": "10.1111/j.1610-0387.2007.06440.x",
+    "year": 2008,
+    "journal": "JDDG: Journal der Deutschen Dermatologischen Gesellschaft",
+    "cited_by": 72,
+    "oa": false
+   },
+   {
+    "doi": "10.1111/j.1742-1241.2012.03008.x",
+    "year": 2012,
+    "journal": "International Journal of Clinical Practice",
+    "cited_by": 156,
+    "oa": false
+   },
+   {
+    "doi": "10.1111/j.1745-7262.2006.00131.x",
+    "year": 2006,
+    "journal": "Asian Journal of Andrology",
+    "cited_by": 39,
+    "oa": false
+   },
+   {
+    "doi": "10.1111/jocd.16538",
+    "year": 2024,
+    "journal": "Journal of Cosmetic Dermatology",
+    "cited_by": 39,
+    "oa": true
+   },
+   {
+    "doi": "10.1111/nhs.70233",
+    "year": 2025,
+    "journal": "Nursing &amp; Health Sciences",
+    "cited_by": 3,
+    "oa": false
+   },
+   {
+    "doi": "10.1111/nup.12306",
+    "year": 2020,
+    "journal": "Nursing Philosophy",
+    "cited_by": 176,
+    "oa": false
+   },
+   {
+    "doi": "10.1111/srt.12817",
+    "year": 2020,
+    "journal": "Skin Research and Technology",
+    "cited_by": 52,
+    "oa": false
+   },
+   {
+    "doi": "10.1111/xen.12495",
+    "year": 2019,
+    "journal": "Xenotransplantation",
+    "cited_by": 1,
+    "oa": null
+   },
+   {
+    "doi": "10.1117/1.jmi.2.4.041011",
+    "year": 2015,
+    "journal": "Journal of Medical Imaging",
+    "cited_by": 46,
+    "oa": false
+   },
+   {
+    "doi": "10.1117/2.3201503.29",
+    "year": 2015,
+    "journal": "SPIE Newsroom",
+    "cited_by": 2,
+    "oa": null
+   },
+   {
+    "doi": "10.1118/1.1580485",
+    "year": 2003,
+    "journal": "Medical Physics",
+    "cited_by": 211,
+    "oa": false
+   },
+   {
+    "doi": "10.1118/1.2349839",
+    "year": 2006,
+    "journal": "Medical Physics",
+    "cited_by": 84,
+    "oa": false
+   },
+   {
+    "doi": "10.1118/1.3561504",
+    "year": 2011,
+    "journal": "Medical Physics",
+    "cited_by": 63,
+    "oa": false
+   },
+   {
+    "doi": "10.1118/1.596247",
+    "year": 1988,
+    "journal": "Medical Physics",
+    "cited_by": 198,
+    "oa": false
+   },
+   {
+    "doi": "10.1118/1.597428",
+    "year": 1995,
+    "journal": "Medical Physics",
+    "cited_by": 173,
+    "oa": false
+   },
+   {
+    "doi": "10.1126/sciadv.abq6147",
+    "year": 2022,
+    "journal": "Science Advances",
+    "cited_by": 534,
+    "oa": true
+   },
+   {
+    "doi": "10.1126/science.6340198",
+    "year": 1983,
+    "journal": "Science",
+    "cited_by": 290,
+    "oa": false
+   },
+   {
+    "doi": "10.1126/scitranslmed.3004583",
+    "year": 2012,
+    "journal": "Science Translational Medicine",
+    "cited_by": 24,
+    "oa": false
+   },
+   {
+    "doi": "10.1126/scitranslmed.aaw8513",
+    "year": 2019,
+    "journal": "Science Translational Medicine",
+    "cited_by": 135,
+    "oa": false
+   },
+   {
+    "doi": "10.1126/scitranslmed.abb1655",
+    "year": 2021,
+    "journal": "Science Translational Medicine",
+    "cited_by": 253,
+    "oa": false
+   },
+   {
+    "doi": "10.1136/adc.2006.099622",
+    "year": 2006,
+    "journal": "Archives of Disease in Childhood",
+    "cited_by": 217,
+    "oa": false
+   },
+   {
+    "doi": "10.1136/amiajnl-2011-000412",
+    "year": 2012,
+    "journal": "Journal of the American Medical Informatics Association",
+    "cited_by": 75,
+    "oa": true
+   },
+   {
+    "doi": "10.1136/amiajnl-2011-000508",
+    "year": 2012,
+    "journal": "Journal of the American Medical Informatics Association",
+    "cited_by": 56,
+    "oa": false
+   },
+   {
+    "doi": "10.1136/amiajnl-2012-000968",
+    "year": 2012,
+    "journal": "Journal of the American Medical Informatics Association",
+    "cited_by": 32,
+    "oa": true
+   },
+   {
+    "doi": "10.1136/amiajnl-2012-001540",
+    "year": 2013,
+    "journal": "Journal of the American Medical Informatics Association",
+    "cited_by": 235,
+    "oa": true
+   },
+   {
+    "doi": "10.1136/amiajnl-2013-001613",
+    "year": 2013,
+    "journal": "Journal of the American Medical Informatics Association",
+    "cited_by": 30,
+    "oa": true
+   },
+   {
+    "doi": "10.1136/amiajnl-2013-002061",
+    "year": 2014,
+    "journal": "Journal of the American Medical Informatics Association",
+    "cited_by": 12,
+    "oa": false
+   },
+   {
+    "doi": "10.1136/annrheumdis-2015-207984",
+    "year": 2016,
+    "journal": "Annals of the Rheumatic Diseases",
+    "cited_by": 137,
+    "oa": false
+   },
+   {
+    "doi": "10.1136/bmj-2022-070904",
+    "year": 2022,
+    "journal": "BMJ",
+    "cited_by": 617,
+    "oa": true
+   },
+   {
+    "doi": "10.1136/bmj-2023-078378",
+    "year": 2024,
+    "journal": "BMJ",
+    "cited_by": 4481,
+    "oa": true
+   },
+   {
+    "doi": "10.1136/bmj.2.5804.9",
+    "year": 1972,
+    "journal": "BMJ",
+    "cited_by": 460,
+    "oa": false
+   },
+   {
+    "doi": "10.1136/bmj.322.7281.283",
+    "year": 2001,
+    "journal": "BMJ",
+    "cited_by": 207,
+    "oa": false
+   },
+   {
+    "doi": "10.1136/bmj.38398.500764.8f",
+    "year": 2005,
+    "journal": "BMJ",
+    "cited_by": 2088,
+    "oa": false
+   },
+   {
+    "doi": "10.1136/bmj.c3111",
+    "year": 2010,
+    "journal": "BMJ",
+    "cited_by": 170,
+    "oa": false
+   },
+   {
+    "doi": "10.1136/bmj.f653",
+    "year": 2013,
+    "journal": "BMJ",
+    "cited_by": 181,
+    "oa": true
+   },
+   {
+    "doi": "10.1136/bmj.m689",
+    "year": 2020,
+    "journal": "BMJ",
+    "cited_by": 979,
+    "oa": true
+   },
+   {
+    "doi": "10.1136/bmj.o1078",
+    "year": 2022,
+    "journal": "BMJ",
+    "cited_by": 6,
+    "oa": false
+   },
+   {
+    "doi": "10.1136/bmjdhai-2025-000051",
+    "year": 2025,
+    "journal": "BMJ Digital Health &amp; AI",
+    "cited_by": 11,
+    "oa": true
+   },
+   {
+    "doi": "10.1136/bmjgh-2018-000798",
+    "year": 2018,
+    "journal": "BMJ Global Health",
+    "cited_by": 673,
+    "oa": true
+   },
+   {
+    "doi": "10.1136/bmjment-2023-300884",
+    "year": 2023,
+    "journal": "BMJ Mental Health",
+    "cited_by": 132,
+    "oa": true
+   },
+   {
+    "doi": "10.1136/bmjopen-2014-005370",
+    "year": 2014,
+    "journal": "BMJ Open",
+    "cited_by": 59,
+    "oa": true
+   },
+   {
+    "doi": "10.1136/bmjqs-2019-010581",
+    "year": 2020,
+    "journal": "BMJ Quality &amp; Safety",
+    "cited_by": 110,
+    "oa": true
+   },
+   {
+    "doi": "10.1136/bmjqs-2023-016674",
+    "year": 2024,
+    "journal": "BMJ Quality &amp; Safety",
+    "cited_by": 86,
+    "oa": true
+   },
+   {
+    "doi": "10.1136/inpract.31.7.356",
+    "year": 2009,
+    "journal": "In Practice",
+    "cited_by": 3,
+    "oa": null
+   },
+   {
+    "doi": "10.1136/jamia.1994.95236141",
+    "year": 1994,
+    "journal": "Journal of the American Medical Informatics Association",
+    "cited_by": 327,
+    "oa": false
+   },
+   {
+    "doi": "10.1136/jamia.1999.0060457",
+    "year": 1999,
+    "journal": "Journal of the American Medical Informatics Association",
+    "cited_by": 15,
+    "oa": false
+   },
+   {
+    "doi": "10.1136/jamia.2010.004135",
+    "year": 2011,
+    "journal": "Journal of the American Medical Informatics Association",
+    "cited_by": 29,
+    "oa": false
+   },
+   {
+    "doi": "10.1136/jamia.2010.008946",
+    "year": 2011,
+    "journal": "Journal of the American Medical Informatics Association",
+    "cited_by": 50,
+    "oa": false
+   },
+   {
+    "doi": "10.1136/qshc.2004.011866",
+    "year": 2005,
+    "journal": "Quality and Safety in Health Care",
+    "cited_by": 24,
+    "oa": false
+   },
+   {
+    "doi": "10.1145/3168260",
+    "year": 2017,
+    "journal": "Communications of the ACM",
+    "cited_by": 1,
+    "oa": null
+   },
+   {
+    "doi": "10.1145/3774816",
+    "year": 2025,
+    "journal": "",
+    "cited_by": 0,
+    "oa": null
+   },
+   {
+    "doi": "10.1146/annurev-publhealth-031816-044537",
+    "year": 2017,
+    "journal": "Annual Review of Public Health",
+    "cited_by": 15,
+    "oa": false
+   },
+   {
+    "doi": "10.1146/annurev-publhealth-090519-093711",
+    "year": 2021,
+    "journal": "Annual Review of Public Health",
+    "cited_by": 290,
+    "oa": false
+   },
+   {
+    "doi": "10.1148/radiographics.12.1.1734458",
+    "year": 1992,
+    "journal": "RadioGraphics",
+    "cited_by": 147,
+    "oa": false
+   },
+   {
+    "doi": "10.1148/radiol.2433060243",
+    "year": 2007,
+    "journal": "Radiology",
+    "cited_by": 42,
+    "oa": false
+   },
+   {
+    "doi": "10.1148/radiology.184.3.1509041",
+    "year": 1992,
+    "journal": "Radiology",
+    "cited_by": 617,
+    "oa": false
+   },
+   {
+    "doi": "10.1148/radiology.199.2.8668800",
+    "year": 1996,
+    "journal": "Radiology",
+    "cited_by": 148,
+    "oa": false
+   },
+   {
+    "doi": "10.1148/rg.2015150023",
+    "year": 2015,
+    "journal": "RadioGraphics",
+    "cited_by": 517,
+    "oa": false
+   },
+   {
+    "doi": "10.1148/ryai.2019180089",
+    "year": 2019,
+    "journal": "Radiology: Artificial Intelligence",
+    "cited_by": 42,
+    "oa": false
+   },
+   {
+    "doi": "10.1148/ryai.2020190208",
+    "year": 2020,
+    "journal": "Radiology: Artificial Intelligence",
+    "cited_by": 143,
+    "oa": false
+   },
+   {
+    "doi": "10.1155/2013/130134",
+    "year": 2013,
+    "journal": "The Scientific World Journal",
+    "cited_by": 67,
+    "oa": true
+   },
+   {
+    "doi": "10.1155/2013/580876",
+    "year": 2013,
+    "journal": "Mathematical Problems in Engineering",
+    "cited_by": 21,
+    "oa": null
+   },
+   {
+    "doi": "10.1158/2159-8290.cd-21-0090",
+    "year": 2021,
+    "journal": "Cancer Discovery",
+    "cited_by": 752,
+    "oa": false
+   },
+   {
+    "doi": "10.1159/000082573",
+    "year": 2005,
+    "journal": "Dermatology",
+    "cited_by": 35,
+    "oa": false
+   },
+   {
+    "doi": "10.1159/000441192",
+    "year": 2016,
+    "journal": "Pathobiology",
+    "cited_by": 60,
+    "oa": false
+   },
+   {
+    "doi": "10.1161/circimaging.121.013025",
+    "year": 2021,
+    "journal": "Circulation: Cardiovascular Imaging",
+    "cited_by": 43,
+    "oa": false
+   },
+   {
+    "doi": "10.1161/hypertensionaha.120.15873",
+    "year": 2020,
+    "journal": "Hypertension",
+    "cited_by": 282,
+    "oa": false
+   },
+   {
+    "doi": "10.1162/dint_a_00097",
+    "year": 2021,
+    "journal": "Data Intelligence",
+    "cited_by": 25,
+    "oa": null
+   },
+   {
+    "doi": "10.1167/tvst.9.2.13",
+    "year": 2020,
+    "journal": "Translational Vision Science &amp; Technology",
+    "cited_by": 118,
+    "oa": true
+   },
+   {
+    "doi": "10.1176/appi.ps.201800063",
+    "year": 2018,
+    "journal": "Psychiatric Services",
+    "cited_by": 170,
+    "oa": false
+   },
+   {
+    "doi": "10.1177/0018720815576827",
+    "year": 2015,
+    "journal": "Human Factors: The Journal of the Human Factors and Ergonomics Society",
+    "cited_by": 214,
+    "oa": false
+   },
+   {
+    "doi": "10.1177/0024363920922690",
+    "year": 2020,
+    "journal": "The Linacre Quarterly",
+    "cited_by": 29,
+    "oa": false
+   },
+   {
+    "doi": "10.1177/0033354917709784",
+    "year": 2017,
+    "journal": "Public Health Reports®",
+    "cited_by": 15,
+    "oa": false
+   },
+   {
+    "doi": "10.1177/016224399702200401",
+    "year": 1997,
+    "journal": "Science, Technology, &amp; Human Values",
+    "cited_by": 113,
+    "oa": null
+   },
+   {
+    "doi": "10.1177/0272989x8800800302",
+    "year": 1988,
+    "journal": "Medical Decision Making",
+    "cited_by": 7,
+    "oa": false
+   },
+   {
+    "doi": "10.1177/0846537120941671",
+    "year": 2021,
+    "journal": "Canadian Association of Radiologists Journal",
+    "cited_by": 85,
+    "oa": false
+   },
+   {
+    "doi": "10.1177/10499091221123566",
+    "year": 2023,
+    "journal": "American Journal of Hospice and Palliative Medicine®",
+    "cited_by": 15,
+    "oa": false
+   },
+   {
+    "doi": "10.1177/1178222618792860",
+    "year": 2018,
+    "journal": "Biomedical Informatics Insights",
+    "cited_by": 373,
+    "oa": true
+   },
+   {
+    "doi": "10.1177/1357633x14552385",
+    "year": 2014,
+    "journal": "Journal of Telemedicine and Telecare",
+    "cited_by": 40,
+    "oa": false
+   },
+   {
+    "doi": "10.1177/1357633x16649531",
+    "year": 2017,
+    "journal": "Journal of Telemedicine and Telecare",
+    "cited_by": 134,
+    "oa": false
+   },
+   {
+    "doi": "10.1177/1357633x16671407",
+    "year": 2017,
+    "journal": "Journal of Telemedicine and Telecare",
+    "cited_by": 35,
+    "oa": false
+   },
+   {
+    "doi": "10.1177/1357633x16674087",
+    "year": 2018,
+    "journal": "Journal of Telemedicine and Telecare",
+    "cited_by": 1563,
+    "oa": true
+   },
+   {
+    "doi": "10.1177/1357633x16680541",
+    "year": 2017,
+    "journal": "Journal of Telemedicine and Telecare",
+    "cited_by": 89,
+    "oa": false
+   },
+   {
+    "doi": "10.1177/1357633x18776766",
+    "year": 2019,
+    "journal": "Journal of Telemedicine and Telecare",
+    "cited_by": 9,
+    "oa": false
+   },
+   {
+    "doi": "10.1177/1357633x18799582",
+    "year": 2018,
+    "journal": "Journal of Telemedicine and Telecare",
+    "cited_by": 28,
+    "oa": false
+   },
+   {
+    "doi": "10.1177/1357633x20916567",
+    "year": 2020,
+    "journal": "Journal of Telemedicine and Telecare",
+    "cited_by": 1515,
+    "oa": true
+   },
+   {
+    "doi": "10.1177/1357633x20960638",
+    "year": 2022,
+    "journal": "Journal of Telemedicine and Telecare",
+    "cited_by": 383,
+    "oa": false
+   },
+   {
+    "doi": "10.1177/1460458203094008",
+    "year": 2003,
+    "journal": "Health Informatics Journal",
+    "cited_by": 5,
+    "oa": null
+   },
+   {
+    "doi": "10.1177/1740774518769655",
+    "year": 2018,
+    "journal": "Clinical Trials",
+    "cited_by": 21,
+    "oa": false
+   },
+   {
+    "doi": "10.1177/1747493017729268",
+    "year": 2017,
+    "journal": "International Journal of Stroke",
+    "cited_by": 62,
+    "oa": false
+   },
+   {
+    "doi": "10.1177/1833358316689481",
+    "year": 2017,
+    "journal": "Health Information Management Journal",
+    "cited_by": 48,
+    "oa": false
+   },
+   {
+    "doi": "10.1177/19322968211000831",
+    "year": 2021,
+    "journal": "Journal of Diabetes Science and Technology",
+    "cited_by": 33,
+    "oa": false
+   },
+   {
+    "doi": "10.1177/2055207620968355",
+    "year": 2020,
+    "journal": "DIGITAL HEALTH",
+    "cited_by": 100,
+    "oa": true
+   },
+   {
+    "doi": "10.1177/20552076241291384",
+    "year": 2024,
+    "journal": "DIGITAL HEALTH",
+    "cited_by": 27,
+    "oa": true
+   },
+   {
+    "doi": "10.1177/20552076241292390",
+    "year": 2024,
+    "journal": "DIGITAL HEALTH",
+    "cited_by": 5,
+    "oa": true
+   },
+   {
+    "doi": "10.1177/2057047320950636",
+    "year": 2020,
+    "journal": "Communication and the Public",
+    "cited_by": 9,
+    "oa": null
+   },
+   {
+    "doi": "10.1186/1471-2318-8-28",
+    "year": 2008,
+    "journal": "BMC Geriatrics",
+    "cited_by": 245,
+    "oa": true
+   },
+   {
+    "doi": "10.1186/1472-6947-12-142",
+    "year": 2012,
+    "journal": "BMC Medical Informatics and Decision Making",
+    "cited_by": 53,
+    "oa": true
+   },
+   {
+    "doi": "10.1186/1472-6947-13-58",
+    "year": 2013,
+    "journal": "BMC Medical Informatics and Decision Making",
+    "cited_by": 34,
+    "oa": true
+   },
+   {
+    "doi": "10.1186/1472-6947-9-24",
+    "year": 2009,
+    "journal": "BMC Medical Informatics and Decision Making",
+    "cited_by": 126,
+    "oa": true
+   },
+   {
+    "doi": "10.1186/1472-6963-12-220",
+    "year": 2012,
+    "journal": "BMC Health Services Research",
+    "cited_by": 368,
+    "oa": true
+   },
+   {
+    "doi": "10.1186/1472-6963-13-395",
+    "year": 2013,
+    "journal": "BMC Health Services Research",
+    "cited_by": 26,
+    "oa": true
+   },
+   {
+    "doi": "10.1186/1745-6215-8-7",
+    "year": 2007,
+    "journal": "Trials",
+    "cited_by": 25,
+    "oa": true
+   },
+   {
+    "doi": "10.1186/s12889-020-09301-4",
+    "year": 2020,
+    "journal": "BMC Public Health",
+    "cited_by": 1668,
+    "oa": true
+   },
+   {
+    "doi": "10.1186/s12889-022-14625-4",
+    "year": 2022,
+    "journal": "BMC Public Health",
+    "cited_by": 131,
+    "oa": true
+   },
+   {
+    "doi": "10.1186/s12909-023-04698-z",
+    "year": 2023,
+    "journal": "BMC Medical Education",
+    "cited_by": 3017,
+    "oa": true
+   },
+   {
+    "doi": "10.1186/s12911-015-0171-5",
+    "year": 2015,
+    "journal": "BMC Medical Informatics and Decision Making",
+    "cited_by": 86,
+    "oa": true
+   },
+   {
+    "doi": "10.1186/s12911-020-1084-5",
+    "year": 2020,
+    "journal": "BMC Medical Informatics and Decision Making",
+    "cited_by": 23,
+    "oa": true
+   },
+   {
+    "doi": "10.1186/s12911-023-02162-y",
+    "year": 2023,
+    "journal": "BMC Medical Informatics and Decision Making",
+    "cited_by": 299,
+    "oa": true
+   },
+   {
+    "doi": "10.1186/s12916-026-04981-y",
+    "year": 2026,
+    "journal": "BMC Medicine",
+    "cited_by": 2,
+    "oa": true
+   },
+   {
+    "doi": "10.1186/s12939-022-01689-2",
+    "year": 2022,
+    "journal": "International Journal for Equity in Health",
+    "cited_by": 29,
+    "oa": true
+   },
+   {
+    "doi": "10.1186/s13073-019-0701-3",
+    "year": 2020,
+    "journal": "Genome Medicine",
+    "cited_by": 485,
+    "oa": true
+   },
+   {
+    "doi": "10.1186/s13223-022-00755-2",
+    "year": 2023,
+    "journal": "Allergy, Asthma &amp; Clinical Immunology",
+    "cited_by": 9,
+    "oa": true
+   },
+   {
+    "doi": "10.1186/s13722-015-0035-4",
+    "year": 2015,
+    "journal": "Addiction Science &amp; Clinical Practice",
+    "cited_by": 97,
+    "oa": true
+   },
+   {
+    "doi": "10.1186/s40001-025-03196-w",
+    "year": 2025,
+    "journal": "European Journal of Medical Research",
+    "cited_by": 316,
+    "oa": true
+   },
+   {
+    "doi": "10.1197/jamia.m1080",
+    "year": 2002,
+    "journal": "Journal of the American Medical Informatics Association",
+    "cited_by": 1,
+    "oa": false
+   },
+   {
+    "doi": "10.1197/jamia.m2127",
+    "year": 2006,
+    "journal": "Journal of the American Medical Informatics Association",
+    "cited_by": 34,
+    "oa": false
+   },
+   {
+    "doi": "10.1197/jamia.m2170",
+    "year": 2007,
+    "journal": "Journal of the American Medical Informatics Association",
+    "cited_by": 562,
+    "oa": false
+   },
+   {
+    "doi": "10.1197/jamia.m2373",
+    "year": 2007,
+    "journal": "Journal of the American Medical Informatics Association",
+    "cited_by": 364,
+    "oa": false
+   },
+   {
+    "doi": "10.1197/jamia.m2922",
+    "year": 2009,
+    "journal": "Journal of the American Medical Informatics Association",
+    "cited_by": 45,
+    "oa": false
+   },
+   {
+    "doi": "10.1197/jamia.m3005",
+    "year": 2009,
+    "journal": "Journal of the American Medical Informatics Association",
+    "cited_by": 134,
+    "oa": false
+   },
+   {
+    "doi": "10.1197/jamia.m3046",
+    "year": 2009,
+    "journal": "Journal of the American Medical Informatics Association",
+    "cited_by": 60,
+    "oa": false
+   },
+   {
+    "doi": "10.1207/s15516709cog0503_3",
+    "year": 1981,
+    "journal": "Cognitive Science",
+    "cited_by": 131,
+    "oa": null
+   },
+   {
+    "doi": "10.1212/con.0000000000000850",
+    "year": 2020,
+    "journal": "Continuum",
+    "cited_by": 7,
+    "oa": false
+   },
+   {
+    "doi": "10.1212/wnl.0000000000004357",
+    "year": 2017,
+    "journal": "Neurology",
+    "cited_by": 193,
+    "oa": false
+   },
+   {
+    "doi": "10.1227/neu.0000000000000073",
+    "year": 2013,
+    "journal": "Neurosurgery",
+    "cited_by": 60,
+    "oa": false
+   },
+   {
+    "doi": "10.1258/1357633053499886",
+    "year": 2005,
+    "journal": "Journal of Telemedicine and Telecare",
+    "cited_by": 371,
+    "oa": false
+   },
+   {
+    "doi": "10.1258/shorts.2011.011031",
+    "year": 2011,
+    "journal": "JRSM Short Reports",
+    "cited_by": 15,
+    "oa": true
+   },
+   {
+    "doi": "10.1259/bjro.20190020",
+    "year": 2020,
+    "journal": "BJR|Open",
+    "cited_by": 34,
+    "oa": true
+   },
+   {
+    "doi": "10.13063/2327-9214.1239",
+    "year": 2016,
+    "journal": "eGEMs (Generating Evidence &amp; Methods to improve patient outcomes)",
+    "cited_by": 41,
+    "oa": true
+   },
+   {
+    "doi": "10.1331/108658003321480731",
+    "year": 2003,
+    "journal": "Journal of the American Pharmaceutical Association (1996)",
+    "cited_by": 94,
+    "oa": false
+   },
+   {
+    "doi": "10.1363/2019.30760",
+    "year": 2019,
+    "journal": "",
+    "cited_by": 107,
+    "oa": null
+   },
+   {
+    "doi": "10.1370/afm.2860",
+    "year": 2022,
+    "journal": "The Annals of Family Medicine",
+    "cited_by": 5,
+    "oa": false
+   },
+   {
+    "doi": "10.1371/journal.pdig.0000132",
+    "year": 2022,
+    "journal": "PLOS Digital Health",
+    "cited_by": 21,
+    "oa": true
+   },
+   {
+    "doi": "10.1371/journal.pmed.1000387",
+    "year": 2011,
+    "journal": "PLoS Medicine",
+    "cited_by": 941,
+    "oa": true
+   },
+   {
+    "doi": "10.1371/journal.pone.0163480",
+    "year": 2016,
+    "journal": "PLOS ONE",
+    "cited_by": 16,
+    "oa": true
+   },
+   {
+    "doi": "10.1371/journal.pone.0210475",
+    "year": 2019,
+    "journal": "PLOS ONE",
+    "cited_by": 49,
+    "oa": true
+   },
+   {
+    "doi": "10.1371/journal.pone.0220116",
+    "year": 2019,
+    "journal": "PLOS ONE",
+    "cited_by": 532,
+    "oa": true
+   },
+   {
+    "doi": "10.1371/journal.pone.0329986",
+    "year": 2025,
+    "journal": "PLOS One",
+    "cited_by": 19,
+    "oa": true
+   },
+   {
+    "doi": "10.1377/hlthaff.2012.1061",
+    "year": 2013,
+    "journal": "Health Affairs",
+    "cited_by": 1518,
+    "oa": false
+   },
+   {
+    "doi": "10.1377/hlthaff.2013.0992",
+    "year": 2014,
+    "journal": "Health Affairs",
+    "cited_by": 554,
+    "oa": false
+   },
+   {
+    "doi": "10.14245/ns.1938386.193",
+    "year": 2019,
+    "journal": "Neurospine",
+    "cited_by": 37,
+    "oa": true
+   },
+   {
+    "doi": "10.1520/jfs14845j",
+    "year": 2000,
+    "journal": "Journal of Forensic Sciences",
+    "cited_by": 42,
+    "oa": false
+   },
+   {
+    "doi": "10.1525/maq.1987.1.1.02a00020",
+    "year": 1987,
+    "journal": "Medical Anthropology Quarterly",
+    "cited_by": 1684,
+    "oa": null
+   },
+   {
+    "doi": "10.15265/iys-2016-s004",
+    "year": 2016,
+    "journal": "Yearbook of Medical Informatics",
+    "cited_by": 18,
+    "oa": false
+   },
+   {
+    "doi": "10.15265/iys-2016-s006",
+    "year": 2016,
+    "journal": "Yearbook of Medical Informatics",
+    "cited_by": 499,
+    "oa": false
+   },
+   {
+    "doi": "10.1542/peds.2005-1287",
+    "year": 2005,
+    "journal": "Pediatrics",
+    "cited_by": 785,
+    "oa": false
+   },
+   {
+    "doi": "10.1542/peds.2014-1778",
+    "year": 2014,
+    "journal": "Pediatrics",
+    "cited_by": 169,
+    "oa": false
+   },
+   {
+    "doi": "10.1586/17512433.2014.910111",
+    "year": 2014,
+    "journal": "Expert Review of Clinical Pharmacology",
+    "cited_by": 142,
+    "oa": true
+   },
+   {
+    "doi": "10.1590/0100-3984.2017.50.5e1",
+    "year": 2017,
+    "journal": "Radiologia Brasileira",
+    "cited_by": 24,
+    "oa": true
+   },
+   {
+    "doi": "10.1592/phco.28.6.816",
+    "year": 2008,
+    "journal": "Pharmacotherapy: The Journal of Human Pharmacology and Drug Therapy",
+    "cited_by": 288,
+    "oa": false
+   },
+   {
+    "doi": "10.1634/theoncologist.11-7-742",
+    "year": 2006,
+    "journal": "The Oncologist",
+    "cited_by": 180,
+    "oa": false
+   },
+   {
+    "doi": "10.17226/10027",
+    "year": 2001,
+    "journal": "",
+    "cited_by": 465,
+    "oa": null
+   },
+   {
+    "doi": "10.17226/11623",
+    "year": 2007,
+    "journal": "",
+    "cited_by": 31,
+    "oa": null
+   },
+   {
+    "doi": "10.17226/21794",
+    "year": 2015,
+    "journal": "",
+    "cited_by": 791,
+    "oa": false
+   },
+   {
+    "doi": "10.17705/1cais.04109",
+    "year": 2017,
+    "journal": "Communications of the Association for Information Systems",
+    "cited_by": 10,
+    "oa": null
+   },
+   {
+    "doi": "10.18653/v1/2026.smm4h-1.1",
+    "year": 2026,
+    "journal": "Proceedings of the 11th Social Media Mining for Health Research and Applications (SMM4H-HeaRD 2026) Workshop and Shared Tasks",
+    "cited_by": 0,
+    "oa": null
+   },
+   {
+    "doi": "10.2105/ajph.2014.302164",
+    "year": 2014,
+    "journal": "American Journal of Public Health",
+    "cited_by": 294,
+    "oa": false
+   },
+   {
+    "doi": "10.2106/00004623-196446020-00009",
+    "year": 1964,
+    "journal": "The Journal of Bone &amp; Joint Surgery",
+    "cited_by": 787,
+    "oa": false
+   },
+   {
+    "doi": "10.2147/iprp.s101685",
+    "year": 2016,
+    "journal": "Integrated Pharmacy Research and Practice",
+    "cited_by": 98,
+    "oa": true
+   },
+   {
+    "doi": "10.2147/rmhp.s12985",
+    "year": 2011,
+    "journal": "Risk Management and Healthcare Policy",
+    "cited_by": 694,
+    "oa": true
+   },
+   {
+    "doi": "10.2165/00002512-200522050-00003",
+    "year": 2005,
+    "journal": "Drugs &amp; Aging",
+    "cited_by": 123,
+    "oa": false
+   },
+   {
+    "doi": "10.2165/00003495-200565090-00005",
+    "year": 2005,
+    "journal": "Drugs",
+    "cited_by": 500,
+    "oa": false
+   },
+   {
+    "doi": "10.2174/0115748928361472250123105507",
+    "year": 2025,
+    "journal": "Recent Patents on Anti-Cancer Drug Discovery",
+    "cited_by": 1,
+    "oa": false
+   },
+   {
+    "doi": "10.2174/1389200023337054",
+    "year": 2002,
+    "journal": "Current Drug Metabolism",
+    "cited_by": 653,
+    "oa": false
+   },
+   {
+    "doi": "10.2174/138920008786927785",
+    "year": 2008,
+    "journal": "Current Drug Metabolism",
+    "cited_by": 161,
+    "oa": false
+   },
+   {
+    "doi": "10.2174/1389200211209050640",
+    "year": 2012,
+    "journal": "Current Drug Metabolism",
+    "cited_by": 127,
+    "oa": false
+   },
+   {
+    "doi": "10.2174/1567205013666160314145158",
+    "year": 2016,
+    "journal": "Current Alzheimer Research",
+    "cited_by": 23,
+    "oa": false
+   },
+   {
+    "doi": "10.2174/1573405617666210806125953",
+    "year": 2022,
+    "journal": "Current Medical Imaging Formerly Current Medical Imaging Reviews",
+    "cited_by": 60,
+    "oa": false
+   },
+   {
+    "doi": "10.21926/obm.neurobiol.2404260",
+    "year": 2024,
+    "journal": "OBM Neurobiology",
+    "cited_by": 1,
+    "oa": null
+   },
+   {
+    "doi": "10.21926/obm.neurobiol.2503290",
+    "year": 2025,
+    "journal": "OBM Neurobiology",
+    "cited_by": 0,
+    "oa": null
+   },
+   {
+    "doi": "10.2196/10235",
+    "year": 2018,
+    "journal": "Journal of Medical Internet Research",
+    "cited_by": 515,
+    "oa": true
+   },
+   {
+    "doi": "10.2196/12802",
+    "year": 2019,
+    "journal": "Journal of Medical Internet Research",
+    "cited_by": 340,
+    "oa": true
+   },
+   {
+    "doi": "10.2196/13484",
+    "year": 2019,
+    "journal": "Journal of Medical Internet Research",
+    "cited_by": 139,
+    "oa": true
+   },
+   {
+    "doi": "10.2196/15182",
+    "year": 2020,
+    "journal": "JMIR Medical Informatics",
+    "cited_by": 275,
+    "oa": true
+   },
+   {
+    "doi": "10.2196/16218",
+    "year": 2020,
+    "journal": "Journal of Medical Internet Research",
+    "cited_by": 209,
+    "oa": true
+   },
+   {
+    "doi": "10.2196/16356",
+    "year": 2019,
+    "journal": "Journal of Medical Internet Research",
+    "cited_by": 76,
+    "oa": true
+   },
+   {
+    "doi": "10.2196/20839",
+    "year": 2020,
+    "journal": "Journal of Medical Internet Research",
+    "cited_by": 125,
+    "oa": true
+   },
+   {
+    "doi": "10.2196/23410",
+    "year": 2021,
+    "journal": "Journal of Medical Internet Research",
+    "cited_by": 139,
+    "oa": true
+   },
+   {
+    "doi": "10.2196/27795",
+    "year": 2022,
+    "journal": "JMIR Medical Informatics",
+    "cited_by": 28,
+    "oa": true
+   },
+   {
+    "doi": "10.2196/29301",
+    "year": 2021,
+    "journal": "Journal of Medical Internet Research",
+    "cited_by": 60,
+    "oa": true
+   },
+   {
+    "doi": "10.2196/38482",
+    "year": 2022,
+    "journal": "JMIR Medical Informatics",
+    "cited_by": 10,
+    "oa": true
+   },
+   {
+    "doi": "10.2196/42936",
+    "year": 2023,
+    "journal": "JMIR AI",
+    "cited_by": 64,
+    "oa": true
+   },
+   {
+    "doi": "10.2196/43429",
+    "year": 2023,
+    "journal": "Journal of Medical Internet Research",
+    "cited_by": 48,
+    "oa": true
+   },
+   {
+    "doi": "10.2196/43583",
+    "year": 2024,
+    "journal": "Journal of Medical Internet Research",
+    "cited_by": 25,
+    "oa": true
+   },
+   {
+    "doi": "10.2196/43684",
+    "year": 2023,
+    "journal": "Journal of Medical Internet Research",
+    "cited_by": 101,
+    "oa": true
+   },
+   {
+    "doi": "10.2196/48320",
+    "year": 2024,
+    "journal": "Journal of Medical Internet Research",
+    "cited_by": 88,
+    "oa": true
+   },
+   {
+    "doi": "10.2196/71532",
+    "year": 2026,
+    "journal": "Journal of Medical Internet Research",
+    "cited_by": 4,
+    "oa": true
+   },
+   {
+    "doi": "10.2196/jmir.3.2.e22",
+    "year": 2001,
+    "journal": "Journal of Medical Internet Research",
+    "cited_by": 160,
+    "oa": true
+   },
+   {
+    "doi": "10.2196/jmir.5257",
+    "year": 2016,
+    "journal": "Journal of Medical Internet Research",
+    "cited_by": 242,
+    "oa": true
+   },
+   {
+    "doi": "10.2196/jmir.7.1.e3",
+    "year": 2005,
+    "journal": "Journal of Medical Internet Research",
+    "cited_by": 306,
+    "oa": true
+   },
+   {
+    "doi": "10.2196/mental.9782",
+    "year": 2018,
+    "journal": "JMIR Mental Health",
+    "cited_by": 665,
+    "oa": true
+   },
+   {
+    "doi": "10.2196/preprints.37347",
+    "year": null,
+    "journal": "",
+    "cited_by": 0,
+    "oa": null
+   },
+   {
+    "doi": "10.2214/ajr.181.4.1811083",
+    "year": 2003,
+    "journal": "American Journal of Roentgenology",
+    "cited_by": 182,
+    "oa": false
+   },
+   {
+    "doi": "10.2217/fca-2021-0010",
+    "year": 2022,
+    "journal": "Future Cardiology",
+    "cited_by": 40,
+    "oa": false
+   },
+   {
+    "doi": "10.2298/yjor200215015w",
+    "year": 2021,
+    "journal": "Yugoslav Journal of Operations Research YUJOR",
+    "cited_by": 14,
+    "oa": null
+   },
+   {
+    "doi": "10.2345/0899-8205-49.5.306",
+    "year": 2015,
+    "journal": "Biomedical Instrumentation &amp; Technology",
+    "cited_by": 14,
+    "oa": false
+   },
+   {
+    "doi": "10.2528/pier10090105",
+    "year": 2010,
+    "journal": "Progress In Electromagnetics Research",
+    "cited_by": 95,
+    "oa": null
+   },
+   {
+    "doi": "10.2528/pier11031709",
+    "year": 2011,
+    "journal": "Progress In Electromagnetics Research",
+    "cited_by": 147,
+    "oa": null
+   },
+   {
+    "doi": "10.2528/pier13010105",
+    "year": 2013,
+    "journal": "Progress In Electromagnetics Research",
+    "cited_by": 102,
+    "oa": null
+   },
+   {
+    "doi": "10.2528/pier13121310",
+    "year": 2014,
+    "journal": "Progress In Electromagnetics Research",
+    "cited_by": 173,
+    "oa": null
+   },
+   {
+    "doi": "10.2753/mis0742-1222220406",
+    "year": 2006,
+    "journal": "Journal of Management Information Systems",
+    "cited_by": 88,
+    "oa": null
+   },
+   {
+    "doi": "10.3233/thc-151036",
+    "year": 2015,
+    "journal": "Technology and Health Care",
+    "cited_by": 24,
+    "oa": false
+   },
+   {
+    "doi": "10.3238/arztebl.m2021.0011",
+    "year": 2021,
+    "journal": "Deutsches Ärzteblatt international",
+    "cited_by": 45,
+    "oa": false
+   },
+   {
+    "doi": "10.3310/alert_40404",
+    "year": 2020,
+    "journal": "",
+    "cited_by": 0,
+    "oa": null
+   },
+   {
+    "doi": "10.3310/alert_42103",
+    "year": 2020,
+    "journal": "",
+    "cited_by": 0,
+    "oa": null
+   },
+   {
+    "doi": "10.3310/hsdr08100",
+    "year": 2020,
+    "journal": "Health Services and Delivery Research",
+    "cited_by": 24,
+    "oa": true
+   },
+   {
+    "doi": "10.3310/nihrevidence_53447",
+    "year": 2022,
+    "journal": "",
+    "cited_by": 4,
+    "oa": null
+   },
+   {
+    "doi": "10.3310/nihrevidence_59502",
+    "year": 2023,
+    "journal": "",
+    "cited_by": 2,
+    "oa": null
+   },
+   {
+    "doi": "10.3310/nihrevidence_59926",
+    "year": 2023,
+    "journal": "",
+    "cited_by": 0,
+    "oa": null
+   },
+   {
+    "doi": "10.3310/rcti6942",
+    "year": 2022,
+    "journal": "Health Technology Assessment",
+    "cited_by": 49,
+    "oa": true
+   },
+   {
+    "doi": "10.3389/fncom.2015.00066",
+    "year": 2015,
+    "journal": "Frontiers in Computational Neuroscience",
+    "cited_by": 197,
+    "oa": true
+   },
+   {
+    "doi": "10.3389/fnut.2021.622514",
+    "year": 2021,
+    "journal": "Frontiers in Nutrition",
+    "cited_by": 17,
+    "oa": true
+   },
+   {
+    "doi": "10.3389/fphar.2025.1720361",
+    "year": 2025,
+    "journal": "Frontiers in Pharmacology",
+    "cited_by": 12,
+    "oa": true
+   },
+   {
+    "doi": "10.3389/frai.2023.1289669",
+    "year": 2023,
+    "journal": "Frontiers in Artificial Intelligence",
+    "cited_by": 7,
+    "oa": true
+   },
+   {
+    "doi": "10.3390/app11115088",
+    "year": 2021,
+    "journal": "Applied Sciences",
+    "cited_by": 599,
+    "oa": null
+   },
+   {
+    "doi": "10.3390/diagnostics12081927",
+    "year": 2022,
+    "journal": "Diagnostics",
+    "cited_by": 23,
+    "oa": true
+   },
+   {
+    "doi": "10.3390/e23060667",
+    "year": 2021,
+    "journal": "Entropy",
+    "cited_by": 142,
+    "oa": true
+   },
+   {
+    "doi": "10.3390/healthcare12121217",
+    "year": 2024,
+    "journal": "Healthcare",
+    "cited_by": 20,
+    "oa": true
+   },
+   {
+    "doi": "10.3390/ijerph16091490",
+    "year": 2019,
+    "journal": "International Journal of Environmental Research and Public Health",
+    "cited_by": 53,
+    "oa": true
+   },
+   {
+    "doi": "10.3390/ijerph192316080",
+    "year": 2022,
+    "journal": "International Journal of Environmental Research and Public Health",
+    "cited_by": 55,
+    "oa": true
+   },
+   {
+    "doi": "10.3390/ijms22126184",
+    "year": 2021,
+    "journal": "International Journal of Molecular Sciences",
+    "cited_by": 65,
+    "oa": true
+   },
+   {
+    "doi": "10.3390/jcm11226826",
+    "year": 2022,
+    "journal": "Journal of Clinical Medicine",
+    "cited_by": 242,
+    "oa": true
+   },
+   {
+    "doi": "10.3390/life12020264",
+    "year": 2022,
+    "journal": "Life",
+    "cited_by": 7,
+    "oa": true
+   },
+   {
+    "doi": "10.3399/bjgp19x705137",
+    "year": 2019,
+    "journal": "British Journal of General Practice",
+    "cited_by": 39,
+    "oa": false
+   },
+   {
+    "doi": "10.35542/osf.io/9urcd",
+    "year": null,
+    "journal": "",
+    "cited_by": 0,
+    "oa": null
+   },
+   {
+    "doi": "10.3748/wjg.v27.i16.1664",
+    "year": 2021,
+    "journal": "World Journal of Gastroenterology",
+    "cited_by": 37,
+    "oa": true
+   },
+   {
+    "doi": "10.3892/or.15.4.1091",
+    "year": 2006,
+    "journal": "Oncology Reports",
+    "cited_by": 5,
+    "oa": false
+   },
+   {
+    "doi": "10.3949/ccjm.86a.18123",
+    "year": 2019,
+    "journal": "Cleveland Clinic Journal of Medicine",
+    "cited_by": 22,
+    "oa": false
+   },
+   {
+    "doi": "10.4066/amj.2011.694",
+    "year": 2011,
+    "journal": "Australasian Medical Journal",
+    "cited_by": 51,
+    "oa": false
+   },
+   {
+    "doi": "10.4103/0972-1363.167119",
+    "year": 2015,
+    "journal": "Journal of Indian Academy of Oral Medicine and Radiology",
+    "cited_by": 45,
+    "oa": null
+   },
+   {
+    "doi": "10.4103/2153-3539.139714",
+    "year": 2014,
+    "journal": "Journal of Pathology Informatics",
+    "cited_by": 160,
+    "oa": true
+   },
+   {
+    "doi": "10.4103/ijc.ijc_399_20",
+    "year": 2021,
+    "journal": "Indian Journal of Cancer",
+    "cited_by": 65,
+    "oa": false
+   },
+   {
+    "doi": "10.4187/respcare.04490378",
+    "year": 2004,
+    "journal": "Respiratory Care",
+    "cited_by": 0,
+    "oa": null
+   },
+   {
+    "doi": "10.4258/hir.2012.18.2.153",
+    "year": 2012,
+    "journal": "Healthcare Informatics Research",
+    "cited_by": 294,
+    "oa": true
+   },
+   {
+    "doi": "10.4258/jksmi.2009.15.1.133",
+    "year": 2009,
+    "journal": "Journal of Korean Society of Medical Informatics",
+    "cited_by": 0,
+    "oa": null
+   },
+   {
+    "doi": "10.46743/1540-580x/2004.1057",
+    "year": 2004,
+    "journal": "Internet Journal of Allied Health Sciences and Practice",
+    "cited_by": 0,
+    "oa": null
+   },
+   {
+    "doi": "10.5041/rmmj.10355",
+    "year": 2018,
+    "journal": "Rambam Maimonides Medical Journal",
+    "cited_by": 135,
+    "oa": true
+   },
+   {
+    "doi": "10.5120/20667-2485",
+    "year": 2015,
+    "journal": "International Journal of Computer Applications",
+    "cited_by": 2,
+    "oa": null
+   },
+   {
+    "doi": "10.5414/cpp45643",
+    "year": 2007,
+    "journal": "Int. Journal of Clinical Pharmacology and Therapeutics",
+    "cited_by": 144,
+    "oa": false
+   },
+   {
+    "doi": "10.5435/jaaos-d-23-00474",
+    "year": 2024,
+    "journal": "Journal of the American Academy of Orthopaedic Surgeons",
+    "cited_by": 104,
+    "oa": false
+   },
+   {
+    "doi": "10.54648/cola2022005",
+    "year": 2022,
+    "journal": "Common Market Law Review",
+    "cited_by": 25,
+    "oa": null
+   },
+   {
+    "doi": "10.5600/mmrr.003.04.a04",
+    "year": 2013,
+    "journal": "Medicare &amp; Medicaid Research Review",
+    "cited_by": 55,
+    "oa": false
+   },
+   {
+    "doi": "10.5935/abc.20190117",
+    "year": 2019,
+    "journal": "Arquivos Brasileiros de Cardiologia",
+    "cited_by": 22,
+    "oa": true
+   },
+   {
+    "doi": "10.7326/0003-4819-115-11-843",
+    "year": 1991,
+    "journal": "Annals of Internal Medicine",
+    "cited_by": 374,
+    "oa": false
+   },
+   {
+    "doi": "10.7326/0003-4819-144-10-200605160-00125",
+    "year": 2006,
+    "journal": "Annals of Internal Medicine",
+    "cited_by": 2185,
+    "oa": false
+   },
+   {
+    "doi": "10.7326/m15-0498",
+    "year": 2015,
+    "journal": "Annals of Internal Medicine",
+    "cited_by": 174,
+    "oa": false
+   },
+   {
+    "doi": "10.7326/m15-3058",
+    "year": 2016,
+    "journal": "Annals of Internal Medicine",
+    "cited_by": 121,
+    "oa": true
+   },
+   {
+    "doi": "10.7326/m21-3511",
+    "year": 2022,
+    "journal": "Annals of Internal Medicine",
+    "cited_by": 34,
+    "oa": false
+   },
+   {
+    "doi": "10.7326/m22-0737",
+    "year": 2022,
+    "journal": "Annals of Internal Medicine",
+    "cited_by": 56,
+    "oa": false
+   },
+   {
+    "doi": "10.7326/m23-1335",
+    "year": 2023,
+    "journal": "Annals of Internal Medicine",
+    "cited_by": 73,
+    "oa": false
+   },
+   {
+    "doi": "10.7759/cureus.101984",
+    "year": 2026,
+    "journal": "Cureus",
+    "cited_by": 3,
+    "oa": true
+   },
+   {
+    "doi": "10.7759/cureus.32828",
+    "year": 2022,
+    "journal": "Cureus",
+    "cited_by": 6,
+    "oa": true
+   },
+   {
+    "doi": "10.7759/cureus.5649",
+    "year": 2019,
+    "journal": "Cureus",
+    "cited_by": 39,
+    "oa": true
+   },
+   {
+    "doi": "10.7861/fhj.2021-0095",
+    "year": 2021,
+    "journal": "Future Healthcare Journal",
+    "cited_by": 1767,
+    "oa": false
+   },
+   {
+    "doi": "10.7861/futurehosp.6-2-94",
+    "year": 2019,
+    "journal": "Future Healthcare Journal",
+    "cited_by": 3418,
+    "oa": false
+   },
+   {
+    "doi": "10.9781/ijimai.2017.03.001",
+    "year": 2018,
+    "journal": "International Journal of Interactive Multimedia and Artificial Intelligence",
+    "cited_by": 30,
+    "oa": null
+   }
+  ],
+  "by_article": {
+   "Computer-aided diagnosis": [
+    "10.1001/jama.2016.17438",
+    "10.1002/(sici)1097-0193(1996)4:2<140::aid-hbm5>3.0.co;2-3",
+    "10.1002/ajmg.a.40651",
+    "10.1002/hipo.20626",
+    "10.1007/10704282_115",
+    "10.1007/978-3-319-16483-0_20",
+    "10.1007/978-3-540-72849-8_23",
+    "10.1007/s00261-009-9562-3",
+    "10.1007/s11548-012-0684-7",
+    "10.1007/s11682-011-9142-3",
+    "10.1007/s13369-013-0649-3",
+    "10.1016/0025-5564(75)90047-4",
+    "10.1016/j.artmed.2004.10.001",
+    "10.1016/j.bspc.2006.05.002",
+    "10.1016/j.bspc.2006.12.001",
+    "10.1016/j.bspc.2013.09.001",
+    "10.1016/j.cmpb.2011.08.009",
+    "10.1016/j.cmpb.2012.03.004",
+    "10.1016/j.cmpb.2013.03.015",
+    "10.1016/j.cmpb.2014.02.006",
+    "10.1016/j.compmedimag.2007.02.002",
+    "10.1016/j.crad.2018.02.009",
+    "10.1016/j.ejca.2008.02.016",
+    "10.1016/j.eswa.2014.01.021",
+    "10.1016/j.eswa.2019.112821",
+    "10.1016/j.ijmedinf.2019.06.017",
+    "10.1016/j.media.2006.06.002",
+    "10.1016/j.media.2009.07.001",
+    "10.1016/j.neuroimage.2015.01.048",
+    "10.1016/j.nima.2006.08.134",
+    "10.1016/j.ophtha.2016.11.014",
+    "10.1016/j.patrec.2015.04.016",
+    "10.1016/j.ultrasmedbio.2006.07.032",
+    "10.1016/j.ultrasmedbio.2020.06.006",
+    "10.1016/s0895-6111(98)00017-2",
+    "10.1038/s41374-019-0202-4",
+    "10.1038/s41598-020-65340-2",
+    "10.1038/s41746-020-00324-0",
+    "10.1055/s-2006-955983",
+    "10.1056/nejm198208193070803",
+    "10.1088/0031-9155/58/24/8647",
+    "10.1088/0031-9155/61/6/2283",
+    "10.1097/00004424-199404000-00013",
+    "10.1097/01.rti.0000203638.28511.9b",
+    "10.1109/10.1349",
+    "10.1109/42.974918",
+    "10.1109/euvip.2014.7018362",
+    "10.1109/jbhi.2014.2329604",
+    "10.1109/rbme.2016.2558147",
+    "10.1109/tbme.2012.2193126",
+    "10.1109/tbme.2012.2226583",
+    "10.1109/tbme.2013.2244601",
+    "10.1109/titb.2003.813793",
+    "10.1109/titb.2003.821313",
+    "10.1109/tmi.2005.852048",
+    "10.1109/tmi.2006.871549",
+    "10.1109/tmi.2013.2284016",
+    "10.1109/tns.2007.897830",
+    "10.1117/1.jmi.2.4.041011",
+    "10.1118/1.1580485",
+    "10.1118/1.2349839",
+    "10.1118/1.3561504",
+    "10.1118/1.596247",
+    "10.1118/1.597428",
+    "10.1148/radiology.184.3.1509041",
+    "10.1148/radiology.199.2.8668800",
+    "10.1148/ryai.2019180089",
+    "10.1155/2013/130134",
+    "10.1155/2013/580876",
+    "10.1590/0100-3984.2017.50.5e1",
+    "10.2174/1567205013666160314145158",
+    "10.2214/ajr.181.4.1811083",
+    "10.2528/pier10090105",
+    "10.2528/pier11031709",
+    "10.2528/pier13010105",
+    "10.2528/pier13121310",
+    "10.3389/fncom.2015.00066",
+    "10.5120/20667-2485"
+   ],
+   "Drug interaction": [
+    "10.1001/jama.2008.892",
+    "10.1001/jamainternmed.2015.8581",
+    "10.1007/s12272-011-1105-0",
+    "10.1016/s0031-6997(25)06847-4",
+    "10.1046/j.0306-5251.2001.01469.x",
+    "10.1046/j.1365-2125.1998.00764.x",
+    "10.1111/j.1365-2125.1978.00999.pp.x",
+    "10.1111/j.1365-2125.2012.04350.x",
+    "10.1111/j.1532-5415.2008.02040.x",
+    "10.1111/j.1742-1241.2012.03008.x",
+    "10.1258/shorts.2011.011031",
+    "10.1586/17512433.2014.910111",
+    "10.1634/theoncologist.11-7-742",
+    "10.2165/00002512-200522050-00003",
+    "10.2165/00003495-200565090-00005",
+    "10.2174/1389200023337054",
+    "10.2174/138920008786927785",
+    "10.2174/1389200211209050640",
+    "10.3389/fphar.2025.1720361",
+    "10.5414/cpp45643"
+   ],
+   "Imaging informatics": [
+    "10.1001/jamaophthalmol.2022.2114",
+    "10.1002/9781683673941.ch19",
+    "10.1016/0021-9681(66)90122-6",
+    "10.1016/j.media.2012.02.005",
+    "10.1093/cvr/cvab067",
+    "10.1093/jamia/ocaa088",
+    "10.1109/jbhi.2020.2991043",
+    "10.1136/amiajnl-2012-001540",
+    "10.1136/bmj.m689",
+    "10.1148/radiographics.12.1.1734458",
+    "10.1148/radiol.2433060243",
+    "10.1148/rg.2015150023",
+    "10.15265/iys-2016-s004",
+    "10.2174/1573405617666210806125953",
+    "10.3389/frai.2023.1289669",
+    "10.4103/0972-1363.167119",
+    "10.5041/rmmj.10355",
+    "10.7759/cureus.32828"
+   ],
+   "Artificial intelligence in healthcare": [
+    "10.1001/jamadermatol.2019.3807",
+    "10.1001/jamainternmed.2021.2626",
+    "10.1001/jamainternmed.2023.1838",
+    "10.1001/jamanetworkopen.2021.3460",
+    "10.1001/jamasurg.2024.6006",
+    "10.1002/alz.12967",
+    "10.1002/ehf2.13073",
+    "10.1007/978-3-030-22741-8_45",
+    "10.1007/978-3-030-87444-5_3",
+    "10.1007/bf00993877",
+    "10.1007/s00146-026-02854-9",
+    "10.1007/s00701-024-05940-3",
+    "10.1007/s10916-007-9104-x",
+    "10.1007/s11023-018-9467-4",
+    "10.1007/s12325-021-01908-2",
+    "10.1007/s40471-018-0165-9",
+    "10.1007/s40596-020-01243-8",
+    "10.1016/0004-3702(93)90068-m",
+    "10.1016/0169-2607(87)90048-4",
+    "10.1016/b978-0-443-13963-5.00012-1",
+    "10.1016/j.acra.2020.01.012",
+    "10.1016/j.amepre.2021.04.016",
+    "10.1016/j.artmed.2017.01.004",
+    "10.1016/j.artmed.2018.03.001",
+    "10.1016/j.artmed.2022.102332",
+    "10.1016/j.artmed.2023.102658",
+    "10.1016/j.cjca.2021.02.020",
+    "10.1016/j.clindermatol.2023.12.015",
+    "10.1016/j.compbiomed.2024.108742",
+    "10.1016/j.conb.2019.02.006",
+    "10.1016/j.hlpt.2012.03.001",
+    "10.1016/j.ijom.2018.07.010",
+    "10.1016/j.ipha.2023.04.008",
+    "10.1016/j.jaad.2021.06.884",
+    "10.1016/j.jbi.2013.07.011",
+    "10.1016/j.oooo.2024.09.010",
+    "10.1016/j.sbi.2024.102776",
+    "10.1016/j.socscimed.2023.116357",
+    "10.1016/s0140-6736(25)00980-8",
+    "10.1016/s1470-2045(23)00462-x",
+    "10.1016/s2589-7500(19)30123-2",
+    "10.1016/s2589-7500(20)30159-x",
+    "10.1038/d41586-019-01111-y",
+    "10.1038/d41586-019-02872-2",
+    "10.1038/d41586-020-03348-4",
+    "10.1038/d41586-022-00072-z",
+    "10.1038/d41586-023-00023-2",
+    "10.1038/d41586-026-00697-4",
+    "10.1038/s41568-018-0016-5",
+    "10.1038/s41581-026-01071-3",
+    "10.1038/s41586-019-1799-6",
+    "10.1038/s41586-023-05947-3",
+    "10.1038/s41591-018-0335-9",
+    "10.1038/s41591-019-0548-6",
+    "10.1038/s41591-020-01192-7",
+    "10.1038/s41591-020-1034-x",
+    "10.1038/s41598-019-49656-2",
+    "10.1038/s41746-022-00592-y",
+    "10.1038/s41746-023-00914-8",
+    "10.1038/s41746-024-01031-w",
+    "10.1038/s41746-024-01103-x",
+    "10.1038/s41746-024-01232-3",
+    "10.1053/j.gastro.2023.02.031",
+    "10.1053/j.semnuclmed.2020.08.003",
+    "10.1055/s-0038-1636674",
+    "10.1055/s-0039-1677901",
+    "10.1056/nejmsa0900592",
+    "10.1080/13698575.2024.2412374",
+    "10.1089/heq.2018.0037",
+    "10.1093/bmb/ldaf017",
+    "10.1093/clinchem/hvab239",
+    "10.1093/ejo/cjz007",
+    "10.1093/jamia/ocv032",
+    "10.1093/jamia/ocz101",
+    "10.1093/jamia/ocz192",
+    "10.1093/jlb/lsz013",
+    "10.1093/qje/qjab046",
+    "10.1097/pas.0000000000001151",
+    "10.1109/mahc.2010.28",
+    "10.1109/sp61157.2025.00092",
+    "10.1109/tnb.2019.2919188",
+    "10.1111/jocd.16538",
+    "10.1111/nhs.70233",
+    "10.1111/nup.12306",
+    "10.1111/srt.12817",
+    "10.1126/sciadv.abq6147",
+    "10.1126/science.6340198",
+    "10.1126/scitranslmed.aaw8513",
+    "10.1126/scitranslmed.abb1655",
+    "10.1136/bmj-2022-070904",
+    "10.1136/bmj-2023-078378",
+    "10.1136/bmjdhai-2025-000051",
+    "10.1136/bmjgh-2018-000798",
+    "10.1136/bmjment-2023-300884",
+    "10.1136/jamia.1994.95236141",
+    "10.1145/3774816",
+    "10.1148/ryai.2020190208",
+    "10.1158/2159-8290.cd-21-0090",
+    "10.1161/circimaging.121.013025",
+    "10.1167/tvst.9.2.13",
+    "10.1177/0024363920922690",
+    "10.1177/0846537120941671",
+    "10.1177/1178222618792860",
+    "10.1177/2055207620968355",
+    "10.1177/20552076241291384",
+    "10.1177/20552076241292390",
+    "10.1177/2057047320950636",
+    "10.1186/s12909-023-04698-z",
+    "10.1186/s12911-023-02162-y",
+    "10.1186/s12916-026-04981-y",
+    "10.1186/s40001-025-03196-w",
+    "10.1259/bjro.20190020",
+    "10.1371/journal.pdig.0000132",
+    "10.1371/journal.pone.0163480",
+    "10.1371/journal.pone.0329986",
+    "10.14245/ns.1938386.193",
+    "10.1520/jfs14845j",
+    "10.1525/maq.1987.1.1.02a00020",
+    "10.18653/v1/2026.smm4h-1.1",
+    "10.2174/0115748928361472250123105507",
+    "10.2196/12802",
+    "10.2196/27795",
+    "10.2196/29301",
+    "10.2196/42936",
+    "10.2196/71532",
+    "10.2196/mental.9782",
+    "10.2217/fca-2021-0010",
+    "10.3238/arztebl.m2021.0011",
+    "10.3310/nihrevidence_59502",
+    "10.3390/diagnostics12081927",
+    "10.3390/e23060667",
+    "10.3390/ijerph192316080",
+    "10.3390/jcm11226826",
+    "10.3390/life12020264",
+    "10.3399/bjgp19x705137",
+    "10.3748/wjg.v27.i16.1664",
+    "10.4103/2153-3539.139714",
+    "10.4103/ijc.ijc_399_20",
+    "10.5435/jaaos-d-23-00474",
+    "10.54648/cola2022005",
+    "10.7326/0003-4819-115-11-843",
+    "10.7861/fhj.2021-0095",
+    "10.7861/futurehosp.6-2-94",
+    "10.9781/ijimai.2017.03.001"
+   ],
+   "Clinical decision support system": [
+    "10.1001/jama.293.10.1223",
+    "10.1002/msj.21351",
+    "10.1007/s10916-011-9780-4",
+    "10.1007/s11606-008-0573-5",
+    "10.1038/s41598-022-05112-2",
+    "10.1088/1742-6596/616/1/012013",
+    "10.1093/jamia/ocx100",
+    "10.1109/tsmcc.2010.2071862",
+    "10.1117/2.3201503.29",
+    "10.1136/amiajnl-2013-001613",
+    "10.1136/bmj.2.5804.9",
+    "10.1136/bmj.38398.500764.8f",
+    "10.1136/bmjopen-2014-005370",
+    "10.1186/1472-6947-12-142",
+    "10.1186/1745-6215-8-7",
+    "10.1186/s12911-020-1084-5",
+    "10.1371/journal.pmed.1000387",
+    "10.17226/10027",
+    "10.2105/ajph.2014.302164",
+    "10.2196/15182",
+    "10.3310/alert_40404",
+    "10.3390/app11115088",
+    "10.4187/respcare.04490378"
+   ],
+   "Telehealth": [
+    "10.1001/jamadermatol.2018.0855",
+    "10.1001/jamanetworkopen.2020.21476",
+    "10.1001/jamaneurol.2015.3849",
+    "10.1002/brb3.1787",
+    "10.1002/hec.952",
+    "10.1002/jppr.1695",
+    "10.1007/978-3-030-56917-4_1",
+    "10.1007/978-3-540-85786-0_16",
+    "10.1007/s00266-020-01907-8",
+    "10.1007/s11414-013-9338-y",
+    "10.1007/s11882-018-0808-4",
+    "10.1007/s11910-018-0834-6",
+    "10.1007/s40629-021-00167-5",
+    "10.1016/0046-8177(91)90226-f",
+    "10.1016/j.annemergmed.2010.09.008",
+    "10.1016/j.apmr.2003.09.008",
+    "10.1016/j.brs.2024.12.1005",
+    "10.1016/j.brs.2024.12.860",
+    "10.1016/j.brs.2024.12.955",
+    "10.1016/j.dld.2020.10.035",
+    "10.1016/j.dld.2021.06.032",
+    "10.1016/j.dsx.2020.06.007",
+    "10.1016/j.healthpol.2006.09.011",
+    "10.1016/j.humpath.2009.04.006",
+    "10.1016/j.ijmedinf.2007.01.009",
+    "10.1016/j.ijnurstu.2021.103921",
+    "10.1016/j.imu.2022.100867",
+    "10.1016/j.jaip.2020.03.008",
+    "10.1016/j.jamda.2021.02.037",
+    "10.1016/j.jocn.2013.12.003",
+    "10.1016/j.josat.2024.209446",
+    "10.1016/j.wneu.2020.05.251",
+    "10.1016/j.wneu.2022.03.037",
+    "10.1016/s0046-8177(86)80028-4",
+    "10.1016/s0140-6736(15)01024-7",
+    "10.1016/s2666-7568(20)30010-6",
+    "10.1017/s1355617714000873",
+    "10.1038/nrneurol.2018.31",
+    "10.1038/s41746-021-00430-7",
+    "10.1044/1059-0889(2003/011)",
+    "10.1056/nejmoa1009370",
+    "10.1056/nejmp1500533",
+    "10.1071/ah20183",
+    "10.1080/10410236.2019.1673950",
+    "10.1080/13854046.2011.609840",
+    "10.1080/13854046.2013.791723",
+    "10.1080/15323269.2019.1568127",
+    "10.1089/tmj.2008.0080",
+    "10.1089/tmj.2009.0152",
+    "10.1089/tmj.2011.0071",
+    "10.1089/tmj.2012.0263",
+    "10.1089/tmj.2013.0295",
+    "10.1089/tmj.2018.0096",
+    "10.1089/tmj.2018.0160",
+    "10.1089/tmj.2020.0068",
+    "10.1089/tmj.2020.0454",
+    "10.1089/tmr.2024.0075",
+    "10.1093/ajhp/56.14.1405",
+    "10.1093/arclin/acv058",
+    "10.1093/arclin/acw030",
+    "10.1093/arclin/acx140",
+    "10.1097/01823246-200920020-00003",
+    "10.1097/mlr.0000000000002096",
+    "10.1097/mlr.0000000000002097",
+    "10.1097/njh.0000000000000319",
+    "10.1097/rlu.0000000000005254",
+    "10.1109/health.2006.246471",
+    "10.1109/istafrica.2015.7190589",
+    "10.1111/1471-0528.15684",
+    "10.1111/imj.15306",
+    "10.1111/j.1610-0387.2007.06440.x",
+    "10.1111/xen.12495",
+    "10.1136/adc.2006.099622",
+    "10.1136/bmj.f653",
+    "10.1136/bmj.o1078",
+    "10.1136/bmjqs-2023-016674",
+    "10.1146/annurev-publhealth-090519-093711",
+    "10.1159/000082573",
+    "10.1159/000441192",
+    "10.1161/hypertensionaha.120.15873",
+    "10.1176/appi.ps.201800063",
+    "10.1177/10499091221123566",
+    "10.1177/1357633x14552385",
+    "10.1177/1357633x16649531",
+    "10.1177/1357633x16671407",
+    "10.1177/1357633x16674087",
+    "10.1177/1357633x16680541",
+    "10.1177/1357633x18776766",
+    "10.1177/1357633x18799582",
+    "10.1177/1357633x20916567",
+    "10.1177/1357633x20960638",
+    "10.1177/1747493017729268",
+    "10.1186/1472-6963-12-220",
+    "10.1186/1472-6963-13-395",
+    "10.1186/s12889-020-09301-4",
+    "10.1186/s12911-015-0171-5",
+    "10.1186/s12939-022-01689-2",
+    "10.1186/s13722-015-0035-4",
+    "10.1212/con.0000000000000850",
+    "10.1212/wnl.0000000000004357",
+    "10.1227/neu.0000000000000073",
+    "10.1258/1357633053499886",
+    "10.1363/2019.30760",
+    "10.1371/journal.pone.0220116",
+    "10.1377/hlthaff.2012.1061",
+    "10.1377/hlthaff.2013.0992",
+    "10.2147/iprp.s101685",
+    "10.21926/obm.neurobiol.2404260",
+    "10.21926/obm.neurobiol.2503290",
+    "10.2196/16218",
+    "10.2196/20839",
+    "10.2196/23410",
+    "10.2196/43429",
+    "10.2196/43583",
+    "10.2196/43684",
+    "10.2196/jmir.3.2.e22",
+    "10.2196/jmir.5257",
+    "10.2196/preprints.37347",
+    "10.2298/yjor200215015w",
+    "10.2345/0899-8205-49.5.306",
+    "10.26355/eurrev_202210_29921",
+    "10.2753/mis0742-1222220406",
+    "10.3233/thc-151036",
+    "10.3310/nihrevidence_59926",
+    "10.3310/rcti6942",
+    "10.3389/fnut.2021.622514",
+    "10.3390/healthcare12121217",
+    "10.35542/osf.io/9urcd",
+    "10.3892/or.15.4.1091",
+    "10.3949/ccjm.86a.18123",
+    "10.4258/hir.2012.18.2.153",
+    "10.46743/1540-580x/2004.1057",
+    "10.5600/mmrr.003.04.a04",
+    "10.5935/abc.20190117",
+    "10.7326/m15-0498",
+    "10.7326/m21-3511",
+    "10.7326/m22-0737",
+    "10.7326/m23-1335"
+   ],
+   "Electronic health record": [
+    "10.1001/jamahealthforum.2024.2764",
+    "10.1002/14651858.cd012707.pub2",
+    "10.1002/widm.1350",
+    "10.1007/s00392-016-1025-6",
+    "10.1016/j.amjmed.2009.09.004",
+    "10.1016/j.clsr.2011.07.013",
+    "10.1016/j.clsr.2012.01.003",
+    "10.1016/j.cosrev.2019.02.001",
+    "10.1016/j.hlpt.2016.08.002",
+    "10.1016/j.ijmedinf.2006.09.011",
+    "10.1016/j.ijmedinf.2015.01.010",
+    "10.1016/j.ijmedinf.2015.03.003",
+    "10.1016/j.ijmedinf.2020.104302",
+    "10.1016/j.neuron.2022.12.029",
+    "10.1016/s0140-6736(21)02724-0",
+    "10.1016/s0895-4356(97)00050-4",
+    "10.1016/s2589-7500(22)00187-x",
+    "10.1017/ice.2018.343",
+    "10.1038/d41586-023-00181-3",
+    "10.1038/s41698-022-00312-5",
+    "10.1038/s41746-021-00542-0",
+    "10.1056/nejmsa1102519",
+    "10.1073/pnas.0911686107",
+    "10.1080/18387357.2015.1063635",
+    "10.1089/hs.2019.0022",
+    "10.1089/pop.2014.0093",
+    "10.1093/carcin/bgy080",
+    "10.1093/jamia/ocaa238",
+    "10.1097/00124784-200411001-00009",
+    "10.1097/00124784-200411001-00012",
+    "10.1097/mlr.0b013e31827808db",
+    "10.1109/access.2020.3011099",
+    "10.1109/hpcc-css-icess.2015.168",
+    "10.1109/titb.2012.2185850",
+    "10.1111/j.1365-2125.2009.03427.x",
+    "10.1111/j.1468-0009.2009.00578.x",
+    "10.1111/j.1745-7262.2006.00131.x",
+    "10.1136/amiajnl-2011-000412",
+    "10.1136/annrheumdis-2015-207984",
+    "10.1136/bmj.322.7281.283",
+    "10.1136/bmj.c3111",
+    "10.1136/bmjqs-2019-010581",
+    "10.1136/inpract.31.7.356",
+    "10.1136/jamia.2010.004135",
+    "10.1136/jamia.2010.008946",
+    "10.1145/3168260",
+    "10.1146/annurev-publhealth-031816-044537",
+    "10.1162/dint_a_00097",
+    "10.1177/0033354917709784",
+    "10.1177/016224399702200401",
+    "10.1177/1833358316689481",
+    "10.1177/19322968211000831",
+    "10.1186/1472-6947-13-58",
+    "10.1186/s12889-022-14625-4",
+    "10.1186/s13073-019-0701-3",
+    "10.1186/s13223-022-00755-2",
+    "10.1197/jamia.m2373",
+    "10.1197/jamia.m2922",
+    "10.1370/afm.2860",
+    "10.15265/iys-2016-s006",
+    "10.2196/10235",
+    "10.2196/13484",
+    "10.2196/38482",
+    "10.2196/48320",
+    "10.2196/jmir.7.1.e3",
+    "10.3310/alert_42103",
+    "10.3310/hsdr08100",
+    "10.3310/nihrevidence_53447",
+    "10.3390/ijerph16091490",
+    "10.7326/0003-4819-144-10-200605160-00125",
+    "10.7759/cureus.5649"
+   ],
+   "Medical diagnosis": [
+    "10.1001/archinte.165.13.1493",
+    "10.1002/ajmg.a.40651",
+    "10.1002/art.1780370606",
+    "10.1007/978-1-4020-4425-0_8500",
+    "10.1016/j.jclinepi.2025.112122",
+    "10.1056/nejm199406233302506",
+    "10.1207/s15516709cog0503_3",
+    "10.1542/peds.2014-1778",
+    "10.17226/21794"
+   ],
+   "Computerized physician order entry": [
+    "10.1001/jama.280.15.1311",
+    "10.1001/jama.293.10.1197",
+    "10.1093/ajhp/60.14.1447",
+    "10.1093/jamia/ocaa047",
+    "10.1136/qshc.2004.011866",
+    "10.1197/jamia.m2170",
+    "10.1542/peds.2005-1287",
+    "10.17226/11623"
+   ],
+   "Health informatics": [
+    "10.1001/jamasurg.2024.6006",
+    "10.1007/978-1-4471-4474-8",
+    "10.1007/978-3-642-56719-3_18",
+    "10.1007/s10916-005-6103-7",
+    "10.1007/s10916-017-0794-4",
+    "10.1016/b978-0-12-803130-8.00009-9",
+    "10.1016/j.cviu.2009.06.008",
+    "10.1016/j.gpb.2016.01.003",
+    "10.1016/j.ijmedinf.2006.05.003",
+    "10.1016/j.ijmedinf.2011.05.003",
+    "10.1016/j.jbi.2014.02.010",
+    "10.1016/j.jbi.2015.06.023",
+    "10.1016/s0740-8188(01)00094-9",
+    "10.1056/nejm198110153051605",
+    "10.1093/bib/bbae098",
+    "10.1093/bib/bbv118",
+    "10.1093/bib/bbx157",
+    "10.1093/jamia/ocad214",
+    "10.1109/emr.2018.2882430",
+    "10.1126/scitranslmed.3004583",
+    "10.1136/amiajnl-2011-000508",
+    "10.1136/amiajnl-2012-000968",
+    "10.1136/amiajnl-2013-002061",
+    "10.1136/jamia.1999.0060457",
+    "10.1177/0018720815576827",
+    "10.1177/0272989x8800800302",
+    "10.1177/1460458203094008",
+    "10.1177/1740774518769655",
+    "10.1177/19322968211000831",
+    "10.1186/1471-2318-8-28",
+    "10.1186/1472-6947-9-24",
+    "10.1197/jamia.m1080",
+    "10.1197/jamia.m2127",
+    "10.1197/jamia.m3005",
+    "10.1197/jamia.m3046",
+    "10.13063/2327-9214.1239",
+    "10.1371/journal.pone.0210475",
+    "10.17705/1cais.04109",
+    "10.2106/00004623-196446020-00009",
+    "10.2147/rmhp.s12985",
+    "10.2196/16356",
+    "10.3390/ijms22126184",
+    "10.4258/jksmi.2009.15.1.133",
+    "10.7759/cureus.101984"
+   ],
+   "Clinical pharmacy": [
+    "10.1592/phco.28.6.816",
+    "10.4066/amj.2011.694",
+    "10.7326/m15-3058"
+   ],
+   "Pharmacy automation": [
+    "10.1016/j.pharma.2010.08.003",
+    "10.1331/108658003321480731"
+   ],
+   "OpenEvidence": []
+  },
+  "epmc_found": 454,
+  "n_dois": 554
+ },
+ "categories": {
+  "Medical expert systems": {
+   "n_pages": 11,
+   "pages": {
+    "Aidoc": {
+     "n": 33,
+     "journal": 4,
+     "doi": 4,
+     "sci": 0.12121212121212122
+    },
+    "CADUCEUS (expert system)": {
+     "n": 5,
+     "journal": 5,
+     "doi": 4,
+     "sci": 1.0
+    },
+    "Clinical decision support system": {
+     "n": 35,
+     "journal": 24,
+     "doi": 23,
+     "sci": 0.6857142857142857
+    },
+    "Computer-aided diagnosis": {
+     "n": 92,
+     "journal": 76,
+     "doi": 78,
+     "sci": 0.8260869565217391
+    },
+    "Computer-aided simple triage": {
+     "n": 7,
+     "journal": 7,
+     "doi": 7,
+     "sci": 1.0
+    },
+    "DXplain": {
+     "n": 2,
+     "journal": 1,
+     "doi": 1,
+     "sci": 0.5
+    },
+    "Global Infectious Disease Epidemiology Network": {
+     "n": 1,
+     "journal": 1,
+     "doi": 1,
+     "sci": 1.0
+    },
+    "Internist-I": {
+     "n": 2,
+     "journal": 0,
+     "doi": 1,
+     "sci": 0.0
+    },
+    "Mycin": {
+     "n": 7,
+     "journal": 3,
+     "doi": 3,
+     "sci": 0.42857142857142855
+    },
+    "VisualDx": {
+     "n": 4,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Zava": {
+     "n": 54,
+     "journal": 1,
+     "doi": 1,
+     "sci": 0.018518518518518517
+    }
+   }
+  },
+  "Electronic health records": {
+   "n_pages": 45,
+   "pages": {
+    "Electronic health record": {
+     "n": 159,
+     "journal": 86,
+     "doi": 74,
+     "sci": 0.5408805031446541
+    },
+    "Alberta Netcare": {
+     "n": 1,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "BHIE": {
+     "n": 3,
+     "journal": 2,
+     "doi": 0,
+     "sci": 0.6666666666666666
+    },
+    "Canada Health Infoway": {
+     "n": 9,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Certification Commission for Healthcare Information Technology": {
+     "n": 3,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "De-identification": {
+     "n": 26,
+     "journal": 17,
+     "doi": 13,
+     "sci": 0.6538461538461539
+    },
+    "Australian Digital Health Agency": {
+     "n": 16,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "DrChrono": {
+     "n": 24,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Electronic health record (Germany)": {
+     "n": 5,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Electronic health record confidentiality": {
+     "n": 3,
+     "journal": 2,
+     "doi": 2,
+     "sci": 0.6666666666666666
+    },
+    "Electronic health records in England": {
+     "n": 22,
+     "journal": 4,
+     "doi": 4,
+     "sci": 0.18181818181818182
+    },
+    "Electronic health records in the United States": {
+     "n": 85,
+     "journal": 28,
+     "doi": 21,
+     "sci": 0.32941176470588235
+    },
+    "Healthcare in Estonia": {
+     "n": 11,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "European Institute for Health Records": {
+     "n": 15,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Greenway Health": {
+     "n": 13,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Health data": {
+     "n": 30,
+     "journal": 15,
+     "doi": 12,
+     "sci": 0.5
+    },
+    "Health Information Technology for Economic and Clinical Health Act": {
+     "n": 30,
+     "journal": 9,
+     "doi": 7,
+     "sci": 0.3
+    },
+    "Health record trust": {
+     "n": 6,
+     "journal": 1,
+     "doi": 1,
+     "sci": 0.16666666666666666
+    },
+    "HealthConnect": {
+     "n": 5,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "ISO/TC 215": {
+     "n": 0,
+     "journal": 0,
+     "doi": 0,
+     "sci": null
+    },
+    "Lorenzo (electronic health record)": {
+     "n": 14,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Masking (Electronic Health Record)": {
+     "n": 21,
+     "journal": 9,
+     "doi": 9,
+     "sci": 0.42857142857142855
+    },
+    "MEDCIN": {
+     "n": 16,
+     "journal": 4,
+     "doi": 3,
+     "sci": 0.25
+    },
+    "My Health Record": {
+     "n": 50,
+     "journal": 4,
+     "doi": 1,
+     "sci": 0.08
+    },
+    "National Electronic Health Transition Authority": {
+     "n": 15,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "NextGen Healthcare": {
+     "n": 28,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Oncology information system": {
+     "n": 4,
+     "journal": 3,
+     "doi": 4,
+     "sci": 0.75
+    },
+    "Online patient education": {
+     "n": 0,
+     "journal": 0,
+     "doi": 0,
+     "sci": null
+    },
+    "Our Health Partnership": {
+     "n": 2,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Patient administration system": {
+     "n": 5,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Patient Online": {
+     "n": 9,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Patient portal": {
+     "n": 18,
+     "journal": 7,
+     "doi": 7,
+     "sci": 0.3888888888888889
+    },
+    "Patient record access in the United Kingdom": {
+     "n": 24,
+     "journal": 4,
+     "doi": 4,
+     "sci": 0.16666666666666666
+    },
+    "Patients Know Best": {
+     "n": 26,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Personal health record": {
+     "n": 63,
+     "journal": 35,
+     "doi": 29,
+     "sci": 0.5555555555555556
+    },
+    "Personally Controlled Electronic Health Record": {
+     "n": 50,
+     "journal": 4,
+     "doi": 1,
+     "sci": 0.08
+    },
+    "Picture archiving and communication system": {
+     "n": 12,
+     "journal": 5,
+     "doi": 6,
+     "sci": 0.4166666666666667
+    },
+    "PopHealth": {
+     "n": 15,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Project Nightingale": {
+     "n": 11,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "ProRec": {
+     "n": 0,
+     "journal": 0,
+     "doi": 0,
+     "sci": null
+    },
+    "Radiological information system": {
+     "n": 6,
+     "journal": 4,
+     "doi": 4,
+     "sci": 0.6666666666666666
+    },
+    "Summary Care Record": {
+     "n": 28,
+     "journal": 1,
+     "doi": 0,
+     "sci": 0.03571428571428571
+    },
+    "THIRRA": {
+     "n": 0,
+     "journal": 0,
+     "doi": 0,
+     "sci": null
+    },
+    "VistA": {
+     "n": 50,
+     "journal": 4,
+     "doi": 2,
+     "sci": 0.08
+    },
+    "WebPT": {
+     "n": 15,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    }
+   }
+  },
+  "Telehealth": {
+   "n_pages": 54,
+   "pages": {
+    "Telehealth": {
+     "n": 251,
+     "journal": 145,
+     "doi": 139,
+     "sci": 0.5776892430278885
+    },
+    "Telemedicine": {
+     "n": 251,
+     "journal": 145,
+     "doi": 139,
+     "sci": 0.5776892430278885
+    },
+    "Accurx": {
+     "n": 12,
+     "journal": 1,
+     "doi": 1,
+     "sci": 0.08333333333333333
+    },
+    "Alberta Netcare": {
+     "n": 1,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "BetterHelp": {
+     "n": 29,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Biotelemetry": {
+     "n": 7,
+     "journal": 4,
+     "doi": 5,
+     "sci": 0.5714285714285714
+    },
+    "Bundoo": {
+     "n": 18,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Cerebral (company)": {
+     "n": 20,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Connected health": {
+     "n": 7,
+     "journal": 3,
+     "doi": 4,
+     "sci": 0.42857142857142855
+    },
+    "Continua Health Alliance": {
+     "n": 8,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Cope Notes": {
+     "n": 20,
+     "journal": 2,
+     "doi": 2,
+     "sci": 0.1
+    },
+    "Decentralised clinical trial": {
+     "n": 27,
+     "journal": 15,
+     "doi": 15,
+     "sci": 0.5555555555555556
+    },
+    "Digital health": {
+     "n": 84,
+     "journal": 56,
+     "doi": 54,
+     "sci": 0.6666666666666666
+    },
+    "Digital health interventions": {
+     "n": 30,
+     "journal": 24,
+     "doi": 26,
+     "sci": 0.8
+    },
+    "Digital therapeutics": {
+     "n": 44,
+     "journal": 24,
+     "doi": 21,
+     "sci": 0.5454545454545454
+    },
+    "Distance Learning and Telemedicine Grant and Loan Program": {
+     "n": 0,
+     "journal": 0,
+     "doi": 0,
+     "sci": null
+    },
+    "Done Global": {
+     "n": 19,
+     "journal": 4,
+     "doi": 0,
+     "sci": 0.21052631578947367
+    },
+    "Doxy.me": {
+     "n": 19,
+     "journal": 3,
+     "doi": 3,
+     "sci": 0.15789473684210525
+    },
+    "Dutch (company)": {
+     "n": 16,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "E-patient": {
+     "n": 21,
+     "journal": 15,
+     "doi": 13,
+     "sci": 0.7142857142857143
+    },
+    "Eucalyptus Health": {
+     "n": 28,
+     "journal": 1,
+     "doi": 1,
+     "sci": 0.03571428571428571
+    },
+    "GenderGP": {
+     "n": 28,
+     "journal": 4,
+     "doi": 5,
+     "sci": 0.14285714285714285
+    },
+    "General Maxwell R. Thurman Award": {
+     "n": 3,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Google for Health": {
+     "n": 89,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Health 2.0": {
+     "n": 28,
+     "journal": 23,
+     "doi": 20,
+     "sci": 0.8214285714285714
+    },
+    "Healthcare CRM": {
+     "n": 15,
+     "journal": 5,
+     "doi": 3,
+     "sci": 0.3333333333333333
+    },
+    "HealthLinkBC": {
+     "n": 10,
+     "journal": 1,
+     "doi": 1,
+     "sci": 0.1
+    },
+    "Hims & Hers Health": {
+     "n": 40,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Hospital-at-home": {
+     "n": 27,
+     "journal": 7,
+     "doi": 6,
+     "sci": 0.25925925925925924
+    },
+    "Impact of the COVID-19 pandemic on the telehealth industry": {
+     "n": 24,
+     "journal": 10,
+     "doi": 10,
+     "sci": 0.4166666666666667
+    },
+    "Invoke Image Display": {
+     "n": 1,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Juniper (telehealth company)": {
+     "n": 34,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Lark Health": {
+     "n": 8,
+     "journal": 1,
+     "doi": 1,
+     "sci": 0.125
+    },
+    "LifeMD": {
+     "n": 15,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Lifestance Health": {
+     "n": 15,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "MHealth": {
+     "n": 137,
+     "journal": 68,
+     "doi": 71,
+     "sci": 0.49635036496350365
+    },
+    "Microsoft HealthVault": {
+     "n": 21,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Mindbloom": {
+     "n": 21,
+     "journal": 2,
+     "doi": 2,
+     "sci": 0.09523809523809523
+    },
+    "Monument (company)": {
+     "n": 5,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Online patient education": {
+     "n": 0,
+     "journal": 0,
+     "doi": 0,
+     "sci": null
+    },
+    "Pilot (telehealth company)": {
+     "n": 29,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Planned Parenthood Direct": {
+     "n": 5,
+     "journal": 1,
+     "doi": 1,
+     "sci": 0.2
+    },
+    "Remote patient monitoring": {
+     "n": 54,
+     "journal": 32,
+     "doi": 30,
+     "sci": 0.5925925925925926
+    },
+    "Remote therapy": {
+     "n": 7,
+     "journal": 4,
+     "doi": 4,
+     "sci": 0.5714285714285714
+    },
+    "Talkiatry": {
+     "n": 18,
+     "journal": 2,
+     "doi": 2,
+     "sci": 0.1111111111111111
+    },
+    "Talkspace": {
+     "n": 56,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Tele-epidemiology": {
+     "n": 0,
+     "journal": 0,
+     "doi": 0,
+     "sci": null
+    },
+    "Telecare": {
+     "n": 4,
+     "journal": 1,
+     "doi": 2,
+     "sci": 0.25
+    },
+    "Telehomecare": {
+     "n": 5,
+     "journal": 5,
+     "doi": 5,
+     "sci": 1.0
+    },
+    "TeleMAT": {
+     "n": 6,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Telemedicine service providers": {
+     "n": 19,
+     "journal": 1,
+     "doi": 1,
+     "sci": 0.05263157894736842
+    },
+    "Thriveworks": {
+     "n": 8,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Visibly": {
+     "n": 11,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Wireless health": {
+     "n": 7,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    }
+   }
+  },
+  "Health informatics": {
+   "n_pages": 190,
+   "pages": {
+    "Health informatics": {
+     "n": 131,
+     "journal": 50,
+     "doi": 45,
+     "sci": 0.3816793893129771
+    },
+    "Consumer health informatics": {
+     "n": 1,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Health administration informatics": {
+     "n": 0,
+     "journal": 0,
+     "doi": 0,
+     "sci": null
+    },
+    "Home health care software": {
+     "n": 13,
+     "journal": 1,
+     "doi": 0,
+     "sci": 0.07692307692307693
+    },
+    "Hospital information system": {
+     "n": 2,
+     "journal": 0,
+     "doi": 1,
+     "sci": 0.0
+    },
+    "Population informatics": {
+     "n": 6,
+     "journal": 5,
+     "doi": 5,
+     "sci": 0.8333333333333334
+    },
+    "Public health informatics": {
+     "n": 20,
+     "journal": 3,
+     "doi": 3,
+     "sci": 0.15
+    },
+    "Translational research informatics": {
+     "n": 1,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "List of abbreviations used in health informatics": {
+     "n": 0,
+     "journal": 0,
+     "doi": 0,
+     "sci": null
+    },
+    "Admission, discharge, and transfer system": {
+     "n": 0,
+     "journal": 0,
+     "doi": 0,
+     "sci": null
+    },
+    "Adoption of electronic medical records in U.S. hospitals": {
+     "n": 9,
+     "journal": 4,
+     "doi": 3,
+     "sci": 0.4444444444444444
+    },
+    "Advance healthcare directive": {
+     "n": 66,
+     "journal": 35,
+     "doi": 30,
+     "sci": 0.5303030303030303
+    },
+    "Aidoc": {
+     "n": 33,
+     "journal": 4,
+     "doi": 4,
+     "sci": 0.12121212121212122
+    },
+    "All-payer claims database": {
+     "n": 1,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Automated ECG interpretation": {
+     "n": 3,
+     "journal": 2,
+     "doi": 2,
+     "sci": 0.6666666666666666
+    },
+    "Barcode technology in healthcare": {
+     "n": 3,
+     "journal": 2,
+     "doi": 2,
+     "sci": 0.6666666666666666
+    },
+    "BeHealth": {
+     "n": 2,
+     "journal": 1,
+     "doi": 0,
+     "sci": 0.5
+    },
+    "Biblioteca Virtual en Salud": {
+     "n": 3,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Howard Bleich": {
+     "n": 21,
+     "journal": 9,
+     "doi": 7,
+     "sci": 0.42857142857142855
+    },
+    "Blue Button": {
+     "n": 61,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Bone segment navigation": {
+     "n": 7,
+     "journal": 4,
+     "doi": 2,
+     "sci": 0.5714285714285714
+    },
+    "Iain Buchan": {
+     "n": 65,
+     "journal": 39,
+     "doi": 37,
+     "sci": 0.6
+    },
+    "Canadian Institute for Health Information": {
+     "n": 21,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Cancer registry": {
+     "n": 21,
+     "journal": 10,
+     "doi": 10,
+     "sci": 0.47619047619047616
+    },
+    "CAVEman": {
+     "n": 2,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Central Brain Tumor Registry of the United States": {
+     "n": 6,
+     "journal": 2,
+     "doi": 2,
+     "sci": 0.3333333333333333
+    },
+    "ChatGPT Health": {
+     "n": 280,
+     "journal": 34,
+     "doi": 31,
+     "sci": 0.12142857142857143
+    },
+    "Chief medical informatics officer": {
+     "n": 7,
+     "journal": 3,
+     "doi": 3,
+     "sci": 0.42857142857142855
+    },
+    "Health informatics in China": {
+     "n": 34,
+     "journal": 27,
+     "doi": 24,
+     "sci": 0.7941176470588235
+    },
+    "Clinical coder": {
+     "n": 24,
+     "journal": 3,
+     "doi": 1,
+     "sci": 0.125
+    },
+    "Clinical data repository": {
+     "n": 5,
+     "journal": 4,
+     "doi": 2,
+     "sci": 0.8
+    },
+    "Clinical data standards": {
+     "n": 5,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Clinical decision support system": {
+     "n": 35,
+     "journal": 24,
+     "doi": 23,
+     "sci": 0.6857142857142857
+    },
+    "Clinical prediction rule": {
+     "n": 10,
+     "journal": 10,
+     "doi": 10,
+     "sci": 1.0
+    },
+    "Clinical terminology server": {
+     "n": 1,
+     "journal": 1,
+     "doi": 1,
+     "sci": 1.0
+    },
+    "Cochrane Library": {
+     "n": 14,
+     "journal": 3,
+     "doi": 3,
+     "sci": 0.21428571428571427
+    },
+    "COCIR": {
+     "n": 0,
+     "journal": 0,
+     "doi": 0,
+     "sci": null
+    },
+    "Comprehensive Health Assessment Program": {
+     "n": 0,
+     "journal": 0,
+     "doi": 0,
+     "sci": null
+    },
+    "Computerized physician order entry": {
+     "n": 23,
+     "journal": 7,
+     "doi": 8,
+     "sci": 0.30434782608695654
+    },
+    "Computer-aided diagnosis": {
+     "n": 92,
+     "journal": 76,
+     "doi": 78,
+     "sci": 0.8260869565217391
+    },
+    "Computer-aided simple triage": {
+     "n": 7,
+     "journal": 7,
+     "doi": 7,
+     "sci": 1.0
+    },
+    "Computer-assisted interventions": {
+     "n": 3,
+     "journal": 0,
+     "doi": 1,
+     "sci": 0.0
+    },
+    "Computerized neuropsychological assessment": {
+     "n": 1,
+     "journal": 1,
+     "doi": 1,
+     "sci": 1.0
+    },
+    "Connected health": {
+     "n": 7,
+     "journal": 3,
+     "doi": 4,
+     "sci": 0.42857142857142855
+    },
+    "Consumer Assessment of Healthcare Providers and Systems": {
+     "n": 10,
+     "journal": 6,
+     "doi": 6,
+     "sci": 0.6
+    },
+    "Cost-effectiveness analysis": {
+     "n": 9,
+     "journal": 7,
+     "doi": 7,
+     "sci": 0.7777777777777778
+    },
+    "Cost–utility analysis": {
+     "n": 5,
+     "journal": 3,
+     "doi": 3,
+     "sci": 0.6
+    },
+    "DailyMed": {
+     "n": 5,
+     "journal": 2,
+     "doi": 2,
+     "sci": 0.4
+    },
+    "Datavant": {
+     "n": 35,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Demographic and Health Surveys": {
+     "n": 8,
+     "journal": 5,
+     "doi": 5,
+     "sci": 0.625
+    },
+    "Dental AI": {
+     "n": 38,
+     "journal": 17,
+     "doi": 16,
+     "sci": 0.4473684210526316
+    },
+    "Dialog+": {
+     "n": 22,
+     "journal": 11,
+     "doi": 11,
+     "sci": 0.5
+    },
+    "DICOMweb": {
+     "n": 9,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Digital health": {
+     "n": 84,
+     "journal": 56,
+     "doi": 54,
+     "sci": 0.6666666666666666
+    },
+    "Digital health interventions": {
+     "n": 30,
+     "journal": 24,
+     "doi": 26,
+     "sci": 0.8
+    },
+    "Digital medicine": {
+     "n": 13,
+     "journal": 2,
+     "doi": 2,
+     "sci": 0.15384615384615385
+    },
+    "Digital therapeutics": {
+     "n": 44,
+     "journal": 24,
+     "doi": 21,
+     "sci": 0.5454545454545454
+    },
+    "DISCERN": {
+     "n": 3,
+     "journal": 3,
+     "doi": 3,
+     "sci": 1.0
+    },
+    "Disease burden": {
+     "n": 34,
+     "journal": 12,
+     "doi": 11,
+     "sci": 0.35294117647058826
+    },
+    "Disease informatics": {
+     "n": 14,
+     "journal": 11,
+     "doi": 13,
+     "sci": 0.7857142857142857
+    },
+    "Disease management (health)": {
+     "n": 38,
+     "journal": 34,
+     "doi": 27,
+     "sci": 0.8947368421052632
+    },
+    "Disease registry": {
+     "n": 34,
+     "journal": 11,
+     "doi": 11,
+     "sci": 0.3235294117647059
+    },
+    "Distance Learning and Telemedicine Grant and Loan Program": {
+     "n": 0,
+     "journal": 0,
+     "doi": 0,
+     "sci": null
+    },
+    "E-patient": {
+     "n": 21,
+     "journal": 15,
+     "doi": 13,
+     "sci": 0.7142857142857143
+    },
+    "Education in personalized medicine": {
+     "n": 17,
+     "journal": 8,
+     "doi": 8,
+     "sci": 0.47058823529411764
+    },
+    "EHealth": {
+     "n": 77,
+     "journal": 40,
+     "doi": 37,
+     "sci": 0.5194805194805194
+    },
+    "EHealth Exchange": {
+     "n": 7,
+     "journal": 1,
+     "doi": 0,
+     "sci": 0.14285714285714285
+    },
+    "Electronic common technical document": {
+     "n": 19,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Electronic referrals": {
+     "n": 12,
+     "journal": 3,
+     "doi": 2,
+     "sci": 0.25
+    },
+    "EMIAS": {
+     "n": 7,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Enterprise master patient index": {
+     "n": 6,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "EuResist": {
+     "n": 7,
+     "journal": 5,
+     "doi": 5,
+     "sci": 0.7142857142857143
+    },
+    "European Sleep Apnea Database": {
+     "n": 18,
+     "journal": 10,
+     "doi": 3,
+     "sci": 0.5555555555555556
+    },
+    "Evidence-based design": {
+     "n": 34,
+     "journal": 18,
+     "doi": 15,
+     "sci": 0.5294117647058824
+    },
+    "Evidence-based medicine": {
+     "n": 132,
+     "journal": 81,
+     "doi": 79,
+     "sci": 0.6136363636363636
+    },
+    "First Derm": {
+     "n": 5,
+     "journal": 5,
+     "doi": 4,
+     "sci": 1.0
+    },
+    "General Maxwell R. Thurman Award": {
+     "n": 3,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "GIS and public health": {
+     "n": 6,
+     "journal": 4,
+     "doi": 4,
+     "sci": 0.6666666666666666
+    },
+    "Global Health Observatory": {
+     "n": 21,
+     "journal": 2,
+     "doi": 2,
+     "sci": 0.09523809523809523
+    },
+    "Global Infectious Disease Epidemiology Network": {
+     "n": 1,
+     "journal": 1,
+     "doi": 1,
+     "sci": 1.0
+    },
+    "GoPubMed": {
+     "n": 2,
+     "journal": 1,
+     "doi": 1,
+     "sci": 0.5
+    },
+    "Guideline execution engine": {
+     "n": 7,
+     "journal": 5,
+     "doi": 3,
+     "sci": 0.7142857142857143
+    },
+    "Health 2.0": {
+     "n": 28,
+     "journal": 23,
+     "doi": 20,
+     "sci": 0.8214285714285714
+    },
+    "Health 3.0": {
+     "n": 14,
+     "journal": 6,
+     "doi": 5,
+     "sci": 0.42857142857142855
+    },
+    "Health Connect": {
+     "n": 17,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Health data": {
+     "n": 30,
+     "journal": 15,
+     "doi": 12,
+     "sci": 0.5
+    },
+    "Health equity impact analysis": {
+     "n": 2,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Health informatics tools": {
+     "n": 1,
+     "journal": 1,
+     "doi": 0,
+     "sci": 1.0
+    },
+    "Health information exchange": {
+     "n": 27,
+     "journal": 2,
+     "doi": 1,
+     "sci": 0.07407407407407407
+    },
+    "Health information management": {
+     "n": 8,
+     "journal": 3,
+     "doi": 3,
+     "sci": 0.375
+    },
+    "Health information technology": {
+     "n": 36,
+     "journal": 20,
+     "doi": 20,
+     "sci": 0.5555555555555556
+    },
+    "Health information-seeking behaviour": {
+     "n": 7,
+     "journal": 6,
+     "doi": 5,
+     "sci": 0.8571428571428571
+    },
+    "Health network surveillance": {
+     "n": 0,
+     "journal": 0,
+     "doi": 0,
+     "sci": null
+    },
+    "Health Score": {
+     "n": 4,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "HealthBridge": {
+     "n": 1,
+     "journal": 1,
+     "doi": 1,
+     "sci": 1.0
+    },
+    "Healthcare CRM": {
+     "n": 15,
+     "journal": 5,
+     "doi": 3,
+     "sci": 0.3333333333333333
+    },
+    "Healthcare Effectiveness Data and Information Set": {
+     "n": 3,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "HL7": {
+     "n": 25,
+     "journal": 1,
+     "doi": 1,
+     "sci": 0.04
+    },
+    "HRHIS": {
+     "n": 7,
+     "journal": 3,
+     "doi": 3,
+     "sci": 0.42857142857142855
+    },
+    "Informatics for Consumer Health": {
+     "n": 1,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Information continuity": {
+     "n": 2,
+     "journal": 1,
+     "doi": 1,
+     "sci": 0.5
+    },
+    "Intelligent medical search engine": {
+     "n": 0,
+     "journal": 0,
+     "doi": 0,
+     "sci": null
+    },
+    "International HL7 Implementations": {
+     "n": 16,
+     "journal": 4,
+     "doi": 0,
+     "sci": 0.25
+    },
+    "Invoke Image Display": {
+     "n": 1,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Kenya Health Work Force Project": {
+     "n": 3,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Laboratory informatics": {
+     "n": 6,
+     "journal": 0,
+     "doi": 1,
+     "sci": 0.0
+    },
+    "Laboratory information management system": {
+     "n": 7,
+     "journal": 3,
+     "doi": 3,
+     "sci": 0.42857142857142855
+    },
+    "Lark Health": {
+     "n": 8,
+     "journal": 1,
+     "doi": 1,
+     "sci": 0.125
+    },
+    "Learning health systems": {
+     "n": 47,
+     "journal": 32,
+     "doi": 35,
+     "sci": 0.6808510638297872
+    },
+    "List of accredited HIM programs in the United States and Canada": {
+     "n": 0,
+     "journal": 0,
+     "doi": 0,
+     "sci": null
+    },
+    "List of medical and health informatics journals": {
+     "n": 0,
+     "journal": 0,
+     "doi": 0,
+     "sci": null
+    },
+    "Mandated choice": {
+     "n": 0,
+     "journal": 0,
+     "doi": 0,
+     "sci": null
+    },
+    "MEDCIN": {
+     "n": 16,
+     "journal": 4,
+     "doi": 3,
+     "sci": 0.25
+    },
+    "Medical algorithm": {
+     "n": 5,
+     "journal": 5,
+     "doi": 5,
+     "sci": 1.0
+    },
+    "Medical animation": {
+     "n": 21,
+     "journal": 17,
+     "doi": 15,
+     "sci": 0.8095238095238095
+    },
+    "Medical device connectivity": {
+     "n": 7,
+     "journal": 4,
+     "doi": 1,
+     "sci": 0.5714285714285714
+    },
+    "Medical guideline": {
+     "n": 15,
+     "journal": 15,
+     "doi": 15,
+     "sci": 1.0
+    },
+    "Medical identification tag": {
+     "n": 10,
+     "journal": 1,
+     "doi": 1,
+     "sci": 0.1
+    },
+    "Medical image sharing": {
+     "n": 12,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Medical integration environment": {
+     "n": 1,
+     "journal": 1,
+     "doi": 1,
+     "sci": 1.0
+    },
+    "Medical logic module": {
+     "n": 1,
+     "journal": 1,
+     "doi": 1,
+     "sci": 1.0
+    },
+    "Medical practice management software": {
+     "n": 10,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Medical prescription": {
+     "n": 71,
+     "journal": 12,
+     "doi": 12,
+     "sci": 0.16901408450704225
+    },
+    "Medical record": {
+     "n": 42,
+     "journal": 17,
+     "doi": 14,
+     "sci": 0.40476190476190477
+    },
+    "Medical transcription": {
+     "n": 20,
+     "journal": 2,
+     "doi": 0,
+     "sci": 0.1
+    },
+    "Medication package insert": {
+     "n": 5,
+     "journal": 1,
+     "doi": 0,
+     "sci": 0.2
+    },
+    "MedInfo": {
+     "n": 13,
+     "journal": 1,
+     "doi": 0,
+     "sci": 0.07692307692307693
+    },
+    "Mental health informatics": {
+     "n": 21,
+     "journal": 9,
+     "doi": 10,
+     "sci": 0.42857142857142855
+    },
+    "MHealth": {
+     "n": 137,
+     "journal": 68,
+     "doi": 71,
+     "sci": 0.49635036496350365
+    },
+    "The MICCAI Society": {
+     "n": 46,
+     "journal": 0,
+     "doi": 1,
+     "sci": 0.0
+    },
+    "Minimum Data Set": {
+     "n": 1,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "MUMPS": {
+     "n": 31,
+     "journal": 4,
+     "doi": 4,
+     "sci": 0.12903225806451613
+    },
+    "National minimum dataset": {
+     "n": 0,
+     "journal": 0,
+     "doi": 0,
+     "sci": null
+    },
+    "National Survey of Family Growth": {
+     "n": 17,
+     "journal": 3,
+     "doi": 2,
+     "sci": 0.17647058823529413
+    },
+    "Observational Health Data Sciences and Informatics": {
+     "n": 5,
+     "journal": 3,
+     "doi": 2,
+     "sci": 0.6
+    },
+    "Observations of daily living": {
+     "n": 1,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Online doctor": {
+     "n": 0,
+     "journal": 0,
+     "doi": 0,
+     "sci": null
+    },
+    "OnPage Corporation": {
+     "n": 2,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "OpenEHR": {
+     "n": 20,
+     "journal": 4,
+     "doi": 3,
+     "sci": 0.2
+    },
+    "OpenELIS Global": {
+     "n": 9,
+     "journal": 3,
+     "doi": 2,
+     "sci": 0.3333333333333333
+    },
+    "OpenNotes": {
+     "n": 55,
+     "journal": 35,
+     "doi": 34,
+     "sci": 0.6363636363636364
+    },
+    "Operative report": {
+     "n": 4,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Oracle Clinical": {
+     "n": 15,
+     "journal": 1,
+     "doi": 0,
+     "sci": 0.06666666666666667
+    },
+    "Participatient": {
+     "n": 5,
+     "journal": 1,
+     "doi": 1,
+     "sci": 0.2
+    },
+    "Patient administration system": {
+     "n": 5,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Patient management software": {
+     "n": 2,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Patient portal": {
+     "n": 18,
+     "journal": 7,
+     "doi": 7,
+     "sci": 0.3888888888888889
+    },
+    "Patient registration": {
+     "n": 12,
+     "journal": 11,
+     "doi": 9,
+     "sci": 0.9166666666666666
+    },
+    "Patient-Reported Outcomes Measurement Information System": {
+     "n": 13,
+     "journal": 2,
+     "doi": 2,
+     "sci": 0.15384615384615385
+    },
+    "Pay for performance (healthcare)": {
+     "n": 29,
+     "journal": 13,
+     "doi": 13,
+     "sci": 0.4482758620689655
+    },
+    "Personal health application": {
+     "n": 2,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Personal health record": {
+     "n": 63,
+     "journal": 35,
+     "doi": 29,
+     "sci": 0.5555555555555556
+    },
+    "Personal science": {
+     "n": 9,
+     "journal": 5,
+     "doi": 5,
+     "sci": 0.5555555555555556
+    },
+    "Pharmaceutical publication planning": {
+     "n": 2,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Pharmacy management system": {
+     "n": 12,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "PhenX Toolkit": {
+     "n": 19,
+     "journal": 14,
+     "doi": 14,
+     "sci": 0.7368421052631579
+    },
+    "Pneumonia of unknown etiology (PUE) surveillance system": {
+     "n": 4,
+     "journal": 3,
+     "doi": 3,
+     "sci": 0.75
+    },
+    "Point of care": {
+     "n": 33,
+     "journal": 25,
+     "doi": 20,
+     "sci": 0.7575757575757576
+    },
+    "Point of care medical information summary": {
+     "n": 1,
+     "journal": 1,
+     "doi": 1,
+     "sci": 1.0
+    },
+    "Predictive methods for surgery duration": {
+     "n": 42,
+     "journal": 40,
+     "doi": 40,
+     "sci": 0.9523809523809523
+    },
+    "Prescription analytics": {
+     "n": 2,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Problem-Oriented Medical Information System": {
+     "n": 1,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Protocol system": {
+     "n": 2,
+     "journal": 1,
+     "doi": 1,
+     "sci": 0.5
+    },
+    "Pseudonymization": {
+     "n": 15,
+     "journal": 6,
+     "doi": 3,
+     "sci": 0.4
+    },
+    "Quantified self": {
+     "n": 37,
+     "journal": 15,
+     "doi": 13,
+     "sci": 0.40540540540540543
+    },
+    "Real world data": {
+     "n": 10,
+     "journal": 4,
+     "doi": 4,
+     "sci": 0.4
+    },
+    "Real world evidence": {
+     "n": 5,
+     "journal": 2,
+     "doi": 2,
+     "sci": 0.4
+    },
+    "Remote therapy": {
+     "n": 7,
+     "journal": 4,
+     "doi": 4,
+     "sci": 0.5714285714285714
+    },
+    "Robotic surgery": {
+     "n": 125,
+     "journal": 81,
+     "doi": 80,
+     "sci": 0.648
+    },
+    "SaTScan": {
+     "n": 17,
+     "journal": 9,
+     "doi": 10,
+     "sci": 0.5294117647058824
+    },
+    "Single Patient Record": {
+     "n": 15,
+     "journal": 1,
+     "doi": 0,
+     "sci": 0.06666666666666667
+    },
+    "Stereolithography": {
+     "n": 30,
+     "journal": 9,
+     "doi": 9,
+     "sci": 0.3
+    },
+    "Surgical planning": {
+     "n": 8,
+     "journal": 8,
+     "doi": 6,
+     "sci": 1.0
+    },
+    "Surgical scheduling software": {
+     "n": 1,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Tall Man lettering": {
+     "n": 8,
+     "journal": 3,
+     "doi": 3,
+     "sci": 0.375
+    },
+    "TeenScreen": {
+     "n": 24,
+     "journal": 8,
+     "doi": 5,
+     "sci": 0.3333333333333333
+    },
+    "Tele-audiology": {
+     "n": 1,
+     "journal": 1,
+     "doi": 1,
+     "sci": 1.0
+    },
+    "Tele-epidemiology": {
+     "n": 0,
+     "journal": 0,
+     "doi": 0,
+     "sci": null
+    },
+    "Telecare": {
+     "n": 4,
+     "journal": 1,
+     "doi": 2,
+     "sci": 0.25
+    },
+    "Telehealth": {
+     "n": 251,
+     "journal": 145,
+     "doi": 139,
+     "sci": 0.5776892430278885
+    },
+    "TeleMAT": {
+     "n": 6,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    },
+    "Telemedicine": {
+     "n": 251,
+     "journal": 145,
+     "doi": 139,
+     "sci": 0.5776892430278885
+    },
+    "Texas Medication Algorithm Project": {
+     "n": 5,
+     "journal": 1,
+     "doi": 1,
+     "sci": 0.2
+    },
+    "Text nailing": {
+     "n": 16,
+     "journal": 15,
+     "doi": 15,
+     "sci": 0.9375
+    },
+    "Translational bioinformatics": {
+     "n": 21,
+     "journal": 11,
+     "doi": 11,
+     "sci": 0.5238095238095238
+    },
+    "Users' Guides to the Medical Literature": {
+     "n": 10,
+     "journal": 5,
+     "doi": 4,
+     "sci": 0.5
+    },
+    "Videotelephony": {
+     "n": 50,
+     "journal": 12,
+     "doi": 14,
+     "sci": 0.24
+    },
+    "Virtual Physiological Human": {
+     "n": 8,
+     "journal": 6,
+     "doi": 6,
+     "sci": 0.75
+    },
+    "WHO SMART guidelines": {
+     "n": 5,
+     "journal": 1,
+     "doi": 2,
+     "sci": 0.2
+    },
+    "Wireless Medical Telemetry Service": {
+     "n": 3,
+     "journal": 0,
+     "doi": 0,
+     "sci": 0.0
+    }
+   }
+  }
+ },
+ "languages": {
+  "Clinical decision support system": {
+   "en": {
+    "title": "Clinical decision support system",
+    "n": 35,
+    "journal": 24,
+    "doi": 23,
+    "sci": 0.6857142857142857
+   },
+   "fr": {
+    "title": "Système d'aide à la décision clinique",
+    "n": 6,
+    "journal": 4,
+    "doi": 3,
+    "sci": 0.6666666666666666
+   },
+   "de": null,
+   "es": null,
+   "it": null,
+   "pt": null
+  },
+  "Electronic health record": {
+   "en": {
+    "title": "Electronic health record",
+    "n": 159,
+    "journal": 86,
+    "doi": 74,
+    "sci": 0.5408805031446541
+   },
+   "fr": {
+    "title": "Dossier patient informatisé",
+    "n": 16,
+    "journal": 0,
+    "doi": 0,
+    "sci": 0.0
+   },
+   "de": {
+    "title": "Elektronische Gesundheitsakte",
+    "n": 39,
+    "journal": 2,
+    "doi": 2,
+    "sci": 0.05128205128205128
+   },
+   "es": {
+    "title": "Historia clínica electrónica",
+    "n": 12,
+    "journal": 0,
+    "doi": 0,
+    "sci": 0.0
+   },
+   "it": {
+    "title": "Cartella clinica elettronica",
+    "n": 18,
+    "journal": 1,
+    "doi": 1,
+    "sci": 0.05555555555555555
+   },
+   "pt": {
+    "title": "Prontuário Eletrônico",
+    "n": 5,
+    "journal": 1,
+    "doi": 1,
+    "sci": 0.2
+   }
+  },
+  "Telehealth": {
+   "en": {
+    "title": "Telehealth",
+    "n": 251,
+    "journal": 145,
+    "doi": 139,
+    "sci": 0.5776892430278885
+   },
+   "fr": {
+    "title": "Télémédecine",
+    "n": 40,
+    "journal": 5,
+    "doi": 3,
+    "sci": 0.125
+   },
+   "de": {
+    "title": "Telemedizin",
+    "n": 29,
+    "journal": 13,
+    "doi": 8,
+    "sci": 0.4482758620689655
+   },
+   "es": {
+    "title": "Telemedicina",
+    "n": 15,
+    "journal": 4,
+    "doi": 3,
+    "sci": 0.26666666666666666
+   },
+   "it": {
+    "title": "Telemedicina",
+    "n": 30,
+    "journal": 15,
+    "doi": 16,
+    "sci": 0.5
+   },
+   "pt": {
+    "title": "Telemedicina",
+    "n": 16,
+    "journal": 3,
+    "doi": 3,
+    "sci": 0.1875
+   }
+  },
+  "Health informatics": {
+   "en": {
+    "title": "Health informatics",
+    "n": 131,
+    "journal": 50,
+    "doi": 45,
+    "sci": 0.3816793893129771
+   },
+   "fr": {
+    "title": "Informatique médicale",
+    "n": 5,
+    "journal": 3,
+    "doi": 3,
+    "sci": 0.6
+   },
+   "de": {
+    "title": "Medizinische Informatik",
+    "n": 3,
+    "journal": 0,
+    "doi": 0,
+    "sci": 0.0
+   },
+   "es": {
+    "title": "Informática biomédica",
+    "n": 31,
+    "journal": 17,
+    "doi": 15,
+    "sci": 0.5483870967741935
+   },
+   "it": {
+    "title": "Informatica medica",
+    "n": 171,
+    "journal": 36,
+    "doi": 30,
+    "sci": 0.21052631578947367
+   },
+   "pt": {
+    "title": "Informática médica",
+    "n": 2,
+    "journal": 1,
+    "doi": 1,
+    "sci": 0.5
+   }
+  },
+  "Artificial intelligence in healthcare": {
+   "en": {
+    "title": "Artificial intelligence in healthcare",
+    "n": 214,
+    "journal": 147,
+    "doi": 148,
+    "sci": 0.6869158878504673
+   },
+   "fr": {
+    "title": "Intelligence artificielle dans la santé",
+    "n": 149,
+    "journal": 87,
+    "doi": 87,
+    "sci": 0.5838926174496645
+   },
+   "de": {
+    "title": "Künstliche Intelligenz in der Medizin",
+    "n": 53,
+    "journal": 37,
+    "doi": 35,
+    "sci": 0.6981132075471698
+   },
+   "es": {
+    "title": "Inteligencia artificial en el campo de la salud",
+    "n": 52,
+    "journal": 29,
+    "doi": 28,
+    "sci": 0.5576923076923077
+   },
+   "it": {
+    "title": "Intelligenza artificiale nel settore sanitario",
+    "n": 59,
+    "journal": 30,
+    "doi": 28,
+    "sci": 0.5084745762711864
+   },
+   "pt": null
+  },
+  "Computer-aided diagnosis": {
+   "en": {
+    "title": "Computer-aided diagnosis",
+    "n": 92,
+    "journal": 76,
+    "doi": 78,
+    "sci": 0.8260869565217391
+   },
+   "fr": {
+    "title": "Aide au diagnostic médical",
+    "n": 2,
+    "journal": 0,
+    "doi": 0,
+    "sci": 0.0
+   },
+   "de": {
+    "title": "Computerassistierte Detektion",
+    "n": 0,
+    "journal": 0,
+    "doi": 0,
+    "sci": null
+   },
+   "es": {
+    "title": "Diagnósticos asistidos por ordenador",
+    "n": 1,
+    "journal": 1,
+    "doi": 1,
+    "sci": 1.0
+   },
+   "it": {
+    "title": "Diagnosi automatizzata",
+    "n": 1,
+    "journal": 1,
+    "doi": 1,
+    "sci": 1.0
+   },
+   "pt": null
+  }
+ }
+}

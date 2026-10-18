@@ -1,0 +1,327 @@
+{
+ "temporal": {
+  "2012": {
+   "templates": 97,
+   "journal_pct": 33.0,
+   "doi_pct": 19.6
+  },
+  "2013": {
+   "templates": 118,
+   "journal_pct": 32.2,
+   "doi_pct": 18.6
+  },
+  "2014": {
+   "templates": 219,
+   "journal_pct": 44.3,
+   "doi_pct": 25.1
+  },
+  "2015": {
+   "templates": 265,
+   "journal_pct": 38.1,
+   "doi_pct": 25.7
+  },
+  "2016": {
+   "templates": 280,
+   "journal_pct": 44.6,
+   "doi_pct": 32.1
+  },
+  "2017": {
+   "templates": 350,
+   "journal_pct": 51.4,
+   "doi_pct": 38.3
+  },
+  "2018": {
+   "templates": 423,
+   "journal_pct": 54.4,
+   "doi_pct": 44.2
+  },
+  "2019": {
+   "templates": 393,
+   "journal_pct": 58.8,
+   "doi_pct": 49.6
+  },
+  "2020": {
+   "templates": 565,
+   "journal_pct": 50.3,
+   "doi_pct": 43.2
+  },
+  "2021": {
+   "templates": 604,
+   "journal_pct": 53.6,
+   "doi_pct": 48.0
+  },
+  "2022": {
+   "templates": 677,
+   "journal_pct": 53.8,
+   "doi_pct": 48.7
+  },
+  "2023": {
+   "templates": 783,
+   "journal_pct": 55.3,
+   "doi_pct": 50.6
+  },
+  "2024": {
+   "templates": 835,
+   "journal_pct": 58.0,
+   "doi_pct": 53.9
+  },
+  "2025": {
+   "templates": 907,
+   "journal_pct": 58.9,
+   "doi_pct": 55.6
+  },
+  "2026": {
+   "templates": 989,
+   "journal_pct": 57.1,
+   "doi_pct": 55.0
+  }
+ },
+ "literature": {
+  "n_papers": 550,
+  "median_year": 2017,
+  "share_since_2015_pct": 60.5,
+  "share_before_2000_pct": 6.7,
+  "epmc_found": 454,
+  "n_dois": 554,
+  "oa_pct_among_found": 33.3,
+  "top_journals": [
+   [
+    "Journal of the American Medical Informatics Association",
+    25
+   ],
+   [
+    "Journal of Medical Internet Research",
+    16
+   ],
+   [
+    "Journal of Telemedicine and Telecare",
+    10
+   ],
+   [
+    "Nature",
+    9
+   ],
+   [
+    "Telemedicine and e-Health",
+    9
+   ],
+   [
+    "BMJ",
+    9
+   ],
+   [
+    "International Journal of Medical Informatics",
+    8
+   ],
+   [
+    "npj Digital Medicine",
+    8
+   ]
+  ]
+ },
+ "categories": {
+  "Medical expert systems": {
+   "n_pages": 11,
+   "n_scored": 7,
+   "median_sci": 0.6857142857142857,
+   "q1": 0.27489177489177485,
+   "q3": 0.9130434782608696,
+   "errors": 0
+  },
+  "Electronic health records": {
+   "n_pages": 45,
+   "n_scored": 35,
+   "median_sci": 0.03571428571428571,
+   "q1": 0.0,
+   "q3": 0.31470588235294117,
+   "errors": 0
+  },
+  "Telehealth": {
+   "n_pages": 54,
+   "n_scored": 47,
+   "median_sci": 0.1,
+   "q1": 0.0,
+   "q3": 0.5209024552090246,
+   "errors": 0
+  },
+  "Health informatics": {
+   "n_pages": 190,
+   "n_scored": 133,
+   "median_sci": 0.42857142857142855,
+   "q1": 0.15384615384615385,
+   "q3": 0.6136363636363636,
+   "errors": 0
+  }
+ },
+ "categories_unique_scored": 200,
+ "languages": {
+  "Clinical decision support system": {
+   "en": {
+    "n": 35,
+    "sci": 0.6857142857142857,
+    "title": "Clinical decision support system"
+   },
+   "fr": {
+    "n": 6,
+    "sci": 0.6666666666666666,
+    "title": "Système d'aide à la décision clinique"
+   },
+   "de": null,
+   "es": null,
+   "it": null,
+   "pt": null
+  },
+  "Electronic health record": {
+   "en": {
+    "n": 159,
+    "sci": 0.5408805031446541,
+    "title": "Electronic health record"
+   },
+   "fr": {
+    "n": 16,
+    "sci": 0.0,
+    "title": "Dossier patient informatisé"
+   },
+   "de": {
+    "n": 39,
+    "sci": 0.05128205128205128,
+    "title": "Elektronische Gesundheitsakte"
+   },
+   "es": {
+    "n": 12,
+    "sci": 0.0,
+    "title": "Historia clínica electrónica"
+   },
+   "it": {
+    "n": 18,
+    "sci": 0.05555555555555555,
+    "title": "Cartella clinica elettronica"
+   },
+   "pt": {
+    "n": 5,
+    "sci": 0.2,
+    "title": "Prontuário Eletrônico"
+   }
+  },
+  "Telehealth": {
+   "en": {
+    "n": 251,
+    "sci": 0.5776892430278885,
+    "title": "Telehealth"
+   },
+   "fr": {
+    "n": 40,
+    "sci": 0.125,
+    "title": "Télémédecine"
+   },
+   "de": {
+    "n": 29,
+    "sci": 0.4482758620689655,
+    "title": "Telemedizin"
+   },
+   "es": {
+    "n": 15,
+    "sci": 0.26666666666666666,
+    "title": "Telemedicina"
+   },
+   "it": {
+    "n": 30,
+    "sci": 0.5,
+    "title": "Telemedicina"
+   },
+   "pt": {
+    "n": 16,
+    "sci": 0.1875,
+    "title": "Telemedicina"
+   }
+  },
+  "Health informatics": {
+   "en": {
+    "n": 131,
+    "sci": 0.3816793893129771,
+    "title": "Health informatics"
+   },
+   "fr": {
+    "n": 5,
+    "sci": 0.6,
+    "title": "Informatique médicale"
+   },
+   "de": {
+    "n": 3,
+    "sci": 0.0,
+    "title": "Medizinische Informatik"
+   },
+   "es": {
+    "n": 31,
+    "sci": 0.5483870967741935,
+    "title": "Informática biomédica"
+   },
+   "it": {
+    "n": 171,
+    "sci": 0.21052631578947367,
+    "title": "Informatica medica"
+   },
+   "pt": {
+    "n": 2,
+    "sci": 0.5,
+    "title": "Informática médica"
+   }
+  },
+  "Artificial intelligence in healthcare": {
+   "en": {
+    "n": 214,
+    "sci": 0.6869158878504673,
+    "title": "Artificial intelligence in healthcare"
+   },
+   "fr": {
+    "n": 149,
+    "sci": 0.5838926174496645,
+    "title": "Intelligence artificielle dans la santé"
+   },
+   "de": {
+    "n": 53,
+    "sci": 0.6981132075471698,
+    "title": "Künstliche Intelligenz in der Medizin"
+   },
+   "es": {
+    "n": 52,
+    "sci": 0.5576923076923077,
+    "title": "Inteligencia artificial en el campo de la salud"
+   },
+   "it": {
+    "n": 59,
+    "sci": 0.5084745762711864,
+    "title": "Intelligenza artificiale nel settore sanitario"
+   },
+   "pt": null
+  },
+  "Computer-aided diagnosis": {
+   "en": {
+    "n": 92,
+    "sci": 0.8260869565217391,
+    "title": "Computer-aided diagnosis"
+   },
+   "fr": {
+    "n": 2,
+    "sci": 0.0,
+    "title": "Aide au diagnostic médical"
+   },
+   "de": {
+    "n": 0,
+    "sci": null,
+    "title": "Computerassistierte Detektion"
+   },
+   "es": {
+    "n": 1,
+    "sci": 1.0,
+    "title": "Diagnósticos asistidos por ordenador"
+   },
+   "it": {
+    "n": 1,
+    "sci": 1.0,
+    "title": "Diagnosi automatizzata"
+   },
+   "pt": null
+  }
+ }
+}

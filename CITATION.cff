@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata below."
+title: "wikicitation-mcp: A Model Context Protocol Server for Wikipedia Citation Analysis"
+type: software
+version: 0.5.0
+date-released: 2026-10-18
+license: MIT
+repository-code: "https://github.com/jsobel1/wikicitation-mcp"
+url: "https://pypi.org/project/wikicitation-mcp/"
+abstract: >-
+  MCP server with 38 tools that lets AI assistants retrieve Wikipedia revision
+  histories, parse citations in six language editions, compute SciScore and
+  annotate DOIs and ISBNs through Europe PMC, Crossref, Open Library and
+  Google Books.
+keywords:
+  - Wikipedia
+  - citation analysis
+  - scientometrics
+  - Model Context Protocol
+  - MCP
+authors:
+  - family-names: Sobel
+    given-names: Jonathan
+    orcid: "https://orcid.org/0000-0002-5111-4070"
+    affiliation: "Division of Infection Prevention and Control, University Hospital of Geneva (HUG)"
