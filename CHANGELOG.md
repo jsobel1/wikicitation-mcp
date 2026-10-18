@@ -5,6 +5,17 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [0.5.1] — 2026-10-18
+
+### Added
+- `paper/`: JOSS paper, reproducible worked example (scripts, raw data,
+  figures) and Table S1 (40 most-cited papers of the CDSS corpus).
+- `CITATION.cff` and `.zenodo.json` for citation and archiving metadata.
+
+No change to the server code or its 38 tools.
+
+---
+
 ## [0.5.0] — 2026-10-18
 
 The server is again the pure-Python implementation (no R, no `Rscript`
