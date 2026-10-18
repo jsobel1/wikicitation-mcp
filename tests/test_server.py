@@ -1,254 +1,127 @@
-"""Tests for server.py — all R calls are mocked so no R installation is needed."""
+"""Tests for server.py -- tool registry, input validation and delegation.
+
+The server runs in-process through a FastMCP client; the wiki_api /
+citation_utils / annotate_utils layers are patched, so no network is used.
+"""
+import asyncio
+from unittest.mock import patch
+
 import pytest
-from unittest.mock import AsyncMock, patch
+from fastmcp import Client
+from fastmcp.exceptions import ToolError
+
+import server
+
+EXPECTED_TOOLS = {
+    # history & metadata
+    "get_article_history", "get_article_recent", "get_article_initial",
+    "get_article_info", "get_tables_all",
+    # categories
+    "get_category_pages", "get_pages_in_cat_table", "get_subcat_table",
+    "get_subcat_multiple", "get_subcat_with_depth", "get_page_in_cat_multiple",
+    "get_category_history", "get_category_recent", "get_category_creation",
+    # counting / extraction / parsing
+    "get_doi_count", "get_ref_count", "get_url_count", "get_isbn_count",
+    "get_hyperlink_count", "get_any_count", "extract_citations",
+    "extract_wikihypelinks", "replace_wikihypelinks", "parse_cite_type",
+    "extract_with_regex", "extract_all_regex", "parse_citations",
+    "parse_all_citations", "get_citation_types", "get_source_type_counts",
+    # quality / trends
+    "get_sci_score", "get_top_cited_papers", "get_revert_counts",
+    # annotation
+    "annotate_dois_europmc", "annotate_dois_crossref", "annotate_dois_bibtex",
+    "annotate_isbn_google", "annotate_isbn_openlib",
+}
 
 
-# ── Helpers ──────────────────────────────────────────────────────────────────
+def call(name: str, args: dict):
+    async def _run():
+        async with Client(server.mcp) as c:
+            return await c.call_tool(name, args)
+    return asyncio.run(_run())
 
-def _patch_r(return_value):
-    return patch("server.call_r_async", new_callable=AsyncMock,
-                 return_value=return_value)
+
+def test_tool_registry_is_exactly_the_documented_set():
+    async def _names():
+        async with Client(server.mcp) as c:
+            return {t.name for t in await c.list_tools()}
+    names = asyncio.run(_names())
+    assert names == EXPECTED_TOOLS
+    assert len(names) == 38
 
 
-# ── Count helpers ─────────────────────────────────────────────────────────────
+def test_no_altmetric_or_sciscore2_tools():
+    assert not any("altmetric" in n or "sci_score2" in n for n in EXPECTED_TOOLS)
 
-@pytest.mark.asyncio
-async def test_get_doi_count_calls_r():
-    with _patch_r({"count": 3}) as mock_r:
-        from server import get_doi_count
-        result = await get_doi_count("text with 10.1038/nature12373")
-        mock_r.assert_called_once_with(
-            "get_doi_count", {"text": "text with 10.1038/nature12373"}
+
+def test_server_has_no_r_dependency():
+    import importlib.util
+    assert importlib.util.find_spec("r_bridge") is None
+
+
+def test_count_tools_run_without_network():
+    res = call("get_doi_count", {"text": "see 10.1038/nature02260 and 10.1126/science.1195262"})
+    assert res.data["count"] == 2
+
+
+def test_get_any_count_uses_regexp_argument():
+    res = call("get_any_count", {"text": "aXbXc", "regexp": "X"})
+    assert res.data["count"] == 2
+
+
+def test_delegation_passes_lang_and_date():
+    with patch("server.citation_utils.get_sci_score",
+               return_value={"sci_score": 0.5}) as m:
+        call("get_sci_score", {"article_name": "Aspirine", "lang": "fr",
+                               "date_limit": "2024-01-01"})
+    m.assert_called_once_with("Aspirine", "2024-01-01T23:59:59Z", lang="fr")
+
+
+def test_default_date_is_none_meaning_now():
+    with patch("server.wiki_api.get_article_recent",
+               return_value={"metadata": {}, "wikitext": ""}) as m:
+        call("get_article_recent", {"article_name": "Zeitgeber"})
+    m.assert_called_once_with("Zeitgeber", None, lang="en")
+
+
+@pytest.mark.parametrize("name,args,fragment", [
+    ("get_article_info", {"article_name": ""}, "non-empty"),
+    ("get_article_info", {"article_name": "X", "lang": "en.evil.com/"}, "language code"),
+    ("get_article_recent", {"article_name": "X", "date_limit": "yesterday"}, "ISO 8601"),
+    ("get_any_count", {"text": "a", "regexp": "("}, "invalid regexp"),
+    ("get_any_count", {"text": "a", "regexp": "a" * 501}, "too long"),
+    ("annotate_dois_crossref", {"doi_list": ["not-a-doi"]}, "not a DOI"),
+    ("annotate_dois_crossref", {"doi_list": ["10.1234/x"] * 201}, "max 200"),
+    ("annotate_isbn_openlib", {"isbn": "../../etc/passwd"}, "not an ISBN"),
+    ("get_category_history", {"article_list": ["A"] * 101}, "max 100"),
+    ("get_subcat_with_depth", {"catname": "C", "depth": 99}, "between 1 and 5"),
+    ("get_revert_counts", {"start": "2024-02-01", "end": "2024-01-01"}, "not be after"),
+])
+def test_validation_rejects_bad_input(name, args, fragment):
+    with pytest.raises(ToolError) as exc:
+        call(name, args)
+    assert fragment in str(exc.value)
+
+
+def test_oversized_text_rejected():
+    with pytest.raises(ToolError):
+        call("get_doi_count", {"text": "a" * (server.MAX_TEXT_CHARS + 1)})
+
+
+def test_revert_counts_defaults_to_recent_week():
+    with patch("server.wiki_api.get_revert_counts", return_value=[]) as m:
+        call("get_revert_counts", {})
+    start, end = m.call_args.args
+    assert (__import__("datetime").date.fromisoformat(end)
+            - __import__("datetime").date.fromisoformat(start)).days == 7
+
+
+def test_main_dispatches_transport():
+    with patch.object(server.mcp, "run") as run:
+        server.main([])
+        run.assert_called_once_with()
+        run.reset_mock()
+        server.main(["--transport", "streamable-http", "--port", "9001"])
+        run.assert_called_once_with(
+            transport="streamable-http", host="127.0.0.1", port=9001
         )
-        assert result["count"] == 3
-
-
-@pytest.mark.asyncio
-async def test_get_ref_count_calls_r():
-    with _patch_r({"count": 2}) as mock_r:
-        from server import get_ref_count
-        result = await get_ref_count("<ref>one</ref> <ref>two</ref>")
-        mock_r.assert_called_once_with(
-            "get_ref_count",
-            {"text": "<ref>one</ref> <ref>two</ref>"}
-        )
-        assert result["count"] == 2
-
-
-@pytest.mark.asyncio
-async def test_get_url_count_calls_r():
-    with _patch_r({"count": 1}) as mock_r:
-        from server import get_url_count
-        result = await get_url_count("https://example.com")
-        mock_r.assert_called_once_with("get_url_count", {"text": "https://example.com"})
-        assert result["count"] == 1
-
-
-@pytest.mark.asyncio
-async def test_get_isbn_count_calls_r():
-    with _patch_r({"count": 1}) as mock_r:
-        from server import get_isbn_count
-        result = await get_isbn_count("isbn=978-3-16-148410-0")
-        mock_r.assert_called_once_with("get_isbn_count", {"text": "isbn=978-3-16-148410-0"})
-        assert result["count"] == 1
-
-
-@pytest.mark.asyncio
-async def test_get_any_count_passes_pattern():
-    with _patch_r({"count": 3}) as mock_r:
-        from server import get_any_count
-        await get_any_count("foo bar foo baz foo", "foo")
-        call_args = mock_r.call_args[0]
-        assert call_args[1]["pattern"] == "foo"
-
-
-# ── Quality scores ────────────────────────────────────────────────────────────
-
-@pytest.mark.asyncio
-async def test_get_sci_score_returns_float():
-    with _patch_r({"sci_score": 0.75}):
-        from server import get_sci_score
-        result = await get_sci_score("wikitext")
-        assert 0.0 <= result["sci_score"] <= 1.0
-
-
-# ── Article retrieval ─────────────────────────────────────────────────────────
-
-@pytest.mark.asyncio
-async def test_get_article_most_recent_returns_dict():
-    with _patch_r({"art": "Zeitgeber", "revid": 12345}) as mock_r:
-        from server import get_article_most_recent
-        result = await get_article_most_recent("Zeitgeber")
-        assert isinstance(result, dict)
-        mock_r.assert_called_once()
-
-
-@pytest.mark.asyncio
-async def test_get_article_most_recent_passes_lang():
-    with _patch_r({}) as mock_r:
-        from server import get_article_most_recent
-        await get_article_most_recent("COVID-19", lang="fr")
-        args = mock_r.call_args[0]
-        assert args[1]["lang"] == "fr"
-
-
-@pytest.mark.asyncio
-async def test_get_article_history_passes_date_an():
-    with _patch_r([]) as mock_r:
-        from server import get_article_history
-        await get_article_history("Zeitgeber", date_an="2022-01-01T00:00:00Z")
-        args = mock_r.call_args[0]
-        assert args[1]["date_an"] == "2022-01-01T00:00:00Z"
-
-
-@pytest.mark.asyncio
-async def test_get_article_info_calls_r():
-    with _patch_r({"title": "Zeitgeber", "pageid": 1234}) as mock_r:
-        from server import get_article_info
-        result = await get_article_info("Zeitgeber")
-        mock_r.assert_called_once()
-        assert isinstance(result, dict)
-
-
-# ── Citation tools ────────────────────────────────────────────────────────────
-
-@pytest.mark.asyncio
-async def test_extract_citations_returns_list():
-    with _patch_r(["{{cite journal|author=Smith}}"]):
-        from server import extract_citations
-        result = await extract_citations("{{cite journal|author=Smith}}")
-        assert isinstance(result, list)
-
-
-@pytest.mark.asyncio
-async def test_parse_all_citations_calls_r():
-    with _patch_r([{"type": "journal", "variable": "author", "value": "Smith"}]) as mock_r:
-        from server import parse_all_citations
-        await parse_all_citations("Zeitgeber")
-        mock_r.assert_called_once()
-        args = mock_r.call_args[0]
-        assert args[1]["article_name"] == "Zeitgeber"
-
-
-@pytest.mark.asyncio
-async def test_replace_wikihypelinks_calls_r():
-    with _patch_r({"cleaned_text": "Circadian clock"}):
-        from server import replace_wikihypelinks
-        result = await replace_wikihypelinks("[[Circadian clock]]")
-        assert "cleaned_text" in result
-
-
-@pytest.mark.asyncio
-async def test_get_citation_type_counts_calls_r():
-    with _patch_r([{"category": "Journal", "count": 14},
-                   {"category": "Web",     "count": 5}]) as mock_r:
-        from server import get_citation_type_counts
-        result = await get_citation_type_counts("Zeitgeber")
-        mock_r.assert_called_once_with(
-            "get_citation_type_counts",
-            {"article_name": "Zeitgeber", "lang": "en", "date_an": None}
-        )
-        assert isinstance(result, list)
-
-
-@pytest.mark.asyncio
-async def test_get_citation_type_counts_passes_lang():
-    with _patch_r([]) as mock_r:
-        from server import get_citation_type_counts
-        await get_citation_type_counts("COVID-19", lang="fr")
-        args = mock_r.call_args[0]
-        assert args[1]["lang"] == "fr"
-
-
-# ── Annotation ────────────────────────────────────────────────────────────────
-
-@pytest.mark.asyncio
-async def test_annotate_dois_passes_list():
-    with _patch_r([{"doi": "10.1038/nature12373", "title": "A paper"}]) as mock_r:
-        from server import annotate_dois
-        doi_list = ["10.1038/nature12373"]
-        result = await annotate_dois(doi_list)
-        args = mock_r.call_args[0]
-        assert args[1]["doi_list"] == doi_list
-
-
-# ── Category tools ────────────────────────────────────────────────────────────
-
-@pytest.mark.asyncio
-async def test_get_category_pages_calls_r():
-    with _patch_r(["Zeitgeber", "Sleep deprivation"]) as mock_r:
-        from server import get_category_pages
-        result = await get_category_pages("Circadian rhythm")
-        mock_r.assert_called_once()
-        args = mock_r.call_args[0]
-        assert args[1]["category"] == "Circadian rhythm"
-
-
-@pytest.mark.asyncio
-async def test_get_subcat_table_calls_r():
-    with _patch_r([{"subcat": "Chronobiology"}]) as mock_r:
-        from server import get_subcat_table
-        result = await get_subcat_table("Biology")
-        mock_r.assert_called_once()
-        args = mock_r.call_args[0]
-        assert args[1]["catname"] == "Biology"
-
-
-# ── Top-cited papers ──────────────────────────────────────────────────────────
-
-@pytest.mark.asyncio
-async def test_get_top_cited_papers_calls_r():
-    with _patch_r([{"doi": "10.1038/nature12373", "count": 5}]) as mock_r:
-        from server import get_top_cited_papers
-        result = await get_top_cited_papers("Zeitgeber")
-        mock_r.assert_called_once()
-
-
-# ── Revert counts ─────────────────────────────────────────────────────────────
-
-@pytest.mark.asyncio
-async def test_get_revert_counts_default_rev_eds():
-    with _patch_r([{"art": "Wikipedia", "sum_nb_reverts": 5}]) as mock_r:
-        from server import get_revert_counts
-        await get_revert_counts("20181212010000", "20181212000000")
-        assert mock_r.call_args[0][1]["rev_eds"] is True
-
-
-@pytest.mark.asyncio
-async def test_get_revert_counts_all_edits():
-    with _patch_r([{"art": "Wikipedia", "sum_nb_edits": 42}]) as mock_r:
-        from server import get_revert_counts
-        await get_revert_counts("20181212010000", "20181212000000", rev_eds=False)
-        assert mock_r.call_args[0][1]["rev_eds"] is False
-
-
-# ── Longitudinal probing ──────────────────────────────────────────────────────
-
-@pytest.mark.asyncio
-async def test_probe_article_over_time_passes_metrics():
-    with _patch_r([{"date": "2021-01-01T00:00:00Z", "sci_score": 0.5}]) as mock_r:
-        from server import probe_article_over_time
-        dates = ["2021-01-01T00:00:00Z", "2022-01-01T00:00:00Z"]
-        await probe_article_over_time("Zeitgeber", dates, metrics=["sci_score"])
-        assert mock_r.call_args[0][1]["metrics"] == ["sci_score"]
-
-
-@pytest.mark.asyncio
-async def test_probe_article_over_time_default_metrics():
-    with _patch_r([]) as mock_r:
-        from server import probe_article_over_time
-        await probe_article_over_time("Zeitgeber", ["2021-01-01T00:00:00Z"])
-        sent_metrics = mock_r.call_args[0][1]["metrics"]
-        assert "sci_score" in sent_metrics
-        assert "doi_count" in sent_metrics
-
-
-# ── Error propagation ─────────────────────────────────────────────────────────
-
-@pytest.mark.asyncio
-async def test_r_error_propagates():
-    with patch("server.call_r_async", new_callable=AsyncMock) as mock_r:
-        mock_r.side_effect = RuntimeError("R error for tool 'bad_tool': Unknown tool")
-        from server import get_article_most_recent
-        with pytest.raises(RuntimeError, match="Unknown tool"):
-            await get_article_most_recent("Zeitgeber")
