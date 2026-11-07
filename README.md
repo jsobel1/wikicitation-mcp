@@ -1,6 +1,6 @@
 # wikicitation-mcp
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23458590.svg)](https://doi.org/10.5281/zenodo.23458590)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23458505.svg)](https://doi.org/10.5281/zenodo.23458505)
 
 > Wikipedia citation-science tools for Claude — pure Python, no R required.
 
@@ -40,6 +40,15 @@ Or install permanently with pip:
 ```bash
 pip install wikicitation-mcp
 wikicitation-mcp          # starts the stdio server
+```
+
+Supported and tested: Python 3.10–3.13. On **Python 3.14**, the
+`mwparserfromhell` dependency has no prebuilt wheel yet and pip tries to compile
+it; if that fails with `Python.h: No such file or directory`, either install the
+Python headers (`sudo apt install python3-dev`) or use its pure-Python tokenizer:
+
+```bash
+WITH_EXTENSION=0 pip install wikicitation-mcp
 ```
 
 ### Option B — From source
@@ -277,6 +286,17 @@ claude mcp list
 
 The venv is missing a dependency. Run `uv sync` inside the cloned repo, or
 reinstall via `pip install wikicitation-mcp`.
+
+**`fatal error: Python.h: No such file or directory` during `pip install`**
+
+You are on a Python version (e.g. 3.14) for which `mwparserfromhell` has no
+prebuilt wheel. Use `WITH_EXTENSION=0 pip install wikicitation-mcp` (pure-Python
+tokenizer, same results), install the Python headers (`python3-dev`), or create
+the environment with Python 3.12 (`uv venv --python 3.12`).
+
+On Debian/Ubuntu, `pip install` outside a virtual environment fails with
+`externally-managed-environment`: create one first
+(`python3 -m venv .venv && source .venv/bin/activate`).
 
 **`get_revert_counts` returns no results**
 

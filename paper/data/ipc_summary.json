@@ -1,0 +1,1536 @@
+{
+ "n_corpus": 99,
+ "n_categories": {
+  "Infection-control measures": 33,
+  "Health care-associated infections": 21,
+  "Isolation (health care)": 8,
+  "Medical hygiene": 46
+ },
+ "final": {
+  "articles": 99,
+  "templates": 5078,
+  "with_doi": 2021,
+  "refs": 8106,
+  "scored": 79,
+  "zero_templates": 4,
+  "median_sci": 0.4286,
+  "sci_by_article": {
+   "Acinetobacter": [
+    0.7059,
+    34
+   ],
+   "Airing": [
+    0.0,
+    11
+   ],
+   "Antibiotic prophylaxis": [
+    0.6667,
+    12
+   ],
+   "Antimicrobial copper-alloy touch surfaces": [
+    0.6,
+    5
+   ],
+   "Antimicrobial stewardship": [
+    0.6829,
+    41
+   ],
+   "Asepsis": [
+    0.3333,
+    24
+   ],
+   "Astronautical hygiene": [
+    0.3714,
+    35
+   ],
+   "Autoclave tape": [
+    0.0,
+    1
+   ],
+   "Ayliffe technique": [
+    0.5,
+    10
+   ],
+   "Bill of health": [
+    0.0,
+    1
+   ],
+   "Bio-secure bubble": [
+    0.0,
+    60
+   ],
+   "Body substance isolation": [
+    0.3333,
+    9
+   ],
+   "Buchetta shop": [
+    0.0,
+    7
+   ],
+   "Burkholderia cepacia complex": [
+    0.5862,
+    29
+   ],
+   "CC398": [
+    0.4444,
+    9
+   ],
+   "COVID-19 contact tracing in Taiwan": [
+    0.0,
+    14
+   ],
+   "Carbapenem-resistant enterobacteriaceae": [
+    0.8235,
+    68
+   ],
+   "Catch It, Bin It, Kill It": [
+    0.0833,
+    48
+   ],
+   "Catheter-associated urinary tract infection": [
+    0.75,
+    4
+   ],
+   "Chemoprophylaxis": [
+    0.4286,
+    7
+   ],
+   "Clostridioides difficile infection": [
+    0.65,
+    140
+   ],
+   "Cloth face mask": [
+    0.4,
+    60
+   ],
+   "Contact tracing": [
+    0.4464,
+    56
+   ],
+   "Contemporary reaction to Ignaz Semmelweis": [
+    0.4,
+    5
+   ],
+   "Cordon sanitaire (medicine)": [
+    0.2391,
+    46
+   ],
+   "Coughs and sneezes spread diseases": [
+    0.3,
+    10
+   ],
+   "Cubicle curtain": [
+    0.0,
+    0
+   ],
+   "Disease surveillance": [
+    0.0625,
+    16
+   ],
+   "Eradication of infectious diseases": [
+    0.2763,
+    152
+   ],
+   "Face masks during the COVID-19 pandemic": [
+    0.2423,
+    388
+   ],
+   "Ferric subsulfate solution": [
+    0.0,
+    1
+   ],
+   "Fever hospital": [
+    0.1579,
+    19
+   ],
+   "Forlorn Hope Estate": [
+    0.0,
+    1
+   ],
+   "HCV in children and pregnancy": [
+    0.8462,
+    13
+   ],
+   "Hand sanitizer": [
+    0.4348,
+    92
+   ],
+   "Hand washing": [
+    0.4528,
+    106
+   ],
+   "Hepatitis": [
+    0.5444,
+    180
+   ],
+   "Hepatitis C": [
+    0.6347,
+    167
+   ],
+   "Herd immunity": [
+    0.7831,
+    83
+   ],
+   "Historical mortality rates of puerperal fever": [
+    0.0,
+    1
+   ],
+   "Hospital-acquired infection": [
+    0.6406,
+    64
+   ],
+   "Hot air oven": [
+    0.0,
+    1
+   ],
+   "Hygiene": [
+    0.1679,
+    137
+   ],
+   "Ignaz Semmelweis": [
+    0.0714,
+    42
+   ],
+   "Infection prevention and control": [
+    0.2703,
+    37
+   ],
+   "Infection rate": [
+    0.0,
+    5
+   ],
+   "Influenza": [
+    0.6633,
+    98
+   ],
+   "Isolation (health care)": [
+    0.4146,
+    41
+   ],
+   "Joseph Lister": [
+    0.5342,
+    219
+   ],
+   "Klebsiella": [
+    0.8889,
+    36
+   ],
+   "MRSA ST398": [
+    0.6667,
+    9
+   ],
+   "Medical glove": [
+    0.15,
+    40
+   ],
+   "Melaphone Speech Unit": [
+    0.0,
+    4
+   ],
+   "Men who have sex with men blood donor controversy in the United Kingdom": [
+    0.1,
+    20
+   ],
+   "Methicillin-resistant Staphylococcus aureus": [
+    0.6755,
+    151
+   ],
+   "Milton sterilizing fluid": [
+    0.0,
+    2
+   ],
+   "Moist heat sterilization": [
+    0.0,
+    3
+   ],
+   "Morganella morganii": [
+    0.8571,
+    21
+   ],
+   "Mutual monogamy": [
+    0.2,
+    15
+   ],
+   "Mycobacteroides abscessus": [
+    0.8824,
+    17
+   ],
+   "N95 respirator": [
+    0.1607,
+    112
+   ],
+   "Needle and syringe programmes": [
+    0.4597,
+    124
+   ],
+   "Needle remover": [
+    0.0,
+    0
+   ],
+   "Needle sharing": [
+    0.5357,
+    28
+   ],
+   "Needlestick injury": [
+    0.8302,
+    53
+   ],
+   "Negative room pressure": [
+    0.3333,
+    3
+   ],
+   "Non-pharmaceutical intervention (epidemiology)": [
+    0.5385,
+    26
+   ],
+   "Norovirus": [
+    0.5258,
+    97
+   ],
+   "Pandemic predictions and preparations prior to the COVID-19 pandemic": [
+    0.0909,
+    77
+   ],
+   "Pandemic prevention": [
+    0.3415,
+    246
+   ],
+   "Paraclostridium sordellii": [
+    1.0,
+    1
+   ],
+   "Patient under investigation": [
+    0.0,
+    8
+   ],
+   "Paul Berger (physician)": [
+    1.0,
+    1
+   ],
+   "Personal protective equipment": [
+    0.4375,
+    16
+   ],
+   "Pest house": [
+    0.2,
+    5
+   ],
+   "Prego v. City of New York": [
+    0.0,
+    0
+   ],
+   "Preventorium": [
+    0.0,
+    1
+   ],
+   "Protective isolation": [
+    0.5,
+    8
+   ],
+   "Protective sequestration": [
+    0.2,
+    5
+   ],
+   "Quarantine": [
+    0.2737,
+    95
+   ],
+   "Real-time outbreak and disease surveillance": [
+    0.0,
+    0
+   ],
+   "Sachet": [
+    0.0,
+    4
+   ],
+   "Safe sex": [
+    0.3731,
+    67
+   ],
+   "School hygiene": [
+    0.3333,
+    18
+   ],
+   "Scrubs (clothing)": [
+    0.0588,
+    17
+   ],
+   "Sneeze guard": [
+    0.1429,
+    7
+   ],
+   "Social distancing": [
+    0.3443,
+    122
+   ],
+   "Spillover infection": [
+    0.8542,
+    48
+   ],
+   "Staphylococcus aureus": [
+    0.8093,
+    194
+   ],
+   "Supervised injection site": [
+    0.1273,
+    110
+   ],
+   "Surgical mask": [
+    0.3571,
+    84
+   ],
+   "Swandean Isolation Hospital": [
+    0.5,
+    10
+   ],
+   "Terminal cleaning": [
+    0.5,
+    2
+   ],
+   "Transmission-based precautions": [
+    0.5,
+    8
+   ],
+   "Tuberculosis": [
+    0.4828,
+    261
+   ],
+   "Universal precautions": [
+    0.6667,
+    6
+   ],
+   "Urinary anti-infective agent": [
+    0.5918,
+    49
+   ],
+   "Vancomycin-resistant Enterococcus": [
+    0.5625,
+    32
+   ],
+   "Zero-COVID": [
+    0.1845,
+    206
+   ]
+  }
+ },
+ "created": {
+  "Acinetobacter": {
+   "revid": 3341839,
+   "ts_text": "23:49, 25 April 2004"
+  },
+  "Airing": {
+   "revid": 1067334166,
+   "ts_text": "23:22, 22 January 2022"
+  },
+  "Antibiotic prophylaxis": {
+   "revid": 25525569,
+   "ts_text": "19:11, 14 October 2005"
+  },
+  "Antimicrobial copper-alloy touch surfaces": {
+   "revid": 354807081,
+   "ts_text": "19:37, 8 April 2010"
+  },
+  "Antimicrobial stewardship": {
+   "revid": 650573626,
+   "ts_text": "07:11, 9 March 2015"
+  },
+  "Asepsis": {
+   "revid": 19542695,
+   "ts_text": "01:07, 25 July 2005"
+  },
+  "Astronautical hygiene": {
+   "revid": 154165505,
+   "ts_text": "13:22, 28 August 2007"
+  },
+  "Autoclave tape": {
+   "revid": 112459117,
+   "ts_text": "01:20, 4 March 2007"
+  },
+  "Ayliffe technique": {
+   "revid": 1038973686,
+   "ts_text": "22:34, 15 August 2021"
+  },
+  "Bill of health": {
+   "revid": 376668174,
+   "ts_text": "23:38, 1 August 2010"
+  },
+  "Bio-secure bubble": {
+   "revid": 992886364,
+   "ts_text": "17:00, 7 December 2020"
+  },
+  "Body substance isolation": {
+   "revid": 239732,
+   "ts_text": "13:11, 28 October 2001"
+  },
+  "Buchetta shop": {
+   "revid": 1003694096,
+   "ts_text": "06:22, 30 January 2021"
+  },
+  "Burkholderia cepacia complex": {
+   "revid": 27080282,
+   "ts_text": "15:57, 1 November 2005"
+  },
+  "CC398": {
+   "revid": 702914135,
+   "ts_text": "10:55, 2 February 2016"
+  },
+  "COVID-19 contact tracing in Taiwan": {
+   "revid": 1089175592,
+   "ts_text": "09:36, 22 May 2022"
+  },
+  "Carbapenem-resistant enterobacteriaceae": {
+   "revid": 525675627,
+   "ts_text": "09:23, 30 November 2012"
+  },
+  "Catch It, Bin It, Kill It": {
+   "revid": 943417659,
+   "ts_text": "19:47, 1 March 2020"
+  },
+  "Catheter-associated urinary tract infection": {
+   "revid": 742907498,
+   "ts_text": "15:26, 6 October 2016"
+  },
+  "Chemoprophylaxis": {
+   "revid": 17634071,
+   "ts_text": "19:33, 9 June 2005"
+  },
+  "Clostridioides difficile infection": {
+   "revid": 2373441,
+   "ts_text": "21:44, 12 February 2004"
+  },
+  "Cloth face mask": {
+   "revid": 949181902,
+   "ts_text": "02:12, 5 April 2020"
+  },
+  "Contact tracing": {
+   "revid": 12177981,
+   "ts_text": "20:18, 11 April 2005"
+  },
+  "Contemporary reaction to Ignaz Semmelweis": {
+   "revid": 216049437,
+   "ts_text": "21:14, 30 May 2008"
+  },
+  "Cordon sanitaire (medicine)": {
+   "revid": 7433363,
+   "ts_text": "21:16, 13 November 2004"
+  },
+  "Coughs and sneezes spread diseases": {
+   "revid": 947214031,
+   "ts_text": "00:02, 25 March 2020"
+  },
+  "Cubicle curtain": {
+   "revid": 327443988,
+   "ts_text": "08:39, 23 November 2009"
+  },
+  "Disease surveillance": {
+   "revid": 51633236,
+   "ts_text": "04:37, 5 May 2006"
+  },
+  "Eradication of infectious diseases": {
+   "revid": 174858490,
+   "ts_text": "16:50, 30 November 2007"
+  },
+  "Face masks during the COVID-19 pandemic": {
+   "revid": 950409455,
+   "ts_text": "23:17, 11 April 2020"
+  },
+  "Ferric subsulfate solution": {
+   "revid": 66855372,
+   "ts_text": "14:05, 31 July 2006"
+  },
+  "Fever hospital": {
+   "revid": 955379294,
+   "ts_text": "13:42, 7 May 2020"
+  },
+  "Forlorn Hope Estate": {
+   "revid": 1158332805,
+   "ts_text": "11:57, 3 June 2023"
+  },
+  "HCV in children and pregnancy": {
+   "revid": 579250763,
+   "ts_text": "09:23, 29 October 2013"
+  },
+  "Hand sanitizer": {
+   "revid": 36489836,
+   "ts_text": "11:46, 24 January 2006"
+  },
+  "Hand washing": {
+   "revid": 2139430,
+   "ts_text": "15:47, 12 January 2004"
+  },
+  "Hepatitis": {
+   "revid": 7242,
+   "ts_text": "16:44, 8 February 2002"
+  },
+  "Hepatitis C": {
+   "revid": 154757,
+   "ts_text": "07:10, 14 August 2002"
+  },
+  "Herd immunity": {
+   "revid": 226208,
+   "ts_text": "09:50, 18 September 2002"
+  },
+  "Historical mortality rates of puerperal fever": {
+   "revid": 205891673,
+   "ts_text": "22:24, 15 April 2008"
+  },
+  "Hospital-acquired infection": {
+   "revid": 4984261,
+   "ts_text": "18:36, 3 August 2004"
+  },
+  "Hot air oven": {
+   "revid": 209277926,
+   "ts_text": "18:16, 30 April 2008"
+  },
+  "Hygiene": {
+   "revid": 423413,
+   "ts_text": "00:33, 14 November 2002"
+  },
+  "Ignaz Semmelweis": {
+   "revid": 205651,
+   "ts_text": "22:17, 23 August 2002"
+  },
+  "Infection prevention and control": {
+   "revid": 30248597,
+   "ts_text": "19:30, 5 December 2005"
+  },
+  "Infection rate": {
+   "revid": 759227516,
+   "ts_text": "23:23, 9 January 2017"
+  },
+  "Influenza": {
+   "revid": 48798,
+   "ts_text": "02:32, 9 April 2002"
+  },
+  "Isolation (health care)": {
+   "revid": 230549823,
+   "ts_text": "04:57, 8 August 2008"
+  },
+  "Joseph Lister": {
+   "revid": 262066,
+   "ts_text": "21:50, 8 January 2002"
+  },
+  "Klebsiella": {
+   "revid": 16742920,
+   "ts_text": "16:25, 3 September 2004"
+  },
+  "MRSA ST398": {
+   "revid": 1149058848,
+   "ts_text": "23:28, 9 April 2023"
+  },
+  "Medical glove": {
+   "revid": 13172759,
+   "ts_text": "02:44, 23 September 2004"
+  },
+  "Melaphone Speech Unit": {
+   "revid": 985356450,
+   "ts_text": "13:55, 25 October 2020"
+  },
+  "Men who have sex with men blood donor controversy in the United Kingdom": {
+   "revid": 446527980,
+   "ts_text": "18:40, 24 August 2011"
+  },
+  "Methicillin-resistant Staphylococcus aureus": {
+   "revid": 726365,
+   "ts_text": "19:48, 6 March 2003"
+  },
+  "Milton sterilizing fluid": {
+   "revid": 432763966,
+   "ts_text": "23:47, 5 June 2011"
+  },
+  "Moist heat sterilization": {
+   "revid": 209286024,
+   "ts_text": "18:54, 30 April 2008"
+  },
+  "Morganella morganii": {
+   "revid": 257238954,
+   "ts_text": "08:21, 11 December 2008"
+  },
+  "Zero-COVID": {
+   "revid": 1063291364,
+   "ts_text": "05:52, 2 January 2022"
+  },
+  "Vancomycin-resistant Enterococcus": {
+   "revid": 21084160,
+   "ts_text": "19:31, 15 August 2005"
+  },
+  "Urinary anti-infective agent": {
+   "revid": 1217844495,
+   "ts_text": "06:04, 8 April 2024"
+  },
+  "Universal precautions": {
+   "revid": 292518,
+   "ts_text": "13:07, 28 October 2001"
+  },
+  "Tuberculosis": {
+   "revid": 288572,
+   "ts_text": "21:43, 29 September 2001"
+  },
+  "Transmission-based precautions": {
+   "revid": 406091192,
+   "ts_text": "15:04, 5 January 2011"
+  },
+  "Terminal cleaning": {
+   "revid": 145234736,
+   "ts_text": "15:10, 17 July 2007"
+  },
+  "Swandean Isolation Hospital": {
+   "revid": 1320763081,
+   "ts_text": "16:51, 6 November 2025"
+  },
+  "Surgical mask": {
+   "revid": 4627640,
+   "ts_text": "08:59, 14 July 2004"
+  },
+  "Supervised injection site": {
+   "revid": 1451472,
+   "ts_text": "07:14, 19 September 2003"
+  },
+  "Staphylococcus aureus": {
+   "revid": 373266,
+   "ts_text": "01:12, 21 October 2002"
+  },
+  "Spillover infection": {
+   "revid": 576383511,
+   "ts_text": "03:32, 9 October 2013"
+  },
+  "Social distancing": {
+   "revid": 287841206,
+   "ts_text": "13:34, 4 May 2009"
+  },
+  "Sneeze guard": {
+   "revid": 639475543,
+   "ts_text": "14:33, 24 December 2014"
+  },
+  "Scrubs (clothing)": {
+   "revid": 24510408,
+   "ts_text": "21:40, 1 October 2005"
+  },
+  "School hygiene": {
+   "revid": 450895259,
+   "ts_text": "00:29, 17 September 2011"
+  },
+  "Safe sex": {
+   "revid": 389449734,
+   "ts_text": "20:33, 11 November 2001"
+  },
+  "Sachet": {
+   "revid": 382720229,
+   "ts_text": "18:26, 3 September 2010"
+  },
+  "Real-time outbreak and disease surveillance": {
+   "revid": 399012863,
+   "ts_text": "20:02, 26 November 2010"
+  },
+  "Quarantine": {
+   "revid": 384180076,
+   "ts_text": "17:34, 17 September 2001"
+  },
+  "Protective sequestration": {
+   "revid": 188607533,
+   "ts_text": "15:27, 2 February 2008"
+  },
+  "Protective isolation": {
+   "revid": 948921964,
+   "ts_text": "19:15, 3 April 2020"
+  },
+  "Preventorium": {
+   "revid": 8679788,
+   "ts_text": "16:17, 21 December 2004"
+  },
+  "Prego v. City of New York": {
+   "revid": 65138488,
+   "ts_text": "02:05, 22 July 2006"
+  },
+  "Pest house": {
+   "revid": 34406742,
+   "ts_text": "21:20, 8 January 2006"
+  },
+  "Personal protective equipment": {
+   "revid": 93539,
+   "ts_text": "13:49, 8 June 2002"
+  },
+  "Paul Berger (physician)": {
+   "revid": 519721176,
+   "ts_text": "08:18, 25 October 2012"
+  },
+  "Patient under investigation": {
+   "revid": 947565795,
+   "ts_text": "02:26, 27 March 2020"
+  },
+  "Paraclostridium sordellii": {
+   "revid": 73416212,
+   "ts_text": "16:20, 2 September 2006"
+  },
+  "Pandemic prevention": {
+   "revid": 947379678,
+   "ts_text": "23:18, 25 March 2020"
+  },
+  "Pandemic predictions and preparations prior to the COVID-19 pandemic": {
+   "revid": 950046372,
+   "ts_text": "23:15, 9 April 2020"
+  },
+  "Norovirus": {
+   "revid": 556990,
+   "ts_text": "22:09, 3 January 2003"
+  },
+  "Non-pharmaceutical intervention (epidemiology)": {
+   "revid": 951316990,
+   "ts_text": "15:41, 16 April 2020"
+  },
+  "Negative room pressure": {
+   "revid": 349038442,
+   "ts_text": "18:01, 10 March 2010"
+  },
+  "Needlestick injury": {
+   "revid": 28325020,
+   "ts_text": "19:30, 14 November 2005"
+  },
+  "Needle sharing": {
+   "revid": 1777305,
+   "ts_text": "08:48, 20 November 2003"
+  },
+  "Needle remover": {
+   "revid": 30641083,
+   "ts_text": "22:19, 8 December 2005"
+  },
+  "Needle and syringe programmes": {
+   "revid": 1444295,
+   "ts_text": "12:02, 17 September 2003"
+  },
+  "N95 respirator": {
+   "revid": 941788567,
+   "ts_text": "18:04, 20 February 2020"
+  },
+  "Mycobacteroides abscessus": {
+   "revid": 113997060,
+   "ts_text": "04:32, 10 March 2007"
+  },
+  "Mutual monogamy": {
+   "revid": 815205526,
+   "ts_text": "11:56, 13 December 2017"
+  }
+ },
+ "category": {
+  "Infection-control measures": {
+   "n_articles": 33,
+   "n_scored": 31,
+   "median_sci": 0.274,
+   "type_totals": {
+    "book": 87,
+    "web": 907,
+    "news": 402,
+    "journal": 633,
+    "other": 26,
+    "report": 9
+   }
+  },
+  "Health care-associated infections": {
+   "n_articles": 21,
+   "n_scored": 19,
+   "median_sci": 0.663,
+   "type_totals": {
+    "journal": 1042,
+    "web": 365,
+    "book": 140,
+    "news": 62,
+    "other": 13,
+    "report": 3
+   }
+  },
+  "Isolation (health care)": {
+   "n_articles": 8,
+   "n_scored": 5,
+   "median_sci": 0.415,
+   "type_totals": {
+    "journal": 31,
+    "web": 27,
+    "book": 13,
+    "news": 4,
+    "other": 13
+   }
+  },
+  "Medical hygiene": {
+   "n_articles": 46,
+   "n_scored": 32,
+   "median_sci": 0.351,
+   "type_totals": {
+    "web": 652,
+    "book": 219,
+    "journal": 578,
+    "news": 126,
+    "other": 51,
+    "report": 4
+   }
+  }
+ },
+ "key_series": {
+  "Hand washing": {
+   "sci": {
+    "2010-01-01": 0.619,
+    "2012-01-01": 0.7273,
+    "2014-01-01": 0.7059,
+    "2016-01-01": 0.7381,
+    "2018-01-01": 0.6818,
+    "2020-01-01": 0.6809,
+    "2021-01-01": 0.525,
+    "2022-01-01": 0.4021,
+    "2024-01-01": 0.413,
+    "2026-11-01": 0.4528
+   },
+   "n_templates": {
+    "2010-01-01": 21,
+    "2012-01-01": 33,
+    "2014-01-01": 34,
+    "2016-01-01": 42,
+    "2018-01-01": 44,
+    "2020-01-01": 47,
+    "2021-01-01": 80,
+    "2022-01-01": 97,
+    "2024-01-01": 92,
+    "2026-11-01": 106
+   }
+  },
+  "Hospital-acquired infection": {
+   "sci": {
+    "2010-01-01": 0.9,
+    "2012-01-01": 0.75,
+    "2014-01-01": 0.6923,
+    "2016-01-01": 0.6316,
+    "2018-01-01": 0.65,
+    "2020-01-01": 0.5789,
+    "2021-01-01": 0.4894,
+    "2022-01-01": 0.6098,
+    "2024-01-01": 0.6667,
+    "2026-11-01": 0.6406
+   },
+   "n_templates": {
+    "2010-01-01": 10,
+    "2012-01-01": 12,
+    "2014-01-01": 13,
+    "2016-01-01": 19,
+    "2018-01-01": 20,
+    "2020-01-01": 38,
+    "2021-01-01": 47,
+    "2022-01-01": 41,
+    "2024-01-01": 57,
+    "2026-11-01": 64
+   }
+  },
+  "Infection prevention and control": {
+   "sci": {
+    "2010-01-01": 0.2,
+    "2012-01-01": 0.1111,
+    "2014-01-01": 0.1111,
+    "2016-01-01": 0.2069,
+    "2018-01-01": 0.2069,
+    "2020-01-01": 0.2143,
+    "2021-01-01": 0.2353,
+    "2022-01-01": 0.2703,
+    "2024-01-01": 0.2703,
+    "2026-11-01": 0.2703
+   },
+   "n_templates": {
+    "2010-01-01": 5,
+    "2012-01-01": 9,
+    "2014-01-01": 9,
+    "2016-01-01": 29,
+    "2018-01-01": 29,
+    "2020-01-01": 28,
+    "2021-01-01": 34,
+    "2022-01-01": 37,
+    "2024-01-01": 37,
+    "2026-11-01": 37
+   }
+  },
+  "Hand sanitizer": {
+   "sci": {
+    "2010-01-01": 0.6176,
+    "2012-01-01": 0.5862,
+    "2014-01-01": 0.6102,
+    "2016-01-01": 0.5965,
+    "2018-01-01": 0.6038,
+    "2020-01-01": 0.6034,
+    "2021-01-01": 0.4416,
+    "2022-01-01": 0.4643,
+    "2024-01-01": 0.4409,
+    "2026-11-01": 0.4348
+   },
+   "n_templates": {
+    "2010-01-01": 34,
+    "2012-01-01": 58,
+    "2014-01-01": 59,
+    "2016-01-01": 57,
+    "2018-01-01": 53,
+    "2020-01-01": 58,
+    "2021-01-01": 77,
+    "2022-01-01": 84,
+    "2024-01-01": 93,
+    "2026-11-01": 92
+   }
+  },
+  "Personal protective equipment": {
+   "sci": {
+    "2010-01-01": null,
+    "2012-01-01": null,
+    "2014-01-01": null,
+    "2016-01-01": null,
+    "2018-01-01": null,
+    "2020-01-01": 0.5,
+    "2021-01-01": 0.4545,
+    "2022-01-01": 0.4545,
+    "2024-01-01": 0.4167,
+    "2026-11-01": 0.4375
+   },
+   "n_templates": {
+    "2010-01-01": 0,
+    "2012-01-01": 0,
+    "2014-01-01": 1,
+    "2016-01-01": 1,
+    "2018-01-01": 2,
+    "2020-01-01": 6,
+    "2021-01-01": 11,
+    "2022-01-01": 11,
+    "2024-01-01": 12,
+    "2026-11-01": 16
+   }
+  },
+  "Surgical mask": {
+   "sci": {
+    "2010-01-01": null,
+    "2012-01-01": null,
+    "2014-01-01": null,
+    "2016-01-01": 0.1429,
+    "2018-01-01": 0.2222,
+    "2020-01-01": 0.2222,
+    "2021-01-01": 0.3,
+    "2022-01-01": 0.3115,
+    "2024-01-01": 0.3544,
+    "2026-11-01": 0.3571
+   },
+   "n_templates": {
+    "2010-01-01": 0,
+    "2012-01-01": 0,
+    "2014-01-01": 0,
+    "2016-01-01": 7,
+    "2018-01-01": 9,
+    "2020-01-01": 9,
+    "2021-01-01": 60,
+    "2022-01-01": 61,
+    "2024-01-01": 79,
+    "2026-11-01": 84
+   }
+  },
+  "Antimicrobial stewardship": {
+   "sci": {
+    "2010-01-01": null,
+    "2012-01-01": null,
+    "2014-01-01": null,
+    "2016-01-01": 0.7778,
+    "2018-01-01": 0.8,
+    "2020-01-01": 0.6129,
+    "2021-01-01": 0.6,
+    "2022-01-01": 0.6,
+    "2024-01-01": 0.6111,
+    "2026-11-01": 0.6829
+   },
+   "n_templates": {
+    "2010-01-01": 0,
+    "2012-01-01": 0,
+    "2014-01-01": 0,
+    "2016-01-01": 18,
+    "2018-01-01": 20,
+    "2020-01-01": 31,
+    "2021-01-01": 30,
+    "2022-01-01": 30,
+    "2024-01-01": 36,
+    "2026-11-01": 41
+   }
+  },
+  "Universal precautions": {
+   "sci": {
+    "2010-01-01": null,
+    "2012-01-01": null,
+    "2014-01-01": null,
+    "2016-01-01": null,
+    "2018-01-01": null,
+    "2020-01-01": null,
+    "2021-01-01": null,
+    "2022-01-01": null,
+    "2024-01-01": 0.8,
+    "2026-11-01": 0.6667
+   },
+   "n_templates": {
+    "2010-01-01": 0,
+    "2012-01-01": 0,
+    "2014-01-01": 0,
+    "2016-01-01": 0,
+    "2018-01-01": 0,
+    "2020-01-01": 1,
+    "2021-01-01": 1,
+    "2022-01-01": 2,
+    "2024-01-01": 5,
+    "2026-11-01": 6
+   }
+  }
+ },
+ "corpus_series": {
+  "2010-01-01": {
+   "articles": 58,
+   "templates": 724,
+   "with_doi": 0.501,
+   "journal": 508
+  },
+  "2012-01-01": {
+   "articles": 67,
+   "templates": 1012,
+   "with_doi": 0.441,
+   "journal": 615
+  },
+  "2014-01-01": {
+   "articles": 71,
+   "templates": 1419,
+   "with_doi": 0.462,
+   "journal": 855
+  },
+  "2016-01-01": {
+   "articles": 73,
+   "templates": 1747,
+   "with_doi": 0.506,
+   "journal": 1032
+  },
+  "2018-01-01": {
+   "articles": 77,
+   "templates": 2201,
+   "with_doi": 0.487,
+   "journal": 1246
+  },
+  "2020-01-01": {
+   "articles": 77,
+   "templates": 2523,
+   "with_doi": 0.489,
+   "journal": 1396
+  },
+  "2021-01-01": {
+   "articles": 90,
+   "templates": 3873,
+   "with_doi": 0.394,
+   "journal": 1691
+  },
+  "2022-01-01": {
+   "articles": 92,
+   "templates": 4015,
+   "with_doi": 0.367,
+   "journal": 1624
+  },
+  "2024-01-01": {
+   "articles": 97,
+   "templates": 4589,
+   "with_doi": 0.383,
+   "journal": 1917
+  },
+  "2026-11-01": {
+   "articles": 99,
+   "templates": 5078,
+   "with_doi": 0.398,
+   "journal": 2177
+  }
+ },
+ "languages": {
+  "Hand washing": {
+   "en": {
+    "title": "Hand washing",
+    "sci": 0.4528,
+    "n": 106,
+    "refs": 145
+   },
+   "fr": {
+    "title": "Hygi\u00e8ne des mains",
+    "sci": 0.3846,
+    "n": 13,
+    "refs": 16
+   },
+   "de": {
+    "title": "H\u00e4ndewaschen",
+    "sci": 1.0,
+    "n": 3,
+    "refs": 31
+   },
+   "es": {
+    "title": "Higiene de manos",
+    "sci": 0.0909,
+    "n": 22,
+    "refs": 41
+   },
+   "it": {
+    "title": "Lavaggio delle mani",
+    "sci": 0.5312,
+    "n": 32,
+    "refs": 37
+   },
+   "pt": {
+    "title": "Lavagem das m\u00e3os",
+    "sci": 0.3333,
+    "n": 9,
+    "refs": 9
+   }
+  },
+  "Hospital-acquired infection": {
+   "en": {
+    "title": "Hospital-acquired infection",
+    "sci": 0.6406,
+    "n": 64,
+    "refs": 89
+   },
+   "fr": {
+    "title": "Infection nosocomiale",
+    "sci": 0.3378,
+    "n": 74,
+    "refs": 119
+   },
+   "de": {
+    "title": "Nosokomiale Infektion",
+    "sci": 0.3125,
+    "n": 16,
+    "refs": 35
+   },
+   "es": {
+    "title": "Infecci\u00f3n nosocomial",
+    "sci": 0.1667,
+    "n": 6,
+    "refs": 29
+   },
+   "it": {
+    "title": "Infezioni correlate all'assistenza",
+    "sci": 0.0909,
+    "n": 11,
+    "refs": 12
+   },
+   "pt": {
+    "title": "Infec\u00e7\u00e3o hospitalar",
+    "sci": 0.7273,
+    "n": 11,
+    "refs": 25
+   }
+  },
+  "Infection prevention and control": {
+   "en": {
+    "title": "Infection prevention and control",
+    "sci": 0.2703,
+    "n": 37,
+    "refs": 57
+   },
+   "fr": {
+    "title": "Contr\u00f4le des infections",
+    "sci": 0.1667,
+    "n": 30,
+    "refs": 36
+   },
+   "de": {
+    "title": "Infektionsschutz",
+    "sci": 0.0,
+    "n": 4,
+    "refs": 24
+   }
+  },
+  "Hand sanitizer": {
+   "en": {
+    "title": "Hand sanitizer",
+    "sci": 0.4348,
+    "n": 92,
+    "refs": 121
+   },
+   "fr": {
+    "title": "Solution hydroalcoolique",
+    "sci": 0.2667,
+    "n": 30,
+    "refs": 52
+   },
+   "de": {
+    "title": "H\u00e4ndedesinfektionsmittel",
+    "sci": 0.0,
+    "n": 2,
+    "refs": 16
+   },
+   "es": {
+    "title": "Alcohol en gel",
+    "sci": 0.0,
+    "n": 11,
+    "refs": 21
+   },
+   "it": {
+    "title": "Igienizzante per mani",
+    "sci": 0.4848,
+    "n": 66,
+    "refs": 94
+   },
+   "pt": {
+    "title": "Gel desinfetante",
+    "sci": 0.5,
+    "n": 8,
+    "refs": 15
+   }
+  },
+  "Personal protective equipment": {
+   "en": {
+    "title": "Personal protective equipment",
+    "sci": 0.4375,
+    "n": 16,
+    "refs": 50
+   },
+   "fr": {
+    "title": "\u00c9quipement de protection individuelle",
+    "sci": 0.0,
+    "n": 10,
+    "refs": 9
+   },
+   "de": {
+    "title": "Pers\u00f6nliche Schutzausr\u00fcstung",
+    "sci": 0.0,
+    "n": 4,
+    "refs": 7
+   },
+   "es": {
+    "title": "Equipo de protecci\u00f3n individual",
+    "sci": 0.0,
+    "n": 6,
+    "refs": 9
+   },
+   "it": {
+    "title": "Dispositivi di protezione individuale",
+    "sci": 0.1333,
+    "n": 15,
+    "refs": 23
+   },
+   "pt": {
+    "title": "Equipamento de prote\u00e7\u00e3o individual",
+    "sci": 0.3333,
+    "n": 9,
+    "refs": 8
+   }
+  },
+  "Surgical mask": {
+   "en": {
+    "title": "Surgical mask",
+    "sci": 0.3571,
+    "n": 84,
+    "refs": 112
+   },
+   "fr": {
+    "title": "Masque chirurgical",
+    "sci": 0.25,
+    "n": 36,
+    "refs": 59
+   },
+   "de": {
+    "title": "Mund-Nasen-Schutz",
+    "sci": 0.2143,
+    "n": 14,
+    "refs": 59
+   },
+   "es": {
+    "title": "M\u00e1scara quir\u00fargica",
+    "sci": 0.3846,
+    "n": 13,
+    "refs": 38
+   },
+   "it": {
+    "title": "Maschera chirurgica",
+    "sci": 0.1143,
+    "n": 35,
+    "refs": 41
+   },
+   "pt": {
+    "title": "M\u00e1scara cir\u00fargica",
+    "sci": 0.0,
+    "n": 1,
+    "refs": 1
+   }
+  },
+  "Antimicrobial stewardship": {
+   "en": {
+    "title": "Antimicrobial stewardship",
+    "sci": 0.6829,
+    "n": 41,
+    "refs": 43
+   },
+   "fr": {
+    "title": "Antibiogouvernance",
+    "sci": 0.0,
+    "n": 0,
+    "refs": 2
+   },
+   "de": {
+    "title": "Antibiotic Stewardship",
+    "sci": 0.0,
+    "n": 0,
+    "refs": 46
+   }
+  }
+ },
+ "unique_dois_final": 1916,
+ "top_dois": [
+  {
+   "doi": "10.1001/jama.298.6.644",
+   "n_articles": 3,
+   "articles": [
+    "Cordon sanitaire (medicine)",
+    "Non-pharmaceutical intervention (epidemiology)",
+    "Pandemic predictions and preparations prior to the COVID-19 pandemic"
+   ],
+   "first_author": "Markel",
+   "title": "Nonpharmaceutical Interventions Implemented by US Cities During the 1918-1919 Influenza Pandemic",
+   "journal": "JAMA",
+   "year": 2007,
+   "crossref_citations": 583
+  },
+  {
+   "doi": "10.1002/14651858.cd011621.pub5",
+   "n_articles": 3,
+   "articles": [
+    "Infection prevention and control",
+    "Personal protective equipment",
+    "Transmission-based precautions"
+   ],
+   "first_author": "Verbeek",
+   "title": "Personal protective equipment for preventing highly infectious diseases due to exposure to contaminated body fluids in healthcare staff",
+   "journal": "Cochrane Database of Systematic Reviews",
+   "year": 2020,
+   "crossref_citations": 64
+  },
+  {
+   "doi": "10.1016/b978-0-32-395389-4.00015-3",
+   "n_articles": 3,
+   "articles": [
+    "Non-pharmaceutical intervention (epidemiology)",
+    "Protective sequestration",
+    "Quarantine"
+   ],
+   "first_author": "von Csefalvay",
+   "title": "Modeling the control of infectious disease",
+   "journal": "Computational Modeling of Infectious Disease",
+   "year": 2023,
+   "crossref_citations": 2
+  },
+  {
+   "doi": "10.1017/dmp.2013.43",
+   "n_articles": 3,
+   "articles": [
+    "Cloth face mask",
+    "Face masks during the COVID-19 pandemic",
+    "Surgical mask"
+   ],
+   "first_author": "Davies",
+   "title": "Testing the Efficacy of Homemade Masks: Would They Protect in an Influenza Pandemic?",
+   "journal": "Disaster Medicine and Public Health Preparedness",
+   "year": 2013,
+   "crossref_citations": 445
+  },
+  {
+   "doi": "10.1128/cmr.00124-23",
+   "n_articles": 3,
+   "articles": [
+    "Cloth face mask",
+    "Face masks during the COVID-19 pandemic",
+    "N95 respirator"
+   ],
+   "first_author": "Greenhalgh",
+   "title": "Masks and respirators for prevention of respiratory infections: a state of the science review",
+   "journal": "Clinical Microbiology Reviews",
+   "year": 2024,
+   "crossref_citations": 91
+  },
+  {
+   "doi": "10.5588/pha.12.0094",
+   "n_articles": 3,
+   "articles": [
+    "Cordon sanitaire (medicine)",
+    "Isolation (health care)",
+    "Quarantine"
+   ],
+   "first_author": "Todrys",
+   "title": "Failing Siracusa: governments' obligations to find the least restrictive options for tuberculosis control",
+   "journal": "Public Health Action",
+   "year": 2013,
+   "crossref_citations": 14
+  },
+  {
+   "doi": "10.1001/archinte.162.19.2229",
+   "n_articles": 2,
+   "articles": [
+    "Methicillin-resistant Staphylococcus aureus",
+    "Staphylococcus aureus"
+   ],
+   "first_author": "Blot",
+   "title": "Outcome and Attributable Mortality in Critically Ill Patients With Bacteremia Involving Methicillin-Susceptible and Methicillin-Resistant Staphylococcus aureus",
+   "journal": "Archives of Internal Medicine",
+   "year": 2002,
+   "crossref_citations": 366
+  },
+  {
+   "doi": "10.1002/14651858.cd003620.pub3",
+   "n_articles": 2,
+   "articles": [
+    "Hepatitis",
+    "Hepatitis C"
+   ],
+   "first_author": "Rambaldi",
+   "title": "Milk thistle for alcoholic and/or hepatitis B or C virus liver diseases",
+   "journal": "Cochrane Database of Systematic Reviews",
+   "year": 2007,
+   "crossref_citations": 26
+  },
+  {
+   "doi": "10.1002/14651858.cd009170.pub2",
+   "n_articles": 2,
+   "articles": [
+    "Needle sharing",
+    "Needlestick injury"
+   ],
+   "first_author": "Saarto",
+   "title": "Blunt versus sharp suture needles for preventing percutaneous exposure incidents in surgical staff",
+   "journal": "Cochrane Database of Systematic Reviews",
+   "year": 2011,
+   "crossref_citations": 12
+  },
+  {
+   "doi": "10.1002/14651858.cd009573.pub2",
+   "n_articles": 2,
+   "articles": [
+    "Medical glove",
+    "Needlestick injury"
+   ],
+   "first_author": "Mischke",
+   "title": "Gloves, extra gloves or special types of gloves for preventing percutaneous exposure injuries in healthcare personnel",
+   "journal": "Cochrane Database of Systematic Reviews",
+   "year": 2014,
+   "crossref_citations": 44
+  },
+  {
+   "doi": "10.1002/1873-3468.12455",
+   "n_articles": 2,
+   "articles": [
+    "Methicillin-resistant Staphylococcus aureus",
+    "Staphylococcus aureus"
+   ],
+   "first_author": "Schenck",
+   "title": "Composition and immunological significance of the upper respiratory tract microbiota",
+   "journal": "FEBS Letters",
+   "year": 2016,
+   "crossref_citations": 94
+  },
+  {
+   "doi": "10.1002/9780470114209.ch9",
+   "n_articles": 2,
+   "articles": [
+    "Pandemic predictions and preparations prior to the COVID-19 pandemic",
+    "Pandemic prevention"
+   ],
+   "first_author": "Turinici",
+   "title": "The SARS Case Study: An Alarm Clock?",
+   "journal": "Encyclopedia of Infectious Diseases",
+   "year": 2006,
+   "crossref_citations": 6
+  }
+ ]
+}

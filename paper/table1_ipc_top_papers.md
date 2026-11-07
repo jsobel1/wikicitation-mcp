@@ -1,0 +1,14 @@
+| Paper | Year | Crossref citations | Corpus articles citing it |
+|:--|--:|--:|:--|
+| Markel et al., *Nonpharmaceutical Interventions Implemented by US Cities During the 1918-1919 Influenza Pandemic*, JAMA | 2007 | 583 | 3: Cordon sanitaire (medicine), Non-pharmaceutical intervention (epidemiology), Pandemic predictions and preparations prior to the COVID-19 pandemic |
+| Verbeek et al., *Personal protective equipment for preventing highly infectious diseases due to exposure to contaminated body fluids in healthcare staff*, Cochrane Database of Systematic Reviews | 2020 | 64 | 3: Infection prevention and control, Personal protective equipment, Transmission-based precautions |
+| von Csefalvay, *Modeling the control of infectious disease*, Computational Modeling of Infectious Disease | 2023 | 2 | 3: Non-pharmaceutical intervention (epidemiology), Protective sequestration, Quarantine |
+| Davies et al., *Testing the Efficacy of Homemade Masks: Would They Protect in an Influenza Pandemic?*, Disaster Medicine and Public Health Preparedness | 2013 | 445 | 3: Cloth face mask, Face masks during the COVID-19 pandemic, Surgical mask |
+| Greenhalgh et al., *Masks and respirators for prevention of respiratory infections: a state of the science review*, Clinical Microbiology Reviews | 2024 | 91 | 3: Cloth face mask, Face masks during the COVID-19 pandemic, N95 respirator |
+| Todrys et al., *Failing Siracusa: governments' obligations to find the least restrictive options for tuberculosis control*, Public Health Action | 2013 | 14 | 3: Cordon sanitaire (medicine), Isolation (health care), Quarantine |
+| Blot et al., *Outcome and Attributable Mortality in Critically Ill Patients With Bacteremia Involving Methicillin-Susceptible and Methicillin-Resistant Staphylococcus aureus*, Archives of Internal Medicine | 2002 | 366 | 2: Methicillin-resistant Staphylococcus aureus, Staphylococcus aureus |
+| Rambaldi et al., *Milk thistle for alcoholic and/or hepatitis B or C virus liver diseases*, Cochrane Database of Systematic Reviews | 2007 | 26 | 2: Hepatitis, Hepatitis C |
+| Saarto et al., *Blunt versus sharp suture needles for preventing percutaneous exposure incidents in surgical staff*, Cochrane Database of Systematic Reviews | 2011 | 12 | 2: Needle sharing, Needlestick injury |
+| Mischke et al., *Gloves, extra gloves or special types of gloves for preventing percutaneous exposure injuries in healthcare personnel*, Cochrane Database of Systematic Reviews | 2014 | 44 | 2: Medical glove, Needlestick injury |
+| Schenck et al., *Composition and immunological significance of the upper respiratory tract microbiota*, FEBS Letters | 2016 | 94 | 2: Methicillin-resistant Staphylococcus aureus, Staphylococcus aureus |
+| Turinici & Danchin, *The SARS Case Study: An Alarm Clock?*, Encyclopedia of Infectious Diseases | 2006 | 6 | 2: Pandemic predictions and preparations prior to the COVID-19 pandemic, Pandemic prevention |

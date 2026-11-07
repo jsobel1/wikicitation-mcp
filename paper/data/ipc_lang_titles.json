@@ -1,0 +1,45 @@
+{
+ "Hand washing": {
+  "de": "Händewaschen",
+  "es": "Higiene de manos",
+  "fr": "Hygiène des mains",
+  "it": "Lavaggio delle mani",
+  "pt": "Lavagem das mãos"
+ },
+ "Hospital-acquired infection": {
+  "de": "Nosokomiale Infektion",
+  "es": "Infección nosocomial",
+  "fr": "Infection nosocomiale",
+  "it": "Infezioni correlate all'assistenza",
+  "pt": "Infecção hospitalar"
+ },
+ "Infection prevention and control": {
+  "de": "Infektionsschutz",
+  "fr": "Contrôle des infections"
+ },
+ "Hand sanitizer": {
+  "de": "Händedesinfektionsmittel",
+  "es": "Alcohol en gel",
+  "fr": "Solution hydroalcoolique",
+  "it": "Igienizzante per mani",
+  "pt": "Gel desinfetante"
+ },
+ "Personal protective equipment": {
+  "de": "Persönliche Schutzausrüstung",
+  "es": "Equipo de protección individual",
+  "fr": "Équipement de protection individuelle",
+  "it": "Dispositivi di protezione individuale",
+  "pt": "Equipamento de proteção individual"
+ },
+ "Surgical mask": {
+  "de": "Mund-Nasen-Schutz",
+  "es": "Máscara quirúrgica",
+  "fr": "Masque chirurgical",
+  "it": "Maschera chirurgica",
+  "pt": "Máscara cirúrgica"
+ },
+ "Antimicrobial stewardship": {
+  "de": "Antibiotic Stewardship",
+  "fr": "Antibiogouvernance"
+ }
+}

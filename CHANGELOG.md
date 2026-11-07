@@ -5,6 +5,23 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [Unreleased]
+
+### Changed
+- `paper/`: the JOSS paper now uses an infection prevention and control (IPC)
+  worked example (99 articles, 10 dated snapshots 2010–2026, six language
+  editions), reproducible with `paper/reproduce_ipc_example.py` (MCP tool
+  calls) and `paper/make_ipc_figures.py`. The earlier clinical decision support
+  example moved to `paper/cdss_example/`.
+- README and `CITATION.cff` cite the Zenodo concept DOI (all versions), so the
+  DOI no longer points at 0.5.1 while the package is at 0.5.2.
+
+### Documentation
+- Installation notes for Python 3.14 (`WITH_EXTENSION=0`) and for
+  externally managed Python environments.
+
+---
+
 ## [0.5.2] — 2026-10-18
 
 ### Added
